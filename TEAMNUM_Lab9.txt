@@ -1,21 +1,67 @@
-What are control flags?
+Tyler Zinsmaster
+Jonathan Carlson
+Jake Ediger
+10/18/2017
+PT1 Questions --
 
-Which Ctrl flag is set durring an Add instruction?
+1. What are control flags?
+A control flag dictates what happens when, in a processor.
 
-PT2 --
+2. Which Ctrl flag is set during an Add instruction?
+alu_op
 
-How do you end an if statment in VHDL?
+PT2 Questions --
 
-Why should a CTRL unit be sequential?
+1. How do you end an if statment in VHDL?
+END IF;
 
-How do you check if the clock is on the rising edge in VHDL
+2. Why should a CTRL unit be sequential?
+Because combinational logic would not be finite state.
 
-C Code:
+3. How do you check if the clock is on the rising edge in VHDL
+IF(rising_edge(clock)) THEN
+...
+...
+END IF:
 
-What componets are used in stage of the CPU (execute)
+4. How to write the described C Code in VHDL
+C:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Whould alu_op be set for an XOR instruction
+if(x == 0b01)
+y = 0b00 ;
+else if ( x == 0b10 )
+y = 0b01 ;
+else
+x = 0b00 ;
 
-What happens when reset is 1?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VHDL:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-What ctrl signal is assigned in stage 5 for a sub instruction?
+IF(x = "01")
+THEN y := "00";
+ELSIF(x = "10")
+THEN y := "01";
+ELSE 
+THEN x := "00";
+END IF;
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+PT3 Questions --
+
+1. What components are used in stage 3 of our processor? Remember, stage 3 is the execute stage.
+ALU
+
+2. What should alu_op be set for an XOR instruction?
+In the case for our CU, it would be "10"
+
+3. What happens when reset is 1?
+The stage is reset to stage=0 in the above event.
+
+4. What ctrl signal is assigned in stage 5 for a sub instruction?
+rf_write
