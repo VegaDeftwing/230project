@@ -9,7 +9,7 @@ entity CU is
 		S, N, C, V, Z, mfc, clock, reset : in std_logic;
 		alu_op, c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
-		extend : out std_logic vector(1 downto 0);
+		extend : out std_logic_vector(1 downto 0);
 		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic
 	);
 end CU;
@@ -71,20 +71,20 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			--THIS is for the other instructions
 				IF(opx= "111") THEN
 				 --AND instruction
-				 alu_op <= "";
+				 alu_op <= "00";
 				ELSIF(opx = "110") THEN
 					--OR INSTRUCTION
-					alu_op <= "";
+					alu_op <= "01";
 				ELSIF(opx = "101") THEN
 					--XOR instruction
-					alu_op <= "";
+					alu_op <= "10";
 				ELSIF(opx = "100") THEN
 					--ADD instruction
-					alu_op <= "";
+					alu_op <= "11";
 				ELSIF(opx = "011") THEN
 					--SUB instruction
-					alu_op <= "";
-					b_inv <= '';
+					alu_op <= "11";
+					b_inv <= '1';
 				END IF;	
 			END IF;
 		 END IF;
@@ -102,12 +102,11 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		 IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 				--THis is for JR, just fill in the values for the if statement
-			ELSEIF(opCode(1) = '0' AND opCode(0) = '0') THEN
+			ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				rf_write <= '1';
 				END IF;
 				END IF;
-				END IF	
-			
+				END IF;	
 		END IF; -- ENDED MAIN IF OF PROCESS
 END PROCESS;	--All	processes	must end
 END behavior;	--All	behaivors	must end
