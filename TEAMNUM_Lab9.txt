@@ -1,0 +1,21 @@
+What are control flags?
+
+Which Ctrl flag is set durring an Add instruction?
+
+PT2 --
+
+How do you end an if statment in VHDL?
+
+Why should a CTRL unit be sequential?
+
+How do you check if the clock is on the rising edge in VHDL
+
+C Code:
+
+What componets are used in stage of the CPU (execute)
+
+Whould alu_op be set for an XOR instruction
+
+What happens when reset is 1?
+
+What ctrl signal is assigned in stage 5 for a sub instruction?
