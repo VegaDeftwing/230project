@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Wed Nov 01 18:21:45 2017
+Wed Nov 01 18:32:32 2017
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -10,7 +10,19 @@ Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "PS:Step11"
+ 10. Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL"
+ 11. Port Connectivity Checks: "RM:Step5"
+ 12. Port Connectivity Checks: "Registry:Step2|mux16:MUXB"
+ 13. Port Connectivity Checks: "Registry:Step2|mux16:MUXA"
+ 14. Port Connectivity Checks: "Registry:Step2|decoder16:decoder"
+ 15. Port Connectivity Checks: "CU:Step1"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -36,20 +48,20 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Nov 01 18:21:45 2017             ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 01 18:32:32 2017         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; N/A until Partition Merge                     ;
-;     Total combinational functions  ; N/A until Partition Merge                     ;
-;     Dedicated logic registers      ; N/A until Partition Merge                     ;
-; Total registers                    ; N/A until Partition Merge                     ;
-; Total pins                         ; N/A until Partition Merge                     ;
-; Total virtual pins                 ; N/A until Partition Merge                     ;
-; Total memory bits                  ; N/A until Partition Merge                     ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                     ;
-; Total PLLs                         ; N/A until Partition Merge                     ;
+; Total logic elements               ; 0                                             ;
+;     Total combinational functions  ; 0                                             ;
+;     Dedicated logic registers      ; 0                                             ;
+; Total registers                    ; 0                                             ;
+; Total pins                         ; 26                                            ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                             ;
+; Total PLLs                         ; 0                                             ;
 +------------------------------------+-----------------------------------------------+
 
 
@@ -145,13 +157,172 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
+; project/RZ.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RZ.vhdl           ;
+; project/RY.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RY.vhdl           ;
+; project/RM.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RM.vhdl           ;
+; project/RB.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RB.vhdl           ;
+; project/RA.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RA.vhdl           ;
+; project/immediate.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/immediate.vhdl    ;
+; project/SIXTEENBITFA.vhdl        ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/SIXTEENBITFA.vhdl ;
+; project/Registry.vhdl            ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/Registry.vhdl     ;
+; project/reg16.vhdl               ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/reg16.vhdl        ;
+; project/mux16.vhdl               ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/mux16.vhdl        ;
+; project/MUX.vhdl                 ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUX.vhdl          ;
+; project/FLAGLOGIC.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/FLAGLOGIC.vhdl    ;
+; project/FA.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/FA.vhdl           ;
+; project/decoder16.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/decoder16.vhdl    ;
+; project/CU.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/CU.vhdl           ;
+; project/ALU.vhdl                 ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/ALU.vhdl          ;
+; project/processor.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/processor.vhdl    ;
+; project/PS.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/PS.vhdl           ;
+; project/IR.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/IR.vhdl           ;
+; project/MUXB.vhdl                ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUXB.vhdl         ;
+; project/MUXY.vhdl                ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUXY.vhdl         ;
+; project/MUX6TO1.vhdl             ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUX6TO1.vhdl      ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 26    ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |processor                 ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |processor          ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "PS:Step11"    ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL" ;
++------+-------+----------+-------------------------------+
+; Port ; Type  ; Severity ; Details                       ;
++------+-------+----------+-------------------------------+
+; in5  ; Input ; Info     ; Stuck at GND                  ;
+; in6  ; Input ; Info     ; Stuck at GND                  ;
++------+-------+----------+-------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RM:Step5"                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; output ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "Registry:Step2|mux16:MUXB" ;
++------+-------+----------+-----------------------------+
+; Port ; Type  ; Severity ; Details                     ;
++------+-------+----------+-----------------------------+
+; d0   ; Input ; Info     ; Stuck at VCC                ;
++------+-------+----------+-----------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "Registry:Step2|mux16:MUXA" ;
++------+-------+----------+-----------------------------+
+; Port ; Type  ; Severity ; Details                     ;
++------+-------+----------+-----------------------------+
+; d0   ; Input ; Info     ; Stuck at VCC                ;
++------+-------+----------+-----------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Registry:Step2|decoder16:decoder"                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; output[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CU:Step1"                                                                                 ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; c_select   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rf_write   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ma_select  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mem_read   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mem_write  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pc_select  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pc_enable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; inc_select ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 01 18:21:43 2017
+    Info: Processing started: Wed Nov 01 18:32:26 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning: Parallel compilation is not licensed and has been disabled
 Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc_temp.vhdl
@@ -257,18 +428,76 @@ Info: Found 2 design units, including 1 entities, in source file project/muxy.vh
 Info: Found 2 design units, including 1 entities, in source file project/mux6to1.vhdl
     Info: Found design unit 1: MUX6TO1-mux
     Info: Found entity 1: MUX6TO1
-Error (10476): VHDL error at processor.vhdl(162): type of identifier "y_select" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "c_select" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10476): VHDL error at processor.vhdl(162): type of identifier "rf_write" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "y_select" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10476): VHDL error at processor.vhdl(162): type of identifier "extend" does not agree with its usage as "std_logic" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "b_inv" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10476): VHDL error at processor.vhdl(162): type of identifier "ir_enable" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "extend" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
-Error: Quartus II Analysis & Synthesis was unsuccessful. 8 errors, 2 warnings
-    Error: Peak virtual memory: 306 megabytes
-    Error: Processing ended: Wed Nov 01 18:21:45 2017
-    Error: Elapsed time: 00:00:02
-    Error: Total CPU time (on all processors): 00:00:01
+Info: Elaborating entity "processor" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "ma_select" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "mem_read" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "mem_write" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "pc_select" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "pc_enable" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "inc_select" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(131): object "c_select" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(132): object "rf_write" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(135): used implicit default value for signal "mfc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(138): used implicit default value for signal "Enable" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(144): object "DataM" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(150): used implicit default value for signal "memIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(151): used implicit default value for signal "ReturnAddress" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info: Elaborating entity "CU" for hierarchy "CU:Step1"
+Info: Elaborating entity "Registry" for hierarchy "Registry:Step2"
+Info: Elaborating entity "decoder16" for hierarchy "Registry:Step2|decoder16:decoder"
+Info: Elaborating entity "Reg16" for hierarchy "Registry:Step2|Reg16:Register1"
+Info: Elaborating entity "mux16" for hierarchy "Registry:Step2|mux16:MUXA"
+Info: Elaborating entity "RA" for hierarchy "RA:Step3"
+Info: Elaborating entity "RB" for hierarchy "RB:Step4"
+Info: Elaborating entity "RM" for hierarchy "RM:Step5"
+Info: Elaborating entity "RY" for hierarchy "RY:Step6"
+Info: Elaborating entity "RZ" for hierarchy "RZ:Step7"
+Info: Elaborating entity "MUXB" for hierarchy "MUXB:Step8"
+Info: Elaborating entity "MUXY" for hierarchy "MUXY:Step9"
+Info: Elaborating entity "ALU" for hierarchy "ALU:Step10"
+Info: Elaborating entity "MUX" for hierarchy "ALU:Step10|MUX:MUXA"
+Info: Elaborating entity "SIXTEENBITFA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD"
+Info: Elaborating entity "FA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add0"
+Info: Elaborating entity "MUX6TO1" for hierarchy "ALU:Step10|MUX6TO1:MUXFINAL"
+Info: Elaborating entity "FLAGLOGIC" for hierarchy "ALU:Step10|FLAGLOGIC:FLAGCHECK"
+Info: Elaborating entity "PS" for hierarchy "PS:Step11"
+Info: Elaborating entity "IR" for hierarchy "IR:Step12"
+Info: Elaborating entity "immediate" for hierarchy "immediate:Step13"
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Warning: Design contains 26 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Instruction[0]"
+    Warning (15610): No output dependent on input pin "Instruction[1]"
+    Warning (15610): No output dependent on input pin "Instruction[2]"
+    Warning (15610): No output dependent on input pin "Instruction[3]"
+    Warning (15610): No output dependent on input pin "Instruction[4]"
+    Warning (15610): No output dependent on input pin "Instruction[5]"
+    Warning (15610): No output dependent on input pin "Instruction[6]"
+    Warning (15610): No output dependent on input pin "Instruction[7]"
+    Warning (15610): No output dependent on input pin "Instruction[8]"
+    Warning (15610): No output dependent on input pin "Instruction[9]"
+    Warning (15610): No output dependent on input pin "Instruction[10]"
+    Warning (15610): No output dependent on input pin "Instruction[11]"
+    Warning (15610): No output dependent on input pin "Instruction[12]"
+    Warning (15610): No output dependent on input pin "Instruction[13]"
+    Warning (15610): No output dependent on input pin "Instruction[14]"
+    Warning (15610): No output dependent on input pin "Instruction[15]"
+    Warning (15610): No output dependent on input pin "Instruction[16]"
+    Warning (15610): No output dependent on input pin "Instruction[17]"
+    Warning (15610): No output dependent on input pin "Instruction[18]"
+    Warning (15610): No output dependent on input pin "Instruction[19]"
+    Warning (15610): No output dependent on input pin "Instruction[20]"
+    Warning (15610): No output dependent on input pin "Instruction[21]"
+    Warning (15610): No output dependent on input pin "Instruction[22]"
+    Warning (15610): No output dependent on input pin "Instruction[23]"
+    Warning (15610): No output dependent on input pin "clock"
+    Warning (15610): No output dependent on input pin "reset"
+Info: Implemented 26 device resources after synthesis - the final resource count might be different
+    Info: Implemented 26 input pins
+    Info: Implemented 0 output pins
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 42 warnings
+    Info: Peak virtual memory: 312 megabytes
+    Info: Processing ended: Wed Nov 01 18:32:32 2017
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:03
 
 
