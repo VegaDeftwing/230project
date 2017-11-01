@@ -121,12 +121,17 @@ def checkcond(CondStr):
 
 #read a line
 for line in inputfile:
-    print(line, end='')
-    
+    StrArray = line.split()
+    OpCodeStr = StrArray[0]
 #tokenize line by spaces
 #detect insturtion type (RType, DType, BType, JType)
     if OpCodeStr in RTypeList:
-        print("\033[95m RType \033[96m", end="")
+        print(line + " \033[95m RType \033[96m", end="")
+        CondStr = StrArray[1]
+        SStr = StrArray[2]
+        RegStr1 = StrArray[3]
+        RegStr2 = StrArray[4]
+        RegStr3 = StrArray[5]
         if OpCodeStr == "add":
             OpCode = "0000"
             Opx = "100"
@@ -176,7 +181,7 @@ for line in inputfile:
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
     print(FinalInstruction + " " + str(FinalInstructionStr))
-    print("-----------------------------------------------------------")
-    print("Assembly Compeleted")
-    print(" ")
-    inputfile.close
+print("-----------------------------------------------------------")
+print("Assembly Compeleted")
+print(" ")
+inputfile.close
