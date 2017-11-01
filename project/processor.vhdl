@@ -4,8 +4,8 @@ use IEEE.std_logic_1164.ALL;
 
 entity processor is
 	port(
-	Instruction : in std_logic_vector(23 downto 1);
-	clock, reset : in std_logic;
+	Instruction : in std_logic_vector(23 downto 0);
+	clock, reset : in std_logic
 	);
 end processor;
 
@@ -36,6 +36,41 @@ COMPONENT REG16
 		enable, reset, Clock	:IN std_logic;
 		output :OUT std_logic_vector(15 downto 0)
 	);
+	END COMPONENT;
+	COMPONENT RA
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+	COMPONENT RB
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+	COMPONENT RM
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+COMPONENT RY
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+COMPONENT RZ
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);	
 END COMPONENT;
 COMPONENT Registry
 	port(
@@ -47,17 +82,27 @@ COMPONENT Registry
 END COMPONENT;
 COMPONENT MUXB
 	PORT(
-	
+	b_select : in std_logic;
+	immediateB : in std_logic_vector(15 downto 0);
+	muxBin : in std_logic_vector(15 downto 0);
+	muxBout : out std_logic_vector(15 downto 0)
 	);
 END COMPONENT;
 COMPONENT MUXY
 	PORT(
-	
+	y_select : in std_logic_vector(1 downto 0);
+	muxYin : in std_logic_vector(15 downto 0);
+	memIn : in std_logic_vector(15 downto 0);
+	ReturnA : in std_logic_vector(15 downto 0);
+	muxYout : out std_logic_vector(15 downto 0)
 	);
 END COMPONENT;
 COMPONENT PS
 	PORT(
-	
+	N, C, V, Z : in std_logic;
+	Clock, reset: in std_logic;
+--	enable: in std_logic; Will simply be 1 for now
+	Nout, Cout, Vout, Zout : out std_logic
 	);
 END COMPONENT;
 COMPONENT immediate
@@ -67,14 +112,14 @@ COMPONENT immediate
 		 immedEx: out std_logic_vector(15 downto 0)	
 	);
 END COMPONENT;
-entity BUFFREG is
-	port(
-		Reset, Enable, Clock : in std_logic;
-		RegD, RegT, RegS : in std_logic_vector(3 downto 0);
-		DataD : in std_logic_vector(15 downto 0);
-		DataS, DataT : out std_logic_vector(15 downto 0)
+	COMPONENT IR
+	PORT(
+		IRin :IN std_logic_vector(23 downto 0);
+		reset, Clock, enable	:IN std_logic;
+		Instruction :OUT std_logic_vector(23 downto 0)
 	);
-end BUFFREG;
+	END COMPONENT;
+
 --signal S, MUXAOUT, MUXBOUT : std_logic_vector(15 downto 0);
 --signal C14, C15 : std_logic;
 begin	
