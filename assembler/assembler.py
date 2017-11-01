@@ -20,6 +20,7 @@ print(" ")
 
 #open assembly file for reading
 inputfile  = open("inputfile", "r")
+outfile  = open("out.mif", "w")
 OpCodeStr = "sub"
 CondStr = "ls"
 SStr = "n"
@@ -39,6 +40,15 @@ RegS = ""
 RegT = ""
 RegStr = ""
 FinalInstruction = ""
+i = 0
+
+### Set up .miv file header:
+outfile.write("WIDTH=24;\n")
+outfile.write("DEPTH=1024;\n")
+outfile.write("ADDRESS_RADIX=BIN;\n")
+outfile.write("DATA_RADIX=HEX;\n")
+outfile.write("CONTENT BEGIN\n")
+outfile.write("0x0: 000000000000000000000000\n")
 
 def checkreg(RegStr):
     if RegStr == "r0":
@@ -120,6 +130,8 @@ def checkcond(CondStr):
 
 #read a line
 for line in inputfile:
+    i = i + 1
+    address = hex(i)
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0]
@@ -196,8 +208,14 @@ for line in inputfile:
         FinalInstructionStr = "\033[92m[OK]"
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
-    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x" + FinalInstructionHex)
+    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x" + FinalInstructionHex + " Address: " + address )
+    outfile.write(str(address)+": "+str(FinalInstruction)+"\n")
+
+
+outfile.write("END;\n")
 print("-----------------------------------------------------------")
 print("Assembly Compeleted")
 print(" ")
 inputfile.close
+print("-----------------------------------------------------------")
+print(" ")
