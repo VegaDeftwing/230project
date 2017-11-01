@@ -1,4 +1,4 @@
 add ls n r1 r2 r3
 sub al n r4 r5 r6
 and nv n r7 r8 r9
-or le s r10 r11 r0
+cmp le s r10 r11 r0

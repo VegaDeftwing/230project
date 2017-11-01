@@ -4,7 +4,7 @@ import sys
 print(" ")
 print("-----------------------------------------------------------")
 print("Assembler for CSCE230 project")
-print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Edinger\033[96m")
+print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Edinger\033[92m")
 print("-----------------------------------------------------------")
 print(" ")
 
@@ -20,7 +20,6 @@ print(" ")
 
 #open assembly file for reading
 inputfile  = open("inputfile", "r")
-print(inputfile.readline())
 OpCodeStr = "sub"
 CondStr = "ls"
 SStr = "n"
@@ -121,6 +120,7 @@ def checkcond(CondStr):
 
 #read a line
 for line in inputfile:
+    line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0]
 #tokenize line by spaces
@@ -176,11 +176,12 @@ for line in inputfile:
     # print(OpCode)
     # print(Opx)
     FinalInstructionStr = len(str(FinalInstruction))
+    FinalInstructionHex = '{:06X}'.format(int(FinalInstruction, 2))
     if str(FinalInstructionStr) == "24":
         FinalInstructionStr = "\033[92m[OK]"
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
-    print(FinalInstruction + " " + str(FinalInstructionStr))
+    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x" + FinalInstructionHex)
 print("-----------------------------------------------------------")
 print("Assembly Compeleted")
 print(" ")
