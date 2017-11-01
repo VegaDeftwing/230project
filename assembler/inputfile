@@ -1,4 +1,6 @@
-add ls n r1 r2 r3
-sub al n r4 r5 r6
-and nv n r7 r8 r9
+add r1 r2 r3
+add s r1 r2 r3
+sub r1 r2 r3
+sub al r4 r5 r6
+and nv r7 r8 r9
 cmp le s r10 r11 r0

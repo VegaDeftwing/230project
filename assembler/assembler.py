@@ -76,12 +76,12 @@ def checkreg(RegStr):
     return Reg
 
 
-def checks(SStr):
-    if SStr == "n":
-        S = "0"
-    if SStr == "s":
-        S = "1"
-    return S
+# def checks(SStr):
+#     if SStr == "n":
+#         S = "0"
+#     if SStr == "s":
+#         S = "1"
+#     return S
 
 def checkcond(CondStr):
     if CondStr == "al":
@@ -127,11 +127,27 @@ for line in inputfile:
 #detect insturtion type (RType, DType, BType, JType)
     if OpCodeStr in RTypeList:
         print(line + " \033[95m RType \033[96m", end="")
-        CondStr = StrArray[1]
-        SStr = StrArray[2]
-        RegStr1 = StrArray[3]
-        RegStr2 = StrArray[4]
-        RegStr3 = StrArray[5]
+        if len(StrArray) == 4:
+            RegStr1 = StrArray[1]
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[3]
+            S = "0"
+            CondStr = "al"
+        elif len(StrArray) == 5:
+            if StrArray[1] == "s":
+                S = "1"
+            else:
+                S = "0"
+                CondStr = StrArray [1]
+            RegStr1 = StrArray[2]
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[4]
+        elif len(StrArray) == 6:
+            CondStr = StrArray[1]
+            S = "1"
+            RegStr1 = StrArray[3]
+            RegStr2 = StrArray[4]
+            RegStr3 = StrArray[5]
         if OpCodeStr == "add":
             OpCode = "0000"
             Opx = "100"
@@ -157,7 +173,6 @@ for line in inputfile:
             OpCode = OpCode + "0001"
             Opx = "000"
         Cond = checkcond(CondStr)
-        S = checks(SStr)
         RegD = checkreg(RegStr1)
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
