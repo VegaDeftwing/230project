@@ -1,0 +1,29 @@
+|processor
+Instruction[0] => ~NO_FANOUT~
+Instruction[1] => ~NO_FANOUT~
+Instruction[2] => ~NO_FANOUT~
+Instruction[3] => ~NO_FANOUT~
+Instruction[4] => ~NO_FANOUT~
+Instruction[5] => ~NO_FANOUT~
+Instruction[6] => ~NO_FANOUT~
+Instruction[7] => ~NO_FANOUT~
+Instruction[8] => ~NO_FANOUT~
+Instruction[9] => ~NO_FANOUT~
+Instruction[10] => ~NO_FANOUT~
+Instruction[11] => ~NO_FANOUT~
+Instruction[12] => ~NO_FANOUT~
+Instruction[13] => ~NO_FANOUT~
+Instruction[14] => ~NO_FANOUT~
+Instruction[15] => ~NO_FANOUT~
+Instruction[16] => ~NO_FANOUT~
+Instruction[17] => ~NO_FANOUT~
+Instruction[18] => ~NO_FANOUT~
+Instruction[19] => ~NO_FANOUT~
+Instruction[20] => ~NO_FANOUT~
+Instruction[21] => ~NO_FANOUT~
+Instruction[22] => ~NO_FANOUT~
+Instruction[23] => ~NO_FANOUT~
+clock => ~NO_FANOUT~
+reset => ~NO_FANOUT~
+
+

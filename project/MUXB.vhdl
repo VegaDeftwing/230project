@@ -13,7 +13,7 @@ end MUXB;
 
 architecture MUX of MUXB is
 begin	
-	with b-select select muxBout <=
+	with b_select select muxBout <=
 		 muxBin when '0' ,
 		 immediateB when '1' ,
 		 "0000000000000000" when others;
