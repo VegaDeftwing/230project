@@ -45,6 +45,28 @@ set_global_assignment -name LAST_QUARTUS_VERSION "11.1 SP2"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY ON -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/PC_Temp.vhdl
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/PC.vhdl
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/MuxPC.vhdl
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/MuxINC.vhdl
+set_global_assignment -name BDF_FILE project/memFilesProcessor/MemoryInterface.bdf
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/MainMemory.vhdl
+set_global_assignment -name BDF_FILE project/memFilesProcessor/InstructionAddressGenerator.bdf
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/Const.vhdl
+set_global_assignment -name VHDL_FILE project/memFilesProcessor/Adder.vhdl
+set_global_assignment -name VHDL_FILE project/Reg_16.vhdl
+set_global_assignment -name VHDL_FILE project/PC.vhdl
+set_global_assignment -name VHDL_FILE project/part2.vhdl
+set_global_assignment -name VHDL_FILE project/MUX2_1.vhdl
+set_global_assignment -name BDF_FILE project/IO_MemoryInterface.bdf
+set_global_assignment -name VHDL_FILE project/controlUnit.vhdl
+set_global_assignment -name VHDL_FILE project/RZ.vhdl
+set_global_assignment -name VHDL_FILE project/RY.vhdl
+set_global_assignment -name VHDL_FILE project/RM.vhdl
+set_global_assignment -name VHDL_FILE project/RB.vhdl
+set_global_assignment -name QIP_FILE MUXB.qip
+set_global_assignment -name QIP_FILE MUXA.qip
+set_global_assignment -name VHDL_FILE project/RA.vhdl
 set_global_assignment -name VHDL_FILE project/immediate.vhdl
 set_global_assignment -name VHDL_FILE project/SIXTEENBITFA.vhdl
 set_global_assignment -name VHDL_FILE project/Registry.vhdl
@@ -59,4 +81,8 @@ set_global_assignment -name VHDL_FILE project/decoder16.vhdl
 set_global_assignment -name VHDL_FILE project/CU.vhdl
 set_global_assignment -name VHDL_FILE project/ALU.vhdl
 set_global_assignment -name VHDL_FILE project/processor.vhdl
-set_global_assignment -name VHDL_FILE project/BUFFREG.vhdl
+set_global_assignment -name VHDL_FILE project/PS.vhdl
+set_global_assignment -name VHDL_FILE project/IR.vhdl
+set_global_assignment -name VHDL_FILE project/MUXB.vhdl
+set_global_assignment -name VHDL_FILE project/MUXY.vhdl
+set_global_assignment -name VHDL_FILE project/MUX6TO1.vhdl

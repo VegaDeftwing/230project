@@ -4,8 +4,8 @@ use IEEE.std_logic_1164.ALL;
 
 entity processor is
 	port(
-	Instruction : in std_logic_vector(23 downto 1);
-	clock, reset : in std_logic;
+	Instruction : in std_logic_vector(23 downto 0);
+	clock, reset : in std_logic
 	);
 end processor;
 
@@ -13,7 +13,7 @@ architecture LOGIC of processor is
 COMPONENT ALU 
 	PORT(
 		A, B : in std_logic_vector(15 downto 0);
-		alu_op : in std_logic_vector(1 downto 0);
+		alu_op : in std_logic_vector(2 downto 0);
 		A_inv, B_inv : in std_logic;
 		ALU_out : out std_logic_vector(15 downto 0);
 		N, Z, V, C : out std_logic
@@ -24,7 +24,8 @@ COMPONENT CU
 		opCode, Cond : in std_logic_vector(3 downto 0);
 		opx : in std_logic_vector(2 downto 0);
 		S, N, C, V, Z, mfc, clock, reset : in std_logic;
-		alu_op, c_select, y_select : out std_logic_vector(1 downto 0);
+		alu_op : out std_logic_vector(2 downto 0);
+		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
 		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic
@@ -36,6 +37,41 @@ COMPONENT REG16
 		enable, reset, Clock	:IN std_logic;
 		output :OUT std_logic_vector(15 downto 0)
 	);
+	END COMPONENT;
+	COMPONENT RA
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+	COMPONENT RB
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+	COMPONENT RM
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+COMPONENT RY
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);
+	END COMPONENT;
+COMPONENT RZ
+	PORT(
+		data :IN std_logic_vector(15 downto 0);
+		reset, Clock	:IN std_logic;
+		output :OUT std_logic_vector(15 downto 0)
+	);	
 END COMPONENT;
 COMPONENT Registry
 	port(
@@ -47,17 +83,27 @@ COMPONENT Registry
 END COMPONENT;
 COMPONENT MUXB
 	PORT(
-	
+	b_select : in std_logic;
+	immediateB : in std_logic_vector(15 downto 0);
+	muxBin : in std_logic_vector(15 downto 0);
+	muxBout : out std_logic_vector(15 downto 0)
 	);
 END COMPONENT;
 COMPONENT MUXY
 	PORT(
-	
+	y_select : in std_logic_vector(1 downto 0);
+	muxYin : in std_logic_vector(15 downto 0);
+	memIn : in std_logic_vector(15 downto 0);
+	ReturnA : in std_logic_vector(15 downto 0);
+	muxYout : out std_logic_vector(15 downto 0)
 	);
 END COMPONENT;
 COMPONENT PS
 	PORT(
-	
+	N, C, V, Z : in std_logic;
+	Clock, reset: in std_logic;
+--	enable: in std_logic; Will simply be 1 for now
+	Nout, Cout, Vout, Zout : out std_logic
 	);
 END COMPONENT;
 COMPONENT immediate
@@ -67,14 +113,14 @@ COMPONENT immediate
 		 immedEx: out std_logic_vector(15 downto 0)	
 	);
 END COMPONENT;
-entity BUFFREG is
-	port(
-		Reset, Enable, Clock : in std_logic;
-		RegD, RegT, RegS : in std_logic_vector(3 downto 0);
-		DataD : in std_logic_vector(15 downto 0);
-		DataS, DataT : out std_logic_vector(15 downto 0)
+	COMPONENT IR
+	PORT(
+		IRin :IN std_logic_vector(23 downto 0);
+		reset, Clock, enable	:IN std_logic;
+		Instruction :OUT std_logic_vector(23 downto 0)
 	);
-end BUFFREG;
+	END COMPONENT;
+
 --signal S, MUXAOUT, MUXBOUT : std_logic_vector(15 downto 0);
 --signal C14, C15 : std_logic;
 begin	
