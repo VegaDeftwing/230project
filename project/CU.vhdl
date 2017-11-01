@@ -5,8 +5,9 @@ use IEEE.std_logic_1164.ALL;
 entity CU is
 	port(
 		opCode, Cond : in std_logic_vector(3 downto 0);
+		S : in std_logic;
 		opx : in std_logic_vector(2 downto 0);
-		S, N, C, V, Z, mfc, clock, reset : in std_logic;
+		N, C, V, Z, mfc, clock, reset : in std_logic;
 		alu_op : out std_logic_vector(2 downto 0);
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;

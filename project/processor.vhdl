@@ -22,8 +22,9 @@ END COMPONENT;
 COMPONENT CU
 	port(
 		opCode, Cond : in std_logic_vector(3 downto 0);
+		S : in std_logic;
 		opx : in std_logic_vector(2 downto 0);
-		S, N, C, V, Z, mfc, clock, reset : in std_logic;
+		N, C, V, Z, mfc, clock, reset : in std_logic;
 		alu_op : out std_logic_vector(2 downto 0);
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
@@ -102,7 +103,7 @@ COMPONENT PS
 	PORT(
 	N, C, V, Z : in std_logic;
 	Clock, reset: in std_logic;
---	enable: in std_logic; Will simply be 1 for now
+	enable: in std_logic; 
 	Nout, Cout, Vout, Zout : out std_logic
 	);
 END COMPONENT;
@@ -121,14 +122,58 @@ END COMPONENT;
 	);
 	END COMPONENT;
 
---signal S, MUXAOUT, MUXBOUT : std_logic_vector(15 downto 0);
---signal C14, C15 : std_logic;
-begin	
---	MUXA : MUX PORT MAP(A, (NOT A), A_inv, MUXAOUT);
---	MUXB : MUX PORT MAP(B, (NOT B), B_inv, MUXBOUT);
---	RIPPLEADD : SIXTEENBITFA PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
---	MUXFINAL : MUX4TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S,ALU_out);
---	FLAGCHECK : FLAGLOGIC PORT MAP(C14, C15, S, N, C, Z, V);
+
+signal InR : std_logic_vector(23 downto 0);
+signal opCode, Cond : std_logic_vector(3 downto 0);
+signal S : std_logic;
+signal opx : std_logic_vector(2 downto 0);
+signal ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : std_logic;
+signal extend, c_select : std_logic_vector(1 downto 0);
+signal rf_write, y_select, b_select, a_inv, b_inv : std_logic;
+signal alu_op : std_logic_vector(2 downto 0);
+signal N, C, V, Z : std_logic;
+signal mfc : std_logic;
+signal A, B : std_logic_vector(15 downto 0);
+signal ALU_out : std_logic_vector(15 downto 0);
+signal Enable : std_logic;
+signal RegD, RegT, RegS : std_logic_vector(3 downto 0);
+signal DataD : std_logic_vector(15 downto 0);
+signal DataS, DataT : std_logic_vector(15 downto 0);
+signal DataA : std_logic_vector(15 downto 0);	
+signal DataB : std_logic_vector(15 downto 0);
+signal DataM : std_logic_vector(15 downto 0);
+signal DataY : std_logic_vector(15 downto 0);
+signal DataZ : std_logic_vector(15 downto 0);
+signal enablePS : std_logic;
+signal immediateB : std_logic_vector(15 downto 0);
+signal muxBout : std_logic_vector(15 downto 0);
+signal memIn : std_logic_vector(15 downto 0);
+signal ReturnAddress : std_logic_vector(15 downto 0);
+signal muxYout : std_logic_vector(15 downto 0);
+begin
+opCode <= InR(23 downto 20);
+Cond <= InR(19 downto 16);
+S <= InR(15);
+opx <= InR(14 downto 12);
+RegD <= InR(11 downto 8);
+RegS <= InR(7 downto 4);
+RegT <= InR(3 downto 0);
+enablePS <= '1';
+Step1 : CU PORT MAP(opCode, Cond, S, opx, N, C, V, Z, mfc, Clock, Reset, c_select, y_select, rf_write, b_select, a_inv, b_inv,extend,ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select);
+Step2 : Registry PORT MAP(Reset, Enable, Clock, RegD, RegT, RegS, DataD, DataS, DataT);
+Step3 : RA PORT MAP(DataS, Reset, Clock, DataA);	
+Step4 : RB PORT MAP(DataT, Reset, Clock, DataB);	
+Step5 : RM PORT MAP(DataB, Reset, Clock, DataM);	
+Step6 : RY PORT MAP(muxYout, Reset, Clock, DataD);	
+Step7 : RZ PORT MAP(ALU_out, Reset, Clock, DataZ);
+Step8 : MUXB PORT MAP(b_select, immediateB, DataB, muxBout);	
+Step9 : MUXY PORT MAP(y_select, DataZ, memIn, ReturnAddress, muxYout);
+Step10: ALU PORT MAP(DataA, muxBout, alu_op, a_inv, b_inv, ALU_out, N, Z, V, C);
+Step11: PS PORT MAP(N, C, V, Z, Clock, Reset, enablePS, N, C, V, Z);
+Step12: IR PORT MAP(Instruction(23 downto 0), Reset, Clock, ir_enable, InR(23 downto 0));
+Step13: immediate PORT MAP(InR(14 downto 8), extend, immediateB);
+
+
 end LOGIC;
 		
 	

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Processor
-Wed Nov 01 16:18:23 2017
-Quartus II 64-Bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Full Version
+Wed Nov 01 18:21:45 2017
+Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -33,24 +33,24 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                        ;
-+------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Nov 01 16:18:23 2017              ;
-; Quartus II 64-Bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Full Version ;
-; Revision Name                      ; Processor                                      ;
-; Top-level Entity Name              ; processor                                      ;
-; Family                             ; Cyclone II                                     ;
-; Total logic elements               ; N/A until Partition Merge                      ;
-;     Total combinational functions  ; N/A until Partition Merge                      ;
-;     Dedicated logic registers      ; N/A until Partition Merge                      ;
-; Total registers                    ; N/A until Partition Merge                      ;
-; Total pins                         ; N/A until Partition Merge                      ;
-; Total virtual pins                 ; N/A until Partition Merge                      ;
-; Total memory bits                  ; N/A until Partition Merge                      ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
-; Total PLLs                         ; N/A until Partition Merge                      ;
-+------------------------------------+------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                       ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status        ; Failed - Wed Nov 01 18:21:45 2017             ;
+; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
+; Revision Name                      ; Processor                                     ;
+; Top-level Entity Name              ; processor                                     ;
+; Family                             ; Cyclone II                                    ;
+; Total logic elements               ; N/A until Partition Merge                     ;
+;     Total combinational functions  ; N/A until Partition Merge                     ;
+;     Dedicated logic registers      ; N/A until Partition Merge                     ;
+; Total registers                    ; N/A until Partition Merge                     ;
+; Total pins                         ; N/A until Partition Merge                     ;
+; Total virtual pins                 ; N/A until Partition Merge                     ;
+; Total memory bits                  ; N/A until Partition Merge                     ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                     ;
+; Total PLLs                         ; N/A until Partition Merge                     ;
++------------------------------------+-----------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -77,7 +77,6 @@ applicable agreement for further details.
 ; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
 ; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
 ; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
@@ -135,148 +134,141 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 2           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     1 processor            ; 100.0%      ;
-;     2 processors           ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Nov 01 16:18:19 2017
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Nov 01 18:21:43 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc_temp.vhdl
-    Info (12022): Found design unit 1: pc_temp-SYN
-    Info (12023): Found entity 1: PC_Temp
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc.vhdl
-    Info (12022): Found design unit 1: pc-SYN
-    Info (12023): Found entity 1: PC
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxpc.vhdl
-    Info (12022): Found design unit 1: muxpc-SYN
-    Info (12023): Found entity 1: MuxPC
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxinc.vhdl
-    Info (12022): Found design unit 1: muxinc-SYN
-    Info (12023): Found entity 1: MuxINC
-Info (12021): Found 1 design units, including 1 entities, in source file project/memfilesprocessor/memoryinterface.bdf
-    Info (12023): Found entity 1: MemoryInterface
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/mainmemory.vhdl
-    Info (12022): Found design unit 1: mainmemory-SYN
-    Info (12023): Found entity 1: MainMemory
-Info (12021): Found 1 design units, including 1 entities, in source file project/memfilesprocessor/instructionaddressgenerator.bdf
-    Info (12023): Found entity 1: InstructionAddressGenerator
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/const.vhdl
-    Info (12022): Found design unit 1: const-SYN
-    Info (12023): Found entity 1: Const
-Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/adder.vhdl
-    Info (12022): Found design unit 1: adder-SYN
-    Info (12023): Found entity 1: Adder
-Info (12021): Found 2 design units, including 1 entities, in source file project/reg_16.vhdl
-    Info (12022): Found design unit 1: reg_16-SYN
-    Info (12023): Found entity 1: Reg_16
-Info (12021): Found 2 design units, including 1 entities, in source file project/mux2_1.vhdl
-    Info (12022): Found design unit 1: mux2_1-SYN
-    Info (12023): Found entity 1: MUX2_1
-Info (12021): Found 1 design units, including 1 entities, in source file project/io_memoryinterface.bdf
-    Info (12023): Found entity 1: IO_MemoryInterface
-Error (10500): VHDL syntax error at controlUnit.vhdl(5) near text { File: C:/Users/Zed/Desktop/CSCE230/230project/project/controlUnit.vhdl Line: 5
-Error (10500): VHDL syntax error at controlUnit.vhdl(5) near text "{";  expecting "(" File: C:/Users/Zed/Desktop/CSCE230/230project/project/controlUnit.vhdl Line: 5
-Error (10500): VHDL syntax error at controlUnit.vhdl(29) near text } File: C:/Users/Zed/Desktop/CSCE230/230project/project/controlUnit.vhdl Line: 29
-Error (10500): VHDL syntax error at controlUnit.vhdl(77) near text ")";  expecting "(", or an identifier, or  unary operator File: C:/Users/Zed/Desktop/CSCE230/230project/project/controlUnit.vhdl Line: 77
-Error (10522): VHDL Syntax error at controlUnit.vhdl(80): experienced unexpected end-of-file ;  expecting "end", or "(", or an identifier, or a sequential statement File: C:/Users/Zed/Desktop/CSCE230/230project/project/controlUnit.vhdl Line: 80
-Info (12021): Found 0 design units, including 0 entities, in source file project/controlunit.vhdl
-Info (12021): Found 2 design units, including 1 entities, in source file project/rz.vhdl
-    Info (12022): Found design unit 1: RZ-behavior
-    Info (12023): Found entity 1: RZ
-Info (12021): Found 2 design units, including 1 entities, in source file project/ry.vhdl
-    Info (12022): Found design unit 1: RY-behavior
-    Info (12023): Found entity 1: RY
-Info (12021): Found 2 design units, including 1 entities, in source file project/rm.vhdl
-    Info (12022): Found design unit 1: RM-behavior
-    Info (12023): Found entity 1: RM
-Info (12021): Found 2 design units, including 1 entities, in source file project/rb.vhdl
-    Info (12022): Found design unit 1: RB-behavior
-    Info (12023): Found entity 1: RB
-Info (12021): Found 2 design units, including 1 entities, in source file project/ra.vhdl
-    Info (12022): Found design unit 1: RA-behavior
-    Info (12023): Found entity 1: RA
-Info (12021): Found 2 design units, including 1 entities, in source file project/immediate.vhdl
-    Info (12022): Found design unit 1: immediate-arch
-    Info (12023): Found entity 1: immediate
-Info (12021): Found 2 design units, including 1 entities, in source file project/sixteenbitfa.vhdl
-    Info (12022): Found design unit 1: SIXTEENBITFA-FUADD
-    Info (12023): Found entity 1: SIXTEENBITFA
-Info (12021): Found 2 design units, including 1 entities, in source file project/registry.vhdl
-    Info (12022): Found design unit 1: Registry-LOGIC
-    Info (12023): Found entity 1: Registry
-Info (12021): Found 2 design units, including 1 entities, in source file project/reg16.vhdl
-    Info (12022): Found design unit 1: Reg16-behavior
-    Info (12023): Found entity 1: Reg16
-Info (12021): Found 2 design units, including 1 entities, in source file project/mux16.vhdl
-    Info (12022): Found design unit 1: mux16-multiplex
-    Info (12023): Found entity 1: mux16
-Info (12021): Found 2 design units, including 1 entities, in source file project/mux4to1.vhdl
-    Info (12022): Found design unit 1: MUX4TO1-Four21
-    Info (12023): Found entity 1: MUX4TO1
-Warning (12090): Entity "MUX" obtained from "project/MUX.vhdl" instead of from Quartus II megafunction library
-Info (12021): Found 2 design units, including 1 entities, in source file project/mux.vhdl
-    Info (12022): Found design unit 1: MUX-TwoTo1
-    Info (12023): Found entity 1: MUX
-Info (12021): Found 2 design units, including 1 entities, in source file project/flaglogic.vhdl
-    Info (12022): Found design unit 1: FLAGLOGIC-LOGIC
-    Info (12023): Found entity 1: FLAGLOGIC
-Info (12021): Found 2 design units, including 1 entities, in source file project/fa.vhdl
-    Info (12022): Found design unit 1: FA-ADD
-    Info (12023): Found entity 1: FA
-Info (12021): Found 2 design units, including 1 entities, in source file project/decoder16.vhdl
-    Info (12022): Found design unit 1: decoder16-decode
-    Info (12023): Found entity 1: decoder16
-Info (12021): Found 2 design units, including 1 entities, in source file project/cu.vhdl
-    Info (12022): Found design unit 1: CU-behavior
-    Info (12023): Found entity 1: CU
-Info (12021): Found 2 design units, including 1 entities, in source file project/alu.vhdl
-    Info (12022): Found design unit 1: ALU-LOGIC
-    Info (12023): Found entity 1: ALU
-Info (12021): Found 2 design units, including 1 entities, in source file project/processor.vhdl
-    Info (12022): Found design unit 1: processor-LOGIC
-    Info (12023): Found entity 1: processor
-Info (12021): Found 2 design units, including 1 entities, in source file project/ps.vhdl
-    Info (12022): Found design unit 1: PS-arch
-    Info (12023): Found entity 1: PS
-Info (12021): Found 2 design units, including 1 entities, in source file project/ir.vhdl
-    Info (12022): Found design unit 1: IR-arch
-    Info (12023): Found entity 1: IR
-Info (12021): Found 2 design units, including 1 entities, in source file project/muxb.vhdl
-    Info (12022): Found design unit 1: MUXB-MUX
-    Info (12023): Found entity 1: MUXB
-Info (12021): Found 2 design units, including 1 entities, in source file project/muxy.vhdl
-    Info (12022): Found design unit 1: MUXY-MUX
-    Info (12023): Found entity 1: MUXY
-Info (12021): Found 2 design units, including 1 entities, in source file project/mux6to1.vhdl
-    Info (12022): Found design unit 1: MUX6TO1-mux
-    Info (12023): Found entity 1: MUX6TO1
-Info (12021): Found 2 design units, including 1 entities, in source file project/programcounter.vhdl
-    Info (12022): Found design unit 1: ProgramCounter-SYN
-    Info (12023): Found entity 1: ProgramCounter
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 5 errors, 1 warning
-    Error: Peak virtual memory: 446 megabytes
-    Error: Processing ended: Wed Nov 01 16:18:24 2017
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:04
+Warning: Parallel compilation is not licensed and has been disabled
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc_temp.vhdl
+    Info: Found design unit 1: pc_temp-SYN
+    Info: Found entity 1: PC_Temp
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc.vhdl
+    Info: Found design unit 1: pc-SYN
+    Info: Found entity 1: PC
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxpc.vhdl
+    Info: Found design unit 1: muxpc-SYN
+    Info: Found entity 1: MuxPC
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxinc.vhdl
+    Info: Found design unit 1: muxinc-SYN
+    Info: Found entity 1: MuxINC
+Info: Found 1 design units, including 1 entities, in source file project/memfilesprocessor/memoryinterface.bdf
+    Info: Found entity 1: MemoryInterface
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/mainmemory.vhdl
+    Info: Found design unit 1: mainmemory-SYN
+    Info: Found entity 1: MainMemory
+Info: Found 1 design units, including 1 entities, in source file project/memfilesprocessor/instructionaddressgenerator.bdf
+    Info: Found entity 1: InstructionAddressGenerator
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/const.vhdl
+    Info: Found design unit 1: const-SYN
+    Info: Found entity 1: Const
+Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/adder.vhdl
+    Info: Found design unit 1: adder-SYN
+    Info: Found entity 1: Adder
+Info: Found 2 design units, including 1 entities, in source file project/reg_16.vhdl
+    Info: Found design unit 1: reg_16-SYN
+    Info: Found entity 1: Reg_16
+Info: Found 2 design units, including 1 entities, in source file project/mux2_1.vhdl
+    Info: Found design unit 1: mux2_1-SYN
+    Info: Found entity 1: MUX2_1
+Info: Found 1 design units, including 1 entities, in source file project/io_memoryinterface.bdf
+    Info: Found entity 1: IO_MemoryInterface
+Info: Found 2 design units, including 1 entities, in source file project/rz.vhdl
+    Info: Found design unit 1: RZ-behavior
+    Info: Found entity 1: RZ
+Info: Found 2 design units, including 1 entities, in source file project/ry.vhdl
+    Info: Found design unit 1: RY-behavior
+    Info: Found entity 1: RY
+Info: Found 2 design units, including 1 entities, in source file project/rm.vhdl
+    Info: Found design unit 1: RM-behavior
+    Info: Found entity 1: RM
+Info: Found 2 design units, including 1 entities, in source file project/rb.vhdl
+    Info: Found design unit 1: RB-behavior
+    Info: Found entity 1: RB
+Info: Found 2 design units, including 1 entities, in source file project/ra.vhdl
+    Info: Found design unit 1: RA-behavior
+    Info: Found entity 1: RA
+Info: Found 2 design units, including 1 entities, in source file project/immediate.vhdl
+    Info: Found design unit 1: immediate-arch
+    Info: Found entity 1: immediate
+Info: Found 2 design units, including 1 entities, in source file project/sixteenbitfa.vhdl
+    Info: Found design unit 1: SIXTEENBITFA-FUADD
+    Info: Found entity 1: SIXTEENBITFA
+Info: Found 2 design units, including 1 entities, in source file project/registry.vhdl
+    Info: Found design unit 1: Registry-LOGIC
+    Info: Found entity 1: Registry
+Info: Found 2 design units, including 1 entities, in source file project/reg16.vhdl
+    Info: Found design unit 1: Reg16-behavior
+    Info: Found entity 1: Reg16
+Info: Found 2 design units, including 1 entities, in source file project/mux16.vhdl
+    Info: Found design unit 1: mux16-multiplex
+    Info: Found entity 1: mux16
+Info: Found 2 design units, including 1 entities, in source file project/mux4to1.vhdl
+    Info: Found design unit 1: MUX4TO1-Four21
+    Info: Found entity 1: MUX4TO1
+Warning: Entity "MUX" obtained from "project/MUX.vhdl" instead of from Quartus II megafunction library
+Info: Found 2 design units, including 1 entities, in source file project/mux.vhdl
+    Info: Found design unit 1: MUX-TwoTo1
+    Info: Found entity 1: MUX
+Info: Found 2 design units, including 1 entities, in source file project/flaglogic.vhdl
+    Info: Found design unit 1: FLAGLOGIC-LOGIC
+    Info: Found entity 1: FLAGLOGIC
+Info: Found 2 design units, including 1 entities, in source file project/fa.vhdl
+    Info: Found design unit 1: FA-ADD
+    Info: Found entity 1: FA
+Info: Found 2 design units, including 1 entities, in source file project/decoder16.vhdl
+    Info: Found design unit 1: decoder16-decode
+    Info: Found entity 1: decoder16
+Info: Found 2 design units, including 1 entities, in source file project/cu.vhdl
+    Info: Found design unit 1: CU-behavior
+    Info: Found entity 1: CU
+Info: Found 2 design units, including 1 entities, in source file project/alu.vhdl
+    Info: Found design unit 1: ALU-LOGIC
+    Info: Found entity 1: ALU
+Info: Found 2 design units, including 1 entities, in source file project/processor.vhdl
+    Info: Found design unit 1: processor-LOGIC
+    Info: Found entity 1: processor
+Info: Found 2 design units, including 1 entities, in source file project/ps.vhdl
+    Info: Found design unit 1: PS-arch
+    Info: Found entity 1: PS
+Info: Found 2 design units, including 1 entities, in source file project/ir.vhdl
+    Info: Found design unit 1: IR-arch
+    Info: Found entity 1: IR
+Info: Found 2 design units, including 1 entities, in source file project/muxb.vhdl
+    Info: Found design unit 1: MUXB-MUX
+    Info: Found entity 1: MUXB
+Info: Found 2 design units, including 1 entities, in source file project/muxy.vhdl
+    Info: Found design unit 1: MUXY-MUX
+    Info: Found entity 1: MUXY
+Info: Found 2 design units, including 1 entities, in source file project/mux6to1.vhdl
+    Info: Found design unit 1: MUX6TO1-mux
+    Info: Found entity 1: MUX6TO1
+Error (10476): VHDL error at processor.vhdl(162): type of identifier "y_select" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "c_select" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10476): VHDL error at processor.vhdl(162): type of identifier "rf_write" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "y_select" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10476): VHDL error at processor.vhdl(162): type of identifier "extend" does not agree with its usage as "std_logic" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "b_inv" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10476): VHDL error at processor.vhdl(162): type of identifier "ir_enable" does not agree with its usage as "std_logic_vector" type File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error (10558): VHDL error at processor.vhdl(162): cannot associate formal port "extend" of mode "out" with an expression File: Z:/csce230/altera/Project/230project/project/processor.vhdl Line: 162
+Error: Quartus II Analysis & Synthesis was unsuccessful. 8 errors, 2 warnings
+    Error: Peak virtual memory: 306 megabytes
+    Error: Processing ended: Wed Nov 01 18:21:45 2017
+    Error: Elapsed time: 00:00:02
+    Error: Total CPU time (on all processors): 00:00:01
 
 

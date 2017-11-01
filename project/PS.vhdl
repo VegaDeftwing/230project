@@ -5,7 +5,7 @@ entity PS is
 	PORT(
 	N, C, V, Z : in std_logic;
 	Clock, reset : in std_logic;
---	enable: in std_logic; Will simply be 1 for now
+	enable: in std_logic; --Will simply be 1 for now
 	Nout, Cout, Vout, Zout : out std_logic
 	);
 end PS;
@@ -21,12 +21,12 @@ PROCESS(Clock, reset)
 			Vout <= '0';
 			Zout <= '0';
 		ELSIF(rising_edge(Clock)) THEN
---				IF(enable = '1') THEN
+			IF(enable = '1') THEN
 				Nout <= N;
 				Cout <= C;
 				Vout <= V;
 				Zout <= Z;
---			END IF;
+			END IF;
 		END IF;
 	END PROCESS;
 end arch;
