@@ -70,3 +70,4 @@ set_global_assignment -name VHDL_FILE project/PS.vhdl
 set_global_assignment -name VHDL_FILE project/IR.vhdl
 set_global_assignment -name VHDL_FILE project/MUXB.vhdl
 set_global_assignment -name VHDL_FILE project/MUXY.vhdl
+set_global_assignment -name VHDL_FILE project/MUX6TO1.vhdl

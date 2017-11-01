@@ -13,7 +13,7 @@ architecture LOGIC of processor is
 COMPONENT ALU 
 	PORT(
 		A, B : in std_logic_vector(15 downto 0);
-		alu_op : in std_logic_vector(1 downto 0);
+		alu_op : in std_logic_vector(2 downto 0);
 		A_inv, B_inv : in std_logic;
 		ALU_out : out std_logic_vector(15 downto 0);
 		N, Z, V, C : out std_logic
@@ -24,7 +24,8 @@ COMPONENT CU
 		opCode, Cond : in std_logic_vector(3 downto 0);
 		opx : in std_logic_vector(2 downto 0);
 		S, N, C, V, Z, mfc, clock, reset : in std_logic;
-		alu_op, c_select, y_select : out std_logic_vector(1 downto 0);
+		alu_op : out std_logic_vector(2 downto 0);
+		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
 		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic
