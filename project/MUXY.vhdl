@@ -14,7 +14,7 @@ end MUXY;
 
 architecture MUX of MUXY is
 begin	
-	with y-select select muxYout <=
+	with y_select select muxYout <=
 		 muxyin when "00" ,
 		 memIn when "01" ,
 		 ReturnA when "10" ,
