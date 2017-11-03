@@ -11,6 +11,7 @@ xor r1 r2 r3
 add s r0 r0 r0
 add nv r0 r0 r0
 add eq r1 r2 r3
+add eq s r1 r2 r3
 labeltest:
 add r0 r0 r0
 phase2 testing:
