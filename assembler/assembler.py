@@ -39,6 +39,7 @@ FinalInstruction = ""
 labels = [""]
 addresses = [""]
 i = 0
+outputme = True
 
 ### Set up .mif file header:
 outfile.write("WIDTH=24;\n")
@@ -182,6 +183,8 @@ for line in inputfile:
         labels.append(label)
         addresses.append(address)
         print(label +" @"+ address)
+        i = i - 1
+        outputme = False
 
         # print("Ya Dun Fucked Up")
         # sys.exit(2)
@@ -195,9 +198,10 @@ for line in inputfile:
         FinalInstructionStr = "\033[92m[OK]"
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
-    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x"+ FinalInstructionHex  + " Address: " + address )
-    outfile.write(str(address)+": "+str(FinalInstruction)+"\n")
-
+    if outputme:
+        print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x"+ FinalInstructionHex  + " Address: " + address )
+        outfile.write(str(address)+": "+str(FinalInstruction)+"\n")
+    outputme = True
 # TODO: output the 00 array at the end too
 outfile.write("END;\n")
 print("-----------------------------------------------------------")

@@ -1,6 +1,11 @@
-addi 101 r2 r3
+addi r2 r3 101
 add s r1 r2 r3
 sub r1 r2 r3
 sub al r4 r5 r6
 and nv r7 r8 r9
 cmp le s r10 r11 r0
+test:
+add r0 r0 r0
+tes2:
+add r1 r1 r1
+add r0 r0 r0
