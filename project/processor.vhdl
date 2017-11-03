@@ -5,7 +5,41 @@ use IEEE.std_logic_1164.ALL;
 entity processor is
 	port(
 	Instruction : in std_logic_vector(23 downto 0);
-	clock, reset : in std_logic
+	clock, reset : in std_logic;
+	
+	
+	
+	
+ InR : out std_logic_vector(23 downto 0);
+ opCode, Cond : out std_logic_vector(3 downto 0);
+ S : out std_logic;
+ opx : out std_logic_vector(2 downto 0);
+ ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic;
+ extend, y_select, c_select : out std_logic_vector(1 downto 0);
+ rf_write,  b_select, a_inv, b_inv : out std_logic;
+ alu_op : out std_logic_vector(2 downto 0);
+ N, C, V, Z : out std_logic;
+ Nout, Cout, Vout, Zout : out std_logic;
+ mfc : out std_logic;
+ A, B : out std_logic_vector(15 downto 0);
+ ALU_out : out std_logic_vector(15 downto 0);
+ RegD, RegT, RegS : out std_logic_vector(3 downto 0);
+ DataD : out std_logic_vector(15 downto 0);
+ DataS, DataT : out std_logic_vector(15 downto 0);
+ DataA : out std_logic_vector(15 downto 0);	
+ DataB : out std_logic_vector(15 downto 0);
+ DataM : out std_logic_vector(15 downto 0);
+ DataY : out std_logic_vector(15 downto 0);
+ DataZ : out std_logic_vector(15 downto 0);
+ enablePS : out std_logic;
+ immediateB : out std_logic_vector(15 downto 0);
+ muxBout : out std_logic_vector(15 downto 0);
+ memIn : out std_logic_vector(15 downto 0);
+ ReturnAddress : out std_logic_vector(15 downto 0);
+ muxYout : out std_logic_vector(15 downto 0)
+	
+	
+	
 	);
 end processor;
 
@@ -123,56 +157,112 @@ END COMPONENT;
 	END COMPONENT;
 
 
-signal InR : std_logic_vector(23 downto 0);
-signal opCode, Cond : std_logic_vector(3 downto 0);
-signal S : std_logic;
-signal opx : std_logic_vector(2 downto 0);
-signal ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : std_logic;
-signal extend, y_select, c_select : std_logic_vector(1 downto 0);
-signal rf_write,  b_select, a_inv, b_inv : std_logic;
-signal alu_op : std_logic_vector(2 downto 0);
-signal N, C, V, Z : std_logic;
-signal mfc : std_logic;
-signal A, B : std_logic_vector(15 downto 0);
-signal ALU_out : std_logic_vector(15 downto 0);
-signal Enable : std_logic;
-signal RegD, RegT, RegS : std_logic_vector(3 downto 0);
-signal DataD : std_logic_vector(15 downto 0);
-signal DataS, DataT : std_logic_vector(15 downto 0);
-signal DataA : std_logic_vector(15 downto 0);	
-signal DataB : std_logic_vector(15 downto 0);
-signal DataM : std_logic_vector(15 downto 0);
-signal DataY : std_logic_vector(15 downto 0);
-signal DataZ : std_logic_vector(15 downto 0);
-signal enablePS : std_logic;
-signal immediateB : std_logic_vector(15 downto 0);
-signal muxBout : std_logic_vector(15 downto 0);
-signal memIn : std_logic_vector(15 downto 0);
-signal ReturnAddress : std_logic_vector(15 downto 0);
-signal muxYout : std_logic_vector(15 downto 0);
-begin
-opCode <= InR(23 downto 20);
-Cond <= InR(19 downto 16);
-S <= InR(15);
-opx <= InR(14 downto 12);
-RegD <= InR(11 downto 8);
-RegS <= InR(7 downto 4);
-RegT <= InR(3 downto 0);
-enablePS <= '1';
+signal SigInR : std_logic_vector(23 downto 0);
+signal SigopCode, SigCond : std_logic_vector(3 downto 0);
+signal SigS : std_logic;
+signal Sigopx : std_logic_vector(2 downto 0);
+signal Sigir_enable, Sigma_select, Sigmem_read, Sigmem_write, Sigpc_select, Sigpc_enable, Siginc_select : std_logic;
+signal Sigextend, Sigy_select, Sigc_select : std_logic_vector(1 downto 0);
+signal Sigrf_write,  Sigb_select, Siga_inv, Sigb_inv : std_logic;
+signal Sigalu_op : std_logic_vector(2 downto 0);
+signal SigN, SigC, SigV, SigZ : std_logic;
+signal SigNout, SigCout, SigVout, SigZout : std_logic;
 
-Step1 : CU PORT MAP(opCode, Cond, S, opx, N, C, V, Z, mfc, Clock, Reset,ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv,extend,ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select);
-Step2 : Registry PORT MAP(Reset, Enable, Clock, RegD, RegT, RegS, DataD, DataS, DataT);
-Step3 : RA PORT MAP(DataS, Reset, Clock, DataA);	
-Step4 : RB PORT MAP(DataT, Reset, Clock, DataB);	
-Step5 : RM PORT MAP(DataB, Reset, Clock, DataM);	
-Step6 : RY PORT MAP(muxYout, Reset, Clock, DataD);	
-Step7 : RZ PORT MAP(ALU_out, Reset, Clock, DataZ);
-Step8 : MUXB PORT MAP(b_select, immediateB, DataB, muxBout);	
-Step9 : MUXY PORT MAP(y_select, DataZ, memIn, ReturnAddress, muxYout);
-Step10: ALU PORT MAP(DataA, muxBout, alu_op, a_inv, b_inv, ALU_out, N, Z, V, C);
-Step11: PS PORT MAP(N, C, V, Z, Clock, Reset, enablePS, N, C, V, Z);
-Step12: IR PORT MAP(Instruction(23 downto 0), Reset, Clock, ir_enable, InR(23 downto 0));
-Step13: immediate PORT MAP(InR(14 downto 8), extend, immediateB);
+signal Sigmfc : std_logic;
+signal SigA, SigB : std_logic_vector(15 downto 0);
+signal SigALU_out : std_logic_vector(15 downto 0);
+signal SigEnable : std_logic;
+signal SigRegD, SigRegT, SigRegS : std_logic_vector(3 downto 0);
+signal SigDataD : std_logic_vector(15 downto 0);
+signal SigDataS, SigDataT : std_logic_vector(15 downto 0);
+signal SigDataA : std_logic_vector(15 downto 0);	
+signal SigDataB : std_logic_vector(15 downto 0);
+signal SigDataM : std_logic_vector(15 downto 0);
+signal SigDataY : std_logic_vector(15 downto 0);
+signal SigDataZ : std_logic_vector(15 downto 0);
+signal SigenablePS : std_logic;
+signal SigimmediateB : std_logic_vector(15 downto 0);
+signal SigmuxBout : std_logic_vector(15 downto 0);
+signal SigmemIn : std_logic_vector(15 downto 0);
+signal SigReturnAddress : std_logic_vector(15 downto 0);
+signal SigmuxYout : std_logic_vector(15 downto 0);
+begin
+SigopCode <= SigInR(23 downto 20);
+SigCond <= SigInR(19 downto 16);
+SigS <= SigInR(15);
+Sigopx <= SigInR(14 downto 12);
+SigRegD <= SigInR(11 downto 8);
+SigRegS <= SigInR(7 downto 4);
+SigRegT <= SigInR(3 downto 0);
+SigenablePS <= '1';
+
+Step1 : CU PORT MAP(SigInR(23 downto 20), SigCond, SigS, Sigopx, SigNout, SigCout, SigVout, SigZout, Sigmfc, Clock, Reset, SigALU_op, Sigc_select, Sigy_select, Sigrf_write, Sigb_select, Siga_inv, Sigb_inv, Sigextend, Sigir_enable, Sigma_select, Sigmem_read, Sigmem_write, Sigpc_select, Sigpc_enable, Siginc_select);
+Step2 : Registry PORT MAP(Reset, Sigrf_write, Clock, SigRegD, SigRegT, SigRegS, SigDataD, SigDataS, SigDataT);
+Step3 : RA PORT MAP(SigDataS, Reset, Clock, SigDataA);	
+Step4 : RB PORT MAP(SigDataT, Reset, Clock, SigDataB);	
+Step5 : RM PORT MAP(SigDataB, Reset, Clock, SigDataM);	
+Step6 : RY PORT MAP(SigmuxYout, Reset, Clock, SigDataD);	
+Step7 : RZ PORT MAP(SigALU_out, Reset, Clock, SigDataZ);
+Step8 : MUXB PORT MAP(Sigb_select, SigimmediateB, SigDataB, SigmuxBout);	
+Step9 : MUXY PORT MAP(Sigy_select, SigDataZ, SigmemIn, SigReturnAddress, SigmuxYout);
+Step10: ALU PORT MAP(SigDataA, SigmuxBout, Sigalu_op, Siga_inv, Sigb_inv, SigALU_out, SigN, SigZ, SigV, SigC);
+Step11: PS PORT MAP(SigN, SigC, SigV, SigZ, Clock, Reset, SigenablePS, SigNout, SigCout, SigVout, SigZout);
+Step12: IR PORT MAP(Instruction, Reset, Clock, Sigir_enable, SigInR);
+Step13: immediate PORT MAP(SigInR(14 downto 8), Sigextend, SigimmediateB);
+
+
+
+InR <= SigInR;
+opCode <= SigopCode;
+Cond <= SigCond;
+S <= SigS;
+opx <= Sigopx;
+ir_enable <= Sigir_enable;
+ma_select <= Sigma_select;
+mem_read <= Sigmem_read;
+mem_write <= Sigmem_write;
+pc_select <= Sigpc_select;
+pc_enable <= Sigpc_enable;
+inc_select <= Siginc_select;
+extend <= Sigextend;
+y_select <= Sigy_select;
+c_select <= Sigc_select;
+rf_write <= Sigrf_write;
+b_select <= Sigb_select;
+a_inv <= Siga_inv;
+b_inv <= Sigb_inv;
+alu_op <= Sigalu_op;
+N <= SigN;
+C <= SigC;
+V <= SigV;
+Z <= SigZ;
+mfc <= Sigmfc;
+A <= SigA;
+B <= SigB;
+ALU_out <= SigALU_out;
+RegD <= SigRegD;
+RegT <= SigRegT;
+RegS <= SigRegS;
+DataD <= SigDataD;
+DataS <= SigDataS;
+DataT <= SigDataT;
+DataA <=	SigDataA;
+DataB <= SigDataB;
+DataM <= SigDataM;
+DataY <= SigDataY;
+DataZ <= SigDataZ;
+enablePS <= SigenablePS;
+immediateB <= SigimmediateB;
+muxBout <= SigmuxBout;
+memIn <= SigmemIn;
+ReturnAddress <= SigReturnAddress; 
+muxYout <= SigmuxYout;
+Nout <= SigNout;
+Cout <= SigCout;
+Vout <= SigVout;
+Zout <= SigZout;
+
+
 
 
 end LOGIC;

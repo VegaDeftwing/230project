@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Processor
-Wed Nov 01 18:32:32 2017
-Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+Fri Nov 03 15:16:40 2017
+Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
 ---------------------
@@ -13,16 +13,17 @@ Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "PS:Step11"
- 10. Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL"
- 11. Port Connectivity Checks: "RM:Step5"
- 12. Port Connectivity Checks: "Registry:Step2|mux16:MUXB"
- 13. Port Connectivity Checks: "Registry:Step2|mux16:MUXA"
- 14. Port Connectivity Checks: "Registry:Step2|decoder16:decoder"
- 15. Port Connectivity Checks: "CU:Step1"
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for Inferred Entity Instance: CU:Step1|lpm_divide:Mod0
+ 12. Port Connectivity Checks: "PS:Step11"
+ 13. Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL"
+ 14. Port Connectivity Checks: "Registry:Step2|mux16:MUXB"
+ 15. Port Connectivity Checks: "Registry:Step2|mux16:MUXA"
+ 16. Port Connectivity Checks: "Registry:Step2|decoder16:decoder"
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +49,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 01 18:32:32 2017         ;
-; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 03 15:16:40 2017         ;
+; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 0                                             ;
-;     Total combinational functions  ; 0                                             ;
-;     Dedicated logic registers      ; 0                                             ;
-; Total registers                    ; 0                                             ;
-; Total pins                         ; 26                                            ;
+; Total logic elements               ; 2,626                                         ;
+;     Total combinational functions  ; 2,330                                         ;
+;     Dedicated logic registers      ; 386                                           ;
+; Total registers                    ; 386                                           ;
+; Total pins                         ; 360                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -89,6 +90,7 @@ applicable agreement for further details.
 ; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
 ; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
 ; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
@@ -152,39 +154,49 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                   ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
-; project/RZ.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RZ.vhdl           ;
-; project/RY.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RY.vhdl           ;
-; project/RM.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RM.vhdl           ;
-; project/RB.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RB.vhdl           ;
-; project/RA.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/RA.vhdl           ;
-; project/immediate.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/immediate.vhdl    ;
-; project/SIXTEENBITFA.vhdl        ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/SIXTEENBITFA.vhdl ;
-; project/Registry.vhdl            ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/Registry.vhdl     ;
-; project/reg16.vhdl               ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/reg16.vhdl        ;
-; project/mux16.vhdl               ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/mux16.vhdl        ;
-; project/MUX.vhdl                 ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUX.vhdl          ;
-; project/FLAGLOGIC.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/FLAGLOGIC.vhdl    ;
-; project/FA.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/FA.vhdl           ;
-; project/decoder16.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/decoder16.vhdl    ;
-; project/CU.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/CU.vhdl           ;
-; project/ALU.vhdl                 ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/ALU.vhdl          ;
-; project/processor.vhdl           ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/processor.vhdl    ;
-; project/PS.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/PS.vhdl           ;
-; project/IR.vhdl                  ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/IR.vhdl           ;
-; project/MUXB.vhdl                ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUXB.vhdl         ;
-; project/MUXY.vhdl                ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUXY.vhdl         ;
-; project/MUX6TO1.vhdl             ; yes             ; User VHDL File  ; Z:/csce230/altera/Project/230project/project/MUX6TO1.vhdl      ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+
+; project/RZ.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/RZ.vhdl               ;
+; project/RY.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/RY.vhdl               ;
+; project/RM.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/RM.vhdl               ;
+; project/RB.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/RB.vhdl               ;
+; project/RA.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/RA.vhdl               ;
+; project/immediate.vhdl           ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl        ;
+; project/SIXTEENBITFA.vhdl        ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/SIXTEENBITFA.vhdl     ;
+; project/Registry.vhdl            ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl         ;
+; project/reg16.vhdl               ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/reg16.vhdl            ;
+; project/mux16.vhdl               ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/mux16.vhdl            ;
+; project/MUX.vhdl                 ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUX.vhdl              ;
+; project/FLAGLOGIC.vhdl           ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/FLAGLOGIC.vhdl        ;
+; project/FA.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/FA.vhdl               ;
+; project/decoder16.vhdl           ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/decoder16.vhdl        ;
+; project/CU.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/CU.vhdl               ;
+; project/ALU.vhdl                 ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/ALU.vhdl              ;
+; project/processor.vhdl           ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/processor.vhdl        ;
+; project/PS.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/PS.vhdl               ;
+; project/IR.vhdl                  ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/IR.vhdl               ;
+; project/MUXB.vhdl                ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXB.vhdl             ;
+; project/MUXY.vhdl                ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXY.vhdl             ;
+; project/MUX6TO1.vhdl             ; yes             ; User VHDL File               ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUX6TO1.vhdl          ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_divide.tdf      ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/11.1sp2/quartus/libraries/megafunctions/abs_divider.inc     ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/11.1sp2/quartus/libraries/megafunctions/sign_div_unsign.inc ;
+; aglobal111.inc                   ; yes             ; Megafunction                 ; c:/altera/11.1sp2/quartus/libraries/megafunctions/aglobal111.inc      ;
+; db/lpm_divide_qlo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/lpm_divide_qlo.tdf         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/abs_divider_4dg.tdf        ;
+; db/alt_u_div_k5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/alt_u_div_k5f.tdf          ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/add_sub_lkc.tdf            ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/add_sub_mkc.tdf            ;
+; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Zed/Desktop/CSCE230/230project/db/lpm_abs_0s9.tdf            ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -192,33 +204,111 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
+; Estimated Total logic elements              ; 2,626 ;
 ;                                             ;       ;
-; Total combinational functions               ; 0     ;
+; Total combinational functions               ; 2330  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
+;     -- 4 input functions                    ; 921   ;
+;     -- 3 input functions                    ; 664   ;
+;     -- <=2 input functions                  ; 745   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 1651  ;
+;     -- arithmetic mode                      ; 679   ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
+; Total registers                             ; 386   ;
+;     -- Dedicated logic registers            ; 386   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 26    ;
+; I/O pins                                    ; 360   ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 386   ;
+; Total fan-out                               ; 8717  ;
+; Average fan-out                             ; 2.83  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |processor                 ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |processor          ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                    ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
+; |processor                               ; 2330 (0)          ; 386 (0)      ; 0           ; 0            ; 0       ; 0         ; 360  ; 0            ; |processor                                                                                                       ;              ;
+;    |ALU:Step10|                          ; 112 (12)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
+;       |FLAGLOGIC:FLAGCHECK|              ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FLAGLOGIC:FLAGCHECK                                                                        ;              ;
+;       |MUX6TO1:MUXFINAL|                 ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX6TO1:MUXFINAL                                                                           ;              ;
+;       |MUX:MUXB|                         ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                   ;              ;
+;       |SIXTEENBITFA:RIPPLEADD|           ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD                                                                     ;              ;
+;          |FA:add0|                       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add0                                                             ;              ;
+;          |FA:add10|                      ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add10                                                            ;              ;
+;          |FA:add11|                      ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add11                                                            ;              ;
+;          |FA:add12|                      ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add12                                                            ;              ;
+;          |FA:add13|                      ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add13                                                            ;              ;
+;          |FA:add14|                      ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add14                                                            ;              ;
+;          |FA:add15|                      ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add15                                                            ;              ;
+;          |FA:add1|                       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add1                                                             ;              ;
+;          |FA:add3|                       ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add3                                                             ;              ;
+;          |FA:add4|                       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add4                                                             ;              ;
+;          |FA:add5|                       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add5                                                             ;              ;
+;          |FA:add7|                       ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add7                                                             ;              ;
+;          |FA:add8|                       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add8                                                             ;              ;
+;          |FA:add9|                       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add9                                                             ;              ;
+;    |CU:Step1|                            ; 1873 (171)        ; 38 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
+;       |lpm_divide:Mod0|                  ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                              ;              ;
+;          |lpm_divide_qlo:auto_generated| ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
+;             |abs_divider_4dg:divider|    ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
+;                |alt_u_div_k5f:divider|   ; 1605 (1605)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider  ;              ;
+;                |lpm_abs_0s9:my_abs_num|  ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|lpm_abs_0s9:my_abs_num ;              ;
+;    |IR:Step12|                           ; 0 (0)             ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IR:Step12                                                                                             ;              ;
+;    |PS:Step11|                           ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|PS:Step11                                                                                             ;              ;
+;    |RA:Step3|                            ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|RA:Step3                                                                                              ;              ;
+;    |RB:Step4|                            ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|RB:Step4                                                                                              ;              ;
+;    |RM:Step5|                            ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|RM:Step5                                                                                              ;              ;
+;    |RY:Step6|                            ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|RY:Step6                                                                                              ;              ;
+;    |RZ:Step7|                            ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|RZ:Step7                                                                                              ;              ;
+;    |Registry:Step2|                      ; 345 (0)           ; 240 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2                                                                                        ;              ;
+;       |Reg16:Register10|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register10                                                                       ;              ;
+;       |Reg16:Register11|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register11                                                                       ;              ;
+;       |Reg16:Register12|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register12                                                                       ;              ;
+;       |Reg16:Register13|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register13                                                                       ;              ;
+;       |Reg16:Register14|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register14                                                                       ;              ;
+;       |Reg16:Register15|                 ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register15                                                                       ;              ;
+;       |Reg16:Register1|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register1                                                                        ;              ;
+;       |Reg16:Register2|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register2                                                                        ;              ;
+;       |Reg16:Register3|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register3                                                                        ;              ;
+;       |Reg16:Register4|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register4                                                                        ;              ;
+;       |Reg16:Register5|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register5                                                                        ;              ;
+;       |Reg16:Register6|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register6                                                                        ;              ;
+;       |Reg16:Register7|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register7                                                                        ;              ;
+;       |Reg16:Register8|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register8                                                                        ;              ;
+;       |Reg16:Register9|                  ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register9                                                                        ;              ;
+;       |decoder16:decoder|                ; 19 (19)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|decoder16:decoder                                                                      ;              ;
+;       |mux16:MUXA|                       ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|mux16:MUXA                                                                             ;              ;
+;       |mux16:MUXB|                       ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|mux16:MUXB                                                                             ;              ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; CU:Step1|extend[0,1]                   ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|ma_select                     ; Stuck at VCC due to stuck port data_in ;
+; CU:Step1|mem_write                     ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|pc_select                     ; Stuck at VCC due to stuck port data_in ;
+; CU:Step1|inc_select                    ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|a_inv                         ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|b_select                      ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|y_select[0,1]                 ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|c_select[0]                   ; Stuck at VCC due to stuck port data_in ;
+; CU:Step1|c_select[1]                   ; Stuck at GND due to stuck port data_in ;
+; CU:Step1|mem_read                      ; Merged with CU:Step1|ir_enable         ;
+; CU:Step1|wmfc                          ; Merged with CU:Step1|ir_enable         ;
+; CU:Step1|pc_enable                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 15 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -226,14 +316,49 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 386   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 348   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 267   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                   ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+; 13:1               ; 3 bits    ; 24 LEs        ; 15 LEs               ; 9 LEs                  ; |processor|CU:Step1|alu_op[2]                ;                            ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux10 ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux7    ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux0    ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CU:Step1|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                         ;
+; LPM_WIDTHD             ; 32             ; Untyped                         ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                         ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                         ;
+; LPM_PIPELINE           ; 0              ; Untyped                         ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                         ;
+; CBXI_PARAMETER         ; lpm_divide_qlo ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------+
@@ -253,15 +378,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; in5  ; Input ; Info     ; Stuck at GND                  ;
 ; in6  ; Input ; Info     ; Stuck at GND                  ;
 +------+-------+----------+-------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RM:Step5"                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; output ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -291,28 +407,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CU:Step1"                                                                                 ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; c_select   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rf_write   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ma_select  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mem_read   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mem_write  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; pc_select  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; pc_enable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; inc_select ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:29     ;
 +----------------+--------------+
 
 
@@ -320,184 +420,278 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II Analysis & Synthesis
-    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 01 18:32:26 2017
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri Nov 03 15:16:08 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
-Warning: Parallel compilation is not licensed and has been disabled
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc_temp.vhdl
-    Info: Found design unit 1: pc_temp-SYN
-    Info: Found entity 1: PC_Temp
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc.vhdl
-    Info: Found design unit 1: pc-SYN
-    Info: Found entity 1: PC
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxpc.vhdl
-    Info: Found design unit 1: muxpc-SYN
-    Info: Found entity 1: MuxPC
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxinc.vhdl
-    Info: Found design unit 1: muxinc-SYN
-    Info: Found entity 1: MuxINC
-Info: Found 1 design units, including 1 entities, in source file project/memfilesprocessor/memoryinterface.bdf
-    Info: Found entity 1: MemoryInterface
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/mainmemory.vhdl
-    Info: Found design unit 1: mainmemory-SYN
-    Info: Found entity 1: MainMemory
-Info: Found 1 design units, including 1 entities, in source file project/memfilesprocessor/instructionaddressgenerator.bdf
-    Info: Found entity 1: InstructionAddressGenerator
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/const.vhdl
-    Info: Found design unit 1: const-SYN
-    Info: Found entity 1: Const
-Info: Found 2 design units, including 1 entities, in source file project/memfilesprocessor/adder.vhdl
-    Info: Found design unit 1: adder-SYN
-    Info: Found entity 1: Adder
-Info: Found 2 design units, including 1 entities, in source file project/reg_16.vhdl
-    Info: Found design unit 1: reg_16-SYN
-    Info: Found entity 1: Reg_16
-Info: Found 2 design units, including 1 entities, in source file project/mux2_1.vhdl
-    Info: Found design unit 1: mux2_1-SYN
-    Info: Found entity 1: MUX2_1
-Info: Found 1 design units, including 1 entities, in source file project/io_memoryinterface.bdf
-    Info: Found entity 1: IO_MemoryInterface
-Info: Found 2 design units, including 1 entities, in source file project/rz.vhdl
-    Info: Found design unit 1: RZ-behavior
-    Info: Found entity 1: RZ
-Info: Found 2 design units, including 1 entities, in source file project/ry.vhdl
-    Info: Found design unit 1: RY-behavior
-    Info: Found entity 1: RY
-Info: Found 2 design units, including 1 entities, in source file project/rm.vhdl
-    Info: Found design unit 1: RM-behavior
-    Info: Found entity 1: RM
-Info: Found 2 design units, including 1 entities, in source file project/rb.vhdl
-    Info: Found design unit 1: RB-behavior
-    Info: Found entity 1: RB
-Info: Found 2 design units, including 1 entities, in source file project/ra.vhdl
-    Info: Found design unit 1: RA-behavior
-    Info: Found entity 1: RA
-Info: Found 2 design units, including 1 entities, in source file project/immediate.vhdl
-    Info: Found design unit 1: immediate-arch
-    Info: Found entity 1: immediate
-Info: Found 2 design units, including 1 entities, in source file project/sixteenbitfa.vhdl
-    Info: Found design unit 1: SIXTEENBITFA-FUADD
-    Info: Found entity 1: SIXTEENBITFA
-Info: Found 2 design units, including 1 entities, in source file project/registry.vhdl
-    Info: Found design unit 1: Registry-LOGIC
-    Info: Found entity 1: Registry
-Info: Found 2 design units, including 1 entities, in source file project/reg16.vhdl
-    Info: Found design unit 1: Reg16-behavior
-    Info: Found entity 1: Reg16
-Info: Found 2 design units, including 1 entities, in source file project/mux16.vhdl
-    Info: Found design unit 1: mux16-multiplex
-    Info: Found entity 1: mux16
-Info: Found 2 design units, including 1 entities, in source file project/mux4to1.vhdl
-    Info: Found design unit 1: MUX4TO1-Four21
-    Info: Found entity 1: MUX4TO1
-Warning: Entity "MUX" obtained from "project/MUX.vhdl" instead of from Quartus II megafunction library
-Info: Found 2 design units, including 1 entities, in source file project/mux.vhdl
-    Info: Found design unit 1: MUX-TwoTo1
-    Info: Found entity 1: MUX
-Info: Found 2 design units, including 1 entities, in source file project/flaglogic.vhdl
-    Info: Found design unit 1: FLAGLOGIC-LOGIC
-    Info: Found entity 1: FLAGLOGIC
-Info: Found 2 design units, including 1 entities, in source file project/fa.vhdl
-    Info: Found design unit 1: FA-ADD
-    Info: Found entity 1: FA
-Info: Found 2 design units, including 1 entities, in source file project/decoder16.vhdl
-    Info: Found design unit 1: decoder16-decode
-    Info: Found entity 1: decoder16
-Info: Found 2 design units, including 1 entities, in source file project/cu.vhdl
-    Info: Found design unit 1: CU-behavior
-    Info: Found entity 1: CU
-Info: Found 2 design units, including 1 entities, in source file project/alu.vhdl
-    Info: Found design unit 1: ALU-LOGIC
-    Info: Found entity 1: ALU
-Info: Found 2 design units, including 1 entities, in source file project/processor.vhdl
-    Info: Found design unit 1: processor-LOGIC
-    Info: Found entity 1: processor
-Info: Found 2 design units, including 1 entities, in source file project/ps.vhdl
-    Info: Found design unit 1: PS-arch
-    Info: Found entity 1: PS
-Info: Found 2 design units, including 1 entities, in source file project/ir.vhdl
-    Info: Found design unit 1: IR-arch
-    Info: Found entity 1: IR
-Info: Found 2 design units, including 1 entities, in source file project/muxb.vhdl
-    Info: Found design unit 1: MUXB-MUX
-    Info: Found entity 1: MUXB
-Info: Found 2 design units, including 1 entities, in source file project/muxy.vhdl
-    Info: Found design unit 1: MUXY-MUX
-    Info: Found entity 1: MUXY
-Info: Found 2 design units, including 1 entities, in source file project/mux6to1.vhdl
-    Info: Found design unit 1: MUX6TO1-mux
-    Info: Found entity 1: MUX6TO1
-Info: Elaborating entity "processor" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "ma_select" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "mem_read" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "mem_write" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "pc_select" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "pc_enable" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(130): object "inc_select" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(131): object "c_select" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(132): object "rf_write" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(135): used implicit default value for signal "mfc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(138): used implicit default value for signal "Enable" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(144): object "DataM" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(150): used implicit default value for signal "memIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(151): used implicit default value for signal "ReturnAddress" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Info: Elaborating entity "CU" for hierarchy "CU:Step1"
-Info: Elaborating entity "Registry" for hierarchy "Registry:Step2"
-Info: Elaborating entity "decoder16" for hierarchy "Registry:Step2|decoder16:decoder"
-Info: Elaborating entity "Reg16" for hierarchy "Registry:Step2|Reg16:Register1"
-Info: Elaborating entity "mux16" for hierarchy "Registry:Step2|mux16:MUXA"
-Info: Elaborating entity "RA" for hierarchy "RA:Step3"
-Info: Elaborating entity "RB" for hierarchy "RB:Step4"
-Info: Elaborating entity "RM" for hierarchy "RM:Step5"
-Info: Elaborating entity "RY" for hierarchy "RY:Step6"
-Info: Elaborating entity "RZ" for hierarchy "RZ:Step7"
-Info: Elaborating entity "MUXB" for hierarchy "MUXB:Step8"
-Info: Elaborating entity "MUXY" for hierarchy "MUXY:Step9"
-Info: Elaborating entity "ALU" for hierarchy "ALU:Step10"
-Info: Elaborating entity "MUX" for hierarchy "ALU:Step10|MUX:MUXA"
-Info: Elaborating entity "SIXTEENBITFA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD"
-Info: Elaborating entity "FA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add0"
-Info: Elaborating entity "MUX6TO1" for hierarchy "ALU:Step10|MUX6TO1:MUXFINAL"
-Info: Elaborating entity "FLAGLOGIC" for hierarchy "ALU:Step10|FLAGLOGIC:FLAGCHECK"
-Info: Elaborating entity "PS" for hierarchy "PS:Step11"
-Info: Elaborating entity "IR" for hierarchy "IR:Step12"
-Info: Elaborating entity "immediate" for hierarchy "immediate:Step13"
-Info: Generating hard_block partition "hard_block:auto_generated_inst"
-Warning: Design contains 26 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Instruction[0]"
-    Warning (15610): No output dependent on input pin "Instruction[1]"
-    Warning (15610): No output dependent on input pin "Instruction[2]"
-    Warning (15610): No output dependent on input pin "Instruction[3]"
-    Warning (15610): No output dependent on input pin "Instruction[4]"
-    Warning (15610): No output dependent on input pin "Instruction[5]"
-    Warning (15610): No output dependent on input pin "Instruction[6]"
-    Warning (15610): No output dependent on input pin "Instruction[7]"
-    Warning (15610): No output dependent on input pin "Instruction[8]"
-    Warning (15610): No output dependent on input pin "Instruction[9]"
-    Warning (15610): No output dependent on input pin "Instruction[10]"
-    Warning (15610): No output dependent on input pin "Instruction[11]"
-    Warning (15610): No output dependent on input pin "Instruction[12]"
-    Warning (15610): No output dependent on input pin "Instruction[13]"
-    Warning (15610): No output dependent on input pin "Instruction[14]"
-    Warning (15610): No output dependent on input pin "Instruction[15]"
-    Warning (15610): No output dependent on input pin "Instruction[16]"
-    Warning (15610): No output dependent on input pin "Instruction[17]"
-    Warning (15610): No output dependent on input pin "Instruction[18]"
-    Warning (15610): No output dependent on input pin "Instruction[19]"
-    Warning (15610): No output dependent on input pin "Instruction[20]"
-    Warning (15610): No output dependent on input pin "Instruction[21]"
-    Warning (15610): No output dependent on input pin "Instruction[22]"
-    Warning (15610): No output dependent on input pin "Instruction[23]"
-    Warning (15610): No output dependent on input pin "clock"
-    Warning (15610): No output dependent on input pin "reset"
-Info: Implemented 26 device resources after synthesis - the final resource count might be different
-    Info: Implemented 26 input pins
-    Info: Implemented 0 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 42 warnings
-    Info: Peak virtual memory: 312 megabytes
-    Info: Processing ended: Wed Nov 01 18:32:32 2017
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:03
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc_temp.vhdl
+    Info (12022): Found design unit 1: pc_temp-SYN
+    Info (12023): Found entity 1: PC_Temp
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/pc.vhdl
+    Info (12022): Found design unit 1: pc-SYN
+    Info (12023): Found entity 1: PC
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxpc.vhdl
+    Info (12022): Found design unit 1: muxpc-SYN
+    Info (12023): Found entity 1: MuxPC
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/muxinc.vhdl
+    Info (12022): Found design unit 1: muxinc-SYN
+    Info (12023): Found entity 1: MuxINC
+Info (12021): Found 1 design units, including 1 entities, in source file project/memfilesprocessor/memoryinterface.bdf
+    Info (12023): Found entity 1: MemoryInterface
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/mainmemory.vhdl
+    Info (12022): Found design unit 1: mainmemory-SYN
+    Info (12023): Found entity 1: MainMemory
+Info (12021): Found 1 design units, including 1 entities, in source file project/memfilesprocessor/instructionaddressgenerator.bdf
+    Info (12023): Found entity 1: InstructionAddressGenerator
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/const.vhdl
+    Info (12022): Found design unit 1: const-SYN
+    Info (12023): Found entity 1: Const
+Info (12021): Found 2 design units, including 1 entities, in source file project/memfilesprocessor/adder.vhdl
+    Info (12022): Found design unit 1: adder-SYN
+    Info (12023): Found entity 1: Adder
+Info (12021): Found 2 design units, including 1 entities, in source file project/reg_16.vhdl
+    Info (12022): Found design unit 1: reg_16-SYN
+    Info (12023): Found entity 1: Reg_16
+Info (12021): Found 2 design units, including 1 entities, in source file project/mux2_1.vhdl
+    Info (12022): Found design unit 1: mux2_1-SYN
+    Info (12023): Found entity 1: MUX2_1
+Info (12021): Found 1 design units, including 1 entities, in source file project/io_memoryinterface.bdf
+    Info (12023): Found entity 1: IO_MemoryInterface
+Info (12021): Found 2 design units, including 1 entities, in source file project/rz.vhdl
+    Info (12022): Found design unit 1: RZ-behavior
+    Info (12023): Found entity 1: RZ
+Info (12021): Found 2 design units, including 1 entities, in source file project/ry.vhdl
+    Info (12022): Found design unit 1: RY-behavior
+    Info (12023): Found entity 1: RY
+Info (12021): Found 2 design units, including 1 entities, in source file project/rm.vhdl
+    Info (12022): Found design unit 1: RM-behavior
+    Info (12023): Found entity 1: RM
+Info (12021): Found 2 design units, including 1 entities, in source file project/rb.vhdl
+    Info (12022): Found design unit 1: RB-behavior
+    Info (12023): Found entity 1: RB
+Info (12021): Found 2 design units, including 1 entities, in source file project/ra.vhdl
+    Info (12022): Found design unit 1: RA-behavior
+    Info (12023): Found entity 1: RA
+Info (12021): Found 2 design units, including 1 entities, in source file project/immediate.vhdl
+    Info (12022): Found design unit 1: immediate-arch
+    Info (12023): Found entity 1: immediate
+Info (12021): Found 2 design units, including 1 entities, in source file project/sixteenbitfa.vhdl
+    Info (12022): Found design unit 1: SIXTEENBITFA-FUADD
+    Info (12023): Found entity 1: SIXTEENBITFA
+Info (12021): Found 2 design units, including 1 entities, in source file project/registry.vhdl
+    Info (12022): Found design unit 1: Registry-LOGIC
+    Info (12023): Found entity 1: Registry
+Info (12021): Found 2 design units, including 1 entities, in source file project/reg16.vhdl
+    Info (12022): Found design unit 1: Reg16-behavior
+    Info (12023): Found entity 1: Reg16
+Info (12021): Found 2 design units, including 1 entities, in source file project/mux16.vhdl
+    Info (12022): Found design unit 1: mux16-multiplex
+    Info (12023): Found entity 1: mux16
+Info (12021): Found 2 design units, including 1 entities, in source file project/mux4to1.vhdl
+    Info (12022): Found design unit 1: MUX4TO1-Four21
+    Info (12023): Found entity 1: MUX4TO1
+Warning (12090): Entity "MUX" obtained from "project/MUX.vhdl" instead of from Quartus II megafunction library
+Info (12021): Found 2 design units, including 1 entities, in source file project/mux.vhdl
+    Info (12022): Found design unit 1: MUX-TwoTo1
+    Info (12023): Found entity 1: MUX
+Info (12021): Found 2 design units, including 1 entities, in source file project/flaglogic.vhdl
+    Info (12022): Found design unit 1: FLAGLOGIC-LOGIC
+    Info (12023): Found entity 1: FLAGLOGIC
+Info (12021): Found 2 design units, including 1 entities, in source file project/fa.vhdl
+    Info (12022): Found design unit 1: FA-ADD
+    Info (12023): Found entity 1: FA
+Info (12021): Found 2 design units, including 1 entities, in source file project/decoder16.vhdl
+    Info (12022): Found design unit 1: decoder16-decode
+    Info (12023): Found entity 1: decoder16
+Info (12021): Found 2 design units, including 1 entities, in source file project/cu.vhdl
+    Info (12022): Found design unit 1: CU-behavior
+    Info (12023): Found entity 1: CU
+Info (12021): Found 2 design units, including 1 entities, in source file project/alu.vhdl
+    Info (12022): Found design unit 1: ALU-LOGIC
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file project/processor.vhdl
+    Info (12022): Found design unit 1: processor-LOGIC
+    Info (12023): Found entity 1: processor
+Info (12021): Found 2 design units, including 1 entities, in source file project/ps.vhdl
+    Info (12022): Found design unit 1: PS-arch
+    Info (12023): Found entity 1: PS
+Info (12021): Found 2 design units, including 1 entities, in source file project/ir.vhdl
+    Info (12022): Found design unit 1: IR-arch
+    Info (12023): Found entity 1: IR
+Info (12021): Found 2 design units, including 1 entities, in source file project/muxb.vhdl
+    Info (12022): Found design unit 1: MUXB-MUX
+    Info (12023): Found entity 1: MUXB
+Info (12021): Found 2 design units, including 1 entities, in source file project/muxy.vhdl
+    Info (12022): Found design unit 1: MUXY-MUX
+    Info (12023): Found entity 1: MUXY
+Info (12021): Found 2 design units, including 1 entities, in source file project/mux6to1.vhdl
+    Info (12022): Found design unit 1: MUX6TO1-mux
+    Info (12023): Found entity 1: MUX6TO1
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(171): used implicit default value for signal "Sigmfc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(172): used implicit default value for signal "SigA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(172): used implicit default value for signal "SigB" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(181): used implicit default value for signal "SigDataY" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(186): used implicit default value for signal "SigmemIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at processor.vhdl(187): used implicit default value for signal "SigReturnAddress" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "CU" for hierarchy "CU:Step1"
+Info (12128): Elaborating entity "Registry" for hierarchy "Registry:Step2"
+Info (12128): Elaborating entity "decoder16" for hierarchy "Registry:Step2|decoder16:decoder"
+Info (12128): Elaborating entity "Reg16" for hierarchy "Registry:Step2|Reg16:Register1"
+Info (12128): Elaborating entity "mux16" for hierarchy "Registry:Step2|mux16:MUXA"
+Info (12128): Elaborating entity "RA" for hierarchy "RA:Step3"
+Info (12128): Elaborating entity "RB" for hierarchy "RB:Step4"
+Info (12128): Elaborating entity "RM" for hierarchy "RM:Step5"
+Info (12128): Elaborating entity "RY" for hierarchy "RY:Step6"
+Info (12128): Elaborating entity "RZ" for hierarchy "RZ:Step7"
+Info (12128): Elaborating entity "MUXB" for hierarchy "MUXB:Step8"
+Info (12128): Elaborating entity "MUXY" for hierarchy "MUXY:Step9"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:Step10"
+Info (12128): Elaborating entity "MUX" for hierarchy "ALU:Step10|MUX:MUXA"
+Info (12128): Elaborating entity "SIXTEENBITFA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD"
+Info (12128): Elaborating entity "FA" for hierarchy "ALU:Step10|SIXTEENBITFA:RIPPLEADD|FA:add0"
+Info (12128): Elaborating entity "MUX6TO1" for hierarchy "ALU:Step10|MUX6TO1:MUXFINAL"
+Info (12128): Elaborating entity "FLAGLOGIC" for hierarchy "ALU:Step10|FLAGLOGIC:FLAGCHECK"
+Info (12128): Elaborating entity "PS" for hierarchy "PS:Step11"
+Info (12128): Elaborating entity "IR" for hierarchy "IR:Step12"
+Info (12128): Elaborating entity "immediate" for hierarchy "immediate:Step13"
+Info (13005): Duplicate registers merged to single register
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "CU:Step1|Mod0"
+Info (12130): Elaborated megafunction instantiation "CU:Step1|lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "CU:Step1|lpm_divide:Mod0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_qlo.tdf
+    Info (12023): Found entity 1: lpm_divide_qlo
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k5f.tdf
+    Info (12023): Found entity 1: alt_u_div_k5f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
+    Info (12023): Found entity 1: lpm_abs_0s9
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ma_select" is stuck at VCC
+    Warning (13410): Pin "mem_write" is stuck at GND
+    Warning (13410): Pin "pc_select" is stuck at VCC
+    Warning (13410): Pin "pc_enable" is stuck at GND
+    Warning (13410): Pin "inc_select" is stuck at GND
+    Warning (13410): Pin "extend[0]" is stuck at GND
+    Warning (13410): Pin "extend[1]" is stuck at GND
+    Warning (13410): Pin "y_select[0]" is stuck at GND
+    Warning (13410): Pin "y_select[1]" is stuck at GND
+    Warning (13410): Pin "c_select[0]" is stuck at VCC
+    Warning (13410): Pin "c_select[1]" is stuck at GND
+    Warning (13410): Pin "b_select" is stuck at GND
+    Warning (13410): Pin "a_inv" is stuck at GND
+    Warning (13410): Pin "mfc" is stuck at GND
+    Warning (13410): Pin "A[0]" is stuck at GND
+    Warning (13410): Pin "A[1]" is stuck at GND
+    Warning (13410): Pin "A[2]" is stuck at GND
+    Warning (13410): Pin "A[3]" is stuck at GND
+    Warning (13410): Pin "A[4]" is stuck at GND
+    Warning (13410): Pin "A[5]" is stuck at GND
+    Warning (13410): Pin "A[6]" is stuck at GND
+    Warning (13410): Pin "A[7]" is stuck at GND
+    Warning (13410): Pin "A[8]" is stuck at GND
+    Warning (13410): Pin "A[9]" is stuck at GND
+    Warning (13410): Pin "A[10]" is stuck at GND
+    Warning (13410): Pin "A[11]" is stuck at GND
+    Warning (13410): Pin "A[12]" is stuck at GND
+    Warning (13410): Pin "A[13]" is stuck at GND
+    Warning (13410): Pin "A[14]" is stuck at GND
+    Warning (13410): Pin "A[15]" is stuck at GND
+    Warning (13410): Pin "B[0]" is stuck at GND
+    Warning (13410): Pin "B[1]" is stuck at GND
+    Warning (13410): Pin "B[2]" is stuck at GND
+    Warning (13410): Pin "B[3]" is stuck at GND
+    Warning (13410): Pin "B[4]" is stuck at GND
+    Warning (13410): Pin "B[5]" is stuck at GND
+    Warning (13410): Pin "B[6]" is stuck at GND
+    Warning (13410): Pin "B[7]" is stuck at GND
+    Warning (13410): Pin "B[8]" is stuck at GND
+    Warning (13410): Pin "B[9]" is stuck at GND
+    Warning (13410): Pin "B[10]" is stuck at GND
+    Warning (13410): Pin "B[11]" is stuck at GND
+    Warning (13410): Pin "B[12]" is stuck at GND
+    Warning (13410): Pin "B[13]" is stuck at GND
+    Warning (13410): Pin "B[14]" is stuck at GND
+    Warning (13410): Pin "B[15]" is stuck at GND
+    Warning (13410): Pin "DataY[0]" is stuck at GND
+    Warning (13410): Pin "DataY[1]" is stuck at GND
+    Warning (13410): Pin "DataY[2]" is stuck at GND
+    Warning (13410): Pin "DataY[3]" is stuck at GND
+    Warning (13410): Pin "DataY[4]" is stuck at GND
+    Warning (13410): Pin "DataY[5]" is stuck at GND
+    Warning (13410): Pin "DataY[6]" is stuck at GND
+    Warning (13410): Pin "DataY[7]" is stuck at GND
+    Warning (13410): Pin "DataY[8]" is stuck at GND
+    Warning (13410): Pin "DataY[9]" is stuck at GND
+    Warning (13410): Pin "DataY[10]" is stuck at GND
+    Warning (13410): Pin "DataY[11]" is stuck at GND
+    Warning (13410): Pin "DataY[12]" is stuck at GND
+    Warning (13410): Pin "DataY[13]" is stuck at GND
+    Warning (13410): Pin "DataY[14]" is stuck at GND
+    Warning (13410): Pin "DataY[15]" is stuck at GND
+    Warning (13410): Pin "enablePS" is stuck at VCC
+    Warning (13410): Pin "immediateB[7]" is stuck at GND
+    Warning (13410): Pin "immediateB[8]" is stuck at GND
+    Warning (13410): Pin "immediateB[9]" is stuck at GND
+    Warning (13410): Pin "immediateB[10]" is stuck at GND
+    Warning (13410): Pin "immediateB[11]" is stuck at GND
+    Warning (13410): Pin "immediateB[12]" is stuck at GND
+    Warning (13410): Pin "immediateB[13]" is stuck at GND
+    Warning (13410): Pin "immediateB[14]" is stuck at GND
+    Warning (13410): Pin "immediateB[15]" is stuck at GND
+    Warning (13410): Pin "memIn[0]" is stuck at GND
+    Warning (13410): Pin "memIn[1]" is stuck at GND
+    Warning (13410): Pin "memIn[2]" is stuck at GND
+    Warning (13410): Pin "memIn[3]" is stuck at GND
+    Warning (13410): Pin "memIn[4]" is stuck at GND
+    Warning (13410): Pin "memIn[5]" is stuck at GND
+    Warning (13410): Pin "memIn[6]" is stuck at GND
+    Warning (13410): Pin "memIn[7]" is stuck at GND
+    Warning (13410): Pin "memIn[8]" is stuck at GND
+    Warning (13410): Pin "memIn[9]" is stuck at GND
+    Warning (13410): Pin "memIn[10]" is stuck at GND
+    Warning (13410): Pin "memIn[11]" is stuck at GND
+    Warning (13410): Pin "memIn[12]" is stuck at GND
+    Warning (13410): Pin "memIn[13]" is stuck at GND
+    Warning (13410): Pin "memIn[14]" is stuck at GND
+    Warning (13410): Pin "memIn[15]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[0]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[1]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[2]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[3]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[4]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[5]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[6]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[7]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[8]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[9]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[10]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[11]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[12]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[13]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[14]" is stuck at GND
+    Warning (13410): Pin "ReturnAddress[15]" is stuck at GND
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+Info (21057): Implemented 3070 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 26 input pins
+    Info (21059): Implemented 334 output pins
+    Info (21061): Implemented 2710 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 113 warnings
+    Info: Peak virtual memory: 368 megabytes
+    Info: Processing ended: Fri Nov 03 15:16:40 2017
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:31
 
 
