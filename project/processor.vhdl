@@ -21,7 +21,6 @@ entity processor is
  N, C, V, Z : out std_logic;
  Nout, Cout, Vout, Zout : out std_logic;
  mfc : out std_logic;
- A, B : out std_logic_vector(15 downto 0);
  ALU_out : out std_logic_vector(15 downto 0);
  RegD, RegT, RegS : out std_logic_vector(3 downto 0);
  DataD : out std_logic_vector(15 downto 0);
@@ -169,7 +168,6 @@ signal SigN, SigC, SigV, SigZ : std_logic;
 signal SigNout, SigCout, SigVout, SigZout : std_logic;
 
 signal Sigmfc : std_logic;
-signal SigA, SigB : std_logic_vector(15 downto 0);
 signal SigALU_out : std_logic_vector(15 downto 0);
 signal SigEnable : std_logic;
 signal SigRegD, SigRegT, SigRegS : std_logic_vector(3 downto 0);
@@ -236,9 +234,7 @@ N <= SigN;
 C <= SigC;
 V <= SigV;
 Z <= SigZ;
-mfc <= Sigmfc;
-A <= SigA;
-B <= SigB;
+
 ALU_out <= SigALU_out;
 RegD <= SigRegD;
 RegT <= SigRegT;

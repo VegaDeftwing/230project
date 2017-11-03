@@ -2713,36 +2713,6 @@ data0
 
 # end
 # entity
-processor
-# storage
-db|Processor.(0).cnf
-db|Processor.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|processor.vhdl
-5d9442e9872e853d6a435bb490938137
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 Registry
 # storage
 db|Processor.(2).cnf
@@ -2794,6 +2764,36 @@ USR
 }
 # hierarchies {
 Registry:Step2
+}
+# macro_sequence
+
+# end
+# entity
+processor
+# storage
+db|Processor.(0).cnf
+db|Processor.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|processor.vhdl
+5a6263c3e04a9a66ccf85c783c2f2aae
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
 }
 # macro_sequence
 
