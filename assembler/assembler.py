@@ -21,16 +21,12 @@ print(" ")
 #open assembly file for reading
 inputfile  = open("inputfile", "r")
 outfile  = open("out.mif", "w")
-OpCodeStr = "sub"
-CondStr = "ls"
-SStr = "n"
-RegStr1 = "r1"
-RegStr2 = "r2"
-RegStr3 = "r3"
-RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
-DTypeList = ["test","Test2"]
-BTypeList = ["test","Test2"]
-JTypeList = ["test","Test2"]
+OpCodeStr = ""
+CondStr = ""
+SStr = ""
+RegStr1 = ""
+RegStr2 = ""
+RegStr3 = ""
 OpCode = ""
 Cond = ""
 S = ""
@@ -42,7 +38,7 @@ RegStr = ""
 FinalInstruction = ""
 i = 0
 
-### Set up .miv file header:
+### Set up .mif file header:
 outfile.write("WIDTH=24;\n")
 outfile.write("DEPTH=1024;\n")
 outfile.write("ADDRESS_RADIX=BIN;\n")
@@ -50,82 +46,25 @@ outfile.write("DATA_RADIX=HEX;\n")
 outfile.write("CONTENT BEGIN\n")
 outfile.write("0x0: 000000000000000000000000\n")
 
+tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
+reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","r13","r14","r15"]
+condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt","ge","le"]
+
+RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
+DTypeList = ["addi","subi"]
+BTypeList = ["test","Test2"]
+JTypeList = ["test","Test2"]
+
 def checkreg(RegStr):
-    if RegStr == "r0":
-        Reg = "0000"
-    if RegStr == "r1":
-        Reg = "0001"
-    if RegStr == "r2":
-        Reg = "0010"
-    if RegStr == "r3":
-        Reg = "0011"
-    if RegStr == "r4":
-        Reg = "0100"
-    if RegStr == "r5":
-        Reg = "0101"
-    if RegStr == "r6":
-        Reg = "0110"
-    if RegStr == "r7":
-        Reg = "0111"
-    if RegStr == "r8":
-        Reg = "1000"
-    if RegStr == "r9":
-        Reg = "1001"
-    if RegStr == "r10":
-        Reg = "1010"
-    if RegStr == "r11":
-        Reg = "1011"
-    if RegStr == "r12":
-        Reg = "1100"
-    if RegStr == "r13":
-        Reg = "1101"
-    if RegStr == "r14":
-        Reg = "1110"
-    if RegStr == "r15":
-        Reg = "1111"
+    for i in range(len(tosixteen)):
+        if RegStr == reglist[i]:
+            Reg = tosixteen[i]
     return Reg
 
-
-# def checks(SStr):
-#     if SStr == "n":
-#         S = "0"
-#     if SStr == "s":
-#         S = "1"
-#     return S
-
 def checkcond(CondStr):
-    if CondStr == "al":
-        Cond = "0000"
-    if CondStr == "nv":
-        Cond = "0001"
-    if CondStr == "eq":
-        Cond = "0010"
-    if CondStr == "ne":
-        Cond = "0011"
-    if CondStr == "vs":
-        Cond = "0100"
-    if CondStr == "vc":
-        Cond = "0101"
-    if CondStr == "mi":
-        Cond = "0110"
-    if CondStr == "pl":
-        Cond = "0111"
-    if CondStr == "cs":
-        Cond = "1000"
-    if CondStr == "cc":
-        Cond = "1001"
-    if CondStr == "hi":
-        Cond = "1010"
-    if CondStr == "ls":
-        Cond = "1011"
-    if CondStr == "gt":
-        Cond = "1100"
-    if CondStr == "lt":
-        Cond = "1101"
-    if CondStr == "ge":
-        Cond = "1110"
-    if CondStr == "le":
-        Cond = "1111"
+    for i in range(len(tosixteen)):
+        if CondStr == condlist[i]:
+            Cond = tosixteen[i]
     return Cond
 
 #read a line
@@ -134,9 +73,7 @@ for line in inputfile:
     address = hex(i)
     line = line.rstrip()
     StrArray = line.split()
-    OpCodeStr = StrArray[0]
-#tokenize line by spaces
-#detect insturtion type (RType, DType, BType, JType)
+    OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
     if OpCodeStr in RTypeList:
         print(line + " \033[95m RType \033[96m", end="")
         if len(StrArray) == 4:
@@ -148,6 +85,7 @@ for line in inputfile:
         elif len(StrArray) == 5:
             if StrArray[1] == "s":
                 S = "1"
+                CondStr = "al"
             else:
                 S = "0"
                 CondStr = StrArray [1]
@@ -190,11 +128,53 @@ for line in inputfile:
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
     elif OpCodeStr in DTypeList:
-        print("DType Found")
+        print(line + " \033[95m DType \033[96m", end="")
+        if len(StrArray) == 4: #No "S" or "Cond"
+            # if int(StrArray[1]) > 0b1111111:
+            #     print("Immediate Value out of bounds")
+            # else:
+            #     immediate = bin(StrArray[1])
+            immediate = bin(int(StrArray[1],2))
+            immediate = bin(int(StrArray[1],2)).lstrip('-0b').zfill(7)
+            S = "0"
+            CondStr = "al"
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[3]
+
+        if len(StrArray) == 5: #Check if its "S" or "Cond"
+            if StrArray[1] == "s":
+                S = "1"
+                CondStr = "al"
+            else:
+                S = "0"
+                CondStr = StrArray [1]
+            if StrArray[2] > 0b1111111:
+                print("Immediate Value out of bounds")
+            else:
+                immediate = bin(StrArray[2])
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[4]
+        if len(StrArray) == 6: #Everything is there
+            CondStr = StrArray[1]
+            S = 1
+            if StrArray[3] > 0b1111111:
+                print("Immediate Value out of bounds")
+            else:
+                immediate = bin(StrArray[3]).lstrip('-0b').zfill(7)
+            RegStr2 = StrArray[4]
+            RegStr3 = StrArray[5]
+        if OpCodeStr == "addi":
+            OpCode = "0000"
+        if OpCodeStr == "subi":
+            OpCode = "0000"
+        Cond = checkcond(CondStr)
+        RegS = checkreg(RegStr2)
+        RegT = checkreg(RegStr3)
+        FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
     elif OpCodeStr in BTypeList:
-        print("BType Found")
+        print(line + " \033[95m BType \033[96m", end="")
     elif OpCodeStr in JTypeList:
-        print("JType Found")
+        print(line + " \033[95m JType \033[96m", end="")
     else:
         print("Ya Dun Fucked Up")
         sys.exit(2)
@@ -208,10 +188,10 @@ for line in inputfile:
         FinalInstructionStr = "\033[92m[OK]"
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
-    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x" + FinalInstructionHex + " Address: " + address )
+    print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x"+ FinalInstructionHex  + " Address: " + address )
     outfile.write(str(address)+": "+str(FinalInstruction)+"\n")
 
-
+# TODO: output the 00 array at the end too
 outfile.write("END;\n")
 print("-----------------------------------------------------------")
 print("Assembly Compeleted")

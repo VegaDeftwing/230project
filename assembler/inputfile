@@ -1,4 +1,4 @@
-add r1 r2 r3
+addi 101 r2 r3
 add s r1 r2 r3
 sub r1 r2 r3
 sub al r4 r5 r6
