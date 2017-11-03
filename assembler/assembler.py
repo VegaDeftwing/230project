@@ -36,6 +36,8 @@ RegS = ""
 RegT = ""
 RegStr = ""
 FinalInstruction = ""
+labels = [""]
+addresses = [""]
 i = 0
 
 ### Set up .mif file header:
@@ -134,12 +136,12 @@ for line in inputfile:
             #     print("Immediate Value out of bounds")
             # else:
             #     immediate = bin(StrArray[1])
-            immediate = bin(int(StrArray[1],2))
-            immediate = bin(int(StrArray[1],2)).lstrip('-0b').zfill(7)
+            immediate = bin(int(StrArray[3],2))
+            immediate = bin(int(StrArray[3],2)).lstrip('-0b').zfill(7)
             S = "0"
             CondStr = "al"
-            RegStr2 = StrArray[2]
-            RegStr3 = StrArray[3]
+            RegStr2 = StrArray[1]
+            RegStr3 = StrArray[2]
 
         if len(StrArray) == 5: #Check if its "S" or "Cond"
             if StrArray[1] == "s":
@@ -148,21 +150,21 @@ for line in inputfile:
             else:
                 S = "0"
                 CondStr = StrArray [1]
-            if StrArray[2] > 0b1111111:
+            if StrArray[4] > 0b1111111:
                 print("Immediate Value out of bounds")
             else:
                 immediate = bin(StrArray[2])
-            RegStr2 = StrArray[3]
-            RegStr3 = StrArray[4]
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[3]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = 1
-            if StrArray[3] > 0b1111111:
+            if StrArray[5] > 0b1111111:
                 print("Immediate Value out of bounds")
             else:
                 immediate = bin(StrArray[3]).lstrip('-0b').zfill(7)
-            RegStr2 = StrArray[4]
-            RegStr3 = StrArray[5]
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[4]
         if OpCodeStr == "addi":
             OpCode = "0000"
         if OpCodeStr == "subi":
@@ -176,8 +178,13 @@ for line in inputfile:
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
-        print("Ya Dun Fucked Up")
-        sys.exit(2)
+        label = StrArray[0].rstrip(':')
+        labels.append(label)
+        addresses.append(address)
+        print(label +" @"+ address)
+
+        # print("Ya Dun Fucked Up")
+        # sys.exit(2)
 
     #
     # print(OpCode)
