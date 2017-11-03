@@ -37,8 +37,7 @@ signal Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15: std
 signal decoderOut : std_logic_vector(15 downto 0);
 begin	
 	decoder : decoder16 PORT MAP(RegD, decoderOut);
---	Q0 <= (OTHERS => '0'); SET TO 1 for testing pls fix
-		Q0 <= (OTHERS => '1'); 
+	Q0 <= (OTHERS => '0'); 
 
 	Register1 : reg16 PORT MAP(DataD, (Enable AND decoderOut(1)), Reset, Clock, Q1);
 	Register2 : reg16 PORT MAP(DataD, (Enable AND decoderOut(2)), Reset, Clock, Q2);

@@ -196,7 +196,7 @@ SigRegS <= SigInR(7 downto 4);
 SigRegT <= SigInR(3 downto 0);
 SigenablePS <= '1';
 
-Step1 : CU PORT MAP(SigInR(23 downto 20), SigCond, SigS, Sigopx, SigNout, SigCout, SigVout, SigZout, Sigmfc, Clock, Reset, SigALU_op, Sigc_select, Sigy_select, Sigrf_write, Sigb_select, Siga_inv, Sigb_inv, Sigextend, Sigir_enable, Sigma_select, Sigmem_read, Sigmem_write, Sigpc_select, Sigpc_enable, Siginc_select);
+Step1 : CU PORT MAP(SigopCode, SigCond, SigS, Sigopx, SigNout, SigCout, SigVout, SigZout, Sigmfc, Clock, Reset, SigALU_op, Sigc_select, Sigy_select, Sigrf_write, Sigb_select, Siga_inv, Sigb_inv, Sigextend, Sigir_enable, Sigma_select, Sigmem_read, Sigmem_write, Sigpc_select, Sigpc_enable, Siginc_select);
 Step2 : Registry PORT MAP(Reset, Sigrf_write, Clock, SigRegD, SigRegT, SigRegS, SigDataD, SigDataS, SigDataT);
 Step3 : RA PORT MAP(SigDataS, Reset, Clock, SigDataA);	
 Step4 : RB PORT MAP(SigDataT, Reset, Clock, SigDataB);	

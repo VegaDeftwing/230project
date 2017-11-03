@@ -82,62 +82,6 @@ CU:Step1
 
 # end
 # entity
-Registry
-# storage
-db|Processor.(2).cnf
-db|Processor.(2).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|registry.vhdl
-4c75a1c57bfa7d452b070a491fbe7be
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(regd)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(regt)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(regs)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(datad)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(datas)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(datat)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-Registry:Step2
-}
-# macro_sequence
-
-# end
-# entity
 decoder16
 # storage
 db|Processor.(3).cnf
@@ -2780,7 +2724,7 @@ ON
 # case_insensitive
 # source_file
 project|processor.vhdl
-9b731dec2cd958a51f64b2159de5f76
+5d9442e9872e853d6a435bb490938137
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -2794,6 +2738,62 @@ ON
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+Registry
+# storage
+db|Processor.(2).cnf
+db|Processor.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|registry.vhdl
+a81c199728628ebc92e2768575dfc7b8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(regd)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(regt)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(regs)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(datad)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(datas)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(datat)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+Registry:Step2
 }
 # macro_sequence
 
