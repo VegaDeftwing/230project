@@ -44,10 +44,10 @@ outputme = True
 ### Set up .mif file header:
 outfile.write("WIDTH=24;\n")
 outfile.write("DEPTH=1024;\n")
-outfile.write("ADDRESS_RADIX=BIN;\n")
-outfile.write("DATA_RADIX=HEX;\n")
+outfile.write("ADDRESS_RADIX=HEX;\n")
+outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
-outfile.write("0x0: 000000000000000000000000\n")
+outfile.write(" 0x0: 000000000000000000000000;\n")
 
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
 reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","r13","r14","r15"]
@@ -200,9 +200,12 @@ for line in inputfile:
         FinalInstructionStr = "\033[91m[FAIL]"
     if outputme:
         print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x"+ FinalInstructionHex  + " Address: " + address )
-        outfile.write(str(address)+": "+str(FinalInstruction)+"\n")
+        outfile.write(" " + str(address)+": "+str(FinalInstruction)+";\n")
     outputme = True
 # TODO: output the 00 array at the end too
+
+print(hex(1024) + "-"+ hex(i+1))
+outfile.write(" ["+ hex(i+1) + ".."+ hex(1024) + "] : 000000000000000000000000;\n" )
 outfile.write("END;\n")
 print("-----------------------------------------------------------")
 print("Assembly Compeleted")
