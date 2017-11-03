@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Fri Nov 03 16:50:15 2017
+Analysis & Synthesis Status : Successful - Fri Nov 03 17:48:15 2017
 Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition
 Revision Name : Processor
 Top-level Entity Name : processor
@@ -7,7 +7,7 @@ Total logic elements : 2,626
     Total combinational functions : 2,330
     Dedicated logic registers : 386
 Total registers : 386
-Total pins : 328
+Total pins : 312
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

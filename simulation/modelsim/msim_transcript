@@ -46,6 +46,7 @@
 # ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
 # This may because you are loading cell libraries which are not recommended with
 # the ModelSim Altera version. Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
 # 
 # view wave
 # .main_pane.wave.interior.cs.body.pw.wf
@@ -54,19 +55,8 @@
 # add wave reset
 # add wave clock
 # add wave instruction
-# add wave InR 
-# add wave opCode
-# add wave Cond 
-# add wave S 
-# add wave opx
 # add wave ir_enable
-# add wave ma_select
 # add wave mem_read
-# add wave mem_write
-# add wave pc_select
-# add wave pc_enable
-# add wave inc_select
-# add wave extend
 # add wave y_select
 # add wave c_select
 # add wave rf_write
@@ -78,7 +68,6 @@
 # add wave C
 # add wave V
 # add wave Z
-# 
 # add wave ALU_out 
 # add wave RegD
 # add wave RegT
@@ -88,27 +77,19 @@
 # add wave DataT 
 # add wave DataA 	
 # add wave DataB 
-# add wave DataM 
-# add wave DataY 
+# add wave DataM  
 # add wave DataZ 
-# add wave enablePS 
 # add wave immediateB 
-# add wave muxBout 
-# add wave memIn 
-# add wave ReturnAddress 
-# add wave muxYout 
-# add wave Nout
-# add wave Cout
-# add wave Vout
-# add wave Zout
+# add wave ReturnAddress  
+# 
 # 
 # force reset 0 0
 # force clock 0 0, 1 10  -repeat 20
 # 
-# force instruction 000000000100000000000000 0, 000000000011000000000000 110, 000000000111000000000000 210, 000000000110000000000000 310,  000000000101000000000000 410, 000000000100000100100011 510, 000000000011000100100011 610, 000000000111000100100011 710, 000000000110000100100011 810, 000000000101000100100011 910, 000000000100000100010001 1010, 000000000100000000000000 1110 -repeat 1210
+# force instruction 000000000100000000000000 0, 000000000011000000000000 110, 000000000111000000000000 210, 000000000110000000000000 310, 000000000101000000000000 410, 000000000100000100100011 510, 000000000011000100100011 610, 000000000111000100100011 710, 000000000110000100100011 810, 000000000101000100100011 910, 000000001100000000000000 1010, 000000010100000000000000 1110,  000000100100000100100011 1210, 000000101100000100100011 1310, 000000000100000000000000 1410, 000000000100000100010001 1510, 000000000100000000000000 1610 -repeat 1710
 # 
 # 
 # 
 # 
-# run 1210
+# run 1710
 #  
