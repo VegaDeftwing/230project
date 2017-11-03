@@ -1,0 +1,114 @@
+Archive Project report for Processor
+Fri Nov 03 18:07:50 2017
+Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Fri Nov 03 18:07:50 2017 ;
+; Revision Name          ; Processor                             ;
+; Top-level Entity Name  ; processor                             ;
+; Family                 ; Cyclone II                            ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/Project-Team9-Part2.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'Processor.archive.rpt'
+Info (23030): Evaluation of Tcl script c:/altera/11.1sp2/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 242 megabytes
+    Info: Processing ended: Fri Nov 03 18:07:50 2017
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++-----------------------------------------------------------+
+; Files Archived                                            ;
++-----------------------------------------------------------+
+; File Name                                                 ;
++-----------------------------------------------------------+
+; assembler/inputfile                                       ;
+; incremental_db/compiled_partitions/Processor.db_info      ;
+; Processor.qsf                                             ;
+; Processor_assignment_defaults.qdf                         ;
+; Project.qpf                                               ;
+; project/ALU.vhdl                                          ;
+; project/CU.vhdl                                           ;
+; project/decoder16.vhdl                                    ;
+; project/FA.do                                             ;
+; project/FA.vhdl                                           ;
+; project/FLAGLOGIC.vhdl                                    ;
+; project/immediate.vhdl                                    ;
+; project/IO_MemoryInterface.bdf                            ;
+; project/IR.vhdl                                           ;
+; project/memFilesProcessor/Adder.vhdl                      ;
+; project/memFilesProcessor/Const.vhdl                      ;
+; project/memFilesProcessor/InstructionAddressGenerator.bdf ;
+; project/memFilesProcessor/MainMemory.vhdl                 ;
+; project/memFilesProcessor/MemoryInterface.bdf             ;
+; project/memFilesProcessor/MuxINC.vhdl                     ;
+; project/memFilesProcessor/MuxPC.vhdl                      ;
+; project/memFilesProcessor/PC.vhdl                         ;
+; project/memFilesProcessor/PC_Temp.vhdl                    ;
+; project/MUX.vhdl                                          ;
+; project/MUX2_1.vhdl                                       ;
+; project/MUX4TO1.vhdl                                      ;
+; project/MUX6TO1.vhdl                                      ;
+; project/mux16.vhdl                                        ;
+; project/MUXB.vhdl                                         ;
+; project/MUXY.vhdl                                         ;
+; project/phaseII.do                                        ;
+; project/processor.vhdl                                    ;
+; project/PS.vhdl                                           ;
+; project/RA.vhdl                                           ;
+; project/RB.vhdl                                           ;
+; project/reg16.vhdl                                        ;
+; project/Reg_16.vhdl                                       ;
+; project/Registry.vhdl                                     ;
+; project/RM.vhdl                                           ;
+; project/RY.vhdl                                           ;
+; project/RZ.vhdl                                           ;
+; project/SIXTEENBITFA.vhdl                                 ;
++-----------------------------------------------------------+
+
+
