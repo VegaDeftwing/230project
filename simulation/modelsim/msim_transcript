@@ -22,74 +22,11 @@
 # -- Compiling entity processor
 # -- Compiling architecture structure of processor
 # 
-# do "C:/Users/Zed/Desktop/CSCE230/230project/project/phaseII.do"
-# vsim processor
-# vsim processor 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.vital_timing(body)
-# Loading ieee.vital_primitives(body)
-# Loading cycloneii.cycloneii_atom_pack(body)
-# Loading cycloneii.cycloneii_components
-# Loading work.processor(structure)
-# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
-# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
-# Loading cycloneii.cycloneii_and1(altvital)
-# Loading ieee.std_logic_arith(body)
-# Loading cycloneii.cycloneii_io(structure)
-# Loading cycloneii.cycloneii_mux21(altvital)
-# Loading cycloneii.cycloneii_dffe(behave)
-# Loading cycloneii.cycloneii_asynch_io(behave)
-# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
-# Loading cycloneii.cycloneii_ena_reg(behave)
-# ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
-# This may because you are loading cell libraries which are not recommended with
-# the ModelSim Altera version. Expect performance to be adversely affected.
-# WARNING: No extended dataflow license exists
-# 
-# view wave
-# .main_pane.wave.interior.cs.body.pw.wf
-# 
-# 
-# add wave reset
-# add wave clock
-# add wave instruction
-# add wave ir_enable
-# add wave mem_read
-# add wave y_select
-# add wave c_select
-# add wave rf_write
-# add wave b_select
-# add wave a_inv
-# add wave b_inv
-# add wave alu_op
-# add wave N
-# add wave C
-# add wave V
-# add wave Z
-# add wave ALU_out 
-# add wave RegD
-# add wave RegT
-# add wave RegS
-# add wave DataD 
-# add wave DataS
-# add wave DataT 
-# add wave DataA 	
-# add wave DataB 
-# add wave DataM  
-# add wave DataZ 
-# add wave immediateB 
-# add wave ReturnAddress  
-# 
-# 
-# force reset 0 0
-# force clock 0 0, 1 10  -repeat 20
-# 
-# force instruction 000000000100000000000000 0, 000000000011000000000000 110, 000000000111000000000000 210, 000000000110000000000000 310, 000000000101000000000000 410, 000000000100000100100011 510, 000000000011000100100011 610, 000000000111000100100011 710, 000000000110000100100011 810, 000000000101000100100011 910, 000000001100000000000000 1010, 000000010100000000000000 1110,  000000100100000100100011 1210, 000000101100000100100011 1310, 000000000100000000000000 1410, 000000000100000100010001 1510, 000000000100000000000000 1610 -repeat 1710
-# 
-# 
-# 
-# 
-# run 1710
-#  
+# do "C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.do"
+# vsim FASTADDER
+# vsim FASTADDER 
+# ** Error: (vsim-3170) Could not find 'C:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim\gate_work.FASTADDER'.
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO C:\Users\Zed\Desktop\CSCE230\230project\project\FASTADDER.do PAUSED at line 1
