@@ -12,14 +12,17 @@ entity SIXTEENBITFA is
 end SIXTEENBITFA;
 
 architecture FUADD of SIXTEENBITFA is
-COMPONENT FA 
-	PORT( A, B, Cin: in std_logic;
-	S, Cout : out std_logic);	
+
+COMPONENT FA
+	port(
+		A, B, Cin : in std_logic;
+		S, Cout : out std_logic
+	);
 END COMPONENT;
 
-signal Carry : std_logic_vector(14 downto 0);	
-
+signal Carry : std_logic_vector(15 downto 0);
 begin	
+
 	add0 : FA PORT MAP(A(0),B(0),Cin,F(0),Carry(0));
 	add1 : FA PORT MAP(A(1),B(1),Carry(0),F(1),Carry(1));
 	add2 : FA PORT MAP(A(2),B(2),Carry(1),F(2),Carry(2));

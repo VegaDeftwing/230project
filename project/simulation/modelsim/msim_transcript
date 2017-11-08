@@ -1,0 +1,57 @@
+# Reading C:/altera/11.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do FASTADDER_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying c:\altera\11.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied c:\altera\11.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {FASTADDER.vho}
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity FASTADDER
+# -- Compiling architecture structure of FASTADDER
+# 
+# do "C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.do"
+# vsim FASTADDER
+# vsim FASTADDER 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.fastadder(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# WARNING: No extended dataflow license exists
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# add wave A
+# add wave B
+# add wave Cin
+# add wave F
+# add wave C14
+# add wave C15
+# 
+# force A 1011111111111111 0, 0100000000000001 20, 1010000000000000 60 -repeat 60
+# force B 0100000000000010 0, 0010000000000000 60, 1000010001000001 120 -repeat 120
+# force Cin 0 0, 1 120 -repeat 240
+# run 480
+# 
+#  

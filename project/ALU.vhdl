@@ -13,7 +13,14 @@ entity ALU is
 end ALU;
 
 architecture LOGIC of ALU is
-COMPONENT SIXTEENBITFA 
+--COMPONENT SIXTEENBITFA 
+--	PORT(
+--		A, B : in std_logic_vector(15 downto 0);
+--		Cin : in std_logic;
+--		F : out std_logic_vector(15 downto 0);
+--		C14, C15 : out std_logic);
+--END COMPONENT;
+COMPONENT FASTADDER 
 	PORT(
 		A, B : in std_logic_vector(15 downto 0);
 		Cin : in std_logic;
@@ -47,7 +54,8 @@ begin
 
 	MUXA : MUX PORT MAP(A, (NOT A), A_inv, MUXAOUT);
 	MUXB : MUX PORT MAP(B, (NOT B), B_inv, MUXBOUT);
-	RIPPLEADD : SIXTEENBITFA PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
+--	RIPPLEADD : SIXTEENBITFA PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
+	FASTADD : FASTADDER PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
 	MUXFINAL : MUX6TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S, MULT, DIV, ALU_out);
 	FLAGCHECK : FLAGLOGIC PORT MAP(C14, C15, S, N, C, Z, V);
 end LOGIC;
