@@ -279,7 +279,10 @@ for line in inputfile:
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
-        1 + 1
+        label = StrArray[0].rstrip(':')
+        print(label +" @"+ address)
+        i = i - 1
+        outputme = False
 
         # print("Ya Dun Fucked Up")
         # sys.exit(2)
