@@ -54,7 +54,8 @@ reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","
 condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt","ge","le"]
 
 RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
-DTypeList = ["addi","subi","lw","ldw","sw","stw"]
+DTypeList = ["addi","subi"]
+DTMemList = ["lw","ldw","sw","stw"]
 BTypeList = ["test","Test2"]
 JTypeList = ["test","Test2"]
 
@@ -75,6 +76,9 @@ for line in inputfile:
     i = i + 1
     address = hex(i)
     line = line.lower()
+    line = line.replace(',',' ')
+    line = line.replace('(',' ')
+    line = line.replace(')',' ')
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
@@ -174,6 +178,42 @@ for line in inputfile:
             immediate = int(immediate,2) ^ 0b1111111
             immediate = immediate + 0b1
             immediate = bin(immediate).lstrip('-0b').zfill(7)
+        Cond = checkcond(CondStr)
+        RegS = checkreg(RegStr2)
+        RegT = checkreg(RegStr3)
+        FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
+    elif OpCodeStr in DTMemList:
+        #ldw r1 (4)r2
+        print(line + " \033[95m DType \033[96m", end="")
+        if len(StrArray) == 4: #No "S" or "Cond"
+            if int(StrArray[2]) > 127:
+                print("Immediate Value out of bounds")
+            immediate = bin(int(StrArray[2])).lstrip('-0b').zfill(7)
+            S = "0"
+            CondStr = "al"
+            RegStr2 = StrArray[1]
+            RegStr3 = StrArray[3]
+
+        if len(StrArray) == 5: #Check if its "S" or "Cond"
+            if StrArray[1] == "s":
+                S = "1"
+                CondStr = "al"
+            else:
+                S = "0"
+                CondStr = StrArray [1]
+            if int(StrArray[3]) > 127:
+                print("Immediate Value out of bounds")
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[4]
+        if len(StrArray) == 6: #Everything is there
+            CondStr = StrArray[1]
+            S = 1
+            if int(StrArray[4]) > 127:
+                print("Immediate Value out of bounds")
+            else:
+                immediate = bin(int(StrArray[4])).lstrip('-0b').zfill(7)
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[5]
         if OpCodeStr == "ldw" or OpCodeStr == "lw":
             OpCode = "0100"
         if OpCodeStr == "stw" or OpCodeStr == "sw":
