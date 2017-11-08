@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/assembler/inputfile
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/phaseII.do
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl
@@ -37,8 +38,8 @@ source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/IR.vhdl
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/MUXB.vhdl
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/MUXY.vhdl
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/MUX6TO1.vhdl
-source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/FAST4BITADDER.vhdl
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.vhdl
+source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.do
 source_file = 1, C:/Users/Zed/Desktop/CSCE230/230project/db/Processor.cbx.xml
 source_file = 1, c:/altera/11.1sp2/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, c:/altera/11.1sp2/quartus/libraries/vhdl/ieee/prmtvs_p.vhd

@@ -2791,7 +2791,7 @@ ON
 }
 # case_insensitive
 # source_file
-fast4bitadder.vhdl
+project|fast4bitadder.vhdl
 49ec3b69b239f5454b9ff2453f9f4964
 5
 # internal_option {

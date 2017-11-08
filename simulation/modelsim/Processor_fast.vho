@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 32-bit"
 -- VERSION "Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition"
 
--- DATE "11/05/2017 17:53:07"
+-- DATE "11/05/2017 18:39:57"
 
 -- 
 -- Device: Altera EP2C35F672C6 Package FBGA672
@@ -3506,6 +3506,17 @@ SIGNAL \Step5|output[12]~feeder_combout\ : std_logic;
 SIGNAL \Step5|output[13]~feeder_combout\ : std_logic;
 SIGNAL \Step5|output[14]~feeder_combout\ : std_logic;
 SIGNAL \Step5|output[15]~feeder_combout\ : std_logic;
+SIGNAL \Instruction~combout\ : std_logic_vector(23 DOWNTO 0);
+SIGNAL \Step12|Instruction\ : std_logic_vector(23 DOWNTO 0);
+SIGNAL \Step10|FASTADD|add0to3|S\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \Step7|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step6|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step5|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step4|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step3|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step2|Register1|output\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \Step1|alu_op\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \Step1|stage\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \Step10|FASTADD|add12to15|S\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \Step10|FASTADD|add8to11|S\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \Step10|FASTADD|add4to7|S\ : std_logic_vector(3 DOWNTO 0);
@@ -3523,17 +3534,6 @@ SIGNAL \Step2|Register5|output\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \Step2|Register4|output\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \Step2|Register3|output\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \Step2|Register2|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Instruction~combout\ : std_logic_vector(23 DOWNTO 0);
-SIGNAL \Step12|Instruction\ : std_logic_vector(23 DOWNTO 0);
-SIGNAL \Step10|FASTADD|add0to3|S\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \Step7|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step6|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step5|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step4|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step3|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step2|Register1|output\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \Step1|alu_op\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \Step1|stage\ : std_logic_vector(31 DOWNTO 0);
 
 BEGIN
 
