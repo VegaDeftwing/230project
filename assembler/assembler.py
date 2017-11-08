@@ -4,7 +4,7 @@ import sys
 print(" ")
 print("-----------------------------------------------------------")
 print("Assembler for CSCE230 project")
-print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Edinger\033[92m")
+print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Ediger\033[92m")
 print("-----------------------------------------------------------")
 print(" ")
 
@@ -54,7 +54,7 @@ reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","
 condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt","ge","le"]
 
 RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
-DTypeList = ["addi","subi"]
+DTypeList = ["addi","subi","lw","ldw","sw","stw"]
 BTypeList = ["test","Test2"]
 JTypeList = ["test","Test2"]
 
@@ -74,6 +74,7 @@ def checkcond(CondStr):
 for line in inputfile:
     i = i + 1
     address = hex(i)
+    line = line.lower()
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
@@ -137,8 +138,8 @@ for line in inputfile:
             #     print("Immediate Value out of bounds")
             # else:
             #     immediate = bin(StrArray[1])
-            immediate = bin(int(StrArray[3],2))
-            immediate = bin(int(StrArray[3],2)).lstrip('-0b').zfill(7)
+            immediate = bin(int(StrArray[3]))
+            immediate = bin(int(StrArray[3])).lstrip('-0b').zfill(7)
             S = "0"
             CondStr = "al"
             RegStr2 = StrArray[1]
@@ -167,9 +168,16 @@ for line in inputfile:
             RegStr2 = StrArray[3]
             RegStr3 = StrArray[4]
         if OpCodeStr == "addi":
-            OpCode = "0000"
+            OpCode = "0110"
         if OpCodeStr == "subi":
-            OpCode = "0000"
+            OpCode = "0110"
+            immediate = int(immediate,2) ^ 0b1111111
+            immediate = immediate + 0b1
+            immediate = bin(immediate).lstrip('-0b').zfill(7)
+        if OpCodeStr == "ldw" or OpCodeStr == "lw":
+            OpCode = "0100"
+        if OpCodeStr == "stw" or OpCodeStr == "sw":
+            OpCode = "0101"
         Cond = checkcond(CondStr)
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
