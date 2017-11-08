@@ -40,6 +40,7 @@ FinalInstruction = ""
 labels = [""]
 addresses = [""]
 i = 0
+j = 0
 outputme = True
 
 ### Set up .mif file header:
@@ -73,6 +74,33 @@ def checkcond(CondStr):
     return Cond
 
 #read a line
+for line in inputfile:
+    j = j + 1
+    address = hex(j)
+    line = line.rstrip()
+    StrArray = line.split()
+    OpCodeStr = StrArray[0]
+    if OpCodeStr in RTypeList:
+        1 + 1
+    elif OpCodeStr in DTypeList:
+        1 + 1
+    elif OpCodeStr in DTMemList:
+        1 + 1
+    elif OpCodeStr in BTypeList:
+        1 + 1
+    elif OpCodeStr in JTypeList:
+        1 + 1
+    else:
+        label = StrArray[0].rstrip(':')
+        labels.append(label)
+        addresses.append(address)
+        print(label +" @"+ address)
+        j = j - 1
+        outputme = False
+
+print("-----------------------------------------------------------")
+
+inputfile  = open("inputfile", "r")
 for line in inputfile:
     i = i + 1
     address = hex(i)
