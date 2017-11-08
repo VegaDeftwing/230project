@@ -41,6 +41,7 @@ labels = [""]
 addresses = [""]
 i = 0
 j = 0
+OpCodeStra = " "
 outputme = True
 
 ### Set up .mif file header:
@@ -77,6 +78,7 @@ def checkcond(CondStr):
 for line in inputfile:
     j = j + 1
     address = hex(j)
+    line = line.lower()
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0]
@@ -96,10 +98,9 @@ for line in inputfile:
         addresses.append(address)
         print(label +" @"+ address)
         j = j - 1
-        outputme = False
 
 print("-----------------------------------------------------------")
-
+inputfile.close
 inputfile  = open("inputfile", "r")
 for line in inputfile:
     i = i + 1
@@ -278,12 +279,7 @@ for line in inputfile:
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
-        label = StrArray[0].rstrip(':')
-        labels.append(label)
-        addresses.append(address)
-        print(label +" @"+ address)
-        i = i - 1
-        outputme = False
+        1 + 1
 
         # print("Ya Dun Fucked Up")
         # sys.exit(2)
@@ -312,3 +308,5 @@ print(" ")
 inputfile.close
 print("-----------------------------------------------------------")
 print(" ")
+print(labels)
+print(addresses)
