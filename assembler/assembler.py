@@ -35,6 +35,7 @@ RegD = ""
 RegS = ""
 RegT = ""
 RegStr = ""
+Label = ""
 FinalInstruction = ""
 labels = [""]
 addresses = [""]
@@ -56,7 +57,7 @@ condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt
 RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
 DTypeList = ["addi","subi"]
 DTMemList = ["lw","ldw","sw","stw"]
-BTypeList = ["test","Test2"]
+BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
 JTypeList = ["test","Test2"]
 
 def checkreg(RegStr):
@@ -207,7 +208,7 @@ for line in inputfile:
             RegStr3 = StrArray[4]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
-            S = 1
+            S = "1"
             if int(StrArray[4]) > 127:
                 print("Immediate Value out of bounds")
             else:
@@ -224,6 +225,28 @@ for line in inputfile:
         FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
     elif OpCodeStr in BTypeList:
         print(line + " \033[95m BType \033[96m", end="")
+        if len(StrArray) == 3:
+            CondStr = StrArray[1]
+            Label = StrArray[2]
+        else:
+            CondStr = "al"
+            Label = StrArray[1]
+        if OpCodeStr == "bal":
+            OpCode = "1001"
+        else:
+            OpCode = "1000"
+        if OpCodeStr == "beq":
+            CondStr = "eq"
+        if OpCodeStr == "bgt":
+            CondStr = "gt"
+        if OpCodeStr == "blt":
+            CondStr = "lt"
+        if OpCodeStr == "bge":
+            CondStr = "ge"
+        if OpCodeStr == "ble":
+            CondStr = "le"
+        Cond = checkcond(CondStr)
+
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
