@@ -37,8 +37,12 @@ signal Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15: std
 signal decoderOut : std_logic_vector(15 downto 0);
 begin	
 	decoder : decoder16 PORT MAP(RegD, decoderOut);
---	Q0 <= (OTHERS => '0'); 
-	Q0 <= "0000000000000001";
+--Registry R0 has value 0, always
+	Q0 <= (OTHERS => '0'); 
+-- Q0 is set to 1 purely for testing purposes until we can input immediate values.
+--	Q0 <= "0000000000000001";
+--These port maps map values to registers based on the enable flag, and the decoder output, (which specifies which register has DataD saved in it), based on the clock.
+--The reg16 values, stored in corresponding Q signals, are mapped to a MUX16, and, are chosen to be output as either DataS or DataT based on the value of control strings RegS and RegT, respectively.
 	Register1 : reg16 PORT MAP(DataD, (Enable AND decoderOut(1)), Reset, Clock, Q1);
 	Register2 : reg16 PORT MAP(DataD, (Enable AND decoderOut(2)), Reset, Clock, Q2);
 	Register3 : reg16 PORT MAP(DataD, (Enable AND decoderOut(3)), Reset, Clock, Q3);

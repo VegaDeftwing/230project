@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-
+--This is the MUX for the main ALU. 
 entity MUX6TO1 is
 	port(
 		alu_op : in std_logic_vector(2 downto 0);
@@ -11,7 +11,7 @@ entity MUX6TO1 is
 end MUX6TO1;
 
 architecture mux of MUX6TO1 is
-
+-- chooses which ALU potential output to use, based on alu_op
 begin	
 	with alu_op select ALU_out <=
 		 in1 when "000" ,

@@ -11,7 +11,7 @@ entity FLAGLOGIC is
 end FLAGLOGIC;
 
 architecture LOGIC of FLAGLOGIC is
-
+-- used in ALU to determine flags
 begin	
 		N <= S(15);
 		C <= C15;

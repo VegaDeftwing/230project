@@ -11,7 +11,7 @@ f : OUT std_logic_vector(15 downto 0)
 end mux16;
 
 architecture multiplex of mux16 is
-
+--This mux is used with flags, and each register value, to determine desired output register data.
 begin
 	with sel select f <=
 		 d0 when "0000" ,

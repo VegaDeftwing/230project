@@ -11,7 +11,7 @@ entity PS is
 end PS;
 
 architecture arch of PS is
-
+-- stores flags. see processor.vhdl for better documentation
 begin
 PROCESS(Clock, reset)
 	BEGIN

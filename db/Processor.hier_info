@@ -25,20 +25,20 @@ Instruction[22] => IR:Step12.IRin[22]
 Instruction[23] => IR:Step12.IRin[23]
 clock => CU:Step1.clock
 clock => Registry:Step2.Clock
-clock => RA:Step3.Clock
-clock => RB:Step4.Clock
-clock => RM:Step5.Clock
-clock => RY:Step6.Clock
-clock => RZ:Step7.Clock
+clock => BUFFREG:Step3.Clock
+clock => BUFFREG:Step4.Clock
+clock => BUFFREG:Step5.Clock
+clock => BUFFREG:Step6.Clock
+clock => BUFFREG:Step7.Clock
 clock => PS:Step11.Clock
 clock => IR:Step12.Clock
 reset => CU:Step1.reset
 reset => Registry:Step2.Reset
-reset => RA:Step3.reset
-reset => RB:Step4.reset
-reset => RM:Step5.reset
-reset => RY:Step6.reset
-reset => RZ:Step7.reset
+reset => BUFFREG:Step3.reset
+reset => BUFFREG:Step4.reset
+reset => BUFFREG:Step5.reset
+reset => BUFFREG:Step6.reset
+reset => BUFFREG:Step7.reset
 reset => PS:Step11.reset
 reset => IR:Step12.reset
 
@@ -46,9 +46,15 @@ reset => IR:Step12.reset
 |processor|CU:Step1
 opCode[0] => process_0.IN0
 opCode[0] => process_0.IN0
+opCode[0] => process_0.IN0
+opCode[0] => process_0.IN0
+opCode[1] => process_0.IN1
+opCode[1] => process_0.IN1
 opCode[1] => process_0.IN1
 opCode[1] => process_0.IN1
 opCode[2] => process_0.IN0
+opCode[2] => process_0.IN0
+opCode[3] => process_0.IN1
 opCode[3] => process_0.IN1
 Cond[0] => ~NO_FANOUT~
 Cond[1] => ~NO_FANOUT~
@@ -76,6 +82,49 @@ opx[2] => Equal7.IN2
 opx[2] => Equal8.IN0
 opx[2] => Equal9.IN0
 opx[2] => Equal10.IN0
+Immediate[0] => ~NO_FANOUT~
+Immediate[1] => ~NO_FANOUT~
+Immediate[2] => ~NO_FANOUT~
+Immediate[3] => ~NO_FANOUT~
+Immediate[4] => ~NO_FANOUT~
+Immediate[5] => ~NO_FANOUT~
+Immediate[6] => extend.OUTPUTSELECT
+BLabel[0] => ~NO_FANOUT~
+BLabel[1] => ~NO_FANOUT~
+BLabel[2] => ~NO_FANOUT~
+BLabel[3] => ~NO_FANOUT~
+BLabel[4] => ~NO_FANOUT~
+BLabel[5] => ~NO_FANOUT~
+BLabel[6] => ~NO_FANOUT~
+BLabel[7] => ~NO_FANOUT~
+BLabel[8] => ~NO_FANOUT~
+BLabel[9] => ~NO_FANOUT~
+BLabel[10] => ~NO_FANOUT~
+BLabel[11] => ~NO_FANOUT~
+BLabel[12] => ~NO_FANOUT~
+BLabel[13] => ~NO_FANOUT~
+BLabel[14] => ~NO_FANOUT~
+BLabel[15] => ~NO_FANOUT~
+JConstant[0] => ~NO_FANOUT~
+JConstant[1] => ~NO_FANOUT~
+JConstant[2] => ~NO_FANOUT~
+JConstant[3] => ~NO_FANOUT~
+JConstant[4] => ~NO_FANOUT~
+JConstant[5] => ~NO_FANOUT~
+JConstant[6] => ~NO_FANOUT~
+JConstant[7] => ~NO_FANOUT~
+JConstant[8] => ~NO_FANOUT~
+JConstant[9] => ~NO_FANOUT~
+JConstant[10] => ~NO_FANOUT~
+JConstant[11] => ~NO_FANOUT~
+JConstant[12] => ~NO_FANOUT~
+JConstant[13] => ~NO_FANOUT~
+JConstant[14] => ~NO_FANOUT~
+JConstant[15] => ~NO_FANOUT~
+JConstant[16] => ~NO_FANOUT~
+JConstant[17] => ~NO_FANOUT~
+JConstant[18] => ~NO_FANOUT~
+JConstant[19] => ~NO_FANOUT~
 N => ~NO_FANOUT~
 C => ~NO_FANOUT~
 V => ~NO_FANOUT~
@@ -89,8 +138,7 @@ clock => mem_write~reg0.CLK
 clock => mem_read~reg0.CLK
 clock => ma_select~reg0.CLK
 clock => ir_enable~reg0.CLK
-clock => extend[0]~reg0.CLK
-clock => extend[1]~reg0.CLK
+clock => extend~reg0.CLK
 clock => b_inv~reg0.CLK
 clock => a_inv~reg0.CLK
 clock => b_select~reg0.CLK
@@ -2187,7 +2235,7 @@ sel[3] => Mux14.IN16
 sel[3] => Mux15.IN16
 
 
-|processor|RA:Step3
+|processor|BUFFREG:Step3
 data[0] => output[0]~reg0.DATAIN
 data[1] => output[1]~reg0.DATAIN
 data[2] => output[2]~reg0.DATAIN
@@ -2238,7 +2286,7 @@ Clock => output[14]~reg0.CLK
 Clock => output[15]~reg0.CLK
 
 
-|processor|RB:Step4
+|processor|BUFFREG:Step4
 data[0] => output[0]~reg0.DATAIN
 data[1] => output[1]~reg0.DATAIN
 data[2] => output[2]~reg0.DATAIN
@@ -2289,7 +2337,7 @@ Clock => output[14]~reg0.CLK
 Clock => output[15]~reg0.CLK
 
 
-|processor|RM:Step5
+|processor|BUFFREG:Step5
 data[0] => output[0]~reg0.DATAIN
 data[1] => output[1]~reg0.DATAIN
 data[2] => output[2]~reg0.DATAIN
@@ -2340,7 +2388,7 @@ Clock => output[14]~reg0.CLK
 Clock => output[15]~reg0.CLK
 
 
-|processor|RY:Step6
+|processor|BUFFREG:Step6
 data[0] => output[0]~reg0.DATAIN
 data[1] => output[1]~reg0.DATAIN
 data[2] => output[2]~reg0.DATAIN
@@ -2391,7 +2439,7 @@ Clock => output[14]~reg0.CLK
 Clock => output[15]~reg0.CLK
 
 
-|processor|RZ:Step7
+|processor|BUFFREG:Step7
 data[0] => output[0]~reg0.DATAIN
 data[1] => output[1]~reg0.DATAIN
 data[2] => output[2]~reg0.DATAIN
@@ -3247,17 +3295,15 @@ immed[2] => immedEx[2].DATAIN
 immed[3] => immedEx[3].DATAIN
 immed[4] => immedEx[4].DATAIN
 immed[5] => immedEx[5].DATAIN
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
-immed[6] => immedEx.DATAA
 immed[6] => immedEx[6].DATAIN
-extend[0] => Equal0.IN1
-extend[1] => Equal0.IN0
+extend => immedEx[7].DATAIN
+extend => immedEx[15].DATAIN
+extend => immedEx[14].DATAIN
+extend => immedEx[13].DATAIN
+extend => immedEx[12].DATAIN
+extend => immedEx[11].DATAIN
+extend => immedEx[10].DATAIN
+extend => immedEx[9].DATAIN
+extend => immedEx[8].DATAIN
 
 

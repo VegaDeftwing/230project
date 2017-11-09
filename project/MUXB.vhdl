@@ -10,7 +10,7 @@ entity MUXB is
 	muxBout : out std_logic_vector(15 downto 0)
 	);
 end MUXB;
-
+--chooses whether to use immediate or registry value into ALU
 architecture MUX of MUXB is
 begin	
 	with b_select select muxBout <=

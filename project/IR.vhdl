@@ -10,7 +10,7 @@ entity IR is
 end IR;
 
 architecture arch of IR is
-
+-- instruction register. Checks for enable bit, resets when reset flag is on, and otherwise updates instruction on rising clock edge
 begin
 PROCESS(Clock, reset)
 	BEGIN

@@ -1,5 +1,5 @@
 Assembler report for Processor
-Sun Nov 05 18:39:15 2017
+Wed Nov 08 18:08:16 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Nov 05 18:39:15 2017 ;
+; Assembler Status      ; Successful - Wed Nov 08 18:08:16 2017 ;
 ; Revision Name         ; Processor                             ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; Cyclone II                            ;
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+----------------------------------------------------------------+
 ; Device         ; EP2C35F672C6                                                   ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                     ;
-; Checksum       ; 0x004D89EF                                                     ;
+; Checksum       ; 0x004E35ED                                                     ;
 +----------------+----------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+------------------------------------------------------------+
 ; Device             ; EPCS16                                                     ;
 ; JTAG usercode      ; 0x00000000                                                 ;
-; Checksum           ; 0x1C42E733                                                 ;
+; Checksum           ; 0x1C449C4D                                                 ;
 ; Compression Ratio  ; 3                                                          ;
 +--------------------+------------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Nov 05 18:39:04 2017
+    Info: Processing started: Wed Nov 08 18:08:08 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Project -c Processor
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 360 megabytes
-    Info: Processing ended: Sun Nov 05 18:39:15 2017
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Processing ended: Wed Nov 08 18:08:16 2017
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
 
 
