@@ -39,9 +39,11 @@ Label = ""
 FinalInstruction = ""
 labels = [""]
 addresses = [""]
+LabelStr = ""
+Derefaddr = ""
 i = 0
 j = 0
-OpCodeStra = " "
+k = 0
 outputme = True
 
 ### Set up .mif file header:
@@ -259,7 +261,7 @@ for line in inputfile:
             Label = StrArray[2]
         else:
             CondStr = "al"
-            Label = StrArray[1]
+            LabelStr = StrArray[1]
         if OpCodeStr == "bal":
             OpCode = "1001"
         else:
@@ -275,7 +277,13 @@ for line in inputfile:
         if OpCodeStr == "ble":
             CondStr = "le"
         Cond = checkcond(CondStr)
+        for l in labels:
+            k = k + 1
+            if l == LabelStr:
+                Derefaddr = addresses[k-1]
+                print(Derefaddr)
 
+        #FinalInstruction = OpCode + Cond + Derefaddr
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
