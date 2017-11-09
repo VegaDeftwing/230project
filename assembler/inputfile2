@@ -1,0 +1,19 @@
+add r0 r0 r0
+sub r0 r0 r0
+and r0 r0 r0
+or r0 r0 r0
+xor r0 r0 r0
+add r1 r2 r3
+sub r1 r2 r3
+and r1 r2 r3
+or r1 r2 r3
+xor r1 r2 r3
+add s r0 r0 r0
+add nv r0 r0 r0
+add eq r1 r2 r3
+add eq s r1 r2 r3
+labeltest:
+add r0 r0 r0
+phase2 testing:
+add r1 r1 r1
+add r0 r0 r0

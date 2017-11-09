@@ -4,7 +4,7 @@ import sys
 print(" ")
 print("-----------------------------------------------------------")
 print("Assembler for CSCE230 project")
-print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Edinger\033[92m")
+print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Ediger\033[92m")
 print("-----------------------------------------------------------")
 print(" ")
 
@@ -35,10 +35,13 @@ RegD = ""
 RegS = ""
 RegT = ""
 RegStr = ""
+Label = ""
 FinalInstruction = ""
 labels = [""]
 addresses = [""]
 i = 0
+j = 0
+OpCodeStra = " "
 outputme = True
 
 ### Set up .mif file header:
@@ -55,7 +58,8 @@ condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt
 
 RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
 DTypeList = ["addi","subi"]
-BTypeList = ["test","Test2"]
+DTMemList = ["lw","ldw","sw","stw"]
+BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
 JTypeList = ["test","Test2"]
 
 def checkreg(RegStr):
@@ -72,8 +76,39 @@ def checkcond(CondStr):
 
 #read a line
 for line in inputfile:
+    j = j + 1
+    address = hex(j)
+    line = line.lower()
+    line = line.rstrip()
+    StrArray = line.split()
+    OpCodeStr = StrArray[0]
+    if OpCodeStr in RTypeList:
+        1 + 1
+    elif OpCodeStr in DTypeList:
+        1 + 1
+    elif OpCodeStr in DTMemList:
+        1 + 1
+    elif OpCodeStr in BTypeList:
+        1 + 1
+    elif OpCodeStr in JTypeList:
+        1 + 1
+    else:
+        label = StrArray[0].rstrip(':')
+        labels.append(label)
+        addresses.append(address)
+        print(label +" @"+ address)
+        j = j - 1
+
+print("-----------------------------------------------------------")
+inputfile.close
+inputfile  = open("inputfile", "r")
+for line in inputfile:
     i = i + 1
     address = hex(i)
+    line = line.lower()
+    line = line.replace(',',' ')
+    line = line.replace('(',' ')
+    line = line.replace(')',' ')
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
@@ -137,8 +172,8 @@ for line in inputfile:
             #     print("Immediate Value out of bounds")
             # else:
             #     immediate = bin(StrArray[1])
-            immediate = bin(int(StrArray[3],2))
-            immediate = bin(int(StrArray[3],2)).lstrip('-0b').zfill(7)
+            immediate = bin(int(StrArray[3]))
+            immediate = bin(int(StrArray[3])).lstrip('-0b').zfill(7)
             S = "0"
             CondStr = "al"
             RegStr2 = StrArray[1]
@@ -167,21 +202,84 @@ for line in inputfile:
             RegStr2 = StrArray[3]
             RegStr3 = StrArray[4]
         if OpCodeStr == "addi":
-            OpCode = "0000"
+            OpCode = "0110"
         if OpCodeStr == "subi":
-            OpCode = "0000"
+            OpCode = "0110"
+            immediate = int(immediate,2) ^ 0b1111111
+            immediate = immediate + 0b1
+            immediate = bin(immediate).lstrip('-0b').zfill(7)
+        Cond = checkcond(CondStr)
+        RegS = checkreg(RegStr2)
+        RegT = checkreg(RegStr3)
+        FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
+    elif OpCodeStr in DTMemList:
+        #ldw r1 (4)r2
+        print(line + " \033[95m DType \033[96m", end="")
+        if len(StrArray) == 4: #No "S" or "Cond"
+            if int(StrArray[2]) > 127:
+                print("Immediate Value out of bounds")
+            immediate = bin(int(StrArray[2])).lstrip('-0b').zfill(7)
+            S = "0"
+            CondStr = "al"
+            RegStr2 = StrArray[1]
+            RegStr3 = StrArray[3]
+
+        if len(StrArray) == 5: #Check if its "S" or "Cond"
+            if StrArray[1] == "s":
+                S = "1"
+                CondStr = "al"
+            else:
+                S = "0"
+                CondStr = StrArray [1]
+            if int(StrArray[3]) > 127:
+                print("Immediate Value out of bounds")
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[4]
+        if len(StrArray) == 6: #Everything is there
+            CondStr = StrArray[1]
+            S = "1"
+            if int(StrArray[4]) > 127:
+                print("Immediate Value out of bounds")
+            else:
+                immediate = bin(int(StrArray[4])).lstrip('-0b').zfill(7)
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[5]
+        if OpCodeStr == "ldw" or OpCodeStr == "lw":
+            OpCode = "0100"
+        if OpCodeStr == "stw" or OpCodeStr == "sw":
+            OpCode = "0101"
         Cond = checkcond(CondStr)
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
     elif OpCodeStr in BTypeList:
         print(line + " \033[95m BType \033[96m", end="")
+        if len(StrArray) == 3:
+            CondStr = StrArray[1]
+            Label = StrArray[2]
+        else:
+            CondStr = "al"
+            Label = StrArray[1]
+        if OpCodeStr == "bal":
+            OpCode = "1001"
+        else:
+            OpCode = "1000"
+        if OpCodeStr == "beq":
+            CondStr = "eq"
+        if OpCodeStr == "bgt":
+            CondStr = "gt"
+        if OpCodeStr == "blt":
+            CondStr = "lt"
+        if OpCodeStr == "bge":
+            CondStr = "ge"
+        if OpCodeStr == "ble":
+            CondStr = "le"
+        Cond = checkcond(CondStr)
+
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
     else:
         label = StrArray[0].rstrip(':')
-        labels.append(label)
-        addresses.append(address)
         print(label +" @"+ address)
         i = i - 1
         outputme = False
@@ -213,3 +311,5 @@ print(" ")
 inputfile.close
 print("-----------------------------------------------------------")
 print(" ")
+print(labels)
+print(addresses)
