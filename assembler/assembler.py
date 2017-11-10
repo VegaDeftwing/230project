@@ -1,4 +1,5 @@
 #!/usr/bin/python3.6
+import math
 print(" ")
 print("-----------------------------------------------------------------------------------")
 print(" Assembler for CSCE230 project")
@@ -10,7 +11,7 @@ inputfile  = open("inputfile", "r")
 outfile  = open("out.mif", "w")
 
 #Initalizations
-LabelStr = Derefaddr = Label = FinalInstruction = RegD = RegS = RegT = RegStr = Opx = S = Cond = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
+lireg = LabelStr = Derefaddr = Label = FinalInstruction = Cond = RegD = RegS = RegT = RegStr = Opx = S = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
 labels = [""]
 addresses = [""]
 i = j = k = 0
@@ -37,7 +38,14 @@ JTypeList = ["j","jal","li"]
 # convert value in form of hex(0x), binary (0b), or decimal (no-prefix)
 # to binary with padding
 def tobin(value,bitcount):
-    if len(value) > 2:
+    if value[0] == "-":
+        value = value[1:]
+        value = int(value)
+        value = bin(value)[2:]
+        value = int(value,2) ^ int(math.pow(2,bitcount)-1) #TODO: make this number match bitcount
+        value = value + 0b1
+        value = bin(value).lstrip('0b').zfill(bitcount)
+    elif len(value) > 2:
         if value[1] == 'x': #value begings with 0x (HEX) turn into binar
             value = value[2:]
             value = int(value,16)
@@ -187,15 +195,15 @@ for line in inputfile:
             else:
                 S = "0"
                 CondStr = StrArray [1]
-            immediate = tobin(StrArray[2],7)
-            RegStr2 = StrArray[3]
-            RegStr3 = StrArray[4]
+            immediate = tobin(StrArray[4],7)
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[3]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = 1
-            immediate = tobin(StrArray[3],7)
-            RegStr2 = StrArray[4]
-            RegStr3 = StrArray[5]
+            immediate = tobin(StrArray[5],7)
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[4]
         if OpCodeStr == "addi":
             OpCode = "0110"
         if OpCodeStr == "subi":
@@ -253,6 +261,7 @@ for line in inputfile:
             Label = StrArray[2]
         else:
             CondStr = "al"
+            Cond = checkcond(CondStr)
             LabelStr = StrArray[1]
         if OpCodeStr == "bal":
             OpCode = "1001"
@@ -283,13 +292,20 @@ for line in inputfile:
         print(line + " \033[95m JType \033[96m", end="")
         if OpCodeStr == "j":
             OpCode = "1100"
+            Offset = StrArray[1]
+            Offset = tobin(Offset,20)
         if OpCodeStr == "jal":
             OpCode = "1101"
+            Offset = StrArray[1]
+            Offset = tobin(Offset,20)
         if OpCodeStr == "li":
             OpCode = "1110"
-        Offset = StrArray[1]
-        Offset = tobin(Offset,20)
-        FinalInstruction = OpCode + Offset
+            Offset = StrArray[2]
+            Offset = tobin(Offset,16)
+            lireg = StrArray[1]
+            lireg = checkreg(lireg)
+
+        FinalInstruction = OpCode + lireg + Offset
     else:
         label = StrArray[0].rstrip(':')
         print("\033[97m" + label +" @"+ address + "\033[92m")
@@ -304,7 +320,7 @@ for line in inputfile:
     if str(FinalInstructionStr) == "24":
         FinalInstructionStr = "\033[92m[OK]"
     else:
-        FinalInstructionStr = "\033[91m[FAIL]"
+        FinalInstructionStr = "\033[91m[FAIL]" + str(FinalInstructionStr)
     if outputme:
         print(FinalInstruction + " " + str(FinalInstructionStr) + "\033[96m 0x"+ FinalInstructionHex + "\033[92m Address: " + address, end="" )
         if OpCodeStr in BTypeList:
@@ -328,3 +344,5 @@ print("~~~~~~~~~~~~~~~~~~~Assembly Compeleted~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 inputfile.close
 print("-----------------------------------------------------------------------------------")
 print(" ")
+print(addresses)
+print(labels)
