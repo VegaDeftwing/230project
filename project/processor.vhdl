@@ -4,7 +4,6 @@ use IEEE.std_logic_1164.ALL;
 
 entity processor is
 	port(
-	Instruction : in std_logic_vector(23 downto 0);
 	clock, reset : in std_logic;
 	
 	
@@ -15,7 +14,7 @@ entity processor is
  opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
  S_Output : out std_logic;
  opx_Output : out std_logic_vector(2 downto 0);
- extend_Output : out std_logic;
+ extend_Output : out std_logic_vector(1 downto 0);
  ir_enable_Output, ma_select_Output, mem_read_Output, mem_write_Output, pc_select_Output, pc_enable_Output, inc_select_Output : out std_logic;
  y_select_Output, c_select_Output : out std_logic_vector(1 downto 0);
  rf_write_Output,  b_select_Output, a_inv_Output, b_inv_Output : out std_logic;
@@ -34,7 +33,7 @@ entity processor is
  enablePS_Output : out std_logic;
  immediateB_Output : out std_logic_vector(15 downto 0);
  muxBout_Output : out std_logic_vector(15 downto 0);
- memIn_Output : out std_logic_vector(15 downto 0);
+ memOut_Output : out std_logic_vector(15 downto 0);
  ReturnAddress_Output : out std_logic_vector(15 downto 0);
  muxYout_Output : out std_logic_vector(15 downto 0)
 	
@@ -69,7 +68,7 @@ COMPONENT CU
 		alu_op : out std_logic_vector(2 downto 0);
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
-		extend : out std_logic;
+		extend : out std_logic_vector(1 downto 0);
 		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic
 
 	);
@@ -125,7 +124,7 @@ END COMPONENT;
 COMPONENT immediate
 	PORT(
 		 immed: in std_logic_vector(6 downto 0);
-		 extend: in std_logic;
+		 extend: in std_logic_vector(1 downto 0);
 		 immedEx: out std_logic_vector(15 downto 0)	
 	);
 END COMPONENT;
@@ -139,32 +138,90 @@ END COMPONENT;
 	END COMPONENT;
 
 	
---Phase 3 MEMORY
+--Phase 3 
 
-COMPONENT MainMemory
-	PORT
-	(
-		address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-		clock		: IN STD_LOGIC  := '1';
-		data		: IN STD_LOGIC_VECTOR (23 DOWNTO 0);
-		wren		: IN STD_LOGIC ;
-		q		: OUT STD_LOGIC_VECTOR (23 DOWNTO 0)
+--MUXC
+COMPONENT MUXC
+	PORT(
+	c_select : in std_logic_vector(1 downto 0);
+	Rin : in std_logic_vector(3 downto 0);
+	Din : in std_logic_vector(3 downto 0);
+	LiReg : in std_logic_vector(3 downto 0);
+	muxCout : out std_logic_vector(3 downto 0)
 	);
 END COMPONENT;
 
+--MUXma
+COMPONENT MUXma 
+	PORT(
+	ma_select : in std_logic;
+	RZin : in std_logic_vector(15 downto 0);
+	IAGin: in std_logic_vector(15 downto 0);
+	Address : out std_logic_vector(15 downto 0)
+	);
+END COMPONENT;
+
+
+
+COMPONENT MemoryInterface
+	PORT
+	(
+		MEM_read		:	 IN STD_LOGIC;
+		MEM_write		:	 IN STD_LOGIC;
+		DataIn		:	 IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+		Address		:	 IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		clock		:	 IN STD_LOGIC;
+		DataOut		:	 OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+		MFC		:	 OUT STD_LOGIC
+	);
+END COMPONENT;
+
+--IAG is premade for us, behavior will be explained.
+COMPONENT InstructionAddressGenerator
+	PORT
+	(
+		RA		:	 IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		PC_select		:	 IN STD_LOGIC;
+		PC_enable		:	 IN STD_LOGIC;
+		clock		:	 IN STD_LOGIC;
+		aclr		:	 IN STD_LOGIC;
+		Immediate		:	 IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		INC_select		:	 IN STD_LOGIC;
+		MuxY		:	 OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		Address		:	 OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+	);
+END COMPONENT;
+
+
+
+
 --Phase 4 IO MEMORY INTERFACE	
 	
+COMPONENT IO_MemoryInterface
+	PORT
+	(
+		clock		:	 IN STD_LOGIC;
+		mem_write		:	 IN STD_LOGIC;
+		mem_addr		:	 IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		mem_data		:	 IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		KEY		:	 IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		SW		:	 IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		data_out		:	 OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		LEDG		:	 OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		HEX0		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+	);
+END COMPONENT;
 	
 	
 	
 --This is a block of signals. It is very long. These signals are used within mappings as both inputs and outputs for various components within the processor
-
+Signal MemInstruction : std_logic_vector(23 downto 0);
 Signal InR : std_logic_vector(23 downto 0);
 Signal opCode, Cond : std_logic_vector(3 downto 0);
 Signal S : std_logic;
 Signal opx : std_logic_vector(2 downto 0);
 Signal ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : std_logic;
-Signal extend : std_logic;
+Signal extend : std_logic_vector(1 downto 0);
 Signal y_select, c_select : std_logic_vector(1 downto 0);
 Signal rf_write,  b_select, a_inv, b_inv : std_logic;
 Signal alu_op : std_logic_vector(2 downto 0);
@@ -183,12 +240,18 @@ Signal DataZ : std_logic_vector(15 downto 0);
 Signal enablePS : std_logic;
 Signal immediateB : std_logic_vector(15 downto 0);
 Signal muxBout : std_logic_vector(15 downto 0);
-Signal memIn : std_logic_vector(15 downto 0);
+Signal memOut : std_logic_vector(15 downto 0);
 Signal ReturnAddress : std_logic_vector(15 downto 0);
 Signal muxYout : std_logic_vector(15 downto 0);
 Signal immediateIn : std_logic_vector(6 downto 0);
 Signal BLabel : std_logic_vector(15 downto 0);
 Signal JConstant : std_logic_vector(19 downto 0);
+Signal InstructionAddress : std_logic_vector(15 downto 0);
+Signal Address : std_logic_vector(15 downto 0);
+Signal MUXCOUT : std_logic_vector(3 downto 0);
+Signal memoryIn : std_logic_vector(23 downto 0);
+Signal MUXliOUT : std_logic_vector(3 downto 0);
+Signal LiReg : std_logic_vector(3 downto 0);
 begin
 
 --These Signals are primarily used in the CU and Registry, and they all come from the InR output nal from the IR, as that is the first stage
@@ -197,7 +260,7 @@ begin
 RegD <= InR(11 downto 8);
 RegS <= InR(7 downto 4);
 RegT <= InR(3 downto 0);
-
+LiReg<= InR(19 downto 16);
 --CU InR parses
 opCode <= InR(23 downto 20);
 Cond <= InR(19 downto 16);
@@ -210,6 +273,11 @@ JConstant <= InR(19 downto 0);
 --Temporarily set to 1 until implementation within CU logic
 enablePS <= '1';
 
+
+--Append bits to RM to make compatible with MemoryInterface
+memoryIn <= "00000000" & DataM;
+--Remove bits from MemInstruction to make compatible with MuxY
+memOut <= MemInstruction(15 downto 0);
 
 --Port maps for each component.
 
@@ -238,12 +306,11 @@ enablePS <= '1';
 -- Outputs pc_enable to the PC in StepX (UNIMPLEMENTED)
 -- Outputs inc_select to MuxINC in StepX (UNIMPLEMENTED, from Immediate Extension? See picture for future reference)
 -- Outputs enablePS to Step11 PS (UNIMPLEMENTED, CURRENTLY SET TO 1 AS DEFAULT TO ALLOW FUNCTIONALITY FOR TESTING UNTIL IMPLEMENTATION)
-
 Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select);
 
 --MAP Registry. Based on rf_write flag from Step1 CU, and the reset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
 --Outputs DataS, DataT depending on internal logic, further described within Registry.vhdl
-Step2 : Registry PORT MAP(Reset, rf_write, Clock, RegD, RegT, RegS, DataD, DataS, DataT);
+Step2 : Registry PORT MAP(Reset, rf_write, Clock, MUXCOUT, RegT, RegS, DataD, DataS, DataT);
 
 --MAP BUFFREG RA. Upon clock rising edge, takes DataS from Registry Step2, and outputs as DataA into  MuxPC in StepX and ALU in Step10. The different flags from CU Step1 determine what each do with it.
 Step3 : BUFFREG PORT MAP(DataS, Reset, Clock, DataA);	
@@ -265,7 +332,7 @@ Step8 : MUXB PORT MAP(b_select, immediateB, DataB, muxBout);
 
 --Map MUXY, using y_select input flag from Step1 CU, and selects either DataZ from Step7 BUFFREG RZ, memIn from memory Data out(in some instructions) in StepX, or ReturnAddress from the PC_Temp in StepX.
 --Outputs muxYout, used in Step6 BUFFREG RY 
-Step9 : MUXY PORT MAP(y_select, DataZ, memIn, ReturnAddress, muxYout);
+Step9 : MUXY PORT MAP(y_select, DataZ, memOut, ReturnAddress, muxYout);
 
 --Map ALU, take in DataA from Buffer Register RA from Step 3, and take in the output of MuxB in step 8. Uses alu_op, a_inv, and b_inv from the CU as flags for determining various logics. See ALU documentation for greater detail.
 --Outputs ALU_out based on the executed arithmatic instruction, and also outputs control flags N, Z, V, and C based on logics within FLAGLOGIC. ALU_out goes into Step7 BUFFREG RZ, and N,Z,V,C flags go into Step11 PS.
@@ -276,10 +343,22 @@ Step11: PS PORT MAP(N, C, V, Z, Clock, Reset, enablePS, Nout, Cout, Vout, Zout);
 
 --Map Instruction Register, Takes in instruction from test script, updates and outputs when the clock and enable flag allow it, reset when Reset flag is 1.
 --The InR output signal is parsed as various inputs that go into the Control Unit and Register.
-Step12: IR PORT MAP(instruction, Reset, Clock, ir_enable, InR);
+Step12: IR PORT MAP(MemInstruction, Reset, Clock, ir_enable, InR);
 
 --Map immediate block. Take in immediate value, extend flag, output immediateB when desired
 Step13: immediate PORT MAP(immediateIn, extend, immediateB);
+
+--Map Instruction Address Generator
+Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock, reset, immediateB, inc_select, ReturnAddress, InstructionAddress);
+
+--Map MUXma
+Step15: MUXma PORT MAP(ma_select, DataZ, InstructionAddress, Address);
+
+--Map MUXC
+Step16: MUXC PORT MAP(c_select, RegD, RegS, LiReg, MUXCOUT);
+
+--MAP MemoryInterface 
+Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, MemInstruction, mfc);
 
 
 
@@ -322,7 +401,7 @@ DataZ_Output <= DataZ;
 enablePS_Output <= enablePS;
 immediateB_Output <= immediateB;
 muxBout_Output <= muxBout;
-memIn_Output <= memIn;
+memOut_Output <= memOut;
 ReturnAddress_Output <= ReturnAddress; 
 muxYout_Output <= muxYout;
 Nout_Output <= Nout;

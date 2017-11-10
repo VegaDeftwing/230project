@@ -43,21 +43,21 @@ begin
 --	Q0 <= "0000000000000001";
 --These port maps map values to registers based on the enable flag, and the decoder output, (which specifies which register has DataD saved in it), based on the clock.
 --The reg16 values, stored in corresponding Q signals, are mapped to a MUX16, and, are chosen to be output as either DataS or DataT based on the value of control strings RegS and RegT, respectively.
-	Register1 : reg16 PORT MAP(DataD, (Enable AND decoderOut(1)), Reset, Clock, Q1);
-	Register2 : reg16 PORT MAP(DataD, (Enable AND decoderOut(2)), Reset, Clock, Q2);
-	Register3 : reg16 PORT MAP(DataD, (Enable AND decoderOut(3)), Reset, Clock, Q3);
-	Register4 : reg16 PORT MAP(DataD, (Enable AND decoderOut(4)), Reset, Clock, Q4);
-	Register5 : reg16 PORT MAP(DataD, (Enable AND decoderOut(5)), Reset, Clock, Q5);
-	Register6 : reg16 PORT MAP(DataD, (Enable AND decoderOut(6)), Reset, Clock, Q6);
-	Register7 : reg16 PORT MAP(DataD, (Enable AND decoderOut(7)), Reset, Clock, Q7);
-	Register8 : reg16 PORT MAP(DataD, (Enable AND decoderOut(8)), Reset, Clock, Q8);
-	Register9 : reg16 PORT MAP(DataD, (Enable AND decoderOut(9)), Reset, Clock, Q9);
-	Register10 : reg16 PORT MAP(DataD, (Enable AND decoderOut(10)), Reset, Clock, Q10);
-	Register11 : reg16 PORT MAP(DataD, (Enable AND decoderOut(11)), Reset, Clock, Q11);
-	Register12 : reg16 PORT MAP(DataD, (Enable AND decoderOut(12)), Reset, Clock, Q12);
-	Register13 : reg16 PORT MAP(DataD, (Enable AND decoderOut(13)), Reset, Clock, Q13);
-	Register14 : reg16 PORT MAP(DataD, (Enable AND decoderOut(14)), Reset, Clock, Q14);
-	Register15 : reg16 PORT MAP(DataD, (Enable AND decoderOut(15)), Reset, Clock, Q15);
+	Register1 : reg16 PORT MAP(DataD, (Enable AND decoderOut(1)), Reset, NOT Clock, Q1);
+	Register2 : reg16 PORT MAP(DataD, (Enable AND decoderOut(2)), Reset, NOT Clock, Q2);
+	Register3 : reg16 PORT MAP(DataD, (Enable AND decoderOut(3)), Reset, NOT Clock, Q3);
+	Register4 : reg16 PORT MAP(DataD, (Enable AND decoderOut(4)), Reset, NOT Clock, Q4);
+	Register5 : reg16 PORT MAP(DataD, (Enable AND decoderOut(5)), Reset, NOT Clock, Q5);
+	Register6 : reg16 PORT MAP(DataD, (Enable AND decoderOut(6)), Reset, NOT Clock, Q6);
+	Register7 : reg16 PORT MAP(DataD, (Enable AND decoderOut(7)), Reset, NOT Clock, Q7);
+	Register8 : reg16 PORT MAP(DataD, (Enable AND decoderOut(8)), Reset, NOT Clock, Q8);
+	Register9 : reg16 PORT MAP(DataD, (Enable AND decoderOut(9)), Reset, NOT Clock, Q9);
+	Register10 : reg16 PORT MAP(DataD, (Enable AND decoderOut(10)), Reset, NOT Clock, Q10);
+	Register11 : reg16 PORT MAP(DataD, (Enable AND decoderOut(11)), Reset, NOT Clock, Q11);
+	Register12 : reg16 PORT MAP(DataD, (Enable AND decoderOut(12)), Reset, NOT Clock, Q12);
+	Register13 : reg16 PORT MAP(DataD, (Enable AND decoderOut(13)), Reset, NOT Clock, Q13);
+	Register14 : reg16 PORT MAP(DataD, (Enable AND decoderOut(14)), Reset, NOT Clock, Q14);
+	Register15 : reg16 PORT MAP(DataD, (Enable AND decoderOut(15)), Reset, NOT Clock, Q15);
 	MUXA : mux16 PORT MAP(Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, RegS, DataS);
 	MUXB : mux16 PORT MAP(Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, RegT, DataT);
 	

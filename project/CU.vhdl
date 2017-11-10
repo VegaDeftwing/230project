@@ -14,8 +14,8 @@ entity CU is
 		alu_op : out std_logic_vector(2 downto 0);
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
-		extend : out std_logic;
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select : out std_logic
+		extend : out std_logic_vector(1 downto 0);
+		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select: out std_logic
 		
 	);
 end CU;
@@ -45,13 +45,13 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 
 		wmfc <= '1';
 		alu_op <= "000";
-		c_select <= "01";
+		c_select <= "00";
 		y_select <= "00";
 		rf_write <= '0';
 		b_select <= '0';
 		a_inv <= '0';
 		b_inv <= '0';
-		extend <= '0';
+		extend <= "00";
 		ir_enable <= '1';
 		ma_select <= '1';
 		mem_read <= '1';
@@ -73,7 +73,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 	
 		--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
-	
+		c_select <= "00";
 	
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
@@ -113,6 +113,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		 END IF;
 		 	--D-Type
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
+			c_select <="01";
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for lw
 				
@@ -125,7 +126,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				b_select <= '1';
 				--how to know when we need to extend?
 				IF(immediate(6)='1') THEN
-				extend <= '1';
+				extend <= "01";
 				--other potential method of implementation
 				--b_inv <= '1';
 				--potentially wrong behavior
@@ -137,24 +138,36 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			END IF;
 		 	--B-Type
 			IF(opCode(3) = '1' AND opCode(2) = '0') THEN
+			
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for b
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
-				
+				c_select <= "10";
 				END IF;
 			END IF;
 		 	--J-Type
 			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for j (UNUSED AS OF YET)
+
+				pc_select <= '1';
+				pc_enable <= '1';
+				inc_select <= '1';
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for jal (UNUSED AS OF YET)
-				
+				pc_enable <= '1';
+				c_select <= "10";
+				y_select <= "10";
+				pc_select <= '1';
+				inc_select <= '1';
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for li (UNUSED AS OF YET)
+				c_select <="11";
+				b_select <= '1';
+				pc_select <= '0';
+				-- add stw flags (Because we are just storing the immediate value)
 				
-			
 				END IF;
 			END IF;
 		 
