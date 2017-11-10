@@ -11,7 +11,7 @@ entity MUX is
 end MUX;
 
 architecture TwoTo1 of MUX is
-
+--very simple 2 to 1 mux, used in ALU for choosing whether to add or subtract 
 begin	
 	with SEL select MUX_OUT <=
 		 VAR when '0' ,

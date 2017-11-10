@@ -65,21 +65,12 @@ set_global_assignment -name VHDL_FILE project/memFilesProcessor/Adder.vhdl
 set_global_assignment -name VHDL_FILE project/Reg_16.vhdl
 set_global_assignment -name VHDL_FILE project/MUX2_1.vhdl
 set_global_assignment -name BDF_FILE project/IO_MemoryInterface.bdf
-set_global_assignment -name VHDL_FILE project/RZ.vhdl
-set_global_assignment -name VHDL_FILE project/RY.vhdl
-set_global_assignment -name VHDL_FILE project/RM.vhdl
-set_global_assignment -name VHDL_FILE project/RB.vhdl
-set_global_assignment -name VHDL_FILE project/RA.vhdl
 set_global_assignment -name VHDL_FILE project/immediate.vhdl
-set_global_assignment -name VHDL_FILE project/SIXTEENBITFA.vhdl
 set_global_assignment -name VHDL_FILE project/Registry.vhdl
 set_global_assignment -name VHDL_FILE project/reg16.vhdl
 set_global_assignment -name VHDL_FILE project/mux16.vhdl
-set_global_assignment -name VHDL_FILE project/MUX4TO1.vhdl
 set_global_assignment -name VHDL_FILE project/MUX.vhdl
 set_global_assignment -name VHDL_FILE project/FLAGLOGIC.vhdl
-set_global_assignment -name VHDL_FILE project/FA.vhdl
-set_global_assignment -name COMMAND_MACRO_FILE project/FA.do
 set_global_assignment -name VHDL_FILE project/decoder16.vhdl
 set_global_assignment -name VHDL_FILE project/CU.vhdl
 set_global_assignment -name VHDL_FILE project/ALU.vhdl
@@ -91,4 +82,5 @@ set_global_assignment -name VHDL_FILE project/MUXY.vhdl
 set_global_assignment -name VHDL_FILE project/MUX6TO1.vhdl
 set_global_assignment -name VHDL_FILE project/FASTADDER.vhdl
 set_global_assignment -name COMMAND_MACRO_FILE project/FASTADDER.do
+set_global_assignment -name VHDL_FILE project/BUFFREG.vhdl
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

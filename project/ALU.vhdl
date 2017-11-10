@@ -13,6 +13,7 @@ entity ALU is
 end ALU;
 
 architecture LOGIC of ALU is
+--obsolete, remeains within project for potential reversions should newer implementations prove incorrect
 --COMPONENT SIXTEENBITFA 
 --	PORT(
 --		A, B : in std_logic_vector(15 downto 0);
@@ -49,14 +50,25 @@ END COMPONENT;
 signal S, MUXAOUT, MUXBOUT, MULT, DIV : std_logic_vector(15 downto 0);
 signal C14, C15 : std_logic;
 begin	
+	--Placeholder values until we finish implementation
 	MULT <= (OTHERS => '0');
 	DIV <= (OTHERS => '0');
-
+	--inverts A if necessary
 	MUXA : MUX PORT MAP(A, (NOT A), A_inv, MUXAOUT);
+	--inverts B if necessary
 	MUXB : MUX PORT MAP(B, (NOT B), B_inv, MUXBOUT);
+
+	-- This adder has been replaced	
 --	RIPPLEADD : SIXTEENBITFA PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
+-- New Faster Adder
 	FASTADD : FASTADDER PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
+-- Multiplier
+
+-- Divider
+
+--Final Mux, takes the 6 possibile operation outs, the alu_op, and a select as input, output ALU_out 
 	MUXFINAL : MUX6TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S, MULT, DIV, ALU_out);
+-- Checks flags for operations, useful for a lot of control.
 	FLAGCHECK : FLAGLOGIC PORT MAP(C14, C15, S, N, C, Z, V);
 end LOGIC;
 		
