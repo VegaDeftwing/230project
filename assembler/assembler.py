@@ -5,31 +5,15 @@ print(" Assembler for CSCE230 project")
 print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Ediger\033[92m")
 print("-----------------------------------------------------------------------------------")
 
+#File I/O
 inputfile  = open("inputfile", "r")
 outfile  = open("out.mif", "w")
-OpCodeStr = ""
-CondStr = ""
-SStr = ""
-RegStr1 = ""
-RegStr2 = ""
-RegStr3 = ""
-OpCode = ""
-Cond = ""
-S = ""
-Opx = ""
-RegD = ""
-RegS = ""
-RegT = ""
-RegStr = ""
-Label = ""
-FinalInstruction = ""
+
+#Initalizations
+LabelStr = Derefaddr = Label = FinalInstruction = RegD = RegS = RegT = RegStr = Opx = S = Cond = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
 labels = [""]
 addresses = [""]
-LabelStr = ""
-Derefaddr = ""
-i = 0
-j = 0
-k = 0
+i = j = k = 0
 outputme = True
 
 ### Set up .mif file header:
@@ -40,16 +24,18 @@ outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
 outfile.write(" 0x0: 000000000000000000000000;\n")
 
+#Define some lists containing useful data
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
 reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","r13","r14","r15"]
 condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt","ge","le"]
-
 RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
 DTypeList = ["addi","subi"]
 DTMemList = ["lw","ldw","sw","stw"]
 BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
 JTypeList = ["j","jal","li"]
 
+# convert value in form of hex(0x), binary (0b), or decimal (no-prefix)
+# to binary with padding
 def tobin(value,bitcount):
     if len(value) > 2:
         if value[1] == 'x': #value begings with 0x (HEX) turn into binar
@@ -70,19 +56,21 @@ def tobin(value,bitcount):
         value = value.zfill(bitcount)
     return(value)
 
+# find the index of the input register and corolate it to it's hex value
 def checkreg(RegStr):
     for i in range(len(tosixteen)):
         if RegStr == reglist[i]:
             Reg = tosixteen[i]
     return Reg
 
+# find the index of the input conditon and corolate it to it's hex value
 def checkcond(CondStr):
     for i in range(len(tosixteen)):
         if CondStr == condlist[i]:
             Cond = tosixteen[i]
     return Cond
 
-#read a line
+#First pass, find the address of each label
 for line in inputfile:
     j = j + 1
     address = hex(j)
@@ -90,16 +78,8 @@ for line in inputfile:
     line = line.rstrip()
     StrArray = line.split()
     OpCodeStr = StrArray[0]
-    if OpCodeStr in RTypeList:
-        1 + 1
-    elif OpCodeStr in DTypeList:
-        1 + 1
-    elif OpCodeStr in DTMemList:
-        1 + 1
-    elif OpCodeStr in BTypeList:
-        1 + 1
-    elif OpCodeStr in JTypeList:
-        1 + 1
+    if OpCodeStr in RTypeList or OpCodeStr in DTypeList or OpCodeStr in DTMemList or OpCodeStr in BTypeList or OpCodeStr in JTypeList:
+        print(".",end="")
     else:
         label = StrArray[0].rstrip(':')
         labels.append(label)
@@ -109,18 +89,28 @@ for line in inputfile:
 
 print("-----------------------------------------------------------------------------------")
 inputfile.close
+
+#Second Pass, Instrction to Binary conversion and some error checknig
 inputfile  = open("inputfile", "r")
 for line in inputfile:
+    # Count each line, and convert that count to the address in hex
     i = i + 1
     address = hex(i)
+
+    #Sanatize input
     line = line.lower()
     line = line.replace(',',' ')
     line = line.replace('(',' ')
     line = line.replace(')',' ')
     line = line.rstrip()
     line = "{:<17}".format(line)
+
+    #Tokenize the line by spaces
     StrArray = line.split()
-    OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
+    #The OpCodeStr will always be the first thing in the array
+    OpCodeStr = StrArray[0]
+    #Check if it's an Rtype, if so, find out how many arguments were given
+    #and generate the Instrction based on the input
     if OpCodeStr in RTypeList:
         print(line + " \033[95m RType \033[96m", end="")
         if len(StrArray) == 4:
@@ -160,6 +150,9 @@ for line in inputfile:
         if OpCodeStr == "xor":
             OpCode = "0000"
             Opx = "101"
+        if OpCodeStr == "mult":
+            OpCode = "0000"
+            Opx = "010"
         if OpCodeStr == "sll":
             OpCode = "0011"
             Opx = "000"
@@ -167,13 +160,17 @@ for line in inputfile:
             OpCode = "0010"
             Opx = "000"
         if OpCodeStr == "jr":
-            OpCode = OpCode + "0001"
+            OpCode = "0001"
             Opx = "000"
         Cond = checkcond(CondStr)
         RegD = checkreg(RegStr1)
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
+
+    # DType Instrctions that don't have the memory offset format
+    # such as addi and subi Checks length to be sure bits
+    # not set in the input take on default values
     elif OpCodeStr in DTypeList:
         print(line + " \033[95m DType \033[96m", end="")
         if len(StrArray) == 4: #No "S" or "Cond"
@@ -210,6 +207,8 @@ for line in inputfile:
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
+
+    # D type Instrctions that use the memory offset syntax
     elif OpCodeStr in DTMemList:
         print(line + " \033[95m DType \033[96m", end="")
         if len(StrArray) == 4: #No "S" or "Cond"
@@ -243,6 +242,10 @@ for line in inputfile:
         RegS = checkreg(RegStr2)
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
+
+    # Branch types need the labels from above to be derefrenced
+    # Also implimented are common Op+Cond conditions that are in the
+    # NIOS ISA
     elif OpCodeStr in BTypeList:
         print(line + " \033[95m BType \033[96m", end="")
         if len(StrArray) == 3:
@@ -296,6 +299,8 @@ for line in inputfile:
     FinalInstructionStr = len(str(FinalInstruction))
     FinalInstructionHex = '{:06X}'.format(int(FinalInstruction, 2))
     k = 0
+
+    # Check that Instrctions are actually 24 bits
     if str(FinalInstructionStr) == "24":
         FinalInstructionStr = "\033[92m[OK]"
     else:
@@ -309,10 +314,12 @@ for line in inputfile:
                 print("\033[91m  INVALID LABEL  \033[92m")
         else:
             print("")
+
+        #Output to .mif file
         outfile.write(" " + str(address)+": "+str(FinalInstruction)+";\n")
     outputme = True
     Derefaddr = " "
-
+#Finish writing some output file stuff
 print("Filling Extra Memory: \033[91m" + hex(1024) + "-"+ hex(i+1) + "\033[92m")
 outfile.write(" ["+ hex(i+1) + ".."+ hex(1024) + "] : 000000000000000000000000;\n" )
 outfile.write("END;\n")
