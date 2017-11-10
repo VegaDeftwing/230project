@@ -2,23 +2,11 @@
 import os
 import sys
 print(" ")
-print("-----------------------------------------------------------")
-print("Assembler for CSCE230 project")
+print("-----------------------------------------------------------------------------------")
+print(" Assembler for CSCE230 project")
 print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Ediger\033[92m")
-print("-----------------------------------------------------------")
-print(" ")
+print("-----------------------------------------------------------------------------------")
 
-### INFO ###
-#R
-#OP Cond S opx RegD regS regT
-#D
-#Op Cond S immed regS regT
-#B
-#Op Cond Label
-#J
-#Op Const
-
-#open assembly file for reading
 inputfile  = open("inputfile", "r")
 outfile  = open("out.mif", "w")
 OpCodeStr = ""
@@ -62,7 +50,22 @@ RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
 DTypeList = ["addi","subi"]
 DTMemList = ["lw","ldw","sw","stw"]
 BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
-JTypeList = ["test","Test2"]
+JTypeList = ["j","jal","li"]
+
+def tobin(value,bitcount):
+    if value[1] == 'x': #value begings with 0x (HEX) turn into binar
+        value = value[2:]
+        value = int(value,16)
+        value = bin(value)[2:]
+        value = value.zfill(bitcount)
+    elif value[1] == 'b': #value begings with 0b (BIN) use raw with zfill
+        value = value[2:]
+        value = value.zfill(bitcount)
+    else: #assume base 10, convert to binary
+        value = int(value)
+        value = bin(value)[2:]
+        value = value.zfill(bitcount)
+    return(value)
 
 def checkreg(RegStr):
     for i in range(len(tosixteen)):
@@ -98,10 +101,10 @@ for line in inputfile:
         label = StrArray[0].rstrip(':')
         labels.append(label)
         addresses.append(address)
-        print(label +" @"+ address)
+        print("\033[97m" + label +" @"+ address + "\033[92m")
         j = j - 1
 
-print("-----------------------------------------------------------")
+print("-----------------------------------------------------------------------------------")
 inputfile.close
 inputfile  = open("inputfile", "r")
 for line in inputfile:
@@ -112,6 +115,7 @@ for line in inputfile:
     line = line.replace('(',' ')
     line = line.replace(')',' ')
     line = line.rstrip()
+    line = "{:<17}".format(line)
     StrArray = line.split()
     OpCodeStr = StrArray[0] # The First thing tokenized out will be the OpCode
     if OpCodeStr in RTypeList:
@@ -170,10 +174,8 @@ for line in inputfile:
     elif OpCodeStr in DTypeList:
         print(line + " \033[95m DType \033[96m", end="")
         if len(StrArray) == 4: #No "S" or "Cond"
-            # if int(StrArray[1]) > 0b1111111:
-            #     print("Immediate Value out of bounds")
-            # else:
-            #     immediate = bin(StrArray[1])
+            if int(StrArray[3]) > 127:
+                print("\033[91m Immediate Value out of bounds")
             immediate = bin(int(StrArray[3]))
             immediate = bin(int(StrArray[3])).lstrip('-0b').zfill(7)
             S = "0"
@@ -188,21 +190,21 @@ for line in inputfile:
             else:
                 S = "0"
                 CondStr = StrArray [1]
-            if StrArray[4] > 0b1111111:
-                print("Immediate Value out of bounds")
+            if StrArray[2] > 127:
+                print("\033[91m Immediate Value out of bounds")
             else:
                 immediate = bin(StrArray[2])
-            RegStr2 = StrArray[2]
-            RegStr3 = StrArray[3]
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[4]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = 1
-            if StrArray[5] > 0b1111111:
-                print("Immediate Value out of bounds")
+            if StrArray[3] > 127:
+                print("\033[91m Immediate Value out of bounds")
             else:
                 immediate = bin(StrArray[3]).lstrip('-0b').zfill(7)
-            RegStr2 = StrArray[3]
-            RegStr3 = StrArray[4]
+            RegStr2 = StrArray[4]
+            RegStr3 = StrArray[5]
         if OpCodeStr == "addi":
             OpCode = "0110"
         if OpCodeStr == "subi":
@@ -281,43 +283,54 @@ for line in inputfile:
             k = k + 1
             if l == LabelStr:
                 Derefaddr = addresses[k-1]
-                print(Derefaddr)
+                Derefaddr = Derefaddr[2:]
+                Derefaddr = int(Derefaddr,16)
+                Derefaddr = bin(Derefaddr)[2:]
+                Derefaddr = Derefaddr.zfill(16)
 
-        #FinalInstruction = OpCode + Cond + Derefaddr
+        FinalInstruction = OpCode + Cond + Derefaddr
     elif OpCodeStr in JTypeList:
         print(line + " \033[95m JType \033[96m", end="")
+        if OpCodeStr == "j":
+            OpCode = "1100"
+        if OpCodeStr == "jal":
+            OpCode = "1101"
+        if OpCodeStr == "li":
+            OpCode = "1110"
+        Offset = StrArray[1]
+        Offset = tobin(Offset,20)
+        FinalInstruction = OpCode + Offset
     else:
         label = StrArray[0].rstrip(':')
-        print(label +" @"+ address)
+        print("\033[97m" + label +" @"+ address + "\033[92m")
         i = i - 1
         outputme = False
 
-        # print("Ya Dun Fucked Up")
-        # sys.exit(2)
-
-    #
-    # print(OpCode)
-    # print(Opx)
     FinalInstructionStr = len(str(FinalInstruction))
     FinalInstructionHex = '{:06X}'.format(int(FinalInstruction, 2))
+    k = 0
     if str(FinalInstructionStr) == "24":
         FinalInstructionStr = "\033[92m[OK]"
     else:
         FinalInstructionStr = "\033[91m[FAIL]"
     if outputme:
-        print(FinalInstruction + " " + str(FinalInstructionStr) + " 0x"+ FinalInstructionHex  + " Address: " + address )
+        print(FinalInstruction + " " + str(FinalInstructionStr) + "\033[96m 0x"+ FinalInstructionHex + "\033[92m Address: " + address, end="" )
+        if OpCodeStr in BTypeList:
+            if Derefaddr != " ":
+                print(" \033[91m Branch to: " + hex(int(Derefaddr,2)) + "\033[92m")
+            else:
+                print("\033[91m  INVALID LABEL  \033[92m")
+        else:
+            print("")
         outfile.write(" " + str(address)+": "+str(FinalInstruction)+";\n")
     outputme = True
-# TODO: output the 00 array at the end too
+    Derefaddr = " "
 
-print(hex(1024) + "-"+ hex(i+1))
+print("Filling Extra Memory: \033[91m" + hex(1024) + "-"+ hex(i+1) + "\033[92m")
 outfile.write(" ["+ hex(i+1) + ".."+ hex(1024) + "] : 000000000000000000000000;\n" )
 outfile.write("END;\n")
-print("-----------------------------------------------------------")
-print("Assembly Compeleted")
-print(" ")
+print("-----------------------------------------------------------------------------------")
+print("~~~~~~~~~~~~~~~~~~~Assembly Compeleted~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 inputfile.close
-print("-----------------------------------------------------------")
+print("-----------------------------------------------------------------------------------")
 print(" ")
-print(labels)
-print(addresses)
