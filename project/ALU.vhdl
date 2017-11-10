@@ -47,7 +47,7 @@ COMPONENT FLAGLOGIC
 		S : in std_logic_vector(15 downto 0);
 		N, C, Z, V : out std_logic);
 END COMPONENT;
-signal S, MUXAOUT, MUXBOUT, MULT, DIV : std_logic_vector(15 downto 0);
+signal S, MUXAOUT, MUXBOUT, MULT, ShiftLeftLogical : std_logic_vector(15 downto 0);
 signal C14, C15 : std_logic;
 begin	
 	--Placeholder values until we finish implementation
@@ -64,10 +64,10 @@ begin
 	FASTADD : FASTADDER PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
 -- Multiplier
 
--- Divider
+-- SLL
 
 --Final Mux, takes the 6 possibile operation outs, the alu_op, and a select as input, output ALU_out 
-	MUXFINAL : MUX6TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S, MULT, DIV, ALU_out);
+	MUXFINAL : MUX6TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S, MULT, ShiftLeftLogical, ALU_out);
 -- Checks flags for operations, useful for a lot of control.
 	FLAGCHECK : FLAGLOGIC PORT MAP(C14, C15, S, N, C, Z, V);
 end LOGIC;

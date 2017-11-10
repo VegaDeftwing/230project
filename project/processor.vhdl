@@ -310,7 +310,7 @@ Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, 
 
 --MAP Registry. Based on rf_write flag from Step1 CU, and the reset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
 --Outputs DataS, DataT depending on internal logic, further described within Registry.vhdl
-Step2 : Registry PORT MAP(Reset, rf_write, Clock, MUXCOUT, RegT, RegS, DataD, DataS, DataT);
+Step2 : Registry PORT MAP(Reset, rf_write, NOT Clock, MUXCOUT, RegT, RegS, DataD, DataS, DataT);
 
 --MAP BUFFREG RA. Upon clock rising edge, takes DataS from Registry Step2, and outputs as DataA into  MuxPC in StepX and ALU in Step10. The different flags from CU Step1 determine what each do with it.
 Step3 : BUFFREG PORT MAP(DataS, Reset, Clock, DataA);	

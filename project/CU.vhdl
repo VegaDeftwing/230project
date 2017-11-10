@@ -106,7 +106,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					--MULT instruction
 					alu_op <= "100";
 				ELSIF(opx = "001") THEN
-					--DIV instruction
+					--ShiftLeftLogical instruction
 					alu_op <= "101";
 				END IF;
 				END IF;
