@@ -1,6 +1,4 @@
 #!/usr/bin/python3.6
-import os
-import sys
 print(" ")
 print("-----------------------------------------------------------------------------------")
 print(" Assembler for CSCE230 project")
@@ -53,14 +51,19 @@ BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
 JTypeList = ["j","jal","li"]
 
 def tobin(value,bitcount):
-    if value[1] == 'x': #value begings with 0x (HEX) turn into binar
-        value = value[2:]
-        value = int(value,16)
-        value = bin(value)[2:]
-        value = value.zfill(bitcount)
-    elif value[1] == 'b': #value begings with 0b (BIN) use raw with zfill
-        value = value[2:]
-        value = value.zfill(bitcount)
+    if len(value) > 2:
+        if value[1] == 'x': #value begings with 0x (HEX) turn into binar
+            value = value[2:]
+            value = int(value,16)
+            value = bin(value)[2:]
+            value = value.zfill(bitcount)
+        elif value[1] == 'b': #value begings with 0b (BIN) use raw with zfill
+            value = value[2:]
+            value = value.zfill(bitcount)
+        else:
+            value = int(value)
+            value = bin(value)[2:]
+            value = value.zfill(bitcount)
     else: #assume base 10, convert to binary
         value = int(value)
         value = bin(value)[2:]
@@ -174,10 +177,7 @@ for line in inputfile:
     elif OpCodeStr in DTypeList:
         print(line + " \033[95m DType \033[96m", end="")
         if len(StrArray) == 4: #No "S" or "Cond"
-            if int(StrArray[3]) > 127:
-                print("\033[91m Immediate Value out of bounds")
-            immediate = bin(int(StrArray[3]))
-            immediate = bin(int(StrArray[3])).lstrip('-0b').zfill(7)
+            immediate = tobin(StrArray[3],7)
             S = "0"
             CondStr = "al"
             RegStr2 = StrArray[1]
@@ -190,19 +190,13 @@ for line in inputfile:
             else:
                 S = "0"
                 CondStr = StrArray [1]
-            if StrArray[2] > 127:
-                print("\033[91m Immediate Value out of bounds")
-            else:
-                immediate = bin(StrArray[2])
+            immediate = tobin(StrArray[2],7)
             RegStr2 = StrArray[3]
             RegStr3 = StrArray[4]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = 1
-            if StrArray[3] > 127:
-                print("\033[91m Immediate Value out of bounds")
-            else:
-                immediate = bin(StrArray[3]).lstrip('-0b').zfill(7)
+            immediate = tobin(StrArray[3],7)
             RegStr2 = StrArray[4]
             RegStr3 = StrArray[5]
         if OpCodeStr == "addi":
@@ -217,12 +211,9 @@ for line in inputfile:
         RegT = checkreg(RegStr3)
         FinalInstruction = OpCode + Cond + S + immediate + RegS + RegT
     elif OpCodeStr in DTMemList:
-        #ldw r1 (4)r2
         print(line + " \033[95m DType \033[96m", end="")
         if len(StrArray) == 4: #No "S" or "Cond"
-            if int(StrArray[2]) > 127:
-                print("Immediate Value out of bounds")
-            immediate = bin(int(StrArray[2])).lstrip('-0b').zfill(7)
+            immediate = tobin(StrArray[2],7)
             S = "0"
             CondStr = "al"
             RegStr2 = StrArray[1]
@@ -235,17 +226,13 @@ for line in inputfile:
             else:
                 S = "0"
                 CondStr = StrArray [1]
-            if int(StrArray[3]) > 127:
-                print("Immediate Value out of bounds")
+            immediate = tobin(StrArray[3],7)
             RegStr2 = StrArray[2]
             RegStr3 = StrArray[4]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = "1"
-            if int(StrArray[4]) > 127:
-                print("Immediate Value out of bounds")
-            else:
-                immediate = bin(int(StrArray[4])).lstrip('-0b').zfill(7)
+            immediate = tobin(StrArray[4],7)
             RegStr2 = StrArray[3]
             RegStr3 = StrArray[5]
         if OpCodeStr == "ldw" or OpCodeStr == "lw":

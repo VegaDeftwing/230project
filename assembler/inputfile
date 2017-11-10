@@ -9,7 +9,7 @@ xor r1 r2 r3
 or r1 r2 r3
 addi r1 r2 127
 subi r1 r2 10
-ldw r1 (4)r2
+ldw r1 (40)r2
 test:
 lw r1 (6)r3
 stw r1 (8)r1
@@ -24,3 +24,9 @@ add r1 r0 r0
 j 255
 j 0xff
 j 0b11111111
+addi r1 r2 0x0f
+addi r1 r2 0b1111
+addi r1 r2 15
+addi r1 r2 0x80
+addi r1 r2 0b10000000
+addi r1 r2 128
