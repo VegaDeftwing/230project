@@ -4,3 +4,15 @@ addi r1 r0 10
 addi r2 r0 9
 cmp r1 r2
 beq main
+cmp r1 r1
+beq test
+add r0 r0 r0
+add r0 r0 r0
+add r0 r0 r0
+add r0 r0 r0
+add r0 r0 r0
+test:
+addi r1 r0 63
+b end
+end:
+br end

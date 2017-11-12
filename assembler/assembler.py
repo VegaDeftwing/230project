@@ -99,6 +99,8 @@ for line in inputfile:
     OpCodeStr = StrArray[0]
     if OpCodeStr in RTypeList or OpCodeStr in DTypeList or OpCodeStr in DTMemList or OpCodeStr in BTypeList or OpCodeStr in JTypeList:
         print(".",end="")
+    elif OpCodeStr == "cmp" or OpCodeStr == "jr":
+        print(".",end="")
     else:
         label = StrArray[0].rstrip(':')
         labels.append(label)
@@ -371,5 +373,3 @@ print("~~~~~~~~~~~~~~~~~~~Assembly Compeleted~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 inputfile.close
 print("-----------------------------------------------------------------------------------")
 print(" ")
-print(addresses)
-print(labels)
