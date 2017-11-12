@@ -1,5 +1,6 @@
 #!/usr/bin/python3.6
 import math
+import sys
 print(" ")
 print("-----------------------------------------------------------------------------------")
 print(" Assembler for CSCE230 project")
@@ -7,7 +8,7 @@ print("\033[95m Made by Johnathan Carlson, Tyler Zinsmaster, Jake Ediger\033[92m
 print("-----------------------------------------------------------------------------------")
 
 #File I/O
-inputfile  = open("inputfile", "r")
+inputfile  = open(sys.argv[1], "r")
 outfile  = open("out.mif", "w")
 
 #Initalizations
