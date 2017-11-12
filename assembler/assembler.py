@@ -30,7 +30,7 @@ outfile.write(" 0x0: 000000000000000000000000;\n")
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
 reglist = ["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","r13","r14","r15"]
 condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt","ge","le"]
-RTypeList = ["add","sub","and","or","xor","sll","cmp","jr"]
+RTypeList = ["add","sub","and","or","xor","sll"]
 DTypeList = ["addi","subi"]
 DTMemList = ["lw","ldw","sw","stw"]
 BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
@@ -130,7 +130,29 @@ for line in inputfile:
     OpCodeStr = StrArray[0]
     #Check if it's an Rtype, if so, find out how many arguments were given
     #and generate the Instrction based on the input
-    if OpCodeStr in RTypeList:
+    if OpCodeStr == "cmp":
+        print(line + " \033[95m RType \033[96m", end="")
+        OpCode = "0010"
+        Opx = "000"
+        Cond = "0000"
+        S = "1"
+        RedD = "0000"
+        RegS = checkreg(StrArray[1])
+        RegT = checkreg(StrArray[2])
+        FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
+
+    elif OpCodeStr == "jr":
+        print(line + " \033[95m RType \033[96m", end="")
+        OpCode = "0001"
+        Opx = "000"
+        Cond = "0000"
+        S = "0"
+        RegD = "0000"
+        RegS = checkreg(StrArray[1])
+        RegT = "0000"
+        FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
+
+    elif OpCodeStr in RTypeList:
         print(line + " \033[95m RType \033[96m", end="")
         if len(StrArray) == 4:
             RegStr1 = StrArray[1]
@@ -174,12 +196,6 @@ for line in inputfile:
             Opx = "010"
         if OpCodeStr == "sll":
             OpCode = "0011"
-            Opx = "000"
-        if OpCodeStr == "cmp":
-            OpCode = "0010"
-            Opx = "000"
-        if OpCodeStr == "jr":
-            OpCode = "0001"
             Opx = "000"
         Cond = checkcond(CondStr)
         RegD = checkreg(RegStr1)
