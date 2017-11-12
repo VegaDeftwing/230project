@@ -8,21 +8,21 @@ xor r12 r13 r14
 sll r15 r1 r2
 cmp r0 r0 r0
 jr r0 r0 r0
-addi r0 r0 127
-subi r0 r0 127
+addi r0 r0 63
+subi r0 r0 63
 addi r0 r0 0b1
 subi r0 r0 0b1
 addi r0 r0 0x0f
 subi r0 r0 0x0f
 lw r1 (4)r2
 sw r1 (4)r2
-j 127
+j 63
 j 0b1
 j 0x0f
-jal 127
+jal 63
 jal 0b01
 jal 0x0f
-li r1 127
+li r1 63
 li r1 0b01
 li r1 0x0f
 all2:
