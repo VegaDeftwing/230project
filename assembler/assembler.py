@@ -80,6 +80,8 @@ def checkreg(RegStr):
     for i in range(len(tosixteen)):
         if RegStr == reglist[i]:
             Reg = tosixteen[i]
+        if RegStr == "sp":
+            Reg = "1110"
     return Reg
 
 # find the index of the input conditon and corolate it to it's hex value
