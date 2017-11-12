@@ -110,7 +110,7 @@ print("-------------------------------------------------------------------------
 inputfile.close
 
 #Second Pass, Instrction to Binary conversion and some error checknig
-inputfile  = open("inputfile", "r")
+inputfile  = open(sys.argv[1], "r")
 for line in inputfile:
     # Count each line, and convert that count to the address in hex
     i = i + 1
