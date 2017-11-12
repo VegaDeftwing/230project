@@ -80,10 +80,12 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 			--This is for cmp
 			ps_enable <= S;
-				
+			alu_op <= "011";
+			b_inv <= '1';
 			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
 			--This is for sll
-				
+			--ShiftLeftLogical instruction
+					alu_op <= "101";
 			ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
 			--THIS is for the other instructions
 			
@@ -106,10 +108,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				ELSIF(opx = "010") THEN
 					--MULT instruction
 					alu_op <= "100";
-				ELSIF(opx = "001") THEN
-					--ShiftLeftLogical instruction
-					alu_op <= "101";
-				END IF;
+				
 				END IF;
 		 END IF;
 		 	--D-Type
@@ -179,7 +178,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		 ELSIF(stage = 4) THEN			
 			--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
-			y_select <= '0';
+			y_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
 			ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
@@ -224,15 +223,13 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				ma_select <= '0';
 				mem_read <= '1';
 				If(mfc = '1') THEN
-				y_select <= '1';
+				y_select <= "01";
 				END IF;
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for sw
 				ma_select <= '0';
 				mem_write <= '1';
-				-- implement wait for MFC (while not mfc) then
-				-- do something until it is, then ???
-				
+				wmfc <= '1';
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for addi
 				
@@ -355,7 +352,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				
 				END IF;
 			END IF;
-			
+			END IF;
 				END IF;	
 		END IF; -- ENDED MAIN IF OF PROCESS
 END PROCESS;	--All	processes	must end

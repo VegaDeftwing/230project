@@ -52,7 +52,6 @@ signal C14, C15 : std_logic;
 begin	
 	--Placeholder values until we finish implementation
 	MULT <= (OTHERS => '0');
-	DIV <= (OTHERS => '0');
 	--inverts A if necessary
 	MUXA : MUX PORT MAP(A, (NOT A), A_inv, MUXAOUT);
 	--inverts B if necessary

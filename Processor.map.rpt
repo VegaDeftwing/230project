@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Fri Nov 10 16:09:22 2017
+Sun Nov 12 17:19:19 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -30,13 +30,12 @@ Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Editio
  22. Parameter Settings for User Entity Instance: MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component
  23. Parameter Settings for Inferred Entity Instance: CU:Step1|lpm_divide:Mod0
  24. altsyncram Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "PS:Step11"
- 26. Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL"
- 27. Port Connectivity Checks: "Registry:Step2|mux16:MUXB"
- 28. Port Connectivity Checks: "Registry:Step2|mux16:MUXA"
- 29. Port Connectivity Checks: "Registry:Step2|decoder16:decoder"
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+ 25. Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL"
+ 26. Port Connectivity Checks: "Registry:Step2|mux16:MUXB"
+ 27. Port Connectivity Checks: "Registry:Step2|mux16:MUXA"
+ 28. Port Connectivity Checks: "Registry:Step2|decoder16:decoder"
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
 
 
 
@@ -62,15 +61,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 10 16:09:21 2017         ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 12 17:19:19 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,711                                         ;
-;     Total combinational functions  ; 2,415                                         ;
-;     Dedicated logic registers      ; 426                                           ;
-; Total registers                    ; 426                                           ;
+; Total logic elements               ; 2,004                                         ;
+;     Total combinational functions  ; 1,947                                         ;
+;     Dedicated logic registers      ; 126                                           ;
+; Total registers                    ; 126                                           ;
 ; Total pins                         ; 288                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 24,576                                        ;
@@ -246,28 +245,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,711 ;
+; Estimated Total logic elements              ; 2,004 ;
 ;                                             ;       ;
-; Total combinational functions               ; 2415  ;
+; Total combinational functions               ; 1947  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 971   ;
-;     -- 3 input functions                    ; 689   ;
-;     -- <=2 input functions                  ; 755   ;
+;     -- 4 input functions                    ; 597   ;
+;     -- 3 input functions                    ; 602   ;
+;     -- <=2 input functions                  ; 748   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1721  ;
+;     -- normal mode                          ; 1253  ;
 ;     -- arithmetic mode                      ; 694   ;
 ;                                             ;       ;
-; Total registers                             ; 426   ;
-;     -- Dedicated logic registers            ; 426   ;
+; Total registers                             ; 126   ;
+;     -- Dedicated logic registers            ; 126   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 288   ;
 ; Total memory bits                           ; 24576 ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 450   ;
-; Total fan-out                               ; 9507  ;
-; Average fan-out                             ; 3.02  ;
+; Maximum fan-out                             ; 150   ;
+; Total fan-out                               ; 6470  ;
+; Average fan-out                             ; 2.71  ;
 +---------------------------------------------+-------+
 
 
@@ -276,64 +275,35 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
-; |processor                                   ; 2415 (1)          ; 426 (0)      ; 24576       ; 0            ; 0       ; 0         ; 288  ; 0            ; |processor                                                                                                       ;              ;
-;    |ALU:Step10|                              ; 106 (7)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
-;       |FASTADDER:FASTADD|                    ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
-;          |FAST4BITADDER:add0to3|             ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
-;          |FAST4BITADDER:add12to15|           ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15                                                  ;              ;
-;          |FAST4BITADDER:add4to7|             ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                    ;              ;
-;          |FAST4BITADDER:add8to11|            ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add8to11                                                   ;              ;
-;       |FLAGLOGIC:FLAGCHECK|                  ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FLAGLOGIC:FLAGCHECK                                                                        ;              ;
-;       |MUX6TO1:MUXFINAL|                     ; 41 (41)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX6TO1:MUXFINAL                                                                           ;              ;
-;       |MUX:MUXB|                             ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                   ;              ;
-;    |BUFFREG:Step3|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step3                                                                                         ;              ;
-;    |BUFFREG:Step4|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step4                                                                                         ;              ;
-;    |BUFFREG:Step5|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step5                                                                                         ;              ;
+; |processor                                   ; 1947 (1)          ; 126 (0)      ; 24576       ; 0            ; 0       ; 0         ; 288  ; 0            ; |processor                                                                                                       ;              ;
+;    |ALU:Step10|                              ; 42 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
+;       |FASTADDER:FASTADD|                    ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
+;          |FAST4BITADDER:add0to3|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
+;          |FAST4BITADDER:add12to15|           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15                                                  ;              ;
+;          |FAST4BITADDER:add4to7|             ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                    ;              ;
+;       |FLAGLOGIC:FLAGCHECK|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FLAGLOGIC:FLAGCHECK                                                                        ;              ;
+;       |MUX6TO1:MUXFINAL|                     ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX6TO1:MUXFINAL                                                                           ;              ;
+;       |MUX:MUXB|                             ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                   ;              ;
 ;    |BUFFREG:Step6|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                         ;              ;
-;    |BUFFREG:Step7|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                         ;              ;
-;    |CU:Step1|                                ; 1901 (199)        ; 46 (46)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
+;    |BUFFREG:Step7|                           ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                         ;              ;
+;    |CU:Step1|                                ; 1881 (179)        ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
 ;       |lpm_divide:Mod0|                      ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                              ;              ;
 ;          |lpm_divide_qlo:auto_generated|     ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
 ;             |abs_divider_4dg:divider|        ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
 ;                |alt_u_div_k5f:divider|       ; 1605 (1605)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider  ;              ;
 ;                |lpm_abs_0s9:my_abs_num|      ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|lpm_abs_0s9:my_abs_num ;              ;
 ;    |IR:Step12|                               ; 0 (0)             ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IR:Step12                                                                                             ;              ;
-;    |InstructionAddressGenerator:Step14|      ; 24 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14                                                                    ;              ;
-;       |MuxINC:inst|                          ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|MuxINC:inst                                                        ;              ;
-;          |lpm_mux:lpm_mux_component|         ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|MuxINC:inst|lpm_mux:lpm_mux_component                              ;              ;
-;             |mux_m4e:auto_generated|         ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|MuxINC:inst|lpm_mux:lpm_mux_component|mux_m4e:auto_generated       ;              ;
+;    |InstructionAddressGenerator:Step14|      ; 16 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14                                                                    ;              ;
 ;       |PC:inst2|                             ; 16 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|PC:inst2                                                           ;              ;
 ;          |lpm_ff:lpm_ff_component|           ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|PC:inst2|lpm_ff:lpm_ff_component                                   ;              ;
 ;       |PC_Temp:inst4|                        ; 0 (0)             ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|PC_Temp:inst4                                                      ;              ;
 ;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|PC_Temp:inst4|lpm_ff:lpm_ff_component                              ;              ;
-;    |MUXB:Step8|                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXB:Step8                                                                                            ;              ;
-;    |MUXC:Step16|                             ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXC:Step16                                                                                           ;              ;
-;    |MUXY:Step9|                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXY:Step9                                                                                            ;              ;
+;    |MUXB:Step8|                              ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXB:Step8                                                                                            ;              ;
 ;    |MemoryInterface:Step17|                  ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17                                                                                ;              ;
 ;       |MainMemory:inst|                      ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17|MainMemory:inst                                                                ;              ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component                                ;              ;
 ;             |altsyncram_ghe1:auto_generated| ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated ;              ;
 ;    |PS:Step11|                               ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|PS:Step11                                                                                             ;              ;
-;    |Registry:Step2|                          ; 343 (0)           ; 240 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2                                                                                        ;              ;
-;       |Reg16:Register10|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register10                                                                       ;              ;
-;       |Reg16:Register11|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register11                                                                       ;              ;
-;       |Reg16:Register12|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register12                                                                       ;              ;
-;       |Reg16:Register13|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register13                                                                       ;              ;
-;       |Reg16:Register14|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register14                                                                       ;              ;
-;       |Reg16:Register15|                     ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register15                                                                       ;              ;
-;       |Reg16:Register1|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register1                                                                        ;              ;
-;       |Reg16:Register2|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register2                                                                        ;              ;
-;       |Reg16:Register3|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register3                                                                        ;              ;
-;       |Reg16:Register4|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register4                                                                        ;              ;
-;       |Reg16:Register5|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register5                                                                        ;              ;
-;       |Reg16:Register6|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register6                                                                        ;              ;
-;       |Reg16:Register7|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register7                                                                        ;              ;
-;       |Reg16:Register8|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register8                                                                        ;              ;
-;       |Reg16:Register9|                      ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|Reg16:Register9                                                                        ;              ;
-;       |decoder16:decoder|                    ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|decoder16:decoder                                                                      ;              ;
-;       |mux16:MUXA|                           ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|mux16:MUXA                                                                             ;              ;
-;       |mux16:MUXB|                           ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|Registry:Step2|mux16:MUXB                                                                             ;              ;
-;    |immediate:Step13|                        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|immediate:Step13                                                                                      ;              ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -363,30 +333,407 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-------------------------------------------------------------+-----------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; CU:Step1|ma_select                    ; Stuck at VCC due to stuck port data_in ;
-; CU:Step1|mem_write                    ; Stuck at GND due to stuck port data_in ;
-; CU:Step1|a_inv                        ; Stuck at GND due to stuck port data_in ;
-; CU:Step1|wmfc                         ; Lost fanout                            ;
-; CU:Step1|mem_read                     ; Merged with CU:Step1|ir_enable         ;
-; CU:Step1|extend[1]                    ; Stuck at GND due to stuck port data_in ;
-; CU:Step1|y_select[0]                  ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 7 ;                                        ;
-+---------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++--------------------------------------------+---------------------------------------------+
+; Register name                              ; Reason for Removal                          ;
++--------------------------------------------+---------------------------------------------+
+; CU:Step1|a_inv                             ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|wmfc                              ; Lost fanout                                 ;
+; CU:Step1|extend[1]                         ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|y_select[0,1]                     ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|extend[0]                         ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|ma_select                         ; Stuck at VCC due to stuck port data_in      ;
+; CU:Step1|mem_write                         ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|pc_select                         ; Stuck at VCC due to stuck port data_in      ;
+; CU:Step1|inc_select                        ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|c_select[1]                       ; Stuck at GND due to stuck port data_in      ;
+; CU:Step1|rf_write                          ; Stuck at GND due to stuck port data_in      ;
+; Registry:Step2|Reg16:Register2|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[0]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[0]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[1]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[1]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[2]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[2]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[3]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[3]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[4]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[4]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[5]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[5]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[6]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[6]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[7]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[7]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[8]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[8]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[9]   ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[9]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[10]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[10] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[11]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[11] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[12]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[12] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[13]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[13] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[14]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[14] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register2|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register3|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register1|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register4|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register5|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register6|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register7|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register8|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register9|output[15]  ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register10|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register11|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register12|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register13|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register14|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; Registry:Step2|Reg16:Register15|output[15] ; Stuck at GND due to stuck port clock_enable ;
+; CU:Step1|pc_enable                         ; Merged with CU:Step1|ir_enable              ;
+; CU:Step1|mem_read                          ; Merged with CU:Step1|ir_enable              ;
+; BUFFREG:Step3|output[0..14]                ; Merged with BUFFREG:Step3|output[15]        ;
+; BUFFREG:Step4|output[0..11,13..15]         ; Merged with BUFFREG:Step4|output[12]        ;
+; BUFFREG:Step5|output[1..15]                ; Merged with BUFFREG:Step5|output[0]         ;
+; BUFFREG:Step3|output[15]                   ; Stuck at GND due to stuck port data_in      ;
+; BUFFREG:Step4|output[12]                   ; Stuck at GND due to stuck port data_in      ;
+; BUFFREG:Step5|output[0]                    ; Stuck at GND due to stuck port data_in      ;
+; BUFFREG:Step7|output[12]                   ; Merged with BUFFREG:Step7|output[8]         ;
+; BUFFREG:Step7|output[13]                   ; Merged with BUFFREG:Step7|output[9]         ;
+; BUFFREG:Step7|output[14]                   ; Merged with BUFFREG:Step7|output[10]        ;
+; BUFFREG:Step7|output[15]                   ; Merged with BUFFREG:Step7|output[11]        ;
+; BUFFREG:Step7|output[10]                   ; Merged with BUFFREG:Step7|output[8]         ;
+; BUFFREG:Step7|output[11]                   ; Merged with BUFFREG:Step7|output[9]         ;
+; Total Number of Removed Registers = 308    ;                                             ;
++--------------------------------------------+---------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                             ;
-+--------------------+---------------------------+----------------------------------------+
-; Register name      ; Reason for Removal        ; Registers Removed due to This Register ;
-+--------------------+---------------------------+----------------------------------------+
-; CU:Step1|ma_select ; Stuck at VCC              ; CU:Step1|wmfc                          ;
-;                    ; due to stuck port data_in ;                                        ;
-+--------------------+---------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; CU:Step1|c_select[1]     ; Stuck at GND              ; Registry:Step2|Reg16:Register2|output[0], Registry:Step2|Reg16:Register1|output[0], ;
+;                          ; due to stuck port data_in ; Registry:Step2|Reg16:Register4|output[0], Registry:Step2|Reg16:Register6|output[0], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[0],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[0],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[0],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[0],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[1], Registry:Step2|Reg16:Register1|output[1], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[1], Registry:Step2|Reg16:Register6|output[1], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[1],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[1],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[1],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[1],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[2], Registry:Step2|Reg16:Register1|output[2], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[2], Registry:Step2|Reg16:Register6|output[2], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[2],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[2],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[2],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[2],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[3], Registry:Step2|Reg16:Register1|output[3], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[3], Registry:Step2|Reg16:Register6|output[3], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[3],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[3],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[3],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[3],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[4], Registry:Step2|Reg16:Register1|output[4], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[4], Registry:Step2|Reg16:Register6|output[4], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[4],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[4],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[4],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[4],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[5], Registry:Step2|Reg16:Register1|output[5], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[5], Registry:Step2|Reg16:Register6|output[5], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[5],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[5],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[5],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[5],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[6], Registry:Step2|Reg16:Register1|output[6], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[6], Registry:Step2|Reg16:Register6|output[6], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[6],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[6],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[6],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[6],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[7], Registry:Step2|Reg16:Register1|output[7], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[7], Registry:Step2|Reg16:Register6|output[7], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[7],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[7],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[7],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[7],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[8], Registry:Step2|Reg16:Register1|output[8], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[8], Registry:Step2|Reg16:Register6|output[8], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[8],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[8],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[8],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[8],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[9], Registry:Step2|Reg16:Register1|output[9], ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[9], Registry:Step2|Reg16:Register6|output[9], ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[9],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[9],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[9],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[9],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[10],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[10],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[10],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[11],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[11],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[11],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[12],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[12],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[12],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[13],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[13],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[13],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[14],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[14],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[14],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register2|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register1|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register8|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register10|output[15],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register12|output[15],                                         ;
+;                          ;                           ; Registry:Step2|Reg16:Register14|output[15]                                          ;
+; CU:Step1|rf_write        ; Stuck at GND              ; Registry:Step2|Reg16:Register9|output[0], Registry:Step2|Reg16:Register9|output[1], ;
+;                          ; due to stuck port data_in ; Registry:Step2|Reg16:Register9|output[2], Registry:Step2|Reg16:Register9|output[3], ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[4], Registry:Step2|Reg16:Register9|output[5], ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[6], Registry:Step2|Reg16:Register9|output[7], ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[8], Registry:Step2|Reg16:Register9|output[9], ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register9|output[15]                                           ;
+; BUFFREG:Step4|output[12] ; Stuck at GND              ; BUFFREG:Step5|output[0]                                                             ;
+;                          ; due to stuck port data_in ;                                                                                     ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -394,12 +741,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 426   ;
+; Total registers                              ; 126   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 16    ;
-; Number of registers using Asynchronous Clear ; 380   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 86    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 283   ;
+; Number of registers using Clock Enable       ; 47    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -409,13 +756,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                   ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|alu_op[1]                ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux2                  ;                            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |processor|CU:Step1|c_select                 ;                            ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux15 ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux3    ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux2    ;                            ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 15 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op                   ;                            ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; |processor|CU:Step1|alu_op[0]                ;                            ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; |processor|CU:Step1|y_select[0]              ;                            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|MUXY:Step9|Mux15                  ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux3                  ;                            ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux13 ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux0    ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux14   ;                            ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op                   ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 
 
@@ -661,22 +1009,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------------------------------------+
 
 
-+------------------------------------------+
-; Port Connectivity Checks: "PS:Step11"    ;
-+--------+-------+----------+--------------+
-; Port   ; Type  ; Severity ; Details      ;
-+--------+-------+----------+--------------+
-; enable ; Input ; Info     ; Stuck at VCC ;
-+--------+-------+----------+--------------+
-
-
 +---------------------------------------------------------+
 ; Port Connectivity Checks: "ALU:Step10|MUX6TO1:MUXFINAL" ;
 +------+-------+----------+-------------------------------+
 ; Port ; Type  ; Severity ; Details                       ;
 +------+-------+----------+-------------------------------+
 ; in5  ; Input ; Info     ; Stuck at GND                  ;
-; in6  ; Input ; Info     ; Stuck at GND                  ;
 +------+-------+----------+-------------------------------+
 
 
@@ -712,7 +1050,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:33     ;
+; Top            ; 00:00:42     ;
 +----------------+--------------+
 
 
@@ -722,7 +1060,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Nov 10 16:08:41 2017
+    Info: Processing started: Sun Nov 12 17:18:31 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file project/fast4bitadder.vhdl
@@ -830,6 +1168,7 @@ Info (12128): Elaborating entity "BUFFREG" for hierarchy "BUFFREG:Step3"
 Info (12128): Elaborating entity "MUXB" for hierarchy "MUXB:Step8"
 Info (12128): Elaborating entity "MUXY" for hierarchy "MUXY:Step9"
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:Step10"
+Warning (10541): VHDL Signal Declaration warning at ALU.vhdl(50): used implicit default value for signal "ShiftLeftLogical" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "MUX" for hierarchy "ALU:Step10|MUX:MUXA"
 Info (12128): Elaborating entity "FASTADDER" for hierarchy "ALU:Step10|FASTADDER:FASTADD"
 Info (12128): Elaborating entity "FAST4BITADDER" for hierarchy "ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3"
@@ -934,26 +1273,131 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_mkc
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
     Info (12023): Found entity 1: lpm_abs_0s9
+Info (13005): Duplicate registers merged to single register
+Info (13005): Duplicate registers merged to single register
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "extend_Output[0]" is stuck at GND
     Warning (13410): Pin "extend_Output[1]" is stuck at GND
     Warning (13410): Pin "ma_select_Output" is stuck at VCC
     Warning (13410): Pin "mem_write_Output" is stuck at GND
+    Warning (13410): Pin "pc_select_Output" is stuck at VCC
+    Warning (13410): Pin "inc_select_Output" is stuck at GND
     Warning (13410): Pin "y_select_Output[0]" is stuck at GND
+    Warning (13410): Pin "y_select_Output[1]" is stuck at GND
+    Warning (13410): Pin "c_select_Output[1]" is stuck at GND
+    Warning (13410): Pin "rf_write_Output" is stuck at GND
     Warning (13410): Pin "a_inv_Output" is stuck at GND
     Warning (13410): Pin "mfc_Output" is stuck at GND
-    Warning (13410): Pin "enablePS_Output" is stuck at VCC
+    Warning (13410): Pin "DataS_Output[0]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[1]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[2]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[3]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[4]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[5]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[6]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[7]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[8]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[9]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[10]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[11]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[12]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[13]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[14]" is stuck at GND
+    Warning (13410): Pin "DataS_Output[15]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[0]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[1]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[2]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[3]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[4]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[5]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[6]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[7]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[8]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[9]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[10]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[11]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[12]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[13]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[14]" is stuck at GND
+    Warning (13410): Pin "DataT_Output[15]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[0]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[1]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[2]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[3]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[4]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[5]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[6]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[7]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[8]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[9]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[10]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[11]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[12]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[13]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[14]" is stuck at GND
+    Warning (13410): Pin "DataA_Output[15]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[0]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[1]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[2]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[3]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[4]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[5]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[6]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[7]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[8]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[9]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[10]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[11]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[12]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[13]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[14]" is stuck at GND
+    Warning (13410): Pin "DataB_Output[15]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[0]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[1]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[2]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[3]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[4]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[5]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[6]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[7]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[8]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[9]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[10]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[11]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[12]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[13]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[14]" is stuck at GND
+    Warning (13410): Pin "DataM_Output[15]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[7]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[8]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[9]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[10]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[11]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[12]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[13]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[14]" is stuck at GND
+    Warning (13410): Pin "immediateB_Output[15]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[7]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[8]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[9]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[10]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[11]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[12]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[13]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[14]" is stuck at GND
+    Warning (13410): Pin "muxBout_Output[15]" is stuck at GND
 Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info (17050): Register "CU:Step1|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Info (21057): Implemented 3123 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2361 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 286 output pins
-    Info (21061): Implemented 2811 logic cells
+    Info (21061): Implemented 2049 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 376 megabytes
-    Info: Processing ended: Fri Nov 10 16:09:22 2017
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:38
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 116 warnings
+    Info: Peak virtual memory: 411 megabytes
+    Info: Processing ended: Sun Nov 12 17:19:19 2017
+    Info: Elapsed time: 00:00:48
+    Info: Total CPU time (on all processors): 00:00:45
 
 
