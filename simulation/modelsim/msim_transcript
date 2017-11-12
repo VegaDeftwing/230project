@@ -91,7 +91,3 @@
 # 
 # run 1710
 #  
-restart
-# ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
-# This may because you are loading cell libraries which are not recommended with
-# the ModelSim Altera version. Expect performance to be adversely affected.

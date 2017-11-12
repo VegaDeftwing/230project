@@ -15,7 +15,7 @@ entity CU is
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select: out std_logic
+		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable: out std_logic
 		
 	);
 end CU;
@@ -59,7 +59,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		pc_select <= '1';
 		pc_enable <= mfc;
 		inc_select <= '0';
-
+		ps_enable <= '0';
 		-- register load
 		ELSIF(stage = 2) THEN
 
@@ -70,15 +70,16 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 
 		--ALU, branch, jump operation
 		ELSIF(stage = 3) THEN
-	
 		--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 		c_select <= "00";
-	
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
-			ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+			--help
+			
+		ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 			--This is for cmp
+			ps_enable <= S;
 				
 			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
 			--This is for sll
@@ -113,17 +114,20 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		 END IF;
 		 	--D-Type
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
-			c_select <="01";
+				ps_enable <= S;
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for lw
-				
+				b_select <= '1';
+				alu_op <= "011";
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for sw
-				
+				b_select <= '1';
+				alu_op <= "011";
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for addi
 				alu_op <= "011";
 				b_select <= '1';
+
 				--how to know when we need to extend?
 				IF(immediate(6)='1') THEN
 				extend <= "01";
@@ -146,7 +150,8 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				c_select <= "10";
 				END IF;
 			END IF;
-		 	--J-Type
+		 
+		 --J-Type--
 			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for j (UNUSED AS OF YET)
@@ -171,27 +176,186 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 		 
-		 ELSIF(stage = 4) THEN
-		 --R-Type instruction
-		 IF(opCode(3) = '0' AND opCode(2) = '0') THEN	
+		 ELSIF(stage = 4) THEN			
+			--R-Type instructions
+		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+			y_select <= '0';
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
-			
 			--This is for JR, just fill in the values for the if statement
-			--We will have to set some flags here in the future
+			ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+			--This is for cmp
 			
+				
+			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
+			--This is for sll
+				
+			ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
+			--THIS is for the other instructions
+			
+			IF(opx= "111") THEN
+				 --AND instruction
+				
+				ELSIF(opx = "110") THEN
+					--OR INSTRUCTION
+				
+				ELSIF(opx = "101") THEN
+					--XOR instruction
+				
+				ELSIF(opx = "100") THEN
+					--ADD instruction
+				
+				ELSIF(opx = "011") THEN
+					--SUB instruction
+				
+				
+				ELSIF(opx = "010") THEN
+					--MULT instruction
+				
+				ELSIF(opx = "001") THEN
+					--ShiftLeftLogical instruction
+				
+				END IF;
+				END IF;
+		 END IF;
+		 --D-Type--
+			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for lw
+				ma_select <= '0';
+				mem_read <= '1';
+				If(mfc = '1') THEN
+				y_select <= '1';
+				END IF;
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for sw
+				ma_select <= '0';
+				mem_write <= '1';
+				-- implement wait for MFC (while not mfc) then
+				-- do something until it is, then ???
+				
+				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+				--This is for addi
+				
+				ELSIF(opCode(1) = '1' AND opCode(0) = '1') THEN
+				--THIS is for si (UNUSED AS OF YET)
+			
+				END IF;
 			END IF;
+		 	--B-Type
+			IF(opCode(3) = '1' AND opCode(2) = '0') THEN
+			
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for b
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for bal
+				
+				END IF;
 			END IF;
+		 	--J-Type
+			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for j (UNUSED AS OF YET)
+
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for jal (UNUSED AS OF YET)
+			
+				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+				--This is for li (UNUSED AS OF YET)
+			
+				-- add stw flags (Because we are just storing the immediate value)
+				
+				END IF;
+			END IF;
+			
 		 ELSIF(stage = 5) THEN
 		 --R-Type instructions
-		 IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+			rf_write <= '1';
+			c_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
-				--THis is for JR, just fill in the values for the if statement
+			--This is for JR
+		
+			ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+			--This is for cmp
 			
+				
+			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
+			--This is for sll
+				
 			ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
-				rf_write <= '1';
+			--THIS is for the other instructions
 			
-			END IF;
+			IF(opx= "111") THEN
+				 --AND instruction
+				
+				ELSIF(opx = "110") THEN
+					--OR INSTRUCTION
+				
+				ELSIF(opx = "101") THEN
+					--XOR instruction
+				
+				ELSIF(opx = "100") THEN
+					--ADD instruction
+				
+				ELSIF(opx = "011") THEN
+					--SUB instruction
+				
+				
+				ELSIF(opx = "010") THEN
+					--MULT instruction
+				
+				ELSIF(opx = "001") THEN
+					--ShiftLeftLogical instruction
+				
 				END IF;
+				END IF;
+		 END IF;
+		 --D-Type--
+			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
+		
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for lw
+					c_select <="01";
+					rf_write <= '1';
+				
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for sw
+				
+				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+				--This is for addi
+					c_select <="01";
+					rf_write <= '1';
+				ELSIF(opCode(1) = '1' AND opCode(0) = '1') THEN
+				--THIS is for si (UNUSED AS OF YET)
+			
+				END IF;
+			END IF;
+		 	--B-Type
+			IF(opCode(3) = '1' AND opCode(2) = '0') THEN
+			
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for b
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for bal
+				
+				END IF;
+			END IF;
+		 	--J-Type
+			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
+			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--This is for j (UNUSED AS OF YET)
+
+				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
+				--This is for jal (UNUSED AS OF YET)
+			
+				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+				--This is for li (UNUSED AS OF YET)
+			
+				-- add stw flags (Because we are just storing the immediate value)
+				
+				END IF;
+			END IF;
+			
 				END IF;	
 		END IF; -- ENDED MAIN IF OF PROCESS
 END PROCESS;	--All	processes	must end
