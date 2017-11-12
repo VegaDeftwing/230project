@@ -43,12 +43,17 @@ def tobin(value,bitcount):
         value = int(value)
         value = bin(value)[2:]
         value = int(value,2) ^ int(math.pow(2,bitcount)-1) #TODO: make this number match bitcount
+        if value < (int(int(math.pow(2,bitcount)-1)/2)+1):
+            print("~~~You Fucked up!~~~", end="")
+
         value = value + 0b1
         value = bin(value).lstrip('0b').zfill(bitcount)
     elif len(value) > 2:
         if value[1] == 'x': #value begings with 0x (HEX) turn into binar
             value = value[2:]
             value = int(value,16)
+            if value > 63:
+                print("~~~You Fucked up!~~~")
             value = bin(value)[2:]
             value = value.zfill(bitcount)
         elif value[1] == 'b': #value begings with 0b (BIN) use raw with zfill
@@ -56,10 +61,15 @@ def tobin(value,bitcount):
             value = value.zfill(bitcount)
         else:
             value = int(value)
+            print(value)
+            if value > 63:
+                print("~~~You Fucked up!~~~")
             value = bin(value)[2:]
             value = value.zfill(bitcount)
     else: #assume base 10, convert to binary
         value = int(value)
+        if value > 63:
+            print("~~~You Fucked up!~~~")
         value = bin(value)[2:]
         value = value.zfill(bitcount)
     return(value)
