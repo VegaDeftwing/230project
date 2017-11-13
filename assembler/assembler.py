@@ -9,7 +9,7 @@ print("-------------------------------------------------------------------------
 
 #File I/O
 inputfile  = open(sys.argv[1], "r")
-outfile  = open("out.mif", "w")
+outfile  = open("MemoryInitialization.mif", "w")
 
 #Initalizations
 lireg = LabelStr = Derefaddr = Label = FinalInstruction = Cond = RegD = RegS = RegT = RegStr = Opx = S = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
