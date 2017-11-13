@@ -73,13 +73,14 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 		c_select <= "00";
+		ps_enable <= S;
+	
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
 			--help
-			
+			pc_select <= '0';
 		ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 			--This is for cmp
-			ps_enable <= S;
 			alu_op <= "011";
 			b_inv <= '1';
 			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
@@ -112,8 +113,10 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 		 END IF;
 		 	--D-Type
+			
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
 				ps_enable <= S;
+				c_select <="01";
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for lw
 				b_select <= '1';
@@ -141,16 +144,19 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			END IF;
 		 	--B-Type
 			IF(opCode(3) = '1' AND opCode(2) = '0') THEN
-			
+				pc_select <= '1';
+				pc_enable <= '1';
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for b
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
 				c_select <= "10";
+				pc_select <= '1';
+				pc_enable <= '1';
 				END IF;
 			END IF;
 		 
-		 --J-Type--
+		 --J-Type-- (LOL THESE ARE WRONG)
 			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for j (UNUSED AS OF YET)
@@ -160,11 +166,11 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				inc_select <= '1';
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for jal (UNUSED AS OF YET)
-				pc_enable <= '1';
-				c_select <= "10";
-				y_select <= "10";
-				pc_select <= '1';
-				inc_select <= '1';
+			--	pc_enable <= '1';
+			--	c_select <= "10";
+			--	y_select <= "10";
+			--	pc_select <= '1';
+			--	inc_select <= '1';
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for li (UNUSED AS OF YET)
 				c_select <="11";
@@ -334,7 +340,8 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for b
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
-				
+					c_select <= "10";
+					rf_write <= '1';
 				END IF;
 			END IF;
 		 	--J-Type
@@ -347,7 +354,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for li (UNUSED AS OF YET)
-			
+				c_select <="11";
 				-- add stw flags (Because we are just storing the immediate value)
 				
 				END IF;

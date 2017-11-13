@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Sun Nov 12 17:19:19 2017
+Mon Nov 13 14:40:13 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -61,16 +61,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 12 17:19:19 2017         ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 13 14:40:13 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,004                                         ;
-;     Total combinational functions  ; 1,947                                         ;
-;     Dedicated logic registers      ; 126                                           ;
-; Total registers                    ; 126                                           ;
-; Total pins                         ; 288                                           ;
+; Total logic elements               ; 2,006                                         ;
+;     Total combinational functions  ; 1,949                                         ;
+;     Dedicated logic registers      ; 128                                           ;
+; Total registers                    ; 128                                           ;
+; Total pins                         ; 344                                           ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 24,576                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -205,6 +205,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; project/BUFFREG.vhdl                                      ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/BUFFREG.vhdl                                      ;
 ; project/MUXma.vhdl                                        ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXma.vhdl                                        ;
 ; project/MUXC.vhdl                                         ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXC.vhdl                                         ;
+; MemoryInitialization.mif                                  ; yes             ; User Memory Initialization File    ; C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif                                  ;
 ; lpm_ff.tdf                                                ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_ff.tdf                                      ;
 ; lpm_constant.inc                                          ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_constant.inc                                ;
 ; aglobal111.inc                                            ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/aglobal111.inc                                  ;
@@ -245,28 +246,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,004 ;
+; Estimated Total logic elements              ; 2,006 ;
 ;                                             ;       ;
-; Total combinational functions               ; 1947  ;
+; Total combinational functions               ; 1949  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 597   ;
-;     -- 3 input functions                    ; 602   ;
+;     -- 4 input functions                    ; 598   ;
+;     -- 3 input functions                    ; 603   ;
 ;     -- <=2 input functions                  ; 748   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1253  ;
+;     -- normal mode                          ; 1255  ;
 ;     -- arithmetic mode                      ; 694   ;
 ;                                             ;       ;
-; Total registers                             ; 126   ;
-;     -- Dedicated logic registers            ; 126   ;
+; Total registers                             ; 128   ;
+;     -- Dedicated logic registers            ; 128   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 288   ;
+; I/O pins                                    ; 344   ;
 ; Total memory bits                           ; 24576 ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 150   ;
-; Total fan-out                               ; 6470  ;
-; Average fan-out                             ; 2.71  ;
+; Maximum fan-out                             ; 152   ;
+; Total fan-out                               ; 6573  ;
+; Average fan-out                             ; 2.69  ;
 +---------------------------------------------+-------+
 
 
@@ -275,7 +276,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
-; |processor                                   ; 1947 (1)          ; 126 (0)      ; 24576       ; 0            ; 0       ; 0         ; 288  ; 0            ; |processor                                                                                                       ;              ;
+; |processor                                   ; 1949 (1)          ; 128 (0)      ; 24576       ; 0            ; 0       ; 0         ; 344  ; 0            ; |processor                                                                                                       ;              ;
 ;    |ALU:Step10|                              ; 42 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
 ;       |FASTADDER:FASTADD|                    ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
 ;          |FAST4BITADDER:add0to3|             ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
@@ -286,7 +287,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |MUX:MUXB|                             ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                   ;              ;
 ;    |BUFFREG:Step6|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                         ;              ;
 ;    |BUFFREG:Step7|                           ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                         ;              ;
-;    |CU:Step1|                                ; 1881 (179)        ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
+;    |CU:Step1|                                ; 1883 (181)        ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
 ;       |lpm_divide:Mod0|                      ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                              ;              ;
 ;          |lpm_divide_qlo:auto_generated|     ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
 ;             |abs_divider_4dg:divider|        ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
@@ -345,9 +346,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CU:Step1|extend[0]                         ; Stuck at GND due to stuck port data_in      ;
 ; CU:Step1|ma_select                         ; Stuck at VCC due to stuck port data_in      ;
 ; CU:Step1|mem_write                         ; Stuck at GND due to stuck port data_in      ;
-; CU:Step1|pc_select                         ; Stuck at VCC due to stuck port data_in      ;
 ; CU:Step1|inc_select                        ; Stuck at GND due to stuck port data_in      ;
-; CU:Step1|c_select[1]                       ; Stuck at GND due to stuck port data_in      ;
 ; CU:Step1|rf_write                          ; Stuck at GND due to stuck port data_in      ;
 ; Registry:Step2|Reg16:Register2|output[0]   ; Stuck at GND due to stuck port clock_enable ;
 ; Registry:Step2|Reg16:Register3|output[0]   ; Stuck at GND due to stuck port clock_enable ;
@@ -589,8 +588,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Registry:Step2|Reg16:Register13|output[15] ; Stuck at GND due to stuck port clock_enable ;
 ; Registry:Step2|Reg16:Register14|output[15] ; Stuck at GND due to stuck port clock_enable ;
 ; Registry:Step2|Reg16:Register15|output[15] ; Stuck at GND due to stuck port clock_enable ;
-; CU:Step1|pc_enable                         ; Merged with CU:Step1|ir_enable              ;
 ; CU:Step1|mem_read                          ; Merged with CU:Step1|ir_enable              ;
+; CU:Step1|pc_enable                         ; Merged with CU:Step1|ir_enable              ;
 ; BUFFREG:Step3|output[0..14]                ; Merged with BUFFREG:Step3|output[15]        ;
 ; BUFFREG:Step4|output[0..11,13..15]         ; Merged with BUFFREG:Step4|output[12]        ;
 ; BUFFREG:Step5|output[1..15]                ; Merged with BUFFREG:Step5|output[0]         ;
@@ -603,7 +602,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; BUFFREG:Step7|output[15]                   ; Merged with BUFFREG:Step7|output[11]        ;
 ; BUFFREG:Step7|output[10]                   ; Merged with BUFFREG:Step7|output[8]         ;
 ; BUFFREG:Step7|output[11]                   ; Merged with BUFFREG:Step7|output[9]         ;
-; Total Number of Removed Registers = 308    ;                                             ;
+; Total Number of Removed Registers = 306    ;                                             ;
 +--------------------------------------------+---------------------------------------------+
 
 
@@ -612,69 +611,70 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------+---------------------------+-------------------------------------------------------------------------------------+
 ; Register name            ; Reason for Removal        ; Registers Removed due to This Register                                              ;
 +--------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; CU:Step1|c_select[1]     ; Stuck at GND              ; Registry:Step2|Reg16:Register2|output[0], Registry:Step2|Reg16:Register1|output[0], ;
-;                          ; due to stuck port data_in ; Registry:Step2|Reg16:Register4|output[0], Registry:Step2|Reg16:Register6|output[0], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[0],                                           ;
+; CU:Step1|rf_write        ; Stuck at GND              ; Registry:Step2|Reg16:Register2|output[0], Registry:Step2|Reg16:Register1|output[0], ;
+;                          ; due to stuck port data_in ; Registry:Step2|Reg16:Register4|output[0], Registry:Step2|Reg16:Register5|output[0], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[0], Registry:Step2|Reg16:Register8|output[0], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[0],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[0],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[0],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[1], Registry:Step2|Reg16:Register1|output[1], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[1], Registry:Step2|Reg16:Register6|output[1], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[1],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[1], Registry:Step2|Reg16:Register5|output[1], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[1], Registry:Step2|Reg16:Register8|output[1], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[1],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[1],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[1],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[2], Registry:Step2|Reg16:Register1|output[2], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[2], Registry:Step2|Reg16:Register6|output[2], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[2],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[2], Registry:Step2|Reg16:Register5|output[2], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[2], Registry:Step2|Reg16:Register8|output[2], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[2],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[2],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[2],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[3], Registry:Step2|Reg16:Register1|output[3], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[3], Registry:Step2|Reg16:Register6|output[3], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[3],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[3], Registry:Step2|Reg16:Register5|output[3], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[3], Registry:Step2|Reg16:Register8|output[3], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[3],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[3],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[3],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[4], Registry:Step2|Reg16:Register1|output[4], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[4], Registry:Step2|Reg16:Register6|output[4], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[4],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[4], Registry:Step2|Reg16:Register5|output[4], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[4], Registry:Step2|Reg16:Register8|output[4], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[4],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[4],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[4],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[5], Registry:Step2|Reg16:Register1|output[5], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[5], Registry:Step2|Reg16:Register6|output[5], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[5],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[5], Registry:Step2|Reg16:Register5|output[5], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[5], Registry:Step2|Reg16:Register8|output[5], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[5],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[5],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[5],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[6], Registry:Step2|Reg16:Register1|output[6], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[6], Registry:Step2|Reg16:Register6|output[6], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[6],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[6], Registry:Step2|Reg16:Register5|output[6], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[6], Registry:Step2|Reg16:Register8|output[6], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[6],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[6],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[6],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[7], Registry:Step2|Reg16:Register1|output[7], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[7], Registry:Step2|Reg16:Register6|output[7], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[7],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[7], Registry:Step2|Reg16:Register5|output[7], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[7], Registry:Step2|Reg16:Register8|output[7], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[7],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[7],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[7],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[8], Registry:Step2|Reg16:Register1|output[8], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[8], Registry:Step2|Reg16:Register6|output[8], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[8],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[8], Registry:Step2|Reg16:Register5|output[8], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[8], Registry:Step2|Reg16:Register8|output[8], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[8],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[8],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[8],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[9], Registry:Step2|Reg16:Register1|output[9], ;
-;                          ;                           ; Registry:Step2|Reg16:Register4|output[9], Registry:Step2|Reg16:Register6|output[9], ;
-;                          ;                           ; Registry:Step2|Reg16:Register8|output[9],                                           ;
+;                          ;                           ; Registry:Step2|Reg16:Register4|output[9], Registry:Step2|Reg16:Register5|output[9], ;
+;                          ;                           ; Registry:Step2|Reg16:Register6|output[9], Registry:Step2|Reg16:Register8|output[9], ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[9],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[9],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[9],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[10],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[10],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[10],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[10],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[10],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[10],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[10],                                         ;
@@ -683,6 +683,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[11],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[11],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[11],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[11],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[11],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[11],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[11],                                         ;
@@ -691,6 +692,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[12],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[12],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[12],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[12],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[12],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[12],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[12],                                         ;
@@ -699,6 +701,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[13],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[13],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[13],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[13],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[13],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[13],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[13],                                         ;
@@ -707,6 +710,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[14],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[14],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[14],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[14],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[14],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[14],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[14],                                         ;
@@ -715,22 +719,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                          ;                           ; Registry:Step2|Reg16:Register2|output[15],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register1|output[15],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register4|output[15],                                          ;
+;                          ;                           ; Registry:Step2|Reg16:Register5|output[15],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register6|output[15],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register8|output[15],                                          ;
 ;                          ;                           ; Registry:Step2|Reg16:Register10|output[15],                                         ;
 ;                          ;                           ; Registry:Step2|Reg16:Register12|output[15],                                         ;
 ;                          ;                           ; Registry:Step2|Reg16:Register14|output[15]                                          ;
-; CU:Step1|rf_write        ; Stuck at GND              ; Registry:Step2|Reg16:Register9|output[0], Registry:Step2|Reg16:Register9|output[1], ;
-;                          ; due to stuck port data_in ; Registry:Step2|Reg16:Register9|output[2], Registry:Step2|Reg16:Register9|output[3], ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[4], Registry:Step2|Reg16:Register9|output[5], ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[6], Registry:Step2|Reg16:Register9|output[7], ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[8], Registry:Step2|Reg16:Register9|output[9], ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[10],                                          ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[11],                                          ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[12],                                          ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[13],                                          ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[14],                                          ;
-;                          ;                           ; Registry:Step2|Reg16:Register9|output[15]                                           ;
 ; BUFFREG:Step4|output[12] ; Stuck at GND              ; BUFFREG:Step5|output[0]                                                             ;
 ;                          ; due to stuck port data_in ;                                                                                     ;
 +--------------------------+---------------------------+-------------------------------------------------------------------------------------+
@@ -741,12 +735,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 126   ;
+; Total registers                              ; 128   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 16    ;
 ; Number of registers using Asynchronous Clear ; 86    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 47    ;
+; Number of registers using Clock Enable       ; 49    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -756,13 +750,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                   ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; |processor|CU:Step1|alu_op[0]                ;                            ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; |processor|CU:Step1|y_select[0]              ;                            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|MUXY:Step9|Mux15                  ;                            ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; |processor|CU:Step1|b_select                 ;                            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; |processor|CU:Step1|y_select[0]              ;                            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|MUXY:Step9|Mux7                   ;                            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux3                  ;                            ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux13 ;                            ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux14 ;                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; |processor|CU:Step1|c_select                 ;                            ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux0    ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux14   ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux10   ;                            ;
 ; 12:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op                   ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 
@@ -1050,7 +1045,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:42     ;
+; Top            ; 00:00:25     ;
 +----------------+--------------+
 
 
@@ -1060,7 +1055,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Nov 12 17:18:31 2017
+    Info: Processing started: Mon Nov 13 14:39:44 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file project/fast4bitadder.vhdl
@@ -1280,11 +1275,9 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "extend_Output[1]" is stuck at GND
     Warning (13410): Pin "ma_select_Output" is stuck at VCC
     Warning (13410): Pin "mem_write_Output" is stuck at GND
-    Warning (13410): Pin "pc_select_Output" is stuck at VCC
     Warning (13410): Pin "inc_select_Output" is stuck at GND
     Warning (13410): Pin "y_select_Output[0]" is stuck at GND
     Warning (13410): Pin "y_select_Output[1]" is stuck at GND
-    Warning (13410): Pin "c_select_Output[1]" is stuck at GND
     Warning (13410): Pin "rf_write_Output" is stuck at GND
     Warning (13410): Pin "a_inv_Output" is stuck at GND
     Warning (13410): Pin "mfc_Output" is stuck at GND
@@ -1389,15 +1382,15 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info (17050): Register "CU:Step1|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Info (21057): Implemented 2361 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2419 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 286 output pins
-    Info (21061): Implemented 2049 logic cells
+    Info (21059): Implemented 342 output pins
+    Info (21061): Implemented 2051 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 116 warnings
-    Info: Peak virtual memory: 411 megabytes
-    Info: Processing ended: Sun Nov 12 17:19:19 2017
-    Info: Elapsed time: 00:00:48
-    Info: Total CPU time (on all processors): 00:00:45
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 114 warnings
+    Info: Peak virtual memory: 412 megabytes
+    Info: Processing ended: Mon Nov 13 14:40:13 2017
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:29
 
 

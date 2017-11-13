@@ -35,7 +35,10 @@ entity processor is
  muxBout_Output : out std_logic_vector(15 downto 0);
  memOut_Output : out std_logic_vector(15 downto 0);
  ReturnAddress_Output : out std_logic_vector(15 downto 0);
- muxYout_Output : out std_logic_vector(15 downto 0)
+ muxYout_Output : out std_logic_vector(15 downto 0);
+ InstructionAddress_Output : out std_logic_vector(15 downto 0);
+ Address_Output : out std_logic_vector(15 downto 0);
+ MemInstruction_Output: out std_logic_vector(23 downto 0)
 	
 	
 	
@@ -404,7 +407,9 @@ Nout_Output <= Nout;
 Cout_Output <= Cout;
 Vout_Output <= Vout;
 Zout_Output <= Zout;
-
+InstructionAddress_Output <= InstructionAddress;
+Address_Output<= Address;
+MemInstruction_Output <= MemInstruction;
 
 
 

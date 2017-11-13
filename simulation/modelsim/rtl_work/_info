@@ -1,0 +1,324 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim
+Eadder
+Z1 w1509566386
+Z2 DPx3 std 6 textio 0 22 G^o2zK;Vh4eVdKTVo98653
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim
+Z5 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl
+Z6 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl
+l0
+L42
+VlR7oJMm;GVWY;3IRA3PFD0
+Z7 OV;C;10.0c;49
+31
+Z8 !s108 1510600750.455000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl|
+Z10 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl|
+Z11 o-93 -work work -O0
+Z12 tExplicit 1
+!s100 6NU7E9?ac>]IIhZT@eKbd3
+Asyn
+R2
+R3
+DEx4 work 5 adder 0 22 lR7oJMm;GVWY;3IRA3PFD0
+l73
+L52
+VZH:6_OR3ElAo]lHJ10E651
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 ^<EJMb^8D6QK>lo3@7eZ?3
+Econst
+R1
+R2
+R3
+R4
+Z13 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl
+Z14 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl
+l0
+L42
+VinJ@2lHfC7>g8WA>AND8e0
+R7
+31
+Z15 !s108 1510600750.049000
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl|
+Z17 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl|
+R11
+R12
+!s100 6PZaRfD?0Sa6ecbG@5>Xa2
+Asyn
+R2
+R3
+DEx4 work 5 const 0 22 inJ@2lHfC7>g8WA>AND8e0
+l68
+L50
+Vkf4lUkZ5Bonh?Rej;JnJA3
+R7
+31
+R15
+R16
+R17
+R11
+R12
+!s100 S^gM`C`=Q4iFd[[4;5MLh1
+Efast4bitadder
+Z18 w1509925843
+R2
+R3
+R4
+Z19 8C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl
+Z20 FC:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl
+l0
+L5
+Vz]D?G;IIh?]4;d1cTdXo;2
+R7
+31
+Z21 !s108 1510600748.796000
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl|
+Z23 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl|
+R11
+R12
+!s100 3?L<jVVQAJk4XIVfQYHM:1
+Acarrylookaheadadd
+R2
+R3
+DEx4 work 13 fast4bitadder 0 22 z]D?G;IIh?]4;d1cTdXo;2
+l29
+L23
+VPWje9JddD<a_?XoC0MFk^2
+R7
+31
+R21
+R22
+R23
+R11
+R12
+!s100 0]A8a[d@F0=<=0Wdco?eX0
+Eimmediate
+Z24 w1510353196
+R2
+R3
+R4
+Z25 8C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl
+Z26 FC:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl
+l0
+L4
+V@iE@TCaiH@j;H73PHk;Y;2
+R7
+31
+Z27 !s108 1510600750.690000
+Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl|
+Z29 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl|
+R11
+R12
+!s100 FLfiVJe0^OgK2YJ<2^nFM0
+Aarch
+R2
+R3
+DEx4 work 9 immediate 0 22 @iE@TCaiH@j;H73PHk;Y;2
+l13
+L10
+VL`B`aNYFXH;:`jG=c@_U:2
+R7
+31
+R27
+R28
+R29
+R11
+R12
+!s100 Xj2o0`gJb[Pc6Y_U0Agcb3
+Emainmemory
+R1
+R2
+R3
+R4
+Z30 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl
+Z31 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl
+l0
+L42
+Va4`=>?1_^Uk0Of=^h]a::2
+R7
+31
+Z32 !s108 1510600749.877000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl|
+Z34 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl|
+R11
+R12
+!s100 iKRi6b]H3cLQ]:]Imm;O^3
+Asyn
+R2
+R3
+DEx4 work 10 mainmemory 0 22 a4`=>?1_^Uk0Of=^h]a::2
+l86
+L54
+VOoGKgcU>=QJMoj1;gab2E2
+R7
+31
+R32
+R33
+R34
+R11
+R12
+!s100 9;]]Ia@Be1mWKI]lPR@2Q0
+Emuxinc
+Z35 w1509566387
+Z36 DPx3 lpm 14 lpm_components 0 22 ?Gb]Nezoo2SKGC17Rl0e`0
+R2
+R3
+R4
+Z37 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxINC.vhdl
+Z38 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxINC.vhdl
+l0
+L42
+V_Q8W09aWfcBfl<<0kkATh2
+R7
+31
+Z39 !s108 1510600749.676000
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxINC.vhdl|
+Z41 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxINC.vhdl|
+R11
+R12
+!s100 87An7?iIC16GQ471K7Dle0
+Asyn
+R36
+R2
+R3
+DEx4 work 6 muxinc 0 22 _Q8W09aWfcBfl<<0kkATh2
+l64
+L53
+VWZ2[l088BFl2iLAWIhTbI2
+R7
+31
+R39
+R40
+R41
+R11
+R12
+!s100 7;XjcQR=2_lb7@EN`aS]e1
+Emuxpc
+R35
+R36
+R2
+R3
+R4
+Z42 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxPC.vhdl
+Z43 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxPC.vhdl
+l0
+L42
+V]:31jK7CNab=^UjHL`3f;3
+R7
+31
+Z44 !s108 1510600749.423000
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxPC.vhdl|
+Z46 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxPC.vhdl|
+R11
+R12
+!s100 MnGg[kU2oVW@2FUW6bRMb3
+Asyn
+R36
+R2
+R3
+DEx4 work 5 muxpc 0 22 ]:31jK7CNab=^UjHL`3f;3
+l64
+L53
+Vo@D]B8;FOXIj<2`6BXKOf1
+R7
+31
+R44
+R45
+R46
+R11
+R12
+!s100 DfOi8QN4YEGmT:M7R9;cU1
+Epc
+R35
+R2
+R3
+R4
+Z47 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl
+Z48 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl
+l0
+L42
+V>1S@gSKWW<d65O;R0=?G`0
+R7
+31
+Z49 !s108 1510600749.250000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl|
+Z51 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl|
+R11
+R12
+!s100 zGD<8Pf3[7Wf]I>S309Hj0
+Asyn
+R2
+R3
+DEx4 work 2 pc 0 22 >1S@gSKWW<d65O;R0=?G`0
+l75
+L54
+V2aUfFhZY^?974@RZnl8AG3
+R7
+31
+R49
+R50
+R51
+R11
+R12
+!s100 oZlb:9ZRoV@g1i2d?3b[j2
+Epc_temp
+R35
+R2
+R3
+R4
+Z52 8C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl
+Z53 FC:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl
+l0
+L42
+VLU=0j43NJQ8WoNf;O82JC2
+R7
+31
+Z54 !s108 1510600749.032000
+Z55 !s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl|
+Z56 !s107 C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl|
+R11
+R12
+!s100 :KfzC6lTT3z^UmY?IN<FT0
+Asyn
+R2
+R3
+DEx4 work 7 pc_temp 0 22 LU=0j43NJQ8WoNf;O82JC2
+l73
+L53
+V^CXUbR@2Wa4l8MfcAI]N61
+R7
+31
+R54
+R55
+R56
+R11
+R12
+!s100 lGKXZ0QdAf_I;hh__Io[]0
+Eregistry
+w1510356200
+R2
+R3
+R4
+8C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl
+FC:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl
+l0
+L5
+V^^_]]b3_f8?R[OFBF?bHP1
+!s100 TBF_JZ0UX<l[LCOb3SGSf1
+R7
+31
+!s108 1510600750.843000
+!s90 -reportprogress|300|-93|-work|work|C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl|
+!s107 C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl|
+R11
+R12

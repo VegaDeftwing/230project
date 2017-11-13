@@ -44,7 +44,6 @@ Cond[1] => ~NO_FANOUT~
 Cond[2] => ~NO_FANOUT~
 Cond[3] => ~NO_FANOUT~
 S => ps_enable.DATAB
-S => ps_enable.DATAB
 opx[0] => Equal4.IN2
 opx[0] => Equal5.IN0
 opx[0] => Equal6.IN2
