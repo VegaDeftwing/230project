@@ -2549,36 +2549,6 @@ ALU:Step10|FLAGLOGIC:FLAGCHECK
 
 # end
 # entity
-PS
-# storage
-db|Processor.(20).cnf
-db|Processor.(20).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|ps.vhdl
-5a97da4d9fb41969e75afe043dd91f
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-PS:Step11
-}
-# macro_sequence
-
-# end
-# entity
 IR
 # storage
 db|Processor.(21).cnf
@@ -5003,7 +4973,7 @@ ON
 # case_insensitive
 # source_file
 project|cu.vhdl
-89cbe52f4b322b76b744359e29836746
+a4e8e32dfa4b83ae891f2873f18d1c5
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5059,6 +5029,36 @@ USR
 }
 # hierarchies {
 CU:Step1
+}
+# macro_sequence
+
+# end
+# entity
+PS
+# storage
+db|Processor.(20).cnf
+db|Processor.(20).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|ps.vhdl
+63e09848874f1e44ec406b6fe8d75ec4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+PS:Step11
 }
 # macro_sequence
 

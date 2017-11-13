@@ -69,52 +69,51 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 
 		--ALU, branch, jump operation
 		ELSIF(stage = 3) THEN
-		rf_write <= '1';
-		wmfc <= '1';
-		--R-Type instructions
-		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
-		c_select <= "00";
-		ps_enable <= S;
+			rf_write <= '1';
+			--R-Type instructions
+			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+			c_select <= "00";
+			ps_enable <= S;
 	
-			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
-			--This is for JR, just fill in the values for the if statement
-			--help
-			pc_select <= '0';
-		ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
-			--This is for cmp
-			alu_op <= "011";
-			b_inv <= '1';
-			ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
-			--This is for sll
-			--ShiftLeftLogical instruction
-					alu_op <= "101";
-			ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
-			--THIS is for the other instructions
+				IF(opCode(1) = '0' AND opCode(0) = '1') THEN
+				--This is for JR, just fill in the values for the if statement
+				--help
+				pc_select <= '0';
+				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
+				--This is for cmp
+				alu_op <= "011";
+				b_inv <= '1';
+				ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
+				--This is for sll
+				--ShiftLeftLogical instruction
+				alu_op <= "101";
+				ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
+				--THIS is for the other instructions
 			
-			IF(opx= "111") THEN
-				 --AND instruction
-				 alu_op <= "000";
-				ELSIF(opx = "110") THEN
-					--OR INSTRUCTION
-					alu_op <= "001";
-				ELSIF(opx = "101") THEN
-					--XOR instruction
-					alu_op <= "010";
-				ELSIF(opx = "100") THEN
-					--ADD instruction
-					alu_op <= "011";
-				ELSIF(opx = "011") THEN
-					--SUB instruction
-					alu_op <= "011";
-					b_inv <= '1';
-				ELSIF(opx = "010") THEN
-					--MULT instruction
-					alu_op <= "100";
-				
+					IF(opx= "111") THEN
+					--AND instruction
+					 alu_op <= "000";
+					ELSIF(opx = "110") THEN
+						--OR INSTRUCTION
+						alu_op <= "001";
+					ELSIF(opx = "101") THEN
+						--XOR instruction
+						alu_op <= "010";
+					ELSIF(opx = "100") THEN
+						--ADD instruction
+						alu_op <= "011";
+					ELSIF(opx = "011") THEN
+						--SUB instruction
+						alu_op <= "011";
+						b_inv <= '1';
+					ELSIF(opx = "010") THEN
+						--MULT instruction
+						alu_op <= "100";
+					
+					END IF;
 				END IF;
-		 END IF;
+			END IF;
 		 	--D-Type
-			
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
 				ps_enable <= S;
 				c_select <="01";
@@ -157,7 +156,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 		 
-		 --J-Type-- (LOL THESE ARE WRONG)
+			--J-Type-- (LOL THESE ARE WRONG)
 			IF(opCode(3) = '1' AND opCode(2) = '1') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for j (UNUSED AS OF YET)
@@ -182,11 +181,11 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 		 
-		 ELSIF(stage = 4) THEN			
-					wmfc <= '1';
+		ELSIF(stage = 4) THEN			
+
 	
-		--R-Type instructions
-		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+			--R-Type instructions
+			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			y_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
@@ -225,7 +224,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 				END IF;
 		 END IF;
-		 --D-Type--
+			--D-Type--
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for lw
@@ -273,11 +272,9 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 			
-		 ELSIF(stage = 5) THEN
-		 --R-Type instructions
-		 		wmfc <= '1';
-
-		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
+		ELSIF(stage = 5) THEN
+			--R-Type instructions
+			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			rf_write <= '1';
 			c_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
@@ -318,7 +315,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 				END IF;
 		 END IF;
-		 --D-Type--
+			--D-Type--
 			IF(opCode(3) = '0' AND opCode(2) = '1') THEN
 		
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
@@ -364,9 +361,8 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				
 				END IF;
 			END IF;
-			END IF;
-				END IF;	
-		END IF; -- ENDED MAIN IF OF PROCESS
+		END IF;
+	END IF; -- ENDED MAIN IF OF PROCESS
 END PROCESS;	--All	processes	must end
 END behavior;	--All	behaivors	must end
 

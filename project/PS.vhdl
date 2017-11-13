@@ -5,7 +5,7 @@ entity PS is
 	PORT(
 	N, C, V, Z : in std_logic;
 	Clock, reset : in std_logic;
-	enable: in std_logic; --Will simply be 1 for now
+	enable: in std_logic; 
 	Nout, Cout, Vout, Zout : out std_logic
 	);
 end PS;
