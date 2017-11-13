@@ -69,7 +69,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 
 		--ALU, branch, jump operation
 		ELSIF(stage = 3) THEN
-			rf_write <= '1';
+		--	rf_write <= '1';
 			--R-Type instructions
 			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			c_select <= "00";
