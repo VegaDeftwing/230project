@@ -78,55 +78,75 @@ ModelSim-Altera Info: # .main_pane.wave.interior.cs.body.pw.wf
 ModelSim-Altera Info: # 
 ModelSim-Altera Info: # add wave Clock
 ModelSim-Altera Info: # add wave Reset
+ModelSim-Altera Info: # add wave Stage_Output
+ModelSim-Altera Info: # add wave ReturnAddress_Output 
+ModelSim-Altera Info: # add wave InstructionAddress_Output
+ModelSim-Altera Info: # add wave Address_Output
+ModelSim-Altera Info: # add wave MemInstruction_Output
 ModelSim-Altera Info: # add wave InR_Output
 ModelSim-Altera Info: # add wave opCode_Output
-ModelSim-Altera Info: # add wave Cond_Output
+ModelSim-Altera Info: #add wave Cond_Output
 ModelSim-Altera Info: # add wave S_Output
 ModelSim-Altera Info: # add wave opx_Output
-ModelSim-Altera Info: # add wave ir_enable_Output
-ModelSim-Altera Info: # add wave ma_select_Output
-ModelSim-Altera Info: # add wave mem_read_Output 
-ModelSim-Altera Info: # add wave mem_write_Output
-ModelSim-Altera Info: # add wave pc_select_Output
-ModelSim-Altera Info: # add wave pc_enable_Output
-ModelSim-Altera Info: # add wave inc_select_Output
-ModelSim-Altera Info: # add wave extend_Output
-ModelSim-Altera Info: # add wave y_select_Output
-ModelSim-Altera Info: # add wave c_select_Output
+ModelSim-Altera Info: # 
 ModelSim-Altera Info: # add wave rf_write_Output
-ModelSim-Altera Info: # add wave b_select_Output
+ModelSim-Altera Info: # add wave c_select_Output
+ModelSim-Altera Info: # add wave RegD_Output
+ModelSim-Altera Info: # add wave RegT_Output
+ModelSim-Altera Info: # add wave RegS_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave alu_op_Output
+ModelSim-Altera Info: # add wave ALU_out_Output
 ModelSim-Altera Info: # add wave a_inv_Output
 ModelSim-Altera Info: # add wave b_inv_Output
-ModelSim-Altera Info: # add wave alu_op_Output
 ModelSim-Altera Info: # add wave N_Output
 ModelSim-Altera Info: # add wave C_Output
 ModelSim-Altera Info: # add wave V_Output
 ModelSim-Altera Info: # add wave Z_Output
-ModelSim-Altera Info: # add wave ALU_out_Output
-ModelSim-Altera Info: # add wave RegD_Output
-ModelSim-Altera Info: # add wave RegT_Output
-ModelSim-Altera Info: # add wave RegS_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave b_select_Output
+ModelSim-Altera Info: # add wave DataB_Output
+ModelSim-Altera Info: # add wave immediateB_Output
+ModelSim-Altera Info: # add wave muxBout_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave y_select_Output
+ModelSim-Altera Info: # add wave muxYout_Output
 ModelSim-Altera Info: # add wave DataD_Output
 ModelSim-Altera Info: # add wave DataS_Output
 ModelSim-Altera Info: # add wave DataT_Output
 ModelSim-Altera Info: # add wave DataA_Output
-ModelSim-Altera Info: # add wave DataB_Output
 ModelSim-Altera Info: # add wave DataM_Output
 ModelSim-Altera Info: # add wave DataZ_Output
+ModelSim-Altera Info: # 
 ModelSim-Altera Info: # add wave enablePS_Output
-ModelSim-Altera Info: # add wave immediateB_Output
-ModelSim-Altera Info: # add wave muxBout_Output
-ModelSim-Altera Info: # add wave memOut_Output
-ModelSim-Altera Info: # add wave ReturnAddress_Output 
-ModelSim-Altera Info: # add wave muxYout_Output
 ModelSim-Altera Info: # add wave Nout_Output
 ModelSim-Altera Info: # add wave Cout_Output
 ModelSim-Altera Info: # add wave Vout_Output
 ModelSim-Altera Info: # add wave Zout_Output
-ModelSim-Altera Info: # add wave InstructionAddress_Output
-ModelSim-Altera Info: # add wave Address_Output
-ModelSim-Altera Info: # add wave MemInstruction_Output
-ModelSim-Altera Info: # add wave Stage_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave pc_select_Output
+ModelSim-Altera Info: # add wave pc_enable_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave mem_read_Output 
+ModelSim-Altera Info: # add wave mem_write_Output
+ModelSim-Altera Info: # add wave memOut_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave extend_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave ma_select_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave inc_select_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave ir_enable_Output
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
 ModelSim-Altera Info: # 
 ModelSim-Altera Info: # force reset 0 0
 ModelSim-Altera Info: # force clock 0 0, 1 1000  -repeat 2000
