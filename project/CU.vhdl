@@ -15,8 +15,8 @@ entity CU is
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable: out std_logic
-		
+		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable: out std_logic;
+		Stage_output: out integer
 	);
 end CU;
 
@@ -26,7 +26,6 @@ end CU;
 
 ARCHITECTURE behavior OF CU IS
 signal wmfc: std_logic;
-
 
 shared variable stage: integer:= 0;
 BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and	reset
@@ -40,7 +39,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		END IF;
 		
 		-- instruction fetch
-
+		Stage_output <= stage;
 		IF(stage = 1) THEN
 
 		wmfc <= '1';
@@ -70,6 +69,8 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 
 		--ALU, branch, jump operation
 		ELSIF(stage = 3) THEN
+		rf_write <= '1';
+		wmfc <= '1';
 		--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 		c_select <= "00";
@@ -182,7 +183,9 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			END IF;
 		 
 		 ELSIF(stage = 4) THEN			
-			--R-Type instructions
+					wmfc <= '1';
+	
+		--R-Type instructions
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			y_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
@@ -272,6 +275,8 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			
 		 ELSIF(stage = 5) THEN
 		 --R-Type instructions
+		 		wmfc <= '1';
+
 		IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			rf_write <= '1';
 			c_select <= "00";

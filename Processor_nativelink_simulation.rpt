@@ -126,7 +126,7 @@ ModelSim-Altera Info: # add wave Zout_Output
 ModelSim-Altera Info: # add wave InstructionAddress_Output
 ModelSim-Altera Info: # add wave Address_Output
 ModelSim-Altera Info: # add wave MemInstruction_Output
-ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave Stage_Output
 ModelSim-Altera Info: # 
 ModelSim-Altera Info: # force reset 0 0
 ModelSim-Altera Info: # force clock 0 0, 1 1000  -repeat 2000

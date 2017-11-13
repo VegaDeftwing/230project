@@ -38,8 +38,8 @@ entity processor is
  muxYout_Output : out std_logic_vector(15 downto 0);
  InstructionAddress_Output : out std_logic_vector(15 downto 0);
  Address_Output : out std_logic_vector(15 downto 0);
- MemInstruction_Output: out std_logic_vector(23 downto 0)
-	
+ MemInstruction_Output: out std_logic_vector(23 downto 0);
+ Stage_Output: out integer
 	
 	
 	);
@@ -72,8 +72,8 @@ COMPONENT CU
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic
-
+		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
+		Stage_output : out integer
 	);
 END COMPONENT;
 --Generic Buffer Register, mapped for all Buffer Registers RA-RZ
@@ -255,6 +255,7 @@ Signal MUXCOUT : std_logic_vector(3 downto 0);
 Signal memoryIn : std_logic_vector(23 downto 0);
 Signal MUXliOUT : std_logic_vector(3 downto 0);
 Signal LiReg : std_logic_vector(3 downto 0);
+
 begin
 
 --These Signals are primarily used in the CU and Registry, and they all come from the InR output nal from the IR, as that is the first stage
@@ -305,7 +306,7 @@ memOut <= MemInstruction(15 downto 0);
 -- Outputs pc_enable to the PC in StepX (UNIMPLEMENTED)
 -- Outputs inc_select to MuxINC in StepX (UNIMPLEMENTED, from Immediate Extension? See picture for future reference)
 -- Outputs enablePS to Step11 PS (UNIMPLEMENTED, CURRENTLY SET TO 1 AS DEFAULT TO ALLOW FUNCTIONALITY FOR TESTING UNTIL IMPLEMENTATION)
-Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS);
+Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS, Stage_Output);
 
 --MAP Registry. Based on rf_write flag from Step1 CU, and the reset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
 --Outputs DataS, DataT depending on internal logic, further described within Registry.vhdl

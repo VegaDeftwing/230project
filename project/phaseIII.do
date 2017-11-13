@@ -52,7 +52,7 @@ add wave Zout_Output
 add wave InstructionAddress_Output
 add wave Address_Output
 add wave MemInstruction_Output
-
+add wave Stage_Output
 
 force reset 0 0
 force clock 0 0, 1 1000  -repeat 2000
