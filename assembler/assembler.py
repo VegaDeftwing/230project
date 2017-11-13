@@ -101,7 +101,7 @@ for line in inputfile:
     OpCodeStr = StrArray[0]
     if OpCodeStr in RTypeList or OpCodeStr in DTypeList or OpCodeStr in DTMemList or OpCodeStr in BTypeList or OpCodeStr in JTypeList:
         print(".",end="")
-    elif OpCodeStr == "cmp" or OpCodeStr == "jr":
+    elif OpCodeStr == "cmp" or OpCodeStr == "jr" or OpCodeStr == "nop":
         print(".",end="")
     else:
         label = StrArray[0].rstrip(':')
@@ -155,6 +155,10 @@ for line in inputfile:
         RegS = checkreg(StrArray[1])
         RegT = "0000"
         FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
+
+    elif OpCodeStr == "nop":
+        print(line + " \033[95m NO OP \033[96m", end="")
+        FinalInstruction = "000000000100000000000000"
 
     elif OpCodeStr in RTypeList:
         print(line + " \033[95m RType \033[96m", end="")
