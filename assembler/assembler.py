@@ -9,7 +9,7 @@ print("-------------------------------------------------------------------------
 
 #File I/O
 inputfile  = open(sys.argv[1], "r")
-outfile  = open("out.mif", "w")
+outfile  = open("MemoryInitialization.mif", "w")
 
 #Initalizations
 lireg = LabelStr = Derefaddr = Label = FinalInstruction = Cond = RegD = RegS = RegT = RegStr = Opx = S = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
@@ -21,10 +21,10 @@ outputme = True
 ### Set up .mif file header:
 outfile.write("WIDTH=24;\n")
 outfile.write("DEPTH=1024;\n")
-outfile.write("ADDRESS_RADIX=HEX;\n")
+outfile.write("ADDRESS_RADIX=UNS;\n")
 outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
-outfile.write(" 0x0: 000000000000000000000000;\n")
+outfile.write(" 0: 000000000000000000000000;\n")
 
 #Define some lists containing useful data
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
@@ -80,6 +80,8 @@ def checkreg(RegStr):
     for i in range(len(tosixteen)):
         if RegStr == reglist[i]:
             Reg = tosixteen[i]
+        if RegStr == "sp":
+            Reg = "1110"
     return Reg
 
 # find the index of the input conditon and corolate it to it's hex value
@@ -361,12 +363,12 @@ for line in inputfile:
             print("")
 
         #Output to .mif file
-        outfile.write(" " + str(address)+": "+str(FinalInstruction)+";\n")
+        outfile.write(" " + str(i) +": "+str(FinalInstruction)+";\n")
     outputme = True
     Derefaddr = " "
 #Finish writing some output file stuff
 print("Filling Extra Memory: \033[91m" + hex(1024) + "-"+ hex(i+1) + "\033[92m")
-outfile.write(" ["+ hex(i+1) + ".."+ hex(1024) + "] : 000000000000000000000000;\n" )
+outfile.write(" ["+ str(i) + ".."+ "1023" + "] : 000000000000000000000000;\n" )
 outfile.write("END;\n")
 print("-----------------------------------------------------------------------------------")
 print("~~~~~~~~~~~~~~~~~~~Assembly Compeleted~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
