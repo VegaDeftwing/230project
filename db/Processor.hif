@@ -4932,36 +4932,6 @@ MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncra
 
 # end
 # entity
-processor
-# storage
-db|Processor.(0).cnf
-db|Processor.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|processor.vhdl
-4747abf39c6ff54fe554bb15e54c8d5
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 PS
 # storage
 db|Processor.(20).cnf
@@ -4992,6 +4962,36 @@ PS:Step11
 
 # end
 # entity
+processor
+# storage
+db|Processor.(0).cnf
+db|Processor.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|processor.vhdl
+e2d31f3421ce9988388e7329480c4e6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
 CU
 # storage
 db|Processor.(1).cnf
@@ -5003,7 +5003,7 @@ ON
 # case_insensitive
 # source_file
 project|cu.vhdl
-df92352fd612261b341b32b61d5d463
+e7f1aec6237e9a8759c1c6c37152d16
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

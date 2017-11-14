@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Nov 13 18:29:12 2017
+Analysis & Synthesis Status : Successful - Mon Nov 13 18:48:41 2017
 Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition
 Revision Name : Processor
 Top-level Entity Name : processor
 Family : Cyclone II
-Total logic elements : 2,773
-    Total combinational functions : 2,447
+Total logic elements : 2,771
+    Total combinational functions : 2,445
     Dedicated logic registers : 462
 Total registers : 462
 Total pins : 376

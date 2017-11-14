@@ -1,0 +1,32 @@
+.text
+.global	_incArr
+.extern	_increment
+_incArr:
+	subi sp,sp,28
+
+	stw r2, 0(sp) 
+	ldw r2, 0(sp) 
+
+	subi sp,sp,24
+	addi r4,r0,24
+	add r5,r0,r0
+	add r6,r0,r0
+	add r7,r0,r0
+	add r8,r0,r0
+	add r9,r0,r0
+	LOOP:
+	add r7,r2,r6
+	ldb r3,0(r7)
+	add r8,sp,r5
+	stw r3, 0(r8) 
+	call _increment
+	ldw r3, 0(r8)
+	add r9,r2,r6
+	stb r3, 0(r9)
+	addi r5,r5,4
+	addi r6,r6,1
+	blt r5,r4,LOOP
+	ldw r2,0(sp)
+	addi sp,sp,24 
+ret
+.end

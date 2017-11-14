@@ -355,7 +355,7 @@ Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock,
 Step15: MUXma PORT MAP(ma_select, DataZ, InstructionAddress, Address);
 
 --Map MUXC to choose RegD input to Registry. Chooses based on instruction.
-Step16: MUXC PORT MAP(c_select, RegD, RegS, LiReg, MUXCOUT);
+Step16: MUXC PORT MAP(c_select, RegD, RegT, LiReg, MUXCOUT);
 
 --MAP MemoryInterface 
 Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, MemInstruction, mfc);
