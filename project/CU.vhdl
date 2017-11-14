@@ -15,7 +15,7 @@ entity CU is
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable: out std_logic;
+		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
 		Stage_output: out integer
 	);
 end CU;
@@ -79,6 +79,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for JR, just fill in the values for the if statement
 				--help
 				pc_select <= '0';
+				pc_enable <= '1';
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for cmp
 				alu_op <= "011";
@@ -140,15 +141,17 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			END IF;
 		 	--B-Type
 			IF(opCode(3) = '1' AND opCode(2) = '0') THEN
-				pc_select <= '1';
-				pc_enable <= '1';
+
 			IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for b
+				pc_select <= '1';
+				pc_enable <= '1';
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
 			--	c_select <= "10";
 				pc_select <= '1';
 				pc_enable <= '1';
+				inc_select <= '1';
 				END IF;
 			END IF;
 		 
@@ -185,6 +188,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			y_select <= "00";
 			IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 			--This is for JR, just fill in the values for the if statement
+			ma_select <= '1';
 			ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 			--This is for cmp
 			
@@ -249,7 +253,9 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for b
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
-				
+				y_select <= "10";
+				pc_enable <= '0';
+
 				END IF;
 			END IF;
 		 	--J-Type
@@ -275,7 +281,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			c_select <= "00";
 				IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 				--This is for JR
-			
+				
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for cmp
 				
@@ -340,6 +346,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for bal
 					c_select <= "10";
 					rf_write <= '1';
+					y_select <= "10";
 				END IF;
 			END IF;
 		 	--J-Type

@@ -1,5 +1,5 @@
 Flow report for Processor
-Mon Nov 13 18:57:01 2017
+Mon Nov 13 22:22:37 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,16 +38,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 13 18:57:01 2017         ;
+; Flow Status                        ; Successful - Mon Nov 13 22:22:37 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,506 / 33,216 ( 8 % )                        ;
-;     Total combinational functions  ; 2,445 / 33,216 ( 7 % )                        ;
-;     Dedicated logic registers      ; 462 / 33,216 ( 1 % )                          ;
-; Total registers                    ; 462                                           ;
-; Total pins                         ; 376 / 475 ( 79 % )                            ;
+; Total logic elements               ; 2,531 / 33,216 ( 8 % )                        ;
+;     Total combinational functions  ; 2,487 / 33,216 ( 7 % )                        ;
+;     Dedicated logic registers      ; 463 / 33,216 ( 1 % )                          ;
+; Total registers                    ; 463                                           ;
+; Total pins                         ; 396 / 475 ( 83 % )                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 24,576 / 483,840 ( 5 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                                ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/13/2017 18:48:10 ;
+; Start date & time ; 11/13/2017 22:12:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Processor           ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.151062048806596 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 10995770589187.151063273510532 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_RUN_TOOL_AUTOMATICALLY          ; On                             ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_RUN_SCRIPT           ; project/phaseIII.do            ; --            ; --          ; eda_simulation ;
@@ -91,15 +91,15 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:32     ; 1.0                     ; 412 MB              ; 00:00:31                           ;
-; Fitter                    ; 00:00:29     ; 1.0                     ; 470 MB              ; 00:00:29                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 393 MB              ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:38     ; 1.0                     ; 552 MB              ; 00:00:37                           ;
+; Analysis & Synthesis      ; 00:00:31     ; 1.0                     ; 411 MB              ; 00:00:31                           ;
+; Fitter                    ; 00:00:26     ; 1.0                     ; 470 MB              ; 00:00:26                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 393 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:55     ; 1.0                     ; 642 MB              ; 00:00:55                           ;
 ; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 329 MB              ; 00:00:06                           ;
-; MIF/HEX Update            ; 00:00:02     ; 1.0                     ; 349 MB              ; 00:00:02                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 394 MB              ; 00:00:08                           ;
-; EDA Netlist Writer        ; 00:00:07     ; 1.0                     ; 329 MB              ; 00:00:07                           ;
-; Total                     ; 00:02:10     ; --                      ; --                  ; 00:02:07                           ;
+; MIF/HEX Update            ; 00:00:02     ; 1.0                     ; 345 MB              ; 00:00:02                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 394 MB              ; 00:00:06                           ;
+; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 329 MB              ; 00:00:05                           ;
+; Total                     ; 00:02:20     ; --                      ; --                  ; 00:02:18                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

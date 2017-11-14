@@ -1,5 +1,5 @@
 MIF/HEX Update report for Processor
-Mon Nov 13 18:56:41 2017
+Mon Nov 13 22:22:22 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Mon Nov 13 18:56:41 2017 ;
+; MIF/HEX Update Status ; Successful - Mon Nov 13 22:22:22 2017 ;
 ; Revision Name         ; Processor                             ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; Cyclone II                            ;
@@ -58,13 +58,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit MIF/HEX Update
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Mon Nov 13 18:56:39 2017
+    Info: Processing started: Mon Nov 13 22:22:20 2017
 Info: Command: quartus_cdb Project -c Processor --update_mif
 Info (39024): Processed the following Memory Initialization File(s)
     Info (39025): Processed Memory Initialization File C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif
 Info: Quartus II 32-bit MIF/HEX Update was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 349 megabytes
-    Info: Processing ended: Mon Nov 13 18:56:41 2017
+    Info: Peak virtual memory: 345 megabytes
+    Info: Processing ended: Mon Nov 13 22:22:22 2017
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

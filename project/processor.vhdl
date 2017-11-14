@@ -39,6 +39,8 @@ entity processor is
  InstructionAddress_Output : out std_logic_vector(15 downto 0);
  Address_Output : out std_logic_vector(15 downto 0);
  MemInstruction_Output: out std_logic_vector(23 downto 0);
+ muxCOUT_Output : out std_logic_vector(3 downto 0);
+ Blabel_Output : out std_logic_vector(15 downto 0);
  Stage_Output: out integer
 	
 	
@@ -165,6 +167,14 @@ COMPONENT MUXma
 END COMPONENT;
 
 
+COMPONENT MUXA
+	PORT(
+	a_select : in std_logic;
+	RegA : in std_logic_vector(15 downto 0);
+	BLABEL : in std_logic_vector(15 downto 0);
+	muxAout : out std_logic_vector(15 downto 0)
+	);
+end COMPONENT;
 
 COMPONENT MemoryInterface
 	PORT
@@ -349,7 +359,7 @@ Step12: IR PORT MAP(MemInstruction, Reset, Clock, ir_enable, InR);
 Step13: immediate PORT MAP(immediateIn, extend, immediateB);
 
 --Map Instruction Address Generator
-Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock, reset, immediateB, inc_select, ReturnAddress, InstructionAddress);
+Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock, reset, Blabel, inc_select, ReturnAddress, InstructionAddress);
 
 --Map MUXma
 Step15: MUXma PORT MAP(ma_select, DataZ, InstructionAddress, Address);
@@ -359,7 +369,6 @@ Step16: MUXC PORT MAP(c_select, RegD, RegT, LiReg, MUXCOUT);
 
 --MAP MemoryInterface 
 Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, MemInstruction, mfc);
-
 
 
 --Simply mapping outputs from Signals, used not for calculation but for display during testing. Will revert once unneeded
@@ -411,8 +420,8 @@ Zout_Output <= Zout;
 InstructionAddress_Output <= InstructionAddress;
 Address_Output<= Address;
 MemInstruction_Output <= MemInstruction;
-
-
+muxCOUT_Output <= muxCOUT;
+Blabel_Output <= Blabel;
 
 end LOGIC;
 		

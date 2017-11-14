@@ -12,12 +12,13 @@ add wave MemInstruction_Output
 add wave InR_Output
 add wave opCode_Output
 #add wave Cond_Output
-add wave S_Output
+add wave Blabel_Output
+#add wave S_Output
 add wave opx_Output
 
 add wave rf_write_Output
 add wave c_select_Output
-add wave RegD_Output
+add wave muxCOUT_Output
 add wave RegT_Output
 add wave RegS_Output
 
