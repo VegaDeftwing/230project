@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Mon Nov 13 17:24:22 2017
+Mon Nov 13 18:29:12 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -61,13 +61,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 13 17:24:21 2017         ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 13 18:29:12 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,778                                         ;
-;     Total combinational functions  ; 2,452                                         ;
+; Total logic elements               ; 2,773                                         ;
+;     Total combinational functions  ; 2,447                                         ;
 ;     Dedicated logic registers      ; 462                                           ;
 ; Total registers                    ; 462                                           ;
 ; Total pins                         ; 376                                           ;
@@ -246,16 +246,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,778 ;
+; Estimated Total logic elements              ; 2,773 ;
 ;                                             ;       ;
-; Total combinational functions               ; 2452  ;
+; Total combinational functions               ; 2447  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 989   ;
+;     -- 4 input functions                    ; 985   ;
 ;     -- 3 input functions                    ; 704   ;
-;     -- <=2 input functions                  ; 759   ;
+;     -- <=2 input functions                  ; 758   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1758  ;
+;     -- normal mode                          ; 1753  ;
 ;     -- arithmetic mode                      ; 694   ;
 ;                                             ;       ;
 ; Total registers                             ; 462   ;
@@ -266,7 +266,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Total memory bits                           ; 24576 ;
 ; Maximum fan-out node                        ; clock ;
 ; Maximum fan-out                             ; 486   ;
-; Total fan-out                               ; 9823  ;
+; Total fan-out                               ; 9805  ;
 ; Average fan-out                             ; 2.96  ;
 +---------------------------------------------+-------+
 
@@ -276,7 +276,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
-; |processor                                   ; 2452 (1)          ; 462 (0)      ; 24576       ; 0            ; 0       ; 0         ; 376  ; 0            ; |processor                                                                                                       ;              ;
+; |processor                                   ; 2447 (1)          ; 462 (0)      ; 24576       ; 0            ; 0       ; 0         ; 376  ; 0            ; |processor                                                                                                       ;              ;
 ;    |ALU:Step10|                              ; 106 (7)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
 ;       |FASTADDER:FASTADD|                    ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
 ;          |FAST4BITADDER:add0to3|             ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
@@ -291,7 +291,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |BUFFREG:Step5|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step5                                                                                         ;              ;
 ;    |BUFFREG:Step6|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                         ;              ;
 ;    |BUFFREG:Step7|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                         ;              ;
-;    |CU:Step1|                                ; 1922 (220)        ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
+;    |CU:Step1|                                ; 1917 (215)        ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
 ;       |lpm_divide:Mod0|                      ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                              ;              ;
 ;          |lpm_divide_qlo:auto_generated|     ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
 ;             |abs_divider_4dg:divider|        ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
@@ -408,14 +408,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                   ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|alu_op[1]                ;                            ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |processor|CU:Step1|y_select[0]              ;                            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; |processor|CU:Step1|c_select                 ;                            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|MUXY:Step9|Mux15                  ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux0                  ;                            ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux13 ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux2    ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux11   ;                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|b_select                 ;                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |processor|CU:Step1|y_select[1]              ;                            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|MUXY:Step9|Mux7                   ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux1                  ;                            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |processor|CU:Step1|c_select                 ;                            ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|ALU:Step10|MUX6TO1:MUXFINAL|Mux14 ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXB|Mux4    ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|Registry:Step2|mux16:MUXA|Mux2    ;                            ;
 ; 13:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op                   ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
 
@@ -713,7 +713,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Mon Nov 13 17:23:49 2017
+    Info: Processing started: Mon Nov 13 18:28:39 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file project/fast4bitadder.vhdl
@@ -933,14 +933,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info (17050): Register "CU:Step1|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Info (21057): Implemented 3278 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3273 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 374 output pins
-    Info (21061): Implemented 2878 logic cells
+    Info (21061): Implemented 2873 logic cells
     Info (21064): Implemented 24 RAM segments
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 411 megabytes
-    Info: Processing ended: Mon Nov 13 17:24:22 2017
+    Info: Peak virtual memory: 412 megabytes
+    Info: Processing ended: Mon Nov 13 18:29:12 2017
     Info: Elapsed time: 00:00:33
     Info: Total CPU time (on all processors): 00:00:32
 
