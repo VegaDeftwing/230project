@@ -220,8 +220,8 @@ for line in inputfile:
             immediate = tobin(StrArray[3],7)
             S = "0"
             CondStr = "al"
-            RegStr2 = StrArray[1]
-            RegStr3 = StrArray[2]
+            RegStr2 = StrArray[2]
+            RegStr3 = StrArray[1]
 
         if len(StrArray) == 5: #Check if its "S" or "Cond"
             if StrArray[1] == "s":
@@ -231,14 +231,14 @@ for line in inputfile:
                 S = "0"
                 CondStr = StrArray [1]
             immediate = tobin(StrArray[4],7)
-            RegStr2 = StrArray[2]
-            RegStr3 = StrArray[3]
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[2]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = 1
             immediate = tobin(StrArray[5],7)
-            RegStr2 = StrArray[3]
-            RegStr3 = StrArray[4]
+            RegStr2 = StrArray[4]
+            RegStr3 = StrArray[3]
         if OpCodeStr == "addi":
             OpCode = "0110"
         if OpCodeStr == "subi":
@@ -258,8 +258,8 @@ for line in inputfile:
             immediate = tobin(StrArray[2],7)
             S = "0"
             CondStr = "al"
-            RegStr2 = StrArray[1]
-            RegStr3 = StrArray[3]
+            RegStr2 = StrArray[3]
+            RegStr3 = StrArray[1]
 
         if len(StrArray) == 5: #Check if its "S" or "Cond"
             if StrArray[1] == "s":
@@ -269,14 +269,14 @@ for line in inputfile:
                 S = "0"
                 CondStr = StrArray [1]
             immediate = tobin(StrArray[3],7)
-            RegStr2 = StrArray[2]
-            RegStr3 = StrArray[4]
+            RegStr2 = StrArray[4]
+            RegStr3 = StrArray[2]
         if len(StrArray) == 6: #Everything is there
             CondStr = StrArray[1]
             S = "1"
             immediate = tobin(StrArray[4],7)
-            RegStr2 = StrArray[3]
-            RegStr3 = StrArray[5]
+            RegStr2 = StrArray[5]
+            RegStr3 = StrArray[3]
         if OpCodeStr == "ldw" or OpCodeStr == "lw":
             OpCode = "0100"
         if OpCodeStr == "stw" or OpCodeStr == "sw":
