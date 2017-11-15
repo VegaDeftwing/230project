@@ -15,7 +15,8 @@ outfile  = open("MemoryInitialization.mif", "w")
 lireg = LabelStr = Derefaddr = Label = FinalInstruction = Cond = RegD = RegS = RegT = RegStr = Opx = S = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
 labels = [""]
 addresses = [""]
-i = j = k = 0
+i = j = 7
+k = 0
 outputme = True
 
 ### Set up .mif file header:
@@ -25,6 +26,13 @@ outfile.write("ADDRESS_RADIX=UNS;\n")
 outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
 outfile.write(" 0: 000000000000000000000000;\n")
+outfile.write(" 1: 000000000000000000000000;\n")
+outfile.write(" 2: 000000000000000000000000;\n")
+outfile.write(" 3: 000000000000000000000000;\n")
+outfile.write(" 4: 000000000000000000000000;\n")
+outfile.write(" 5: 000000000000000000000000;\n")
+outfile.write(" 6: 000000000000000000000000;\n")
+outfile.write(" 7: 000000000000000000000000;\n")
 
 #Define some lists containing useful data
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
