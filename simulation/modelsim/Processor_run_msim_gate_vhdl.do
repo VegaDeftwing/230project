@@ -7,4 +7,3 @@ vmap work gate_work
 
 vcom -93 -work work {Processor.vho}
 
-do "C:/Users/Zed/Desktop/CSCE230/230project/project/phaseIII.do"
