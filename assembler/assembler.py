@@ -330,10 +330,18 @@ for line in inputfile:
             k = k + 1
             if l == LabelStr:
                 Derefaddr = addresses[k-1]
-                Derefaddr = Derefaddr[2:]
-                Derefaddr = int(Derefaddr,16)
-                Derefaddr = bin(Derefaddr)[2:]
-                Derefaddr = Derefaddr.zfill(16)
+
+        Derefaddr = Derefaddr[2:]
+        Derefaddr = int(Derefaddr,16)
+        Derefaddr = Derefaddr - i
+        if Derefaddr > 0:
+            Derefaddr = bin(Derefaddr)[2:]
+            Derefaddr = Derefaddr.zfill(16)
+        else:
+            Derefaddr = bin(Derefaddr)[3:]
+            Derefaddr = int(Derefaddr,2) ^ 0xffff
+            Derefaddr = Derefaddr + 0b1
+            Derefaddr = bin(Derefaddr)[2:]
 
         FinalInstruction = OpCode + Cond + Derefaddr
     elif OpCodeStr in JTypeList:
@@ -373,7 +381,7 @@ for line in inputfile:
         print(FinalInstruction + " " + str(FinalInstructionStr) + "\033[96m 0x"+ FinalInstructionHex + "\033[92m Address: " + address, end="" )
         if OpCodeStr in BTypeList:
             if Derefaddr != " ":
-                print(" \033[91m Branch to: " + hex(int(Derefaddr,2)) + "\033[92m")
+                print(" \033[91m Branch up: " + hex(int(Derefaddr,2)) + "\033[92m")
             else:
                 print("\033[91m  INVALID LABEL  \033[92m")
         else:
