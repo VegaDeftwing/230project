@@ -1,0 +1,31 @@
+.text
+.global	_increment
+_increment:
+	subi sp,sp,4
+	stw r3, 0(sp)
+	ldw r3, 0(sp) 
+	movia r4, 0x10000040
+	ldwio r7,0(r4)
+	
+	movia r5,0x10000000
+	stwio r7,0(r5)
+	add r3,r3,r7
+	
+	
+
+	LOOP:
+	movia r4, 0x10000050
+	ldwio r8,0(r4)
+	ldwio r9,4(r4)
+	ldwio r10,8(r4)
+	ldwio r11,12(r4)
+	addi r12,r0,0
+	bne r8, r12, ENDLOOP
+	bne r9, r12, ENDLOOP
+	bne r10, r12, ENDLOOP
+	bne r11, r12, ENDLOOP
+	br LOOP
+	ENDLOOP: 
+	stw r3, 0(sp)
+	ldw r3, 0(sp) 
+ret

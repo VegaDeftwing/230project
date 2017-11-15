@@ -86,12 +86,13 @@ ModelSim-Altera Info: # add wave MemInstruction_Output
 ModelSim-Altera Info: # add wave InR_Output
 ModelSim-Altera Info: # add wave opCode_Output
 ModelSim-Altera Info: #add wave Cond_Output
-ModelSim-Altera Info: # add wave S_Output
+ModelSim-Altera Info: # add wave Blabel_Output
+ModelSim-Altera Info: #add wave S_Output
 ModelSim-Altera Info: # add wave opx_Output
 ModelSim-Altera Info: # 
 ModelSim-Altera Info: # add wave rf_write_Output
 ModelSim-Altera Info: # add wave c_select_Output
-ModelSim-Altera Info: # add wave RegD_Output
+ModelSim-Altera Info: # add wave muxCOUT_Output
 ModelSim-Altera Info: # add wave RegT_Output
 ModelSim-Altera Info: # add wave RegS_Output
 ModelSim-Altera Info: # 

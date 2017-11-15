@@ -1,5 +1,5 @@
 Archive Project report for Processor
-Fri Nov 03 18:07:50 2017
+Mon Nov 13 22:31:23 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Fri Nov 03 18:07:50 2017 ;
+; Archive Project Status ; Successful - Mon Nov 13 22:31:23 2017 ;
 ; Revision Name          ; Processor                             ;
 ; Top-level Entity Name  ; processor                             ;
 ; Family                 ; Cyclone II                            ;
@@ -50,16 +50,16 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/Project-Team9-Part2.qar'
+Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/project/ProjectTeam9_Part3.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'Processor.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/altera/11.1sp2/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 242 megabytes
-    Info: Processing ended: Fri Nov 03 18:07:50 2017
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 275 megabytes
+    Info: Processing ended: Mon Nov 13 22:31:23 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +-----------------------------------------------------------+
@@ -67,48 +67,49 @@ Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
 +-----------------------------------------------------------+
 ; File Name                                                 ;
 +-----------------------------------------------------------+
-; assembler/inputfile                                       ;
 ; incremental_db/compiled_partitions/Processor.db_info      ;
+; MemoryInitialization.mif                                  ;
 ; Processor.qsf                                             ;
 ; Processor_assignment_defaults.qdf                         ;
 ; Project.qpf                                               ;
 ; project/ALU.vhdl                                          ;
+; project/BUFFREG.vhdl                                      ;
 ; project/CU.vhdl                                           ;
 ; project/decoder16.vhdl                                    ;
-; project/FA.do                                             ;
-; project/FA.vhdl                                           ;
+; project/FAST4BITADDER.vhdl                                ;
+; project/FASTADDER.do                                      ;
+; project/FASTADDER.vhdl                                    ;
 ; project/FLAGLOGIC.vhdl                                    ;
 ; project/immediate.vhdl                                    ;
 ; project/IO_MemoryInterface.bdf                            ;
+; project/IO_MemoryInterface.cmp                            ;
 ; project/IR.vhdl                                           ;
 ; project/memFilesProcessor/Adder.vhdl                      ;
 ; project/memFilesProcessor/Const.vhdl                      ;
 ; project/memFilesProcessor/InstructionAddressGenerator.bdf ;
+; project/memFilesProcessor/InstructionAddressGenerator.cmp ;
 ; project/memFilesProcessor/MainMemory.vhdl                 ;
 ; project/memFilesProcessor/MemoryInterface.bdf             ;
+; project/memFilesProcessor/MemoryInterface.cmp             ;
 ; project/memFilesProcessor/MuxINC.vhdl                     ;
 ; project/memFilesProcessor/MuxPC.vhdl                      ;
 ; project/memFilesProcessor/PC.vhdl                         ;
 ; project/memFilesProcessor/PC_Temp.vhdl                    ;
 ; project/MUX.vhdl                                          ;
 ; project/MUX2_1.vhdl                                       ;
-; project/MUX4TO1.vhdl                                      ;
 ; project/MUX6TO1.vhdl                                      ;
 ; project/mux16.vhdl                                        ;
 ; project/MUXB.vhdl                                         ;
+; project/MUXC.vhdl                                         ;
+; project/MUXma.vhdl                                        ;
 ; project/MUXY.vhdl                                         ;
 ; project/phaseII.do                                        ;
+; project/phaseIII.do                                       ;
 ; project/processor.vhdl                                    ;
 ; project/PS.vhdl                                           ;
-; project/RA.vhdl                                           ;
-; project/RB.vhdl                                           ;
 ; project/reg16.vhdl                                        ;
 ; project/Reg_16.vhdl                                       ;
 ; project/Registry.vhdl                                     ;
-; project/RM.vhdl                                           ;
-; project/RY.vhdl                                           ;
-; project/RZ.vhdl                                           ;
-; project/SIXTEENBITFA.vhdl                                 ;
 +-----------------------------------------------------------+
 
 
