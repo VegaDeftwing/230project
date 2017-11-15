@@ -25,10 +25,10 @@ outfile.write("DEPTH=1024;\n")
 outfile.write("ADDRESS_RADIX=UNS;\n")
 outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
-outfile.write(" 0: 000000000000000000000000;\n")
-outfile.write(" 1: 000000000000000000000000;\n")
-outfile.write(" 2: 000000000000000000000000;\n")
-outfile.write(" 3: 000000000000000000000000;\n")
+outfile.write(" 0: 000000001000000000000000;\n")
+outfile.write(" 1: 000000000100000000000000;\n")
+outfile.write(" 2: 000000000010000000000000;\n")
+outfile.write(" 3: 000000000001000000000000;\n")
 outfile.write(" 4: 000000000000000000000000;\n")
 outfile.write(" 5: 000000000000000000000000;\n")
 outfile.write(" 6: 000000000000000000000000;\n")
@@ -120,7 +120,12 @@ for line in inputfile:
 
 print("-----------------------------------------------------------------------------------")
 inputfile.close
-
+print( "\033[95m                   IODEF\033[96m 000000001000000000000000 \033[92m[IO] \033[96m" + hex(int("000000001000000000000000",2)) + "   \033[92mAddress: 0x1")
+print( "\033[95m                   IODEF\033[96m 000000000100000000000000 \033[92m[IO] " + hex(int("000000000100000000000000",2)) + "   \033[92mAddress: 0x2")
+print( "\033[95m                   IODEF\033[96m 000000000010000000000000 \033[92m[IO] " + hex(int("000000000010000000000000",2)) + "   \033[92mAddress: 0x3")
+print( "\033[95m                   IODEF\033[96m 000000000001000000000000 \033[92m[IO] " + hex(int("000000000001000000000000",2)) + "   \033[92mAddress: 0x5")
+print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] " + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x6")
+print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] " + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x7")
 #Second Pass, Instrction to Binary conversion and some error checknig
 inputfile  = open(sys.argv[1], "r")
 for line in inputfile:
