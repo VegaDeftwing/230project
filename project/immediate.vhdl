@@ -15,6 +15,8 @@ begin
 	begin
 		if(extend = "00") then
 			immedEx <= "000000000" & immed;
+		elsif(extend = "10") then
+			immedEx <= immed & "000000000";
 		else
 			if(immed(6) = '0') then
 				immedEx <= "000000000" & immed;

@@ -4,43 +4,49 @@ use IEEE.std_logic_1164.ALL;
 
 entity processor is
 	port(
-	clock, reset : in std_logic;
 	
-	
-	
-	--Simply mapping outputs from signals, used not for calculation but for display during testing. Will revert once unneeded
 
- InR_Output : out std_logic_vector(23 downto 0);
- opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
- S_Output : out std_logic;
- opx_Output : out std_logic_vector(2 downto 0);
- extend_Output : out std_logic_vector(1 downto 0);
- ir_enable_Output, ma_select_Output, mem_read_Output, mem_write_Output, pc_select_Output, pc_enable_Output, inc_select_Output : out std_logic;
- y_select_Output, c_select_Output : out std_logic_vector(1 downto 0);
- rf_write_Output,  b_select_Output, a_inv_Output, b_inv_Output : out std_logic;
- alu_op_Output : out std_logic_vector(2 downto 0);
- N_Output, C_Output, V_Output, Z_Output : out std_logic;
- Nout_Output, Cout_Output, Vout_Output, Zout_Output : out std_logic;
- mfc_Output : out std_logic;
- ALU_out_Output : out std_logic_vector(15 downto 0);
- RegD_Output, RegT_Output, RegS_Output : out std_logic_vector(3 downto 0);
- DataD_Output : out std_logic_vector(15 downto 0);
- DataS_Output, DataT_Output : out std_logic_vector(15 downto 0);
- DataA_Output : out std_logic_vector(15 downto 0);	
- DataB_Output : out std_logic_vector(15 downto 0);
- DataM_Output : out std_logic_vector(15 downto 0);
- DataZ_Output : out std_logic_vector(15 downto 0);
- enablePS_Output : out std_logic;
- immediateB_Output : out std_logic_vector(15 downto 0);
- muxBout_Output : out std_logic_vector(15 downto 0);
- memOut_Output : out std_logic_vector(15 downto 0);
- ReturnAddress_Output : out std_logic_vector(15 downto 0);
- muxYout_Output : out std_logic_vector(15 downto 0);
- InstructionAddress_Output : out std_logic_vector(15 downto 0);
- Address_Output : out std_logic_vector(15 downto 0);
- MemInstruction_Output: out std_logic_vector(23 downto 0);
- muxCOUT_Output : out std_logic_vector(3 downto 0);
- Blabel_Output : out std_logic_vector(15 downto 0);
+ --IO Pins	
+ clock, reset : in std_logic;
+ IOSwitch : in STD_LOGIC_VECTOR(9 DOWNTO 0);	
+ IOPush : in std_logic_vector(3 downto 0);
+ IOLEDG : out STD_LOGIC_VECTOR(7 DOWNTO 0);
+ IOHEX0 : out STD_LOGIC_VECTOR(6 DOWNTO 0);
+	
+	
+ --Simply mapping outputs from signals, used not for calculation but for display during testing. Will revert once unneeded
+ 
+-- InR_Output : out std_logic_vector(23 downto 0);
+-- opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
+ --S_Output : out std_logic;
+ --opx_Output : out std_logic_vector(2 downto 0);
+ --extend_Output : out std_logic_vector(1 downto 0);
+ --ir_enable_Output, ma_select_Output, mem_read_Output, mem_write_Output, pc_select_Output, pc_enable_Output, inc_select_Output : out std_logic;
+-- y_select_Output, c_select_Output : out std_logic_vector(1 downto 0);
+-- rf_write_Output,  b_select_Output, a_inv_Output, b_inv_Output : out std_logic;
+-- alu_op_Output : out std_logic_vector(2 downto 0);
+-- N_Output, C_Output, V_Output, Z_Output : out std_logic;
+-- Nout_Output, Cout_Output, Vout_Output, Zout_Output : out std_logic;
+-- mfc_Output : out std_logic;
+-- ALU_out_Output : out std_logic_vector(15 downto 0);
+ --RegD_Output, RegT_Output, RegS_Output : out std_logic_vector(3 downto 0);
+ --DataD_Output : out std_logic_vector(15 downto 0);
+ --DataS_Output, DataT_Output : out std_logic_vector(15 downto 0);
+ --DataA_Output : out std_logic_vector(15 downto 0);	
+ --DataB_Output : out std_logic_vector(15 downto 0);
+ --DataM_Output : out std_logic_vector(15 downto 0);
+ --DataZ_Output : out std_logic_vector(15 downto 0);
+ --enablePS_Output : out std_logic;
+ --immediateB_Output : out std_logic_vector(15 downto 0);
+ --muxBout_Output : out std_logic_vector(15 downto 0);
+ --memOut_Output : out std_logic_vector(15 downto 0);
+ --ReturnAddress_Output : out std_logic_vector(15 downto 0);
+ --muxYout_Output : out std_logic_vector(15 downto 0);
+ --InstructionAddress_Output : out std_logic_vector(15 downto 0);
+ --Address_Output : out std_logic_vector(15 downto 0);
+ --MemInstruction_Output: out std_logic_vector(23 downto 0);
+ --muxCOUT_Output : out std_logic_vector(3 downto 0);
+ --Blabel_Output : out std_logic_vector(15 downto 0);
  Stage_Output: out integer
 	
 	
@@ -70,12 +76,14 @@ COMPONENT CU
 		BLabel : in std_logic_vector(15 downto 0);
 		JConstant : in std_logic_vector(19 downto 0);
 		N, C, V, Z, mfc, clock, reset : in std_logic;
+		IOKey : in std_logic_vector(3 downto 0);
 		alu_op : out std_logic_vector(2 downto 0);
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
-		Stage_output : out integer
+		ir_enable, ma_select, mem_read, MainMem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
+		Stage_output : out integer;
+		IOMem_write, mem_select : out std_logic
 	);
 END COMPONENT;
 --Generic Buffer Register, mapped for all Buffer Registers RA-RZ
@@ -225,10 +233,19 @@ COMPONENT IO_MemoryInterface
 	);
 END COMPONENT;
 	
+
+COMPONENT MUXmem
+	PORT(
+	mem_select : in std_logic;
+	MemData : in std_logic_vector(15 downto 0);
+	IOMemData: in std_logic_vector(15 downto 0);
+	MuxMemOut : out std_logic_vector(15 downto 0)
+	);
+END COMPONENT;	
 	
 	
 --This is a block of signals. It is very long. These signals are used within mappings as both inputs and outputs for various components within the processor
-Signal MemInstruction : std_logic_vector(23 downto 0);
+Signal MemInstruction : std_logic_vector(15 downto 0);
 Signal InR : std_logic_vector(23 downto 0);
 Signal opCode, Cond : std_logic_vector(3 downto 0);
 Signal S : std_logic;
@@ -266,6 +283,13 @@ Signal memoryIn : std_logic_vector(23 downto 0);
 Signal MUXliOUT : std_logic_vector(3 downto 0);
 Signal LiReg : std_logic_vector(3 downto 0);
 
+Signal IOKey : STD_LOGIC_VECTOR(3 DOWNTO 0);
+Signal MemData : STD_LOGIC_VECTOR(23 downto 0);
+Signal IOMem_write : STD_LOGIC;
+Signal IOMemData : STD_LOGIC_VECTOR(15 downto 0);
+Signal Mem_select : std_logic;
+
+
 begin
 
 --These Signals are primarily used in the CU and Registry, and they all come from the InR output nal from the IR, as that is the first stage
@@ -287,7 +311,9 @@ JConstant <= InR(19 downto 0);
 --Append bits to RM to make compatible with MemoryInterface
 memoryIn <= "00000000" & DataM;
 --Remove bits from MemInstruction to make compatible with MuxY
-memOut <= MemInstruction(15 downto 0);
+memOut <= MemData(15 downto 0);
+--Get IOKey from ADDRESS from MuxMA
+IOKey <= Address(15 downto 12);
 
 --Port maps for each component.
 
@@ -316,7 +342,7 @@ memOut <= MemInstruction(15 downto 0);
 -- Outputs pc_enable to the PC in StepX (UNIMPLEMENTED)
 -- Outputs inc_select to MuxINC in StepX (UNIMPLEMENTED, from Immediate Extension? See picture for future reference)
 -- Outputs enablePS to Step11 PS (UNIMPLEMENTED, CURRENTLY SET TO 1 AS DEFAULT TO ALLOW FUNCTIONALITY FOR TESTING UNTIL IMPLEMENTATION)
-Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS, Stage_Output);
+Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, IOKey, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS, Stage_Output, IOMem_write, mem_select);
 
 --MAP Registry. Based on rf_write flag from Step1 CU, and the reset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
 --Outputs DataS, DataT depending on internal logic, further described within Registry.vhdl
@@ -342,7 +368,7 @@ Step8 : MUXB PORT MAP(b_select, immediateB, DataB, muxBout);
 
 --Map MUXY, using y_select input flag from Step1 CU, and selects either DataZ from Step7 BUFFREG RZ, memIn from memory Data out(in some instructions) in StepX, or ReturnAddress from the PC_Temp in StepX.
 --Outputs muxYout, used in Step6 BUFFREG RY 
-Step9 : MUXY PORT MAP(y_select, DataZ, memOut, ReturnAddress, muxYout);
+Step9 : MUXY PORT MAP(y_select, DataZ, MemInstruction, ReturnAddress, muxYout);
 
 --Map ALU, take in DataA from Buffer Register RA from Step 3, and take in the output of MuxB in step 8. Uses alu_op, a_inv, and b_inv from the CU as flags for determining various logics. See ALU documentation for greater detail.
 --Outputs ALU_out based on the executed arithmatic instruction, and also outputs control flags N, Z, V, and C based on logics within FLAGLOGIC. ALU_out goes into Step7 BUFFREG RZ, and N,Z,V,C flags go into Step11 PS.
@@ -353,7 +379,7 @@ Step11: PS PORT MAP(N, C, V, Z, Clock, Reset, enablePS, Nout, Cout, Vout, Zout);
 
 --Map Instruction Register, Takes in instruction from test script, updates and outputs when the clock and enable flag allow it, reset when Reset flag is 1.
 --The InR output signal is parsed as various inputs that go into the Control Unit and Register.
-Step12: IR PORT MAP(MemInstruction, Reset, Clock, ir_enable, InR);
+Step12: IR PORT MAP(MemData, Reset, Clock, ir_enable, InR);
 
 --Map immediate block. Take in immediate value, extend flag, output immediateB when desired
 Step13: immediate PORT MAP(immediateIn, extend, immediateB);
@@ -368,60 +394,66 @@ Step15: MUXma PORT MAP(ma_select, DataZ, InstructionAddress, Address);
 Step16: MUXC PORT MAP(c_select, RegD, RegT, LiReg, MUXCOUT);
 
 --MAP MemoryInterface 
-Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, MemInstruction, mfc);
+Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, MemData, mfc);
 
 
+--MAP IO_MemoryInterface. Will expand on logic at future time
+Step18: IO_MemoryInterface PORT MAP(clock, IOMem_write, IOKEY, DataM, IOPush, IOSwitch, IOMemData, IOLEDG, IOHEX0);
+	
+--MAP MUXmem. Chooses what Memory data goes to MuxY.
+Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
+	
 --Simply mapping outputs from Signals, used not for calculation but for display during testing. Will revert once unneeded
-InR_Output <= InR;
-opCode_Output <= opCode;
-Cond_Output <= Cond;
-S_Output <= S;
-opx_Output <= opx;
-ir_enable_Output <= ir_enable;
-ma_select_Output <= ma_select;
-mem_read_Output <= mem_read;
-mem_write_Output <= mem_write;
-pc_select_Output <= pc_select;
-pc_enable_Output <= pc_enable;
-inc_select_Output <= inc_select;
-extend_Output <= extend;
-y_select_Output <= y_select;
-c_select_Output <= c_select;
-rf_write_Output <= rf_write;
-b_select_Output <= b_select;
-a_inv_Output <= a_inv;
-b_inv_Output <= b_inv;
-alu_op_Output <= alu_op;
-N_Output <= N;
-C_Output <= C;
-V_Output <= V;
-Z_Output <= Z;
-ALU_out_Output <= ALU_out;
-RegD_Output <= RegD;
-RegT_Output <= RegT;
-RegS_Output <= RegS;
-DataD_Output <= DataD;
-DataS_Output <= DataS;
-DataT_Output <= DataT;
-DataA_Output <=	DataA;
-DataB_Output <= DataB;
-DataM_Output <= DataM;
-DataZ_Output <= DataZ;
-enablePS_Output <= enablePS;
-immediateB_Output <= immediateB;
-muxBout_Output <= muxBout;
-memOut_Output <= memOut;
-ReturnAddress_Output <= ReturnAddress; 
-muxYout_Output <= muxYout;
-Nout_Output <= Nout;
-Cout_Output <= Cout;
-Vout_Output <= Vout;
-Zout_Output <= Zout;
-InstructionAddress_Output <= InstructionAddress;
-Address_Output<= Address;
-MemInstruction_Output <= MemInstruction;
-muxCOUT_Output <= muxCOUT;
-Blabel_Output <= Blabel;
+--InR_Output <= InR;
+--opCode_Output <= opCode;
+--Cond_Output <= Cond;
+--S_Output <= S;
+--opx_Output <= opx;
+--ir_enable_Output <= ir_enable;
+--ma_select_Output <= ma_select;
+--mem_read_Output <= mem_read;
+--mem_write_Output <= mem_write;
+--pc_select_Output <= pc_select;
+--pc_enable_Output <= pc_enable;
+--inc_select_Output <= inc_select;
+--extend_Output <= extend;
+--y_select_Output <= y_select;
+--c_select_Output <= c_select;
+--rf_write_Output <= rf_write;
+--b_select_Output <= b_select;
+--a_inv_Output <= a_inv;
+--b_inv_Output <= b_inv;
+--alu_op_Output <= alu_op;
+--N_Output <= N;
+--C_Output <= C;
+--V_Output <= V;
+--Z_Output <= Z;
+--ALU_out_Output <= ALU_out;
+---RegD_Output <= RegD;
+--RegT_Output <= RegT;
+--RegS_Output <= RegS;
+--DataD_Output <= DataD;
+--DataS_Output <= DataS;
+--DataT_Output <= DataT;
+--DataA_Output <=	DataA;
+--DataB_Output <= DataB;
+--DataM_Output <= DataM;
+--DataZ_Output <= DataZ;
+--enablePS_Output <= enablePS;
+--immediateB_Output <= immediateB;
+--muxBout_Output <= muxBout;
+--memOut_Output <= memOut;
+--ReturnAddress_Output <= ReturnAddress; 
+--muxYout_Output <= muxYout;
+--Nout_Output <= Nout;
+--Cout_Output <= Cout;
+--Vout_Output <= Vout;
+--Zout_Output <= Zout;
+--InstructionAddress_Output <= InstructionAddress;
+--Address_Output<= Address;
+--MemInstruction_Output <= MemData;
+--muxCOUT_Output <= muxCOUT;
+--Blabel_Output <= Blabel;
 
 end LOGIC;
 		
