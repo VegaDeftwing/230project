@@ -154,7 +154,7 @@ for line in inputfile:
         Opx = "000"
         Cond = "0000"
         S = "1"
-        RedD = "0000"
+        RegD = "0000"
         RegS = checkreg(StrArray[1])
         RegT = checkreg(StrArray[2])
         FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
