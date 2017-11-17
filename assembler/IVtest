@@ -14,3 +14,4 @@ ldw r4, 0(r2)
 cmp r5,r4
 beq LEDS
 br  LOOP
+nop
