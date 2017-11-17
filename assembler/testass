@@ -30,6 +30,7 @@ add s r0 r1 r2
 sub s r3 r4 r5
 and s r6 r7 r8
 or s r9 r10 r11
+b cond_test
 xor s r12 r13 r14
 sll s r15 r1 r2
 cmp r0 r0
