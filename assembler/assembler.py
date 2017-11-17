@@ -340,7 +340,7 @@ for line in inputfile:
 
         Derefaddr = Derefaddr[2:]
         Derefaddr = int(Derefaddr,16)
-        Derefaddr = Derefaddr - i
+        Derefaddr = Derefaddr - i - 1
         if Derefaddr > 0:
             Derefaddr = bin(Derefaddr)[2:]
             Derefaddr = Derefaddr.zfill(16)
