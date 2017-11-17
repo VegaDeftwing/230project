@@ -1,5 +1,5 @@
 Archive Project report for Processor
-Mon Nov 13 22:31:23 2017
+Wed Nov 15 17:34:02 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Mon Nov 13 22:31:23 2017 ;
+; Archive Project Status ; Successful - Wed Nov 15 17:34:02 2017 ;
 ; Revision Name          ; Processor                             ;
 ; Top-level Entity Name  ; processor                             ;
 ; Family                 ; Cyclone II                            ;
@@ -50,16 +50,16 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/project/ProjectTeam9_Part3.qar'
+Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/ProgrammerTest.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'Processor.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/altera/11.1sp2/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 275 megabytes
-    Info: Processing ended: Mon Nov 13 22:31:23 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 311 megabytes
+    Info: Processing ended: Wed Nov 15 17:34:02 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +-----------------------------------------------------------+
@@ -102,6 +102,7 @@ Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
 ; project/MUXB.vhdl                                         ;
 ; project/MUXC.vhdl                                         ;
 ; project/MUXma.vhdl                                        ;
+; project/MUXmem.vhdl                                       ;
 ; project/MUXY.vhdl                                         ;
 ; project/phaseII.do                                        ;
 ; project/phaseIII.do                                       ;

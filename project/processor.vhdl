@@ -17,7 +17,7 @@ entity processor is
  --Simply mapping outputs from signals, used not for calculation but for display during testing. Will revert once unneeded
  
 -- InR_Output : out std_logic_vector(23 downto 0);
--- opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
+--opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
  --S_Output : out std_logic;
  --opx_Output : out std_logic_vector(2 downto 0);
  --extend_Output : out std_logic_vector(1 downto 0);

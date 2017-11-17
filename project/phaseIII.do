@@ -4,7 +4,7 @@ view wave
 
 add wave Clock
 add wave Reset
-#add wave Stage_Output
+add wave Stage_Output
 #add wave ReturnAddress_Output 
 #add wave InstructionAddress_Output
 #add wave Address_Output
@@ -75,8 +75,8 @@ add wave Reset
 
 
 
-#force reset 0 0
-#force clock 0 0, 1 100  -repeat 200
+force reset 0 0
+force clock 0 0, 1 100  -repeat 200
 
 
 

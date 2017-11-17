@@ -29,6 +29,7 @@ end CU;
 ARCHITECTURE behavior OF CU IS
 signal wmfc: std_logic;
 signal mem_write : std_logic;
+signal cond_true : std_logic;
 shared variable stage: integer:= 0;
 BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and	reset
 	BEGIN	--Start	the	process
@@ -63,6 +64,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		pc_enable <= mfc;
 		inc_select <= '0';
 		ps_enable <= '0';
+		cond_true <= '1';
 		-- register load
 		ELSIF(stage = 2) THEN
 
@@ -71,8 +73,146 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		mem_read <= '0';
 		pc_enable <= '0';
 
+		--in stage 2 we check if cond is verified. we need to do this or else we cannot operate conditionals.
+		--First we make sure that the type is of R, D, or B type	
+			IF(opCode = "0000" OR opCode = "0011" OR opCode = "0010" OR opCode = "0001" OR opCode = "0100" OR opCode = "0101" OR opCode = "0110" OR opCode = "0111" OR opCode = "1000" OR opCode = "1001")THEN	
+				IF(Cond(3)= '0')THEN
+					IF(Cond(2)='0')THEN
+						IF(Cond(1)='0')THEN
+							IF(Cond(0)='0')THEN
+							--Cond is always true when 0000
+								cond_true <='1';
+							ELSIF(Cond(0)='1')THEN
+							--Cond is Never true when 0001
+								cond_true <='0';
+							END IF;
+						ELSIF(Cond(1)='1')THEN
+							IF(Cond(0)='0')THEN
+							--EQ Condition	
+								IF(Z='1')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+							--NEQ Condition
+								IF(Z='0')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							END IF;
+						END IF;
+					ELSIF(Cond(2)='1')THEN
+						IF(Cond(1)='0')THEN
+							IF(Cond(0)='0')THEN
+							--VS Condition (Overflow)
+								IF(V='1')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+							--VC Condition (No Overflow)
+								IF(V='0')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							END IF;
+						ELSIF(Cond(1)='1')THEN
+							IF(Cond(0)='0')THEN
+							--MI Condition (Negative)
+								IF(N='1')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+							--PL Condition (Positive or Zero)
+								IF(N='0')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							END IF;
+						END IF;					
+					END IF;
+				ELSIF(Cond(3)= '1')THEN
+					IF(Cond(2)='0')THEN
+						IF(Cond(1)='0')THEN
+							IF(Cond(0)='0')THEN
+								--CS Condition (Unsigned higher or same)
+								IF(C='1')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+								--CC Condition (Unsigned lower)
+								IF(C='0')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							END IF;
+						ELSIF(Cond(1)='1')THEN
+							IF(Cond(0)='0')THEN
+								--HI Condition (Unsigned Higher)
+								IF(C='1' AND Z='0')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+								--LS Condition (Unsigned Lower or same)
+								IF(C='0' OR Z='1')THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							END IF;
+						END IF;
+					ELSIF(Cond(2)='1')THEN
+						IF(Cond(1)='0')THEN
+							IF(Cond(0)='0')THEN
+								--GT Condition (Greater Than)
+								IF(Z='0' AND ((N='1' AND V='1')OR(N='0' AND V='0')))THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+								--LT Condition (Less Than)
+								IF((N='1' AND V='0')OR(Z='0' AND V='1'))THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;	
+							END IF;
+						ELSIF(Cond(1)='1')THEN
+							IF(Cond(0)='0')THEN
+								--GE Condition (Greater Than or equal)
+								IF((N='1' AND V='1')OR(N='0' AND V='0'))THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;
+							ELSIF(Cond(0)='1')THEN
+								--LE Condition (Less Than or equal)
+								IF(Z='1' OR((N='1' AND V='0') OR (Z='0' AND V='1')))THEN
+								cond_true <= '1';
+								ELSE
+								cond_true <= '0';
+								END IF;	
+							END IF;
+						END IF;
+					END IF;
+				END IF;		
+			END IF;
+		-----------------------------------------------
 		
-		ELSIF(stage = 3) THEN
+		ELSIF(stage = 3 AND cond_true='1') THEN
 		--	rf_write <= '1';
 			--R-Type instructions
 			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
@@ -187,7 +327,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 		 
-		ELSIF(stage = 4) THEN			
+		ELSIF(stage = 4 AND cond_true='1') THEN			
 
 	
 			--R-Type instructions
@@ -290,7 +430,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					IOMem_write <='0';
 			END IF;
 			
-		ELSIF(stage = 5) THEN
+		ELSIF(stage = 5 AND cond_true='1') THEN
 		mem_write <= '0';
 			MainMem_write <= '0';
 			IOMem_write <='0';

@@ -22,82 +22,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-CU
-# storage
-db|Processor.(1).cnf
-db|Processor.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|cu.vhdl
-172999dfa92e13f2ad472d949b998d5
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(opcode)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(cond)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(opx)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(immediate)
-6 downto 0
-PARAMETER_STRING
-USR
- constraint(blabel)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(jconstant)
-19 downto 0
-PARAMETER_STRING
-USR
- constraint(iokey)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(c_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(y_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(extend)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-CU:Step1
-}
-# macro_sequence
-
-# end
-# entity
 Registry
 # storage
 db|Processor.(2).cnf
@@ -5134,7 +5058,7 @@ ON
 # case_insensitive
 # source_file
 project|processor.vhdl
-7cdfb0d6af6ed6a921a24729189eab
+8441b3d17b7fc6acd8d468f0b501f42
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5148,6 +5072,82 @@ ON
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+CU
+# storage
+db|Processor.(1).cnf
+db|Processor.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|cu.vhdl
+c4c653feb98c5c7d843c3b1232d3ad5
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(opcode)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(cond)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(opx)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(immediate)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(blabel)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(jconstant)
+19 downto 0
+PARAMETER_STRING
+USR
+ constraint(iokey)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(c_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(extend)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+CU:Step1
 }
 # macro_sequence
 

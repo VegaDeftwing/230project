@@ -11,7 +11,7 @@ Simulation Language   :  vhdl
 Version               :  93
 Simulation Mode       :  GUI
 Sim Output File       :  Processor.vho
-Sim SDF file          :  Processor__vhdl.sdo
+Sim SDF File       :  Processor_vhd.sdo
 Sim dir               :  simulation\modelsim
 
 =======================================================
@@ -19,31 +19,4 @@ Sim dir               :  simulation\modelsim
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script c:/altera/11.1sp2/quartus/common/tcl/internal/nativelink/modelsim.tcl
 Warning: File Processor_run_msim_gate_vhdl.do already exists - backing up current file as Processor_run_msim_gate_vhdl.do.bak11
-Probing transcript
-ModelSim-Altera Info: # Reading C:/altera/11.1/modelsim_ase/tcl/vsim/pref.tcl 
-ModelSim-Altera Info: # do Processor_run_msim_gate_vhdl.do 
-ModelSim-Altera Info: # if {[file exists gate_work]} {
-ModelSim-Altera Info: # 	vdel -lib gate_work -all
-ModelSim-Altera Info: # }
-ModelSim-Altera Info: # vlib gate_work
-ModelSim-Altera Info: # vmap work gate_work
-ModelSim-Altera Info: # Copying c:\altera\11.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
-ModelSim-Altera Info: # Modifying modelsim.ini
-ModelSim-Altera Warning: # ** Warning: Copied c:\altera\11.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
-ModelSim-Altera Info: #          Updated modelsim.ini.
-ModelSim-Altera Info: # 
-ModelSim-Altera Info: # vcom -93 -work work {Processor.vho}
-ModelSim-Altera Info: # Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
-ModelSim-Altera Info: # -- Loading package STANDARD
-ModelSim-Altera Info: # -- Loading package TEXTIO
-ModelSim-Altera Info: # -- Loading package std_logic_1164
-ModelSim-Altera Info: # -- Loading package VITAL_Timing
-ModelSim-Altera Info: # -- Loading package VITAL_Primitives
-ModelSim-Altera Info: # -- Loading package cycloneii_atom_pack
-ModelSim-Altera Info: # -- Loading package cycloneii_components
-ModelSim-Altera Info: # -- Loading package std_logic_arith
-ModelSim-Altera Info: # -- Compiling entity processor
-ModelSim-Altera Info: # -- Compiling architecture structure of processor
-ModelSim-Altera Info: # 
-ModelSim-Altera Info: #  
-Info: NativeLink simulation flow was successful
+Info: Spawning ModelSim-Altera Simulation software 

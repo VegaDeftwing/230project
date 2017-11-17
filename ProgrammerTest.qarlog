@@ -1,0 +1,55 @@
+Quartus II Archive log --	C:/Users/Zed/Desktop/CSCE230/230project/ProgrammerTest.qarlog
+
+Archive:	C:/Users/Zed/Desktop/CSCE230/230project/ProgrammerTest.qar
+Date:		Wed Nov 15 17:34:01 2017
+Quartus II 32-bit		11.1 Build 259 01/25/2012 SP 2 SJ Web Edition
+
+	=========== Files Selected: ===========
+C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif
+C:/Users/Zed/Desktop/CSCE230/230project/Processor.qsf
+C:/Users/Zed/Desktop/CSCE230/230project/Processor_assignment_defaults.qdf
+C:/Users/Zed/Desktop/CSCE230/230project/Project.qpf
+C:/Users/Zed/Desktop/CSCE230/230project/incremental_db/compiled_partitions/Processor.db_info
+C:/Users/Zed/Desktop/CSCE230/230project/project/ALU.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/BUFFREG.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/CU.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.do
+C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/FLAGLOGIC.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/IO_MemoryInterface.bdf
+C:/Users/Zed/Desktop/CSCE230/230project/project/IO_MemoryInterface.cmp
+C:/Users/Zed/Desktop/CSCE230/230project/project/IR.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUX.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUX2_1.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUX6TO1.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUXB.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUXC.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUXY.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUXma.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/MUXmem.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/PS.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/Reg_16.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/decoder16.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/InstructionAddressGenerator.bdf
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/InstructionAddressGenerator.cmp
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MemoryInterface.bdf
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MemoryInterface.cmp
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxINC.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MuxPC.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/mux16.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/phaseII.do
+C:/Users/Zed/Desktop/CSCE230/230project/project/phaseIII.do
+C:/Users/Zed/Desktop/CSCE230/230project/project/processor.vhdl
+C:/Users/Zed/Desktop/CSCE230/230project/project/reg16.vhdl
+	======= Total: 44 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
