@@ -387,7 +387,16 @@ for line in inputfile:
         print(FinalInstruction + " " + str(FinalInstructionStr) + "\033[96m 0x"+ FinalInstructionHex + "\033[92m Address: " + address, end="" )
         if OpCodeStr in BTypeList:
             if Derefaddr != " ":
-                print(" \033[91m Branch up: " + hex(int(Derefaddr,2)) + "\033[92m")
+                if int(Derefaddr[2:],16) < 0x7fff:
+                    StrDerefaddr = 0
+                    StrDerefaddr = int(Derefaddr,2)
+                    StrDerefaddr = str(StrDerefaddr)
+                    print(" \033[91m Branch down: " + StrDerefaddr + " (" + hex(int(Derefaddr,2)) + ")" + "\033[92m")
+                else:
+                    NegDerefaddr = 0
+                    NegDerefaddr = int(Derefaddr,2) ^ 0xffff - 1
+                    NegDerefaddr = str(NegDerefaddr)
+                    print(" \033[91m Branch up: " + NegDerefaddr + " (" + hex(int(Derefaddr,2)) + ")" + "\033[92m")
             else:
                 print("\033[91m  INVALID LABEL  \033[92m")
         else:
