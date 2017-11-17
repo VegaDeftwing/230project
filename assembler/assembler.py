@@ -150,13 +150,18 @@ for line in inputfile:
     #and generate the Instrction based on the input
     if OpCodeStr == "cmp":
         print(line + " \033[95m RType \033[96m", end="")
+        if len(StrArray) == 3:
+            Cond = "0000"
+            RegS = checkreg(StrArray[1])
+            RegT = checkreg(StrArray[2])
+        else:
+            Cond = checkcond(StrArray[1])
+            RegS = checkreg(StrArray[2])
+            RegT = checkreg(StrArray[3])
         OpCode = "0010"
         Opx = "000"
-        Cond = "0000"
         S = "1"
         RegD = "0000"
-        RegS = checkreg(StrArray[1])
-        RegT = checkreg(StrArray[2])
         FinalInstruction = OpCode + Cond + S + Opx + RegD + RegS + RegT
 
     elif OpCodeStr == "jr":
