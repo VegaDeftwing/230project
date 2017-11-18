@@ -33,48 +33,9 @@ signal cond_true : std_logic;
 shared variable stage: integer:= 0;
 BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and	reset
 	BEGIN	--Start	the	process
-	IF( rising_edge(clock)) THEN
-		IF(reset='1')THEN 
-		stage:=0;
-		END IF;
-		IF((mfc= '1' or wmfc = '0')) THEN 
-		stage:= stage mod 5 + 1 ; 
-		END IF;
-		
-		-- instruction fetch
-		Stage_output <= stage;
-		IF(stage = 1) THEN
-
-		wmfc <= '1';
-		alu_op <= "000";
-		y_select <= "00";
-		c_select <= "00";
-		rf_write <= '0';
-		b_select <= '0';
-		a_inv <= '0';
-		b_inv <= '0';
-		extend <= "00";
-		ir_enable <= '1';
-		ma_select <= '1';
-		mem_read <= '1';
-		mem_write <= '0';
-		MainMem_write <='0';
-		IOMem_write <='0';
-		pc_select <= '1';
-		pc_enable <= mfc;
-		inc_select <= '0';
-		ps_enable <= '0';
-		cond_true <= '1';
-		-- register load
-		ELSIF(stage = 2) THEN
-
-		wmfc <= '0';
-		ir_enable <= '0';
-		mem_read <= '0';
-		pc_enable <= '0';
-
-		--in stage 2 we check if cond is verified. we need to do this or else we cannot operate conditionals.
+--in downclock we check if cond is verified. we need to do this or else we cannot operate conditionals.
 		--First we make sure that the type is of R, D, or B type	
+		IF( falling_edge(clock)) THEN
 			IF(opCode = "0000" OR opCode = "0011" OR opCode = "0010" OR opCode = "0001" OR opCode = "0100" OR opCode = "0101" OR opCode = "0110" OR opCode = "0111" OR opCode = "1000" OR opCode = "1001")THEN	
 				IF(Cond(3)= '0')THEN
 					IF(Cond(2)='0')THEN
@@ -210,7 +171,53 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					END IF;
 				END IF;		
 			END IF;
+			IF(opCode="1100" OR opCode="1101" OR opCode="1110")THEN
+			cond_true<='1';
+			END IF;
+		END IF;
 		-----------------------------------------------
+	IF( rising_edge(clock)) THEN
+		IF(reset='1')THEN 
+		stage:=0;
+		END IF;
+		IF((mfc= '1' or wmfc = '0')) THEN 
+		stage:= stage mod 5 + 1 ; 
+		END IF;
+		
+		-- instruction fetch
+		Stage_output <= stage;
+		IF(stage = 1) THEN
+
+		wmfc <= '1';
+		alu_op <= "000";
+		y_select <= "00";
+		c_select <= "00";
+		rf_write <= '0';
+		b_select <= '0';
+		a_inv <= '0';
+		b_inv <= '0';
+		extend <= "00";
+		ir_enable <= '1';
+		ma_select <= '1';
+		mem_read <= '1';
+		mem_write <= '0';
+		MainMem_write <='0';
+		IOMem_write <='0';
+		pc_select <= '1';
+		pc_enable <= mfc;
+		inc_select <= '0';
+		ps_enable <= '0';
+		mem_select<='0';
+		--cond_true <= '1';
+		-- register load
+		ELSIF(stage = 2) THEN
+
+		wmfc <= '0';
+		ir_enable <= '0';
+		mem_read <= '0';
+		pc_enable <= '0';
+
+		
 		
 		ELSIF(stage = 3 AND cond_true='1') THEN
 		--	rf_write <= '1';
@@ -293,6 +300,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for b
 				pc_select <= '1';
 				pc_enable <= '1';
+				inc_select <= '1';
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
 			--	c_select <= "10";
@@ -377,6 +385,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for lw
 				ma_select <= '0';
 				mem_read <= '1';
+				IR_enable <= '0';
 				If(mfc = '1') THEN
 				y_select <= "01";
 				END IF;
@@ -399,11 +408,13 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			
 				IF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--This is for b
+				pc_enable <= '0';
+				inc_select <= '0';
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for bal
 				y_select <= "10";
 				pc_enable <= '0';
-
+				inc_select <= '0';
 				END IF;
 			END IF;
 		 	--J-Type
@@ -425,9 +436,11 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 			IF((IOKey(3)='1' OR IOKey(2)='1' OR IOKey(1)='1' OR IOKey(0)='1') AND mem_write='1') THEN
 					MainMem_write <= '0';
 					IOMem_write <='1';
+					mem_select<='1';
 			ELSIF(IOKey="0000" AND mem_write='1')THEN
 					MainMem_write <= '1';
 					IOMem_write <='0';
+					mem_select<='0';
 			END IF;
 			
 		ELSIF(stage = 5 AND cond_true='1') THEN
@@ -483,10 +496,10 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for lw
 					c_select <="01";
 					rf_write <= '1';
-				
+	
 				ELSIF(opCode(1)='0' AND opCode(0)='1') THEN
 				--This is for sw
-				
+		
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for addi
 					c_select <="01";

@@ -16,37 +16,40 @@ entity processor is
 	
  --Simply mapping outputs from signals, used not for calculation but for display during testing. Will revert once unneeded
  
--- InR_Output : out std_logic_vector(23 downto 0);
---opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
+ InR_Output : out std_logic_vector(23 downto 0);
+opCode_Output, Cond_Output : out std_logic_vector(3 downto 0);
  --S_Output : out std_logic;
  --opx_Output : out std_logic_vector(2 downto 0);
  --extend_Output : out std_logic_vector(1 downto 0);
- --ir_enable_Output, ma_select_Output, mem_read_Output, mem_write_Output, pc_select_Output, pc_enable_Output, inc_select_Output : out std_logic;
+ ir_enable_Output, ma_select_Output, mem_read_Output, mem_write_Output, pc_select_Output, pc_enable_Output, inc_select_Output : out std_logic;
 -- y_select_Output, c_select_Output : out std_logic_vector(1 downto 0);
--- rf_write_Output,  b_select_Output, a_inv_Output, b_inv_Output : out std_logic;
+ rf_write_Output,  b_select_Output, a_inv_Output, b_inv_Output : out std_logic;
 -- alu_op_Output : out std_logic_vector(2 downto 0);
 -- N_Output, C_Output, V_Output, Z_Output : out std_logic;
 -- Nout_Output, Cout_Output, Vout_Output, Zout_Output : out std_logic;
 -- mfc_Output : out std_logic;
 -- ALU_out_Output : out std_logic_vector(15 downto 0);
  --RegD_Output, RegT_Output, RegS_Output : out std_logic_vector(3 downto 0);
- --DataD_Output : out std_logic_vector(15 downto 0);
+ DataD_Output : out std_logic_vector(15 downto 0);
  --DataS_Output, DataT_Output : out std_logic_vector(15 downto 0);
  --DataA_Output : out std_logic_vector(15 downto 0);	
  --DataB_Output : out std_logic_vector(15 downto 0);
- --DataM_Output : out std_logic_vector(15 downto 0);
+ DataM_Output : out std_logic_vector(15 downto 0);
  --DataZ_Output : out std_logic_vector(15 downto 0);
  --enablePS_Output : out std_logic;
  --immediateB_Output : out std_logic_vector(15 downto 0);
  --muxBout_Output : out std_logic_vector(15 downto 0);
- --memOut_Output : out std_logic_vector(15 downto 0);
- --ReturnAddress_Output : out std_logic_vector(15 downto 0);
+ memOut_Output : out std_logic_vector(15 downto 0);
+ ReturnAddress_Output : out std_logic_vector(15 downto 0);
  --muxYout_Output : out std_logic_vector(15 downto 0);
- --InstructionAddress_Output : out std_logic_vector(15 downto 0);
- --Address_Output : out std_logic_vector(15 downto 0);
- --MemInstruction_Output: out std_logic_vector(23 downto 0);
+ IoMem_write_Output : out std_logic;
+ InstructionAddress_Output : out std_logic_vector(15 downto 0);
+ Address_Output : out std_logic_vector(15 downto 0);
+ MemInstruction_Output: out std_logic_vector(15 downto 0);
  --muxCOUT_Output : out std_logic_vector(3 downto 0);
- --Blabel_Output : out std_logic_vector(15 downto 0);
+ Blabel_Output : out std_logic_vector(15 downto 0);
+ IOmemData_Output : out std_logic_vector(15 downto 0);
+ IOKEY_Output: out std_logic_vector(3 downto 0);
  Stage_Output: out integer
 	
 	
@@ -404,23 +407,23 @@ Step18: IO_MemoryInterface PORT MAP(clock, IOMem_write, IOKEY, DataM, IOPush, IO
 Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 	
 --Simply mapping outputs from Signals, used not for calculation but for display during testing. Will revert once unneeded
---InR_Output <= InR;
---opCode_Output <= opCode;
---Cond_Output <= Cond;
+InR_Output <= InR;
+opCode_Output <= opCode;
+Cond_Output <= Cond;
 --S_Output <= S;
 --opx_Output <= opx;
---ir_enable_Output <= ir_enable;
---ma_select_Output <= ma_select;
---mem_read_Output <= mem_read;
---mem_write_Output <= mem_write;
+ir_enable_Output <= ir_enable;
+ma_select_Output <= ma_select;
+mem_read_Output <= mem_read;
+mem_write_Output <= mem_write;
 --pc_select_Output <= pc_select;
 --pc_enable_Output <= pc_enable;
 --inc_select_Output <= inc_select;
 --extend_Output <= extend;
 --y_select_Output <= y_select;
 --c_select_Output <= c_select;
---rf_write_Output <= rf_write;
---b_select_Output <= b_select;
+rf_write_Output <= rf_write;
+b_select_Output <= b_select;
 --a_inv_Output <= a_inv;
 --b_inv_Output <= b_inv;
 --alu_op_Output <= alu_op;
@@ -432,29 +435,31 @@ Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 ---RegD_Output <= RegD;
 --RegT_Output <= RegT;
 --RegS_Output <= RegS;
---DataD_Output <= DataD;
+DataD_Output <= DataD;
 --DataS_Output <= DataS;
 --DataT_Output <= DataT;
 --DataA_Output <=	DataA;
 --DataB_Output <= DataB;
---DataM_Output <= DataM;
+DataM_Output <= DataM;
 --DataZ_Output <= DataZ;
 --enablePS_Output <= enablePS;
 --immediateB_Output <= immediateB;
 --muxBout_Output <= muxBout;
---memOut_Output <= memOut;
---ReturnAddress_Output <= ReturnAddress; 
+memOut_Output <= memOut;
+ReturnAddress_Output <= ReturnAddress; 
 --muxYout_Output <= muxYout;
 --Nout_Output <= Nout;
 --Cout_Output <= Cout;
 --Vout_Output <= Vout;
 --Zout_Output <= Zout;
---InstructionAddress_Output <= InstructionAddress;
---Address_Output<= Address;
---MemInstruction_Output <= MemData;
+InstructionAddress_Output <= InstructionAddress;
+Address_Output<= Address;
+MemInstruction_Output <= MemInstruction;
 --muxCOUT_Output <= muxCOUT;
---Blabel_Output <= Blabel;
-
+Blabel_Output <= Blabel;
+IOmem_write_Output<= IOMem_write;
+IOMemData_Output<= IOMemData;
+IOKEY_Output <= IOKEY;
 end LOGIC;
 		
 	

@@ -5,6 +5,7 @@ view wave
 add wave Clock
 add wave Reset
 add wave Stage_Output
+add wave IOmem_write_Output
 #add wave ReturnAddress_Output 
 #add wave InstructionAddress_Output
 #add wave Address_Output
