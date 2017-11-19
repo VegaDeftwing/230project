@@ -36,9 +36,9 @@
 # Loading cycloneii.cycloneii_components
 # Loading ieee.std_logic_arith(body)
 # Loading work.processor(structure)
-# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
 # Loading cycloneii.cycloneii_dffe(behave)
@@ -57,25 +57,30 @@
 # 
 # view wave
 # .main_pane.wave.interior.cs.body.pw.wf
-# view signals
-# .main_pane.objects.interior.cs.body.tree
+# 
 # 
 # add wave Clock
 # add wave Reset
 # add wave Stage_Output
 # add wave Cond_Output
-#add signal ReturnAddress 
-#add signal InstructionAddress
-#add signal Address
-#add wave MemInstruction_Output
-#add signal InR
+# add wave ReturnAddress_Output 
+# add wave InstructionAddress_Output
+# add wave Address_Output
+# add wave MemInstruction_Output
+# add wave InR_Output
 # add wave opCode_Output
+# add wave IOmem_write_Output
+# add wave Blabel_Output
+# add wave IOSwitch
+# add wave IOPush
+# add wave IOLEDG
+# add wave IOHEX0 
+#  add wave IOKey_Output
 # 
-#add wave Blabel_Output
 #add wave S_Output
 #add wave opx_Output
 # 
-#add wave rf_write_Output
+# add wave rf_write_Output
 #add wave c_select_Output
 #add wave muxCOUT_Output
 #add wave RegT_Output
@@ -100,11 +105,11 @@
 # 
 #add wave y_select_Output
 #add wave muxYout_Output
-#add wave DataD_Output
+# add wave DataD_Output
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
-#add wave DataM_Output
+# add wave DataM_Output
 #add wave DataZ_Output
 # 
 #add wave enablePS_Output
@@ -119,28 +124,28 @@
 # 
 # 
 # 
-#add wave mem_read_Output 
-#add wave mem_write_Output
-#add wave memOut_Output
-# 
+# add wave mem_read_Output 
+# add wave mem_write_Output
+# add wave memOut_Output
+# add wave IOmemdata_Output
 #add wave extend_Output
 # 
-#add wave ma_select_Output
+# add wave ma_select_Output
 # 
 #add wave inc_select_Output
 # 
-#add wave ir_enable_Output
+# add wave ir_enable_Output
 # 
 # 
 # 
 # 
 # force reset 0 0
-# force clock 0 0, 1 100  -repeat 200
+# force clock 0 0, 1 200  -repeat 400
 # 
 # 
 # 
 # 
-# run 15000
+# run 35000
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /processor/\reset~clk_delay_ctrl\
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.

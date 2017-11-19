@@ -5058,7 +5058,7 @@ ON
 # case_insensitive
 # source_file
 project|processor.vhdl
-8441b3d17b7fc6acd8d468f0b501f42
+d079adb9559e7a6f8a469c1498864cbc
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5088,7 +5088,7 @@ ON
 # case_insensitive
 # source_file
 project|cu.vhdl
-c4c653feb98c5c7d843c3b1232d3ad5
+56b595192d34dc1488412975e7a45e0
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
