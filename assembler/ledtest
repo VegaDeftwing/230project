@@ -1,2 +1,3 @@
-addi r5, r0, 4
-stw r5, 5(r0)
+ldw r4 5(r0)
+addi r5 r0 4
+stw r5 0(r4)
