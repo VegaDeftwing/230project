@@ -13,6 +13,8 @@ vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesPro
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/MainMemory.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Const.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/Adder.vhdl}
+vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/Reg_16.vhdl}
+vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/MUX2_1.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/immediate.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/Registry.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/reg16.vhdl}
@@ -32,5 +34,6 @@ vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/FASTADDER.v
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/BUFFREG.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/MUXma.vhdl}
 vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/MUXC.vhdl}
+vcom -93 -work work {C:/Users/Zed/Desktop/CSCE230/230project/project/MUXmem.vhdl}
 
-do "C:/Users/Zed/Desktop/CSCE230/230project/project/phaseII.do"
+do "C:/Users/Zed/Desktop/CSCE230/230project/project/phaseIV.do"
