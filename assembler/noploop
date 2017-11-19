@@ -1,0 +1,4 @@
+nop
+loop:
+br loop
+nop
