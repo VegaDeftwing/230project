@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 
 entity PS is
 	PORT(
-	N, C, V, Z             : in std_logic;
-	Clock, reset           : in std_logic;
-	enable                 : in std_logic;
+	N, C, V, Z : in std_logic;
+	Clock, reset : in std_logic;
+	enable: in std_logic; 
 	Nout, Cout, Vout, Zout : out std_logic
 	);
 end PS;
@@ -15,7 +15,7 @@ architecture arch of PS is
 begin
 PROCESS(Clock, reset)
 	BEGIN
-		IF(reset = '1') THEN
+		IF(reset = '1') THEN	
 			Nout <= '0';
 			Cout <= '0';
 			Vout <= '0';
