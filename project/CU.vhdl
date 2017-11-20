@@ -18,7 +18,7 @@ entity CU is
 		extend : out std_logic_vector(1 downto 0);
 		ir_enable, ma_select, mem_read, Mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
 		Stage_output: out integer;
-		mem_select : out std_logic
+		mem_select : out std_logic	
 	);
 end CU;
 
@@ -206,15 +206,14 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		inc_select <= '0';
 		ps_enable <= '0';
 		mem_select<='0';
+
 		--cond_true <= '1';
 		-- register load
 		ELSIF(stage = 2) THEN
-
 		wmfc <= '0';
 		ir_enable <= '0';
 		mem_read <= '0';
 		pc_enable <= '0';
-
 		
 		
 		ELSIF(stage = 3 AND cond_true='1') THEN
@@ -333,9 +332,13 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				END IF;
 			END IF;
 		 
-		ELSIF(stage = 4 AND cond_true='1') THEN			
-
-	
+		ELSIF(stage = 4 AND cond_true='1') THEN	
+			--IO memory flags--
+			IF(IOKey="0000") THEN
+				mem_select<='0';
+			ELSE
+				mem_select<='1';
+			END IF;	
 			--R-Type instructions
 			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			y_select <= "00";
@@ -345,7 +348,6 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for cmp
 				
-					
 				ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
 				--This is for sll
 					
@@ -391,7 +393,6 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				--This is for sw
 				ma_select <= '0';
 				mem_write <= '1';
-					
 				--wmfc <= '1';
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for addi
@@ -430,32 +431,30 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				
 				END IF;
 			END IF;
-			--IO memory flags--
-			IF((IOKey(3)='1' OR IOKey(2)='1' OR IOKey(1)='1' OR IOKey(0)='1')) THEN
-					mem_select<='1';
-			ELSIF(IOKey="0000")THEN
-					mem_select<='0';
-			END IF;
-			--BAD STUFF FIX IT AAHHHHH--
+		
+		
 		ELSIF(stage = 5 AND cond_true='1') THEN
+		
 			mem_write <= '0';
 			--R-Type instructions
 			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
-			rf_write <= '1';
 			c_select <= "00";
 				IF(opCode(1) = '0' AND opCode(0) = '1') THEN
 				--This is for JR
-				
+							rf_write <= '1';
+
 				ELSIF(opCode(1)='1' AND opCode(0)='0') THEN
 				--This is for cmp
 				
 					
 				ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
 				--This is for sll
-					
+								rf_write <= '1';
+
 				ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--THIS is for the other instructions
-				
+							rf_write <= '1';
+
 					IF(opx= "111") THEN
 					 --AND instruction
 					

@@ -6,20 +6,20 @@ view wave
 
 add wave Clock
 add wave Reset
-add wave Stage_Output
+#add wave Stage_Output
 #add wave Cond_Output
 #add wave ReturnAddress_Output 
 #add wave InstructionAddress_Output
 #add wave Address_Output
 #add wave MemInstruction_Output
-add wave InR_Output
+#add wave InR_Output
 #add wave opCode_Output
 #add wave Blabel_Output
 add wave IOSwitch
 add wave IOPush
 add wave IOLEDG
 add wave IOHEX0 
-#add wave IOKey_Output
+add wave IOKey_Output
 
 #add wave S_Output
 #add wave opx_Output
@@ -55,12 +55,11 @@ add wave IOHEX0
 #add wave DataA_Output
 #add wave DataM_Output
 #add wave DataZ_Output
-
 #add wave enablePS_Output
-add wave Nout_Output
-add wave Cout_Output
-add wave Vout_Output
-add wave Zout_Output
+#add wave Nout_Output
+#add wave Cout_Output
+#add wave Vout_Output
+#add wave Zout_Output
 
 
 #add wave pc_select_Output
@@ -73,9 +72,9 @@ add wave Zout_Output
 #add wave memOut_Output
 #add wave IOmemdata_Output
 #add wave extend_Output
-
+#add wave mfc_Output
 #add wave ma_select_Output
-
+#add wave mem_select_Output
 #add wave inc_select_Output
 
 #add wave ir_enable_Output
@@ -85,7 +84,7 @@ add wave Zout_Output
 
 force reset 0 0
 force clock 0 0, 1 200  -repeat 400
-#force IOPush 1111 0 
+#force IOPush 0110 0, 0100 40000 
 
 
 run 100000

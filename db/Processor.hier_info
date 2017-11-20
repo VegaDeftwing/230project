@@ -347,13 +347,9 @@ reset => stage.OUTPUTSELECT
 reset => stage.OUTPUTSELECT
 reset => stage.OUTPUTSELECT
 reset => stage.OUTPUTSELECT
-IOkey[0] => process_0.IN1
 IOkey[0] => Equal24.IN3
-IOkey[1] => process_0.IN1
 IOkey[1] => Equal24.IN2
-IOkey[2] => process_0.IN0
 IOkey[2] => Equal24.IN1
-IOkey[3] => process_0.IN1
 IOkey[3] => Equal24.IN0
 
 
