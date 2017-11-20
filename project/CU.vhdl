@@ -16,9 +16,9 @@ entity CU is
 		c_select, y_select : out std_logic_vector(1 downto 0);
 		rf_write, b_select, a_inv, b_inv : out std_logic;
 		extend : out std_logic_vector(1 downto 0);
-		ir_enable, ma_select, mem_read, MainMem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
+		ir_enable, ma_select, mem_read, Mem_write, pc_select, pc_enable, inc_select, ps_enable : out std_logic;
 		Stage_output: out integer;
-		IOMem_write, mem_select : out std_logic
+		mem_select : out std_logic
 	);
 end CU;
 
@@ -28,7 +28,6 @@ end CU;
 
 ARCHITECTURE behavior OF CU IS
 signal wmfc: std_logic;
-signal mem_write : std_logic;
 signal cond_true : std_logic;
 shared variable stage: integer:= 0;
 BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and	reset
@@ -201,8 +200,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 		ma_select <= '1';
 		mem_read <= '1';
 		mem_write <= '0';
-		MainMem_write <='0';
-		IOMem_write <='0';
+		mem_write <='0';
 		pc_select <= '1';
 		pc_enable <= mfc;
 		inc_select <= '0';
@@ -432,21 +430,15 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 				
 				END IF;
 			END IF;
-			--IO memory flags
-			IF((IOKey(3)='1' OR IOKey(2)='1' OR IOKey(1)='1' OR IOKey(0)='1') AND mem_write='1') THEN
-					MainMem_write <= '0';
-					IOMem_write <='1';
+			--IO memory flags--
+			IF((IOKey(3)='1' OR IOKey(2)='1' OR IOKey(1)='1' OR IOKey(0)='1')) THEN
 					mem_select<='1';
-			ELSIF(IOKey="0000" AND mem_write='1')THEN
-					MainMem_write <= '1';
-					IOMem_write <='0';
+			ELSIF(IOKey="0000")THEN
 					mem_select<='0';
 			END IF;
-			
+			--BAD STUFF FIX IT AAHHHHH--
 		ELSIF(stage = 5 AND cond_true='1') THEN
-		mem_write <= '0';
-			MainMem_write <= '0';
-			IOMem_write <='0';
+			mem_write <= '0';
 			--R-Type instructions
 			IF(opCode(3) = '0' AND opCode(2) = '0') THEN
 			rf_write <= '1';

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Sun Nov 19 14:47:17 2017
+Mon Nov 20 12:04:32 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -66,16 +66,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 19 14:47:17 2017         ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 20 12:04:32 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,860                                         ;
-;     Total combinational functions  ; 2,505                                         ;
-;     Dedicated logic registers      ; 497                                           ;
-; Total registers                    ; 497                                           ;
-; Total pins                         ; 255                                           ;
+; Total logic elements               ; 2,863                                         ;
+;     Total combinational functions  ; 2,508                                         ;
+;     Dedicated logic registers      ; 494                                           ;
+; Total registers                    ; 494                                           ;
+; Total pins                         ; 91                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 24,576                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -182,6 +182,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------+
 ; File Name with User-Entered Path                          ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                      ;
 +-----------------------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------+
+; MemoryInitialization.mif                                  ; yes             ; User Memory Initialization File    ; C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif                                  ;
 ; project/FAST4BITADDER.vhdl                                ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/FAST4BITADDER.vhdl                                ;
 ; project/memFilesProcessor/PC_Temp.vhdl                    ; yes             ; User Wizard-Generated File         ; C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC_Temp.vhdl                    ;
 ; project/memFilesProcessor/PC.vhdl                         ; yes             ; User Wizard-Generated File         ; C:/Users/Zed/Desktop/CSCE230/230project/project/memFilesProcessor/PC.vhdl                         ;
@@ -214,7 +215,6 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; project/BUFFREG.vhdl                                      ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/BUFFREG.vhdl                                      ;
 ; project/MUXma.vhdl                                        ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXma.vhdl                                        ;
 ; project/MUXC.vhdl                                         ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXC.vhdl                                         ;
-; MemoryInitialization.mif                                  ; yes             ; User Memory Initialization File    ; C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif                                  ;
 ; project/MUXmem.vhdl                                       ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXmem.vhdl                                       ;
 ; lpm_ff.tdf                                                ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_ff.tdf                                      ;
 ; lpm_constant.inc                                          ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_constant.inc                                ;
@@ -256,28 +256,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,860 ;
+; Estimated Total logic elements              ; 2,863 ;
 ;                                             ;       ;
-; Total combinational functions               ; 2505  ;
+; Total combinational functions               ; 2508  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1023  ;
-;     -- 3 input functions                    ; 717   ;
+;     -- 4 input functions                    ; 1032  ;
+;     -- 3 input functions                    ; 711   ;
 ;     -- <=2 input functions                  ; 765   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1811  ;
+;     -- normal mode                          ; 1814  ;
 ;     -- arithmetic mode                      ; 694   ;
 ;                                             ;       ;
-; Total registers                             ; 497   ;
-;     -- Dedicated logic registers            ; 497   ;
+; Total registers                             ; 494   ;
+;     -- Dedicated logic registers            ; 494   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 255   ;
+; I/O pins                                    ; 91    ;
 ; Total memory bits                           ; 24576 ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 508   ;
-; Total fan-out                               ; 10107 ;
-; Average fan-out                             ; 3.08  ;
+; Maximum fan-out                             ; 505   ;
+; Total fan-out                               ; 9930  ;
+; Average fan-out                             ; 3.19  ;
 +---------------------------------------------+-------+
 
 
@@ -286,31 +286,31 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                              ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------+--------------+
-; |processor                                   ; 2505 (1)          ; 497 (0)      ; 24576       ; 0            ; 0       ; 0         ; 255  ; 0            ; |processor                                                                                                       ;              ;
-;    |ALU:Step10|                              ; 135 (16)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
-;       |FASTADDER:FASTADD|                    ; 26 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
-;          |FAST4BITADDER:add0to3|             ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
-;          |FAST4BITADDER:add12to15|           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15                                                  ;              ;
-;          |FAST4BITADDER:add4to7|             ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                    ;              ;
-;          |FAST4BITADDER:add8to11|            ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add8to11                                                   ;              ;
+; |processor                                   ; 2508 (1)          ; 494 (0)      ; 24576       ; 0            ; 0       ; 0         ; 91   ; 0            ; |processor                                                                                                       ;              ;
+;    |ALU:Step10|                              ; 136 (8)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                            ;              ;
+;       |FASTADDER:FASTADD|                    ; 35 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                          ;              ;
+;          |FAST4BITADDER:add0to3|             ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                    ;              ;
+;          |FAST4BITADDER:add12to15|           ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15                                                  ;              ;
+;          |FAST4BITADDER:add4to7|             ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                    ;              ;
+;          |FAST4BITADDER:add8to11|            ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add8to11                                                   ;              ;
 ;       |FLAGLOGIC:FLAGCHECK|                  ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FLAGLOGIC:FLAGCHECK                                                                        ;              ;
 ;       |MUX6TO1:MUXFINAL|                     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX6TO1:MUXFINAL                                                                           ;              ;
 ;       |MUX:MUXB|                             ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                   ;              ;
 ;    |BUFFREG:Step3|                           ; 19 (19)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step3                                                                                         ;              ;
 ;    |BUFFREG:Step4|                           ; 19 (19)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step4                                                                                         ;              ;
 ;    |BUFFREG:Step5|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step5                                                                                         ;              ;
-;    |BUFFREG:Step6|                           ; 17 (17)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                         ;              ;
+;    |BUFFREG:Step6|                           ; 11 (11)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                         ;              ;
 ;    |BUFFREG:Step7|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                         ;              ;
-;    |CU:Step1|                                ; 1955 (253)        ; 88 (88)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
+;    |CU:Step1|                                ; 1950 (248)        ; 85 (85)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                              ;              ;
 ;       |lpm_divide:Mod0|                      ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                              ;              ;
 ;          |lpm_divide_qlo:auto_generated|     ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
 ;             |abs_divider_4dg:divider|        ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
 ;                |alt_u_div_k5f:divider|       ; 1605 (1605)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider  ;              ;
 ;                |lpm_abs_0s9:my_abs_num|      ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|lpm_abs_0s9:my_abs_num ;              ;
-;    |IO_MemoryInterface:Step18|               ; 12 (2)            ; 29 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18                                                                             ;              ;
-;       |MUX2_1:inst|                          ; 10 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst                                                                 ;              ;
-;          |lpm_mux:lpm_mux_component|         ; 10 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component                                       ;              ;
-;             |mux_m4e:auto_generated|         ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component|mux_m4e:auto_generated                ;              ;
+;    |IO_MemoryInterface:Step18|               ; 8 (2)             ; 29 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18                                                                             ;              ;
+;       |MUX2_1:inst|                          ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst                                                                 ;              ;
+;          |lpm_mux:lpm_mux_component|         ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component                                       ;              ;
+;             |mux_m4e:auto_generated|         ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component|mux_m4e:auto_generated                ;              ;
 ;       |Reg_16:HEX_DISPLAY|                   ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY                                                          ;              ;
 ;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY|lpm_ff:lpm_ff_component                                  ;              ;
 ;       |Reg_16:LED|                           ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:LED                                                                  ;              ;
@@ -330,8 +330,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|InstructionAddressGenerator:Step14|PC_Temp:inst4|lpm_ff:lpm_ff_component                              ;              ;
 ;    |MUXB:Step8|                              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXB:Step8                                                                                            ;              ;
 ;    |MUXC:Step16|                             ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXC:Step16                                                                                           ;              ;
-;    |MUXma:Step15|                            ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXma:Step15                                                                                          ;              ;
-;    |MUXmem:Step19|                           ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXmem:Step19                                                                                         ;              ;
+;    |MUXY:Step9|                              ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXY:Step9                                                                                            ;              ;
+;    |MUXma:Step15|                            ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXma:Step15                                                                                          ;              ;
+;    |MUXmem:Step19|                           ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MUXmem:Step19                                                                                         ;              ;
 ;    |MemoryInterface:Step17|                  ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17                                                                                ;              ;
 ;       |MainMemory:inst|                      ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17|MainMemory:inst                                                                ;              ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 24576       ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component                                ;              ;
@@ -409,12 +410,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 497   ;
-; Number of registers using Synchronous Clear  ; 64    ;
-; Number of registers using Synchronous Load   ; 64    ;
+; Total registers                              ; 494   ;
+; Number of registers using Synchronous Clear  ; 54    ;
+; Number of registers using Synchronous Load   ; 54    ;
 ; Number of registers using Asynchronous Clear ; 380   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 298   ;
+; Number of registers using Clock Enable       ; 292   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -430,27 +431,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------------------------------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                               ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------------------------------------+----------------------------+
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; |processor|BUFFREG:Step6|output[3]       ;                            ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|BUFFREG:Step7|output[0]       ;                            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|alu_op[1]            ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|BUFFREG:Step4|output[10]      ;                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|BUFFREG:Step3|output[13]      ;                            ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; |processor|CU:Step1|c_select[0]          ;                            ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |processor|CU:Step1|mem_read             ;                            ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; |processor|CU:Step1|MainMem_write        ;                            ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; |processor|CU:Step1|extend[1]            ;                            ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|pc_select            ;                            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |processor|CU:Step1|c_select             ;                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux0              ;                            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; |processor|ALU:Step10|MUX:MUXB|Selector7 ;                            ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op               ;                            ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; |processor|ALU:Step10|MUX:MUXB|Selector6 ;                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------------------------------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------+----------------------------+
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; |processor|BUFFREG:Step6|output[15]       ;                            ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; |processor|BUFFREG:Step7|output[7]        ;                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|b_select              ;                            ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; |processor|BUFFREG:Step6|output[5]        ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|BUFFREG:Step4|output[8]        ;                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; |processor|BUFFREG:Step3|output[11]       ;                            ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; |processor|BUFFREG:Step6|output[1]        ;                            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; |processor|CU:Step1|c_select[0]           ;                            ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; |processor|CU:Step1|extend[0]             ;                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |processor|CU:Step1|pc_enable             ;                            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |processor|CU:Step1|c_select              ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |processor|MUXC:Step16|Mux3               ;                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; |processor|ALU:Step10|MUX:MUXB|Selector12 ;                            ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; |processor|CU:Step1|alu_op                ;                            ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; |processor|ALU:Step10|MUX:MUXB|Selector1  ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------+----------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
@@ -831,7 +832,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:31     ;
+; Top            ; 00:00:29     ;
 +----------------+--------------+
 
 
@@ -841,7 +842,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Nov 19 14:46:35 2017
+    Info: Processing started: Mon Nov 20 12:03:57 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file project/fast4bitadder.vhdl
@@ -942,11 +943,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file project
     Info (12022): Found design unit 1: MUXmem-MUX
     Info (12023): Found entity 1: MUXmem
 Info (12127): Elaborating entity "processor" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(24): used implicit default value for signal "pc_select_Output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(24): used implicit default value for signal "pc_enable_Output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(24): used implicit default value for signal "inc_select_Output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(26): used implicit default value for signal "a_inv_Output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at processor.vhdl(26): used implicit default value for signal "b_inv_Output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "CU" for hierarchy "CU:Step1"
 Info (12128): Elaborating entity "Registry" for hierarchy "Registry:Step2"
 Info (12128): Elaborating entity "decoder16" for hierarchy "Registry:Step2|decoder16:decoder"
@@ -1039,6 +1035,8 @@ Info (12133): Instantiated megafunction "MemoryInterface:Step17|MainMemory:inst|
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ghe1.tdf
     Info (12023): Found entity 1: altsyncram_ghe1
 Info (12128): Elaborating entity "altsyncram_ghe1" for hierarchy "MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated"
+Warning (113031): 1 out of 1024 addresses are reinitialized. The latest initialized data will replace the existing data. There are 1 warnings found, and 1 warnings are reported.
+    Warning (113030): Memory Initialization File address 22 is reinitialized
 Info (12128): Elaborating entity "IO_MemoryInterface" for hierarchy "IO_MemoryInterface:Step18"
 Info (12128): Elaborating entity "MUX2_1" for hierarchy "IO_MemoryInterface:Step18|MUX2_1:inst"
 Info (12128): Elaborating entity "Reg_16" for hierarchy "IO_MemoryInterface:Step18|Reg_16:PUSH_BUTTON"
@@ -1073,30 +1071,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_mkc
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
     Info (12023): Found entity 1: lpm_abs_0s9
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "pc_select_Output" is stuck at GND
-    Warning (13410): Pin "pc_enable_Output" is stuck at GND
-    Warning (13410): Pin "inc_select_Output" is stuck at GND
-    Warning (13410): Pin "a_inv_Output" is stuck at GND
-    Warning (13410): Pin "b_inv_Output" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[10]" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[11]" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[12]" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[13]" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[14]" is stuck at GND
-    Warning (13410): Pin "IOmemData_Output[15]" is stuck at GND
 Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info (17050): Register "CU:Step1|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Info (21057): Implemented 3175 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3010 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
-    Info (21059): Implemented 239 output pins
-    Info (21061): Implemented 2896 logic cells
+    Info (21059): Implemented 75 output pins
+    Info (21061): Implemented 2895 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 456 megabytes
-    Info: Processing ended: Sun Nov 19 14:47:17 2017
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:00:36
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 459 megabytes
+    Info: Processing ended: Mon Nov 20 12:04:32 2017
+    Info: Elapsed time: 00:00:35
+    Info: Total CPU time (on all processors): 00:00:35
 
 

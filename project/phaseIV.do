@@ -7,25 +7,24 @@ view wave
 add wave Clock
 add wave Reset
 add wave Stage_Output
-add wave Cond_Output
-add wave ReturnAddress_Output 
-add wave InstructionAddress_Output
-add wave Address_Output
-add wave MemInstruction_Output
+#add wave Cond_Output
+#add wave ReturnAddress_Output 
+#add wave InstructionAddress_Output
+#add wave Address_Output
+#add wave MemInstruction_Output
 add wave InR_Output
-add wave opCode_Output
-add wave IOmem_write_Output
-add wave Blabel_Output
+#add wave opCode_Output
+#add wave Blabel_Output
 add wave IOSwitch
 add wave IOPush
 add wave IOLEDG
 add wave IOHEX0 
- add wave IOKey_Output
+#add wave IOKey_Output
 
 #add wave S_Output
 #add wave opx_Output
 
-add wave rf_write_Output
+#add wave rf_write_Output
 #add wave c_select_Output
 #add wave muxCOUT_Output
 #add wave RegT_Output
@@ -50,18 +49,18 @@ add wave rf_write_Output
 
 #add wave y_select_Output
 #add wave muxYout_Output
-add wave DataD_Output
+#add wave DataD_Output
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
-add wave DataM_Output
+#add wave DataM_Output
 #add wave DataZ_Output
 
 #add wave enablePS_Output
-#add wave Nout_Output
-#add wave Cout_Output
-#add wave Vout_Output
-#add wave Zout_Output
+add wave Nout_Output
+add wave Cout_Output
+add wave Vout_Output
+add wave Zout_Output
 
 
 #add wave pc_select_Output
@@ -69,25 +68,24 @@ add wave DataM_Output
 
 
 
-add wave mem_read_Output 
-add wave mem_write_Output
-add wave memOut_Output
-add wave IOmemdata_Output
+#add wave mem_read_Output 
+#add wave mem_write_Output
+#add wave memOut_Output
+#add wave IOmemdata_Output
 #add wave extend_Output
 
-add wave ma_select_Output
+#add wave ma_select_Output
 
 #add wave inc_select_Output
 
-add wave ir_enable_Output
+#add wave ir_enable_Output
 
 
 
 
 force reset 0 0
 force clock 0 0, 1 200  -repeat 400
+#force IOPush 1111 0 
 
 
-
-
-run 35000
+run 100000
