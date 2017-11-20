@@ -1,5 +1,5 @@
 --lpm_constant ENABLE_RUNTIME_MOD="NO" LPM_CVALUE=0001 LPM_WIDTH=16 result
---VERSION_BEGIN 11.1SP2 cbx_lpm_constant 2012:01:25:21:13:53:SJ cbx_mgl 2012:01:25:21:15:41:SJ  VERSION_END
+--VERSION_BEGIN 11.1 cbx_lpm_constant 2011:10:31:21:11:05:SJ cbx_mgl 2011:10:31:21:12:31:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2011 Altera Corporation

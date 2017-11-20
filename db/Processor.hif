@@ -1,7 +1,7 @@
 Quartus II 32-bit
-Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
+Version 11.1 Build 173 11/01/2011 SJ Web Edition
 14
-1323
+1310
 OFF
 OFF
 OFF
@@ -22,10 +22,86 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
+CU
+# storage
+db|Processor.(1).cnf
+db|Processor.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|cu.vhdl
+f8a85b698be64e82ae694ef95a61e64
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(opcode)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(cond)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(opx)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(immediate)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(blabel)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(jconstant)
+19 downto 0
+PARAMETER_STRING
+USR
+ constraint(iokey)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(c_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(extend)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+CU:Step1
+}
+# macro_sequence
+
+# end
+# entity
 Registry
 # storage
-db|Processor.(2).cnf
-db|Processor.(2).cnf
+db|Processor.(5).cnf
+db|Processor.(3).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -80,8 +156,8 @@ Registry:Step2
 # entity
 decoder16
 # storage
-db|Processor.(3).cnf
-db|Processor.(3).cnf
+db|Processor.(6).cnf
+db|Processor.(4).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -120,8 +196,8 @@ Registry:Step2|decoder16:decoder
 # entity
 Reg16
 # storage
-db|Processor.(4).cnf
-db|Processor.(4).cnf
+db|Processor.(7).cnf
+db|Processor.(5).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -174,8 +250,8 @@ Registry:Step2|Reg16:Register15
 # entity
 mux16
 # storage
-db|Processor.(5).cnf
-db|Processor.(5).cnf
+db|Processor.(8).cnf
+db|Processor.(6).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -279,8 +355,8 @@ Registry:Step2|mux16:MUXB
 # entity
 BUFFREG
 # storage
-db|Processor.(6).cnf
-db|Processor.(6).cnf
+db|Processor.(9).cnf
+db|Processor.(7).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -323,8 +399,8 @@ BUFFREG:Step7
 # entity
 MUXB
 # storage
-db|Processor.(7).cnf
-db|Processor.(7).cnf
+db|Processor.(10).cnf
+db|Processor.(8).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -367,8 +443,8 @@ MUXB:Step8
 # entity
 MUXY
 # storage
-db|Processor.(8).cnf
-db|Processor.(8).cnf
+db|Processor.(11).cnf
+db|Processor.(9).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -419,8 +495,8 @@ MUXY:Step9
 # entity
 ALU
 # storage
-db|Processor.(9).cnf
-db|Processor.(9).cnf
+db|Processor.(12).cnf
+db|Processor.(10).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -467,8 +543,8 @@ ALU:Step10
 # entity
 MUX
 # storage
-db|Processor.(10).cnf
-db|Processor.(10).cnf
+db|Processor.(13).cnf
+db|Processor.(11).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -512,8 +588,8 @@ ALU:Step10|MUX:MUXB
 # entity
 FASTADDER
 # storage
-db|Processor.(11).cnf
-db|Processor.(11).cnf
+db|Processor.(14).cnf
+db|Processor.(12).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -556,8 +632,8 @@ ALU:Step10|FASTADDER:FASTADD
 # entity
 FAST4BITADDER
 # storage
-db|Processor.(12).cnf
-db|Processor.(12).cnf
+db|Processor.(15).cnf
+db|Processor.(13).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -603,8 +679,8 @@ ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15
 # entity
 MUX6TO1
 # storage
-db|Processor.(13).cnf
-db|Processor.(13).cnf
+db|Processor.(16).cnf
+db|Processor.(14).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -667,8 +743,8 @@ ALU:Step10|MUX6TO1:MUXFINAL
 # entity
 FLAGLOGIC
 # storage
-db|Processor.(14).cnf
-db|Processor.(14).cnf
+db|Processor.(17).cnf
+db|Processor.(15).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -703,8 +779,8 @@ ALU:Step10|FLAGLOGIC:FLAGCHECK
 # entity
 PS
 # storage
-db|Processor.(15).cnf
-db|Processor.(15).cnf
+db|Processor.(18).cnf
+db|Processor.(16).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -733,8 +809,8 @@ PS:Step11
 # entity
 IR
 # storage
-db|Processor.(16).cnf
-db|Processor.(16).cnf
+db|Processor.(19).cnf
+db|Processor.(17).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -773,8 +849,8 @@ IR:Step12
 # entity
 immediate
 # storage
-db|Processor.(17).cnf
-db|Processor.(17).cnf
+db|Processor.(20).cnf
+db|Processor.(18).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -817,8 +893,8 @@ immediate:Step13
 # entity
 InstructionAddressGenerator
 # storage
-db|Processor.(18).cnf
-db|Processor.(18).cnf
+db|Processor.(21).cnf
+db|Processor.(19).cnf
 # case_insensitive
 # source_file
 project|memfilesprocessor|instructionaddressgenerator.bdf
@@ -837,8 +913,8 @@ InstructionAddressGenerator:Step14
 # entity
 PC
 # storage
-db|Processor.(19).cnf
-db|Processor.(19).cnf
+db|Processor.(22).cnf
+db|Processor.(20).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -867,12 +943,12 @@ InstructionAddressGenerator:Step14|PC:inst2
 # entity
 lpm_ff
 # storage
-db|Processor.(20).cnf
-db|Processor.(20).cnf
+db|Processor.(23).cnf
+db|Processor.(21).cnf
 # case_insensitive
 # source_file
 lpm_ff.tdf
-2d7c817e44295c745ac4957eaae7b6
+c2fe9dec76774b5afddc0725357be5
 7
 # user_parameter {
 LPM_WIDTH
@@ -1024,10 +1100,10 @@ aclr
 3
 }
 # include_file {
-aglobal111.inc
-9cc1f9de5ad83fc94dd171c3f7986bd
 lpm_constant.inc
 97ffb7e3fef9ce9fce4eff8455d5da5
+aglobal111.inc
+9cc1f9de5ad83fc94dd171c3f7986bd
 }
 # hierarchies {
 InstructionAddressGenerator:Step14|PC:inst2|lpm_ff:lpm_ff_component
@@ -1038,8 +1114,8 @@ InstructionAddressGenerator:Step14|PC:inst2|lpm_ff:lpm_ff_component
 # entity
 MuxPC
 # storage
-db|Processor.(21).cnf
-db|Processor.(21).cnf
+db|Processor.(24).cnf
+db|Processor.(22).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1068,12 +1144,12 @@ InstructionAddressGenerator:Step14|MuxPC:inst3
 # entity
 LPM_MUX
 # storage
-db|Processor.(22).cnf
-db|Processor.(22).cnf
+db|Processor.(25).cnf
+db|Processor.(23).cnf
 # case_insensitive
 # source_file
 lpm_mux.tdf
-8097bab138c4365d841209eee837c
+934857657722f0c6df91ef2920faaf23
 7
 # user_parameter {
 AUTO_CARRY_CHAINS
@@ -1271,10 +1347,10 @@ bypassff.inc
 42d08f243d3471f724fd61ea21a0eb9f
 aglobal111.inc
 9cc1f9de5ad83fc94dd171c3f7986bd
-muxlut.inc
-301e88484af1e8d67bcd099bb975882
 altshift.inc
 5c767a29f11db3f131fc886ea42a52bd
+muxlut.inc
+301e88484af1e8d67bcd099bb975882
 }
 # hierarchies {
 InstructionAddressGenerator:Step14|MuxPC:inst3|lpm_mux:lpm_mux_component
@@ -1287,12 +1363,12 @@ IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component
 # entity
 mux_m4e
 # storage
-db|Processor.(23).cnf
-db|Processor.(23).cnf
+db|Processor.(26).cnf
+db|Processor.(24).cnf
 # case_insensitive
 # source_file
 db|mux_m4e.tdf
-b4f4ac16632cc146ccec4cf4d3d715
+6ad9a89eef91db11ff557b243e1de
 7
 # used_port {
 sel0
@@ -1454,8 +1530,8 @@ IO_MemoryInterface:Step18|MUX2_1:inst|lpm_mux:lpm_mux_component|mux_m4e:auto_gen
 # entity
 Adder
 # storage
-db|Processor.(24).cnf
-db|Processor.(24).cnf
+db|Processor.(27).cnf
+db|Processor.(25).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1484,12 +1560,12 @@ InstructionAddressGenerator:Step14|Adder:inst1
 # entity
 lpm_add_sub
 # storage
-db|Processor.(25).cnf
-db|Processor.(25).cnf
+db|Processor.(28).cnf
+db|Processor.(26).cnf
 # case_insensitive
 # source_file
 lpm_add_sub.tdf
-949e55aeeca9519b02e7ca837d13e17
+fc9f60746bd74f69eb39c3d39610865e
 7
 # user_parameter {
 LPM_WIDTH
@@ -1718,16 +1794,16 @@ dataa0
 # include_file {
 bypassff.inc
 42d08f243d3471f724fd61ea21a0eb9f
-aglobal111.inc
-9cc1f9de5ad83fc94dd171c3f7986bd
-look_add.inc
-9091c394592369a07bdf7fbf1ce9ced6
 alt_stratix_add_sub.inc
 16df31198e4f1dce2b8df944fbafaefe
-addcore.inc
-e15993f131a5367862d6283fbb5a133
+aglobal111.inc
+9cc1f9de5ad83fc94dd171c3f7986bd
 altshift.inc
 5c767a29f11db3f131fc886ea42a52bd
+look_add.inc
+9091c394592369a07bdf7fbf1ce9ced6
+addcore.inc
+e15993f131a5367862d6283fbb5a133
 }
 # hierarchies {
 InstructionAddressGenerator:Step14|Adder:inst1|lpm_add_sub:lpm_add_sub_component
@@ -1738,12 +1814,12 @@ InstructionAddressGenerator:Step14|Adder:inst1|lpm_add_sub:lpm_add_sub_component
 # entity
 add_sub_rlh
 # storage
-db|Processor.(26).cnf
-db|Processor.(26).cnf
+db|Processor.(29).cnf
+db|Processor.(27).cnf
 # case_insensitive
 # source_file
 db|add_sub_rlh.tdf
-8dcb8fd534ec5ffd6c84c3f39f391f
+1190f3ffe53b4af33fd570d98bffc27e
 7
 # used_port {
 result9
@@ -1900,8 +1976,8 @@ InstructionAddressGenerator:Step14|Adder:inst1|lpm_add_sub:lpm_add_sub_component
 # entity
 MuxINC
 # storage
-db|Processor.(27).cnf
-db|Processor.(27).cnf
+db|Processor.(30).cnf
+db|Processor.(28).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1930,8 +2006,8 @@ InstructionAddressGenerator:Step14|MuxINC:inst
 # entity
 Const
 # storage
-db|Processor.(28).cnf
-db|Processor.(28).cnf
+db|Processor.(31).cnf
+db|Processor.(29).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -1961,12 +2037,12 @@ MemoryInterface:Step17|Const:inst3
 # entity
 lpm_constant
 # storage
-db|Processor.(29).cnf
-db|Processor.(29).cnf
+db|Processor.(32).cnf
+db|Processor.(30).cnf
 # case_insensitive
 # source_file
 lpm_constant.tdf
-39f6198d2fd534fc24ec55db94a24819
+a7accb91c3432179a18fc65d559f7a55
 7
 # user_parameter {
 LPM_WIDTH
@@ -2046,8 +2122,8 @@ MemoryInterface:Step17|Const:inst3|lpm_constant:lpm_constant_component
 # entity
 PC_Temp
 # storage
-db|Processor.(30).cnf
-db|Processor.(30).cnf
+db|Processor.(33).cnf
+db|Processor.(31).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -2076,12 +2152,12 @@ InstructionAddressGenerator:Step14|PC_Temp:inst4
 # entity
 lpm_ff
 # storage
-db|Processor.(31).cnf
-db|Processor.(31).cnf
+db|Processor.(34).cnf
+db|Processor.(32).cnf
 # case_insensitive
 # source_file
 lpm_ff.tdf
-2d7c817e44295c745ac4957eaae7b6
+c2fe9dec76774b5afddc0725357be5
 7
 # user_parameter {
 LPM_WIDTH
@@ -2230,10 +2306,10 @@ aclr
 3
 }
 # include_file {
-aglobal111.inc
-9cc1f9de5ad83fc94dd171c3f7986bd
 lpm_constant.inc
 97ffb7e3fef9ce9fce4eff8455d5da5
+aglobal111.inc
+9cc1f9de5ad83fc94dd171c3f7986bd
 }
 # hierarchies {
 InstructionAddressGenerator:Step14|PC_Temp:inst4|lpm_ff:lpm_ff_component
@@ -2244,8 +2320,8 @@ InstructionAddressGenerator:Step14|PC_Temp:inst4|lpm_ff:lpm_ff_component
 # entity
 MUXma
 # storage
-db|Processor.(32).cnf
-db|Processor.(32).cnf
+db|Processor.(35).cnf
+db|Processor.(33).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -2288,8 +2364,8 @@ MUXma:Step15
 # entity
 MUXC
 # storage
-db|Processor.(33).cnf
-db|Processor.(33).cnf
+db|Processor.(36).cnf
+db|Processor.(34).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -2340,8 +2416,8 @@ MUXC:Step16
 # entity
 MemoryInterface
 # storage
-db|Processor.(34).cnf
-db|Processor.(34).cnf
+db|Processor.(37).cnf
+db|Processor.(35).cnf
 # case_insensitive
 # source_file
 project|memfilesprocessor|memoryinterface.bdf
@@ -2360,8 +2436,8 @@ MemoryInterface:Step17
 # entity
 MainMemory
 # storage
-db|Processor.(35).cnf
-db|Processor.(35).cnf
+db|Processor.(38).cnf
+db|Processor.(36).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -2390,12 +2466,12 @@ MemoryInterface:Step17|MainMemory:inst
 # entity
 altsyncram
 # storage
-db|Processor.(36).cnf
-db|Processor.(36).cnf
+db|Processor.(39).cnf
+db|Processor.(37).cnf
 # case_insensitive
 # source_file
 altsyncram.tdf
-5cfd856cb332de15aff17de3bf7c64
+3d6528bd8ae96e3cccbd5d2b8c04d81
 7
 # user_parameter {
 BYTE_SIZE_BLOCK
@@ -2786,22 +2862,22 @@ address_a0
 3
 }
 # include_file {
-aglobal111.inc
-9cc1f9de5ad83fc94dd171c3f7986bd
-lpm_decode.inc
-10da69a8bbd590d66779e7a142f73790
 altdpram.inc
 2f9e6727b678ffd76e72bc5a95a2630
+lpm_decode.inc
+10da69a8bbd590d66779e7a142f73790
+stratix_ram_block.inc
+e3a03868917fb3dd57b6ed1dd195f22
+aglobal111.inc
+9cc1f9de5ad83fc94dd171c3f7986bd
 altram.inc
 ad5518b39ffd3cf1df377e6360d1c9b6
 lpm_mux.inc
 dd87bed9959d6126db09970164b7ba6
-altrom.inc
-192b74eafa8debf2248ea73881e77f91
 a_rdenreg.inc
 3fcdce755959d5a8afbe64788d21fb
-stratix_ram_block.inc
-e3a03868917fb3dd57b6ed1dd195f22
+altrom.inc
+192b74eafa8debf2248ea73881e77f91
 }
 # hierarchies {
 MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component
@@ -2810,212 +2886,10 @@ MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component
 
 # end
 # entity
-altsyncram_ghe1
-# storage
-db|Processor.(37).cnf
-db|Processor.(37).cnf
-# case_insensitive
-# source_file
-db|altsyncram_ghe1.tdf
-66bc5bd95ca9cfda7d01120b2cc1718
-7
-# used_port {
-wren_a
--1
-3
-q_a9
--1
-3
-q_a8
--1
-3
-q_a7
--1
-3
-q_a6
--1
-3
-q_a5
--1
-3
-q_a4
--1
-3
-q_a3
--1
-3
-q_a23
--1
-3
-q_a22
--1
-3
-q_a21
--1
-3
-q_a20
--1
-3
-q_a2
--1
-3
-q_a19
--1
-3
-q_a18
--1
-3
-q_a17
--1
-3
-q_a16
--1
-3
-q_a15
--1
-3
-q_a14
--1
-3
-q_a13
--1
-3
-q_a12
--1
-3
-q_a11
--1
-3
-q_a10
--1
-3
-q_a1
--1
-3
-q_a0
--1
-3
-data_a9
--1
-3
-data_a8
--1
-3
-data_a7
--1
-3
-data_a6
--1
-3
-data_a5
--1
-3
-data_a4
--1
-3
-data_a3
--1
-3
-data_a23
--1
-3
-data_a22
--1
-3
-data_a21
--1
-3
-data_a20
--1
-3
-data_a2
--1
-3
-data_a19
--1
-3
-data_a18
--1
-3
-data_a17
--1
-3
-data_a16
--1
-3
-data_a15
--1
-3
-data_a14
--1
-3
-data_a13
--1
-3
-data_a12
--1
-3
-data_a11
--1
-3
-data_a10
--1
-3
-data_a1
--1
-3
-data_a0
--1
-3
-clock0
--1
-3
-address_a9
--1
-3
-address_a8
--1
-3
-address_a7
--1
-3
-address_a6
--1
-3
-address_a5
--1
-3
-address_a4
--1
-3
-address_a3
--1
-3
-address_a2
--1
-3
-address_a1
--1
-3
-address_a0
--1
-3
-}
-# memory_file {
-memoryinitialization.mif
-8f8b83369aa495bc91a4e838e1352730
-}
-# hierarchies {
-MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated
-}
-# macro_sequence
-
-# end
-# entity
 IO_MemoryInterface
 # storage
-db|Processor.(38).cnf
-db|Processor.(38).cnf
+db|Processor.(41).cnf
+db|Processor.(39).cnf
 # case_insensitive
 # source_file
 project|io_memoryinterface.bdf
@@ -3034,8 +2908,8 @@ IO_MemoryInterface:Step18
 # entity
 MUX2_1
 # storage
-db|Processor.(39).cnf
-db|Processor.(39).cnf
+db|Processor.(42).cnf
+db|Processor.(40).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -3064,8 +2938,8 @@ IO_MemoryInterface:Step18|MUX2_1:inst
 # entity
 Reg_16
 # storage
-db|Processor.(40).cnf
-db|Processor.(40).cnf
+db|Processor.(43).cnf
+db|Processor.(41).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -3097,12 +2971,12 @@ IO_MemoryInterface:Step18|Reg_16:LED
 # entity
 lpm_ff
 # storage
-db|Processor.(41).cnf
-db|Processor.(41).cnf
+db|Processor.(44).cnf
+db|Processor.(42).cnf
 # case_insensitive
 # source_file
 lpm_ff.tdf
-2d7c817e44295c745ac4957eaae7b6
+c2fe9dec76774b5afddc0725357be5
 7
 # user_parameter {
 LPM_WIDTH
@@ -3248,10 +3122,10 @@ clock
 3
 }
 # include_file {
-aglobal111.inc
-9cc1f9de5ad83fc94dd171c3f7986bd
 lpm_constant.inc
 97ffb7e3fef9ce9fce4eff8455d5da5
+aglobal111.inc
+9cc1f9de5ad83fc94dd171c3f7986bd
 }
 # hierarchies {
 IO_MemoryInterface:Step18|Reg_16:PUSH_BUTTON|lpm_ff:lpm_ff_component
@@ -3265,8 +3139,8 @@ IO_MemoryInterface:Step18|Reg_16:LED|lpm_ff:lpm_ff_component
 # entity
 MUXmem
 # storage
-db|Processor.(42).cnf
-db|Processor.(42).cnf
+db|Processor.(45).cnf
+db|Processor.(43).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -3309,12 +3183,12 @@ MUXmem:Step19
 # entity
 lpm_divide
 # storage
-db|Processor.(43).cnf
-db|Processor.(43).cnf
+db|Processor.(46).cnf
+db|Processor.(44).cnf
 # case_insensitive
 # source_file
 lpm_divide.tdf
-44b2dd38e07d8591c8f446bd8c8b68
+6fbcdbba2122b1ec933f1fad1f65674
 7
 # user_parameter {
 LPM_WIDTHN
@@ -3665,12 +3539,12 @@ denom0
 2
 }
 # include_file {
+sign_div_unsign.inc
+535d76a18080ee8f75d090fcce186e19
 aglobal111.inc
 9cc1f9de5ad83fc94dd171c3f7986bd
 abs_divider.inc
 49e0557d5addd986524b344bed283d9
-sign_div_unsign.inc
-535d76a18080ee8f75d090fcce186e19
 }
 # macro_sequence
 
@@ -3678,12 +3552,12 @@ sign_div_unsign.inc
 # entity
 lpm_divide_qlo
 # storage
-db|Processor.(44).cnf
-db|Processor.(44).cnf
+db|Processor.(47).cnf
+db|Processor.(46).cnf
 # case_insensitive
 # source_file
 db|lpm_divide_qlo.tdf
-3f719ae73213ec106ad219c4b37df27
+44b025a3a291652fcb35b1774c1332fa
 7
 # used_port {
 remain9
@@ -3981,12 +3855,12 @@ denom0
 # entity
 abs_divider_4dg
 # storage
-db|Processor.(45).cnf
-db|Processor.(45).cnf
+db|Processor.(48).cnf
+db|Processor.(47).cnf
 # case_insensitive
 # source_file
 db|abs_divider_4dg.tdf
-63663d2f3377668a5a8e383caebf72b
+e58642a286641703b4991699755925
 7
 # used_port {
 remainder9
@@ -4380,12 +4254,12 @@ denominator0
 # entity
 alt_u_div_k5f
 # storage
-db|Processor.(46).cnf
-db|Processor.(46).cnf
+db|Processor.(49).cnf
+db|Processor.(48).cnf
 # case_insensitive
 # source_file
 db|alt_u_div_k5f.tdf
-de5ea3bf5cf7957d753d77b4a1dde7d
+25dd192e1f4b5e62791db965f05ce4
 7
 # used_port {
 remainder9
@@ -4779,12 +4653,12 @@ denominator0
 # entity
 add_sub_lkc
 # storage
-db|Processor.(47).cnf
-db|Processor.(47).cnf
+db|Processor.(50).cnf
+db|Processor.(49).cnf
 # case_insensitive
 # source_file
 db|add_sub_lkc.tdf
-bcc11f3b3d2b8ab265e89954c62d3df4
+8f70cc82df4670b25b58664b40fa9a
 7
 # used_port {
 result0
@@ -4806,12 +4680,12 @@ cout
 # entity
 add_sub_mkc
 # storage
-db|Processor.(48).cnf
-db|Processor.(48).cnf
+db|Processor.(51).cnf
+db|Processor.(50).cnf
 # case_insensitive
 # source_file
 db|add_sub_mkc.tdf
-dec3ae738c57ee8c484f494c756a2f45
+e69cf6aa70550eefff4237ae8e29618
 7
 # used_port {
 result1
@@ -4842,12 +4716,12 @@ cout
 # entity
 lpm_abs_0s9
 # storage
-db|Processor.(49).cnf
-db|Processor.(49).cnf
+db|Processor.(52).cnf
+db|Processor.(51).cnf
 # case_insensitive
 # source_file
 db|lpm_abs_0s9.tdf
-6af1c0b78cb94249abc7b64f4295c8b
+47bdaa2163d7f8e89e97a64d3ac01b16
 7
 # used_port {
 result9
@@ -5047,82 +4921,6 @@ data0
 
 # end
 # entity
-CU
-# storage
-db|Processor.(1).cnf
-db|Processor.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|cu.vhdl
-f8a85b698be64e82ae694ef95a61e64
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(opcode)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(cond)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(opx)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(immediate)
-6 downto 0
-PARAMETER_STRING
-USR
- constraint(blabel)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(jconstant)
-19 downto 0
-PARAMETER_STRING
-USR
- constraint(iokey)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(c_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(y_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(extend)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-CU:Step1
-}
-# macro_sequence
-
-# end
-# entity
 processor
 # storage
 db|Processor.(0).cnf
@@ -5134,7 +4932,7 @@ ON
 # case_insensitive
 # source_file
 project|processor.vhdl
-94ab89a4ef27a1448ea0d22bf0c35fe
+aeb49b1587b54a6fbae011ac5ec2b67
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5148,6 +4946,208 @@ ON
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram_ghe1
+# storage
+db|Processor.(2).cnf
+db|Processor.(1).cnf
+# case_insensitive
+# source_file
+db|altsyncram_ghe1.tdf
+04ee78ba71dea68a49730afdf19c399
+7
+# used_port {
+wren_a
+-1
+3
+q_a9
+-1
+3
+q_a8
+-1
+3
+q_a7
+-1
+3
+q_a6
+-1
+3
+q_a5
+-1
+3
+q_a4
+-1
+3
+q_a3
+-1
+3
+q_a23
+-1
+3
+q_a22
+-1
+3
+q_a21
+-1
+3
+q_a20
+-1
+3
+q_a2
+-1
+3
+q_a19
+-1
+3
+q_a18
+-1
+3
+q_a17
+-1
+3
+q_a16
+-1
+3
+q_a15
+-1
+3
+q_a14
+-1
+3
+q_a13
+-1
+3
+q_a12
+-1
+3
+q_a11
+-1
+3
+q_a10
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+data_a9
+-1
+3
+data_a8
+-1
+3
+data_a7
+-1
+3
+data_a6
+-1
+3
+data_a5
+-1
+3
+data_a4
+-1
+3
+data_a3
+-1
+3
+data_a23
+-1
+3
+data_a22
+-1
+3
+data_a21
+-1
+3
+data_a20
+-1
+3
+data_a2
+-1
+3
+data_a19
+-1
+3
+data_a18
+-1
+3
+data_a17
+-1
+3
+data_a16
+-1
+3
+data_a15
+-1
+3
+data_a14
+-1
+3
+data_a13
+-1
+3
+data_a12
+-1
+3
+data_a11
+-1
+3
+data_a10
+-1
+3
+data_a1
+-1
+3
+data_a0
+-1
+3
+clock0
+-1
+3
+address_a9
+-1
+3
+address_a8
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# memory_file {
+memoryinitialization.mif
+6ff4102e6f37b4cea38ffa191c13c7b1
+}
+# hierarchies {
+MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated
 }
 # macro_sequence
 

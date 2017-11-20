@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE EP2C20F484C7
 set_global_assignment -name TOP_LEVEL_ENTITY processor
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "11.1 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:45:06  OCTOBER 25, 2017"
-set_global_assignment -name LAST_QUARTUS_VERSION "11.1 SP2"
+set_global_assignment -name LAST_QUARTUS_VERSION 11.1
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
@@ -55,7 +55,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 set_location_assignment PIN_L1 -to clock
-set_location_assignment PIN_A13 -to reset
 set_location_assignment PIN_L22 -to IOSwitch[0]
 set_location_assignment PIN_L21 -to IOSwitch[1]
 set_location_assignment PIN_M22 -to IOSwitch[2]

@@ -19,7 +19,7 @@ add wave IOSwitch
 add wave IOPush
 add wave IOLEDG
 add wave IOHEX0 
-add wave IOKey_Output
+#add wave IOKey_Output
 
 #add wave S_Output
 #add wave opx_Output
@@ -84,7 +84,7 @@ add wave IOKey_Output
 
 force reset 0 0
 force clock 0 0, 1 200  -repeat 400
-#force IOPush 0110 0, 0100 40000 
+force IOPush 0000 0, 1000 40000, 0100 80000 
 
 
 run 100000
