@@ -1,0 +1,118 @@
+Restore Archived Project report for Processor
+Sun Nov 19 15:31:26 2017
+Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Sun Nov 19 15:31:26 2017 ;
+; Revision Name                   ; Processor                             ;
+; Top-level Entity Name           ; processor                             ;
+; Family                          ; Cyclone II                            ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'Z:/csce230/altera/Project/230project/Project.qar' into the 'Z:/csce230/altera/Project/230project/Project/' directory
+Info: Generated report 'Processor.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/altera/11.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 206 megabytes
+    Info: Processing ended: Sun Nov 19 15:31:26 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++-----------------------------------------------------------+
+; Files Restored                                            ;
++-----------------------------------------------------------+
+; File Name                                                 ;
++-----------------------------------------------------------+
+; MemoryInitialization.mif                                  ;
+; Processor.qsf                                             ;
+; Processor_assignment_defaults.qdf                         ;
+; Project.qpf                                               ;
+; incremental_db/compiled_partitions/Processor.db_info      ;
+; project/ALU.vhdl                                          ;
+; project/BUFFREG.vhdl                                      ;
+; project/CU.vhdl                                           ;
+; project/FAST4BITADDER.vhdl                                ;
+; project/FASTADDER.do                                      ;
+; project/FASTADDER.vhdl                                    ;
+; project/FLAGLOGIC.vhdl                                    ;
+; project/IO_MemoryInterface.bdf                            ;
+; project/IO_MemoryInterface.cmp                            ;
+; project/IR.vhdl                                           ;
+; project/MUX.vhdl                                          ;
+; project/MUX2_1.vhdl                                       ;
+; project/MUX6TO1.vhdl                                      ;
+; project/MUXB.vhdl                                         ;
+; project/MUXC.vhdl                                         ;
+; project/MUXY.vhdl                                         ;
+; project/MUXma.vhdl                                        ;
+; project/MUXmem.vhdl                                       ;
+; project/PS.vhdl                                           ;
+; project/Reg_16.vhdl                                       ;
+; project/Registry.vhdl                                     ;
+; project/decoder16.vhdl                                    ;
+; project/immediate.vhdl                                    ;
+; project/memFilesProcessor/Adder.vhdl                      ;
+; project/memFilesProcessor/Const.vhdl                      ;
+; project/memFilesProcessor/InstructionAddressGenerator.bdf ;
+; project/memFilesProcessor/InstructionAddressGenerator.cmp ;
+; project/memFilesProcessor/MainMemory.vhdl                 ;
+; project/memFilesProcessor/MemoryInterface.bdf             ;
+; project/memFilesProcessor/MemoryInterface.cmp             ;
+; project/memFilesProcessor/MuxINC.vhdl                     ;
+; project/memFilesProcessor/MuxPC.vhdl                      ;
+; project/memFilesProcessor/PC.vhdl                         ;
+; project/memFilesProcessor/PC_Temp.vhdl                    ;
+; project/mux16.vhdl                                        ;
+; project/phaseII.do                                        ;
+; project/phaseIII.do                                       ;
+; project/phaseIV.do                                        ;
+; project/processor.vhdl                                    ;
+; project/reg16.vhdl                                        ;
++-----------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+
