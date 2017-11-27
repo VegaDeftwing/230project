@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="Processor">
-		<CBX_INST_ENTRY INSTANCE_NAME="|processor|IO_MemoryInterface:Step18|MUX2_1:inst|LPM_MUX:lpm_mux_component" CBX_FILE_NAME="mux_m4e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|processor|CU:Step1|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_qlo.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|processor|InstructionAddressGenerator:Step14|Const:inst5|lpm_constant:lpm_constant_component" CBX_FILE_NAME="lpm_constant_ak6.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|processor|InstructionAddressGenerator:Step14|MuxINC:inst|LPM_MUX:lpm_mux_component" CBX_FILE_NAME="mux_m4e.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|processor|InstructionAddressGenerator:Step14|MuxPC:inst3|LPM_MUX:lpm_mux_component" CBX_FILE_NAME="mux_m4e.tdf"/>

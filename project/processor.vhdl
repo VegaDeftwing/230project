@@ -10,10 +10,15 @@ entity processor is
  clock, reset : in std_logic;
  IOSwitch : in STD_LOGIC_VECTOR(9 DOWNTO 0);	
  IOPush : in std_logic_vector(3 downto 0);
+ GPIOIn : in std_logic;
  IOLEDG : out STD_LOGIC_VECTOR(7 DOWNTO 0);
- IOHEX0 : out STD_LOGIC_VECTOR(6 DOWNTO 0)
-	
-	
+ IOLEDR : out STD_LOGIC_VECTOR(9 DOWNTO 0);
+ IOHEX0 : out STD_LOGIC_VECTOR(6 DOWNTO 0);
+ IOHEX1 : out STD_LOGIC_VECTOR(6 DOWNTO 0);
+ IOHEX2 : out STD_LOGIC_VECTOR(6 DOWNTO 0);
+ IOHEX3 : out STD_LOGIC_VECTOR(6 DOWNTO 0);
+ ClockCheck : out std_logic;
+ GPIOOut :out std_logic
  --Simply mapping outputs from signals, used not for calculation but for display during testing. Will revert once unneeded
  
 -- InR_Output : out std_logic_vector(23 downto 0);
@@ -231,12 +236,17 @@ COMPONENT IO_MemoryInterface
 		mem_data		:	 IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		KEY		:	 IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		SW		:	 IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		GPIOIn		:	 IN STD_LOGIC;
 		data_out		:	 OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		LEDG		:	 OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		HEX0		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		HEX0		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		LEDR		:	 OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+		HEX1		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		HEX2		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		HEX3		:	 OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		GPIOOut		:	 OUT STD_LOGIC
 	);
 END COMPONENT;
-	
 
 COMPONENT MUXmem
 	PORT(
@@ -293,7 +303,7 @@ Signal MemData : STD_LOGIC_VECTOR(23 downto 0);
 Signal IOMem_write : STD_LOGIC;
 Signal IOMemData : STD_LOGIC_VECTOR(15 downto 0);
 Signal mem_select : std_logic;
-
+SIgnal sigReset :std_logic;
 
 begin
 
@@ -312,7 +322,7 @@ opx <= InR(14 downto 12);
 immediateIn <= InR(14 downto 8);
 BLabel <= InR(15 downto 0);
 JConstant <= InR(19 downto 0);
-
+sigReset <= NOT reset;
 --Append bits to RM to make compatible with MemoryInterface
 memoryIn <= "00000000" & DataM;
 --Remove bits from MemInstruction to make compatible with MuxY
@@ -320,6 +330,12 @@ memOut <= MemData(15 downto 0);
 --Get IOKey from ADDRESS from MuxMA
 IOKey <= Address(15 downto 12);
 IOKeyCU <= Alu_out(15 downto 12);
+
+
+
+--Clock GPIO output
+ClockCheck <= clock;
+
 --Port maps for each component.
 
 --**DISCLAIMER**
@@ -349,26 +365,26 @@ IOKeyCU <= Alu_out(15 downto 12);
 -- Outputs enablePS to Step11 PS (UNIMPLEMENTED, CURRENTLY SET TO 1 AS DEFAULT TO ALLOW FUNCTIONALITY FOR TESTING UNTIL IMPLEMENTATION)
 
 
-Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, Reset, IOKeyCU, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS, Stage_Output, mem_select);
+Step1 : CU PORT MAP(opCode, Cond, S, opx, immediateIn, BLabel, JConstant, Nout, Cout, Vout, Zout, mfc, Clock, sigReset, IOKeyCU, ALU_op, c_select, y_select, rf_write, b_select, a_inv, b_inv, extend, ir_enable, ma_select, mem_read, mem_write, pc_select, pc_enable, inc_select, enablePS, Stage_Output, mem_select);
 
---MAP Registry. Based on rf_write flag from Step1 CU, and the reset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
+--MAP Registry. Based on rf_write flag from Step1 CU, and the sigReset and Clock inputs, takes in RegD, RegT, and RegS signals that are parsed from the InR output of Step12 IR. Also takes in DataD from Step6 BUFFREG RY.
 --Outputs DataS, DataT depending on internal logic, further described within Registry.vhdl
-Step2 : Registry PORT MAP(Reset, rf_write, NOT Clock, MUXCOUT, RegT, RegS, DataD, DataS, DataT);
+Step2 : Registry PORT MAP(sigReset, rf_write, NOT Clock, MUXCOUT, RegT, RegS, DataD, DataS, DataT);
 
 --MAP BUFFREG RA. Upon clock rising edge, takes DataS from Registry Step2, and outputs as DataA into  MuxPC in StepX and ALU in Step10. The different flags from CU Step1 determine what each do with it.
-Step3 : BUFFREG PORT MAP(DataS, Reset, Clock, DataA);	
+Step3 : BUFFREG PORT MAP(DataS, sigReset, Clock, DataA);	
 
 --MAP BUFFREG RB. Upon clock rising edge, takes DataT from Step2 Registry, and outputs DataB into both Step5 BUFFREG RM and Step8 MUXB.
-Step4 : BUFFREG PORT MAP(DataT, Reset, Clock, DataB);	
+Step4 : BUFFREG PORT MAP(DataT, sigReset, Clock, DataB);	
 
 --MAP BUFFREG RM. Upon clock rising edge, takes DataB from Step4 BUFFREG RB, and sends to (DataIn?) In Memory, in StepX, depending on flags from CU Step1.
-Step5 : BUFFREG PORT MAP(DataB, Reset, Clock, DataM);	
+Step5 : BUFFREG PORT MAP(DataB, sigReset, Clock, DataM);	
 
 --MAP BUFFREG RY. Upon clock rising edge, takes muxYout from Step9 MUXY, and DataD as output to Registry in Step2.
-Step6 : BUFFREG PORT MAP(muxYout, Reset, Clock, DataD);	
+Step6 : BUFFREG PORT MAP(muxYout, sigReset, Clock, DataD);	
 
 --MAP BUFFREG RZ. Upon clock rising edge, takes ALU_out from Step10 ALU, and sends DataZ as output to MuxMA in StepX (as data address), and into MuxY for use in Step9. It's usage in MuxMA depends on control flag MA_select from the CU Step1
-Step7 : BUFFREG PORT MAP(ALU_out, Reset, Clock, DataZ);
+Step7 : BUFFREG PORT MAP(ALU_out, sigReset, Clock, DataZ);
 
 --Map MUXB, using b_select input flag from Step1 CU, selects either immediateB from Step13 immediate block, or DataB from Step4 BUFFREG RB. muxBout is the output and used in ALU in Step10 as an input.  
 Step8 : MUXB PORT MAP(b_select, immediateB, DataB, muxBout);	
@@ -382,17 +398,17 @@ Step9 : MUXY PORT MAP(y_select, DataZ, MemInstruction, ReturnAddress, muxYout);
 Step10: ALU PORT MAP(DataA, muxBout, alu_op, a_inv, b_inv, ALU_out, N, Z, V, C);
 
 --Map Processor Status Register, Takes in FLAGLOGIC flags, updates on clock rising edge when enablePS flag is true. Inputs come from Step10 ALU, outputs go into Step1 CU.
-Step11: PS PORT MAP(N, C, V, Z, Clock, Reset, enablePS, Nout, Cout, Vout, Zout);
+Step11: PS PORT MAP(N, C, V, Z, Clock, sigReset, enablePS, Nout, Cout, Vout, Zout);
 
---Map Instruction Register, Takes in instruction from test script, updates and outputs when the clock and enable flag allow it, reset when Reset flag is 1.
+--Map Instruction Register, Takes in instruction from test script, updates and outputs when the clock and enable flag allow it, sigReset when sigReset flag is 1.
 --The InR output signal is parsed as various inputs that go into the Control Unit and Register.
-Step12: IR PORT MAP(MemData, Reset, Clock, ir_enable, InR);
+Step12: IR PORT MAP(MemData, sigReset, Clock, ir_enable, InR);
 
 --Map immediate block. Take in immediate value, extend flag, output immediateB when desired
 Step13: immediate PORT MAP(immediateIn, extend, immediateB);
 
 --Map Instruction Address Generator
-Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock, reset, Blabel, inc_select, ReturnAddress, InstructionAddress);
+Step14: InstructionAddressGenerator PORT MAP(DataA, PC_select, PC_enable, clock, sigReset, Blabel, inc_select, ReturnAddress, InstructionAddress);
 
 --Map MUXma
 Step15: MUXma PORT MAP(ma_select, DataZ, InstructionAddress, Address);
@@ -405,8 +421,8 @@ Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, 
 
 
 --MAP IO_MemoryInterface. Will expand on logic at future time
-Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, IOSwitch, IOMemData, IOLEDG, IOHEX0);
-	
+Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, NOT IOSwitch, NOT GPIOIn, IOMemData, IOLEDG, IOHEX0, IOLEDR, IOHEX1, IOHEX2, IOHEX3, GPIOOut);
+		
 --MAP MUXmem. Chooses what Memory data goes to MuxY.
 Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 	
