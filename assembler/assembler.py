@@ -15,7 +15,7 @@ outfile  = open("MemoryInitialization.mif", "w")
 lireg = LabelStr = Derefaddr = Label = FinalInstruction = Cond = RegD = RegS = RegT = RegStr = Opx = S = OpCode = RegStr3 = RegStr2 = RegStr1 = OpCodeStr = SStr = CondStr = ""
 labels = [""]
 addresses = [""]
-i = j = 7
+i = j = 13
 k = 0
 outputme = True
 
@@ -26,13 +26,19 @@ outfile.write("ADDRESS_RADIX=UNS;\n")
 outfile.write("DATA_RADIX=BIN;\n")
 outfile.write("CONTENT BEGIN\n")
 outfile.write(" 0: 000000000000000000000000;\n")
-outfile.write(" 1: 100000000000000000000110;\n")
+outfile.write(" 1: 100000000000000000001100;\n")
 outfile.write(" 2: 000000001000000000000000;\n")
 outfile.write(" 3: 000000000100000000000000;\n")
 outfile.write(" 4: 000000000010000000000000;\n")
-outfile.write(" 5: 000000000001000000000000;\n")
-outfile.write(" 6: 000000000000000000000000;\n")
-outfile.write(" 7: 000000000000000000000000;\n")
+outfile.write(" 5: 000000000101000000000000;\n")
+outfile.write(" 6: 000000000110000000000000;\n")
+outfile.write(" 7: 000000000111000000000000;\n")
+outfile.write(" 8: 000000000001000000000000;\n")
+outfile.write(" 9: 000000000011000000000000;\n")
+outfile.write(" 10: 000000001110000000000000;\n")
+outfile.write(" 11: 000000001111000000000000;\n")
+outfile.write(" 12: 000000000000000000000000;\n")
+outfile.write(" 13: 000000000000000000000000;\n")
 
 #Define some lists containing useful data
 tosixteen = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
@@ -121,13 +127,19 @@ print("")
 print("-----------------------------------------------------------------------------------")
 inputfile.close
 print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x0")
-print( "\033[95mBRANCH OVER DATA > IODEF\033[96m 100000000000000000000110 \033[92m[IO] \033[96m" + hex(int("100000000000000000000110",2)) + " \033[92mAddress: 0x1")
+print( "\033[95mBRANCH OVER DATA > IODEF\033[96m 100000000000000000001100 \033[92m[IO] \033[96m" + hex(int("100000000000000000001100",2)) + " \033[92mAddress: 0x1")
 print( "\033[95mSLIDER SWITCHES -> IODEF\033[96m 000000001000000000000000 \033[92m[IO] \033[96m" + hex(int("000000001000000000000000",2)) + "   \033[92mAddress: 0x2")
 print( "\033[95mPUSH BUTTONS ----> IODEF\033[96m 000000000100000000000000 \033[92m[IO] \033[96m" + hex(int("000000000100000000000000",2)) + "   \033[92mAddress: 0x3")
-print( "\033[95m7-SEG DISPLAY ---> IODEF\033[96m 000000000010000000000000 \033[92m[IO] \033[96m" + hex(int("000000000010000000000000",2)) + "   \033[92mAddress: 0x4")
-print( "\033[95mGREEN LEDS ------> IODEF\033[96m 000000000001000000000000 \033[92m[IO] \033[96m" + hex(int("000000000001000000000000",2)) + "   \033[92mAddress: 0x5")
-print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x6")
-print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x7")
+print( "\033[95m7-SEG DISPLAY0 --> IODEF\033[96m 000000000010000000000000 \033[92m[IO] \033[96m" + hex(int("000000000010000000000000",2)) + "   \033[92mAddress: 0x4")
+print( "\033[95m7-SEG DISPLAY1 --> IODEF\033[96m 000000000101000000000000 \033[92m[IO] \033[96m" + hex(int("000000000101000000000000",2)) + "   \033[92mAddress: 0x5")
+print( "\033[95m7-SEG DISPLAY2 --> IODEF\033[96m 000000000110000000000000 \033[92m[IO] \033[96m" + hex(int("000000000110000000000000",2)) + "   \033[92mAddress: 0x6")
+print( "\033[95m7-SEG DISPLAY3 --> IODEF\033[96m 000000000111000000000000 \033[92m[IO] \033[96m" + hex(int("000000000111000000000000",2)) + "   \033[92mAddress: 0x7")
+print( "\033[95mGREEN LEDS ------> IODEF\033[96m 000000000001000000000000 \033[92m[IO] \033[96m" + hex(int("000000000001000000000000",2)) + "   \033[92mAddress: 0x8")
+print( "\033[95mRED LEDS --------> IODEF\033[96m 000000000011000000000000 \033[92m[IO] \033[96m" + hex(int("000000000011000000000000",2)) + "   \033[92mAddress: 0x9")
+print( "\033[95mGPIO IN ---------> IODEF\033[96m 000000001110000000000000 \033[92m[IO] \033[96m" + hex(int("000000001110000000000000",2)) + "   \033[92mAddress: 0x10")
+print( "\033[95mGPIO OUT --------> IODEF\033[96m 000000001111000000000000 \033[92m[IO] \033[96m" + hex(int("000000000001000000000000",2)) + "   \033[92mAddress: 0x11")
+print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000001111000000000000",2)) + "      \033[92mAddress: 0x12")
+print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0x13")
 #Second Pass, Instrction to Binary conversion and some error checknig
 inputfile  = open(sys.argv[1], "r")
 for line in inputfile:
