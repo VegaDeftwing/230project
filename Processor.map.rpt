@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Processor
-Mon Nov 27 15:32:32 2017
+Mon Nov 27 17:01:19 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -70,15 +70,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 27 15:32:32 2017         ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 27 17:01:19 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
-; Total logic elements               ; 2,930                                         ;
-;     Total combinational functions  ; 2,587                                         ;
-;     Dedicated logic registers      ; 496                                           ;
-; Total registers                    ; 496                                           ;
+; Total logic elements               ; 2,894                                         ;
+;     Total combinational functions  ; 2,579                                         ;
+;     Dedicated logic registers      ; 468                                           ;
+; Total registers                    ; 468                                           ;
 ; Total pins                         ; 65                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 24,576                                        ;
@@ -220,6 +220,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; project/MUXma.vhdl                                        ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXma.vhdl                                        ;
 ; project/MUXC.vhdl                                         ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXC.vhdl                                         ;
 ; project/MUXmem.vhdl                                       ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/MUXmem.vhdl                                       ;
+; project/HEXTRANSLATOR.vhdl                                ; yes             ; User VHDL File                     ; C:/Users/Zed/Desktop/CSCE230/230project/project/HEXTRANSLATOR.vhdl                                ;
 ; lpm_ff.tdf                                                ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_ff.tdf                                      ;
 ; lpm_constant.inc                                          ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/lpm_constant.inc                                ;
 ; aglobal111.inc                                            ; yes             ; Megafunction                       ; c:/altera/11.1sp2/quartus/libraries/megafunctions/aglobal111.inc                                  ;
@@ -260,27 +261,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,930 ;
+; Estimated Total logic elements              ; 2,894 ;
 ;                                             ;       ;
-; Total combinational functions               ; 2587  ;
+; Total combinational functions               ; 2579  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1106  ;
-;     -- 3 input functions                    ; 703   ;
+;     -- 4 input functions                    ; 1102  ;
+;     -- 3 input functions                    ; 699   ;
 ;     -- <=2 input functions                  ; 778   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1893  ;
+;     -- normal mode                          ; 1885  ;
 ;     -- arithmetic mode                      ; 694   ;
 ;                                             ;       ;
-; Total registers                             ; 496   ;
-;     -- Dedicated logic registers            ; 496   ;
+; Total registers                             ; 468   ;
+;     -- Dedicated logic registers            ; 468   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 65    ;
 ; Total memory bits                           ; 24576 ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 476   ;
-; Total fan-out                               ; 10137 ;
+; Maximum fan-out                             ; 475   ;
+; Total fan-out                               ; 10025 ;
 ; Average fan-out                             ; 3.20  ;
 +---------------------------------------------+-------+
 
@@ -290,13 +291,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                    ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+--------------+
-; |processor                                   ; 2587 (1)          ; 496 (0)      ; 24576       ; 0            ; 0       ; 0         ; 65   ; 0            ; |processor                                                                                                             ;              ;
+; |processor                                   ; 2579 (1)          ; 468 (0)      ; 24576       ; 0            ; 0       ; 0         ; 65   ; 0            ; |processor                                                                                                             ;              ;
 ;    |ALU:Step10|                              ; 139 (10)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10                                                                                                  ;              ;
 ;       |FASTADDER:FASTADD|                    ; 32 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD                                                                                ;              ;
 ;          |FAST4BITADDER:add0to3|             ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add0to3                                                          ;              ;
 ;          |FAST4BITADDER:add12to15|           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add12to15                                                        ;              ;
-;          |FAST4BITADDER:add4to7|             ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                          ;              ;
-;          |FAST4BITADDER:add8to11|            ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add8to11                                                         ;              ;
+;          |FAST4BITADDER:add4to7|             ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add4to7                                                          ;              ;
+;          |FAST4BITADDER:add8to11|            ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FASTADDER:FASTADD|FAST4BITADDER:add8to11                                                         ;              ;
 ;       |FLAGLOGIC:FLAGCHECK|                  ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|FLAGLOGIC:FLAGCHECK                                                                              ;              ;
 ;       |MUX6TO1:MUXFINAL|                     ; 36 (36)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX6TO1:MUXFINAL                                                                                 ;              ;
 ;       |MUX:MUXB|                             ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:Step10|MUX:MUXB                                                                                         ;              ;
@@ -305,21 +306,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |BUFFREG:Step5|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step5                                                                                               ;              ;
 ;    |BUFFREG:Step6|                           ; 5 (5)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step6                                                                                               ;              ;
 ;    |BUFFREG:Step7|                           ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|BUFFREG:Step7                                                                                               ;              ;
-;    |CU:Step1|                                ; 1954 (252)        ; 54 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                                    ;              ;
+;    |CU:Step1|                                ; 1951 (249)        ; 54 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1                                                                                                    ;              ;
 ;       |lpm_divide:Mod0|                      ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0                                                                                    ;              ;
 ;          |lpm_divide_qlo:auto_generated|     ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                      ;              ;
 ;             |abs_divider_4dg:divider|        ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                              ;              ;
 ;                |alt_u_div_k5f:divider|       ; 1605 (1605)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider        ;              ;
 ;                |lpm_abs_0s9:my_abs_num|      ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|CU:Step1|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|lpm_abs_0s9:my_abs_num       ;              ;
-;    |IO_MemoryInterface:Step18|               ; 24 (9)            ; 62 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18                                                                                   ;              ;
-;       |Reg_16:HEX_DISPLAY10|                 ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY10                                                              ;              ;
-;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY10|lpm_ff:lpm_ff_component                                      ;              ;
-;       |Reg_16:HEX_DISPLAY8|                  ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY8                                                               ;              ;
-;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY8|lpm_ff:lpm_ff_component                                       ;              ;
-;       |Reg_16:HEX_DISPLAY9|                  ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY9                                                               ;              ;
-;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY9|lpm_ff:lpm_ff_component                                       ;              ;
-;       |Reg_16:HEX_DISPLAY|                   ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY                                                                ;              ;
-;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:HEX_DISPLAY|lpm_ff:lpm_ff_component                                        ;              ;
+;    |IO_MemoryInterface:Step18|               ; 19 (4)            ; 34 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18                                                                                   ;              ;
 ;       |Reg_16:LED4|                          ; 0 (0)             ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:LED4                                                                       ;              ;
 ;          |lpm_ff:lpm_ff_component|           ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:LED4|lpm_ff:lpm_ff_component                                               ;              ;
 ;       |Reg_16:LED|                           ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|IO_MemoryInterface:Step18|Reg_16:LED                                                                        ;              ;
@@ -432,7 +425,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 496   ;
+; Total registers                              ; 468   ;
 ; Number of registers using Synchronous Clear  ; 44    ;
 ; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 380   ;
@@ -931,7 +924,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:30     ;
+; Top            ; 00:00:31     ;
 +----------------+--------------+
 
 
@@ -941,7 +934,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Mon Nov 27 15:31:54 2017
+    Info: Processing started: Mon Nov 27 17:00:39 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Processor
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file project/mux3_1.vhdl
@@ -1044,6 +1037,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file project
 Info (12021): Found 2 design units, including 1 entities, in source file project/muxmem.vhdl
     Info (12022): Found design unit 1: MUXmem-MUX
     Info (12023): Found entity 1: MUXmem
+Info (12021): Found 2 design units, including 1 entities, in source file project/hextranslator.vhdl
+    Info (12022): Found design unit 1: HEXTRANSLATOR-Translate
+    Info (12023): Found entity 1: HEXTRANSLATOR
 Info (12127): Elaborating entity "processor" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at processor.vhdl(303): object "Stage_output" assigned a value but never read
 Info (12128): Elaborating entity "CU" for hierarchy "CU:Step1"
@@ -1147,6 +1143,23 @@ Info (12133): Instantiated megafunction "IO_MemoryInterface:Step18|Reg_16:SWITCH
     Info (12134): Parameter "lpm_type" = "LPM_FF"
     Info (12134): Parameter "lpm_width" = "16"
 Info (12128): Elaborating entity "MUX3_1" for hierarchy "IO_MemoryInterface:Step18|MUX3_1:inst"
+Info (12128): Elaborating entity "HEXTRANSLATOR" for hierarchy "IO_MemoryInterface:Step18|HEXTRANSLATOR:inst7"
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(15): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(17): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(19): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(21): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(23): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(25): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(27): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(29): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(31): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(33): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(35): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(37): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(39): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(41): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(43): comparison between unequal length operands always returns FALSE
+Warning (10620): VHDL warning at HEXTRANSLATOR.vhdl(45): comparison between unequal length operands always returns FALSE
 Info (12128): Elaborating entity "MUXmem" for hierarchy "MUXmem:Step19"
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer MUXma:Step15|Selector3~synth
@@ -1174,18 +1187,47 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_mkc
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
     Info (12023): Found entity 1: lpm_abs_0s9
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "IOHEX0[0]" is stuck at VCC
+    Warning (13410): Pin "IOHEX0[1]" is stuck at VCC
+    Warning (13410): Pin "IOHEX0[2]" is stuck at VCC
+    Warning (13410): Pin "IOHEX0[3]" is stuck at GND
+    Warning (13410): Pin "IOHEX0[4]" is stuck at GND
+    Warning (13410): Pin "IOHEX0[5]" is stuck at GND
+    Warning (13410): Pin "IOHEX0[6]" is stuck at VCC
+    Warning (13410): Pin "IOHEX1[0]" is stuck at VCC
+    Warning (13410): Pin "IOHEX1[1]" is stuck at VCC
+    Warning (13410): Pin "IOHEX1[2]" is stuck at VCC
+    Warning (13410): Pin "IOHEX1[3]" is stuck at GND
+    Warning (13410): Pin "IOHEX1[4]" is stuck at GND
+    Warning (13410): Pin "IOHEX1[5]" is stuck at GND
+    Warning (13410): Pin "IOHEX1[6]" is stuck at VCC
+    Warning (13410): Pin "IOHEX2[0]" is stuck at VCC
+    Warning (13410): Pin "IOHEX2[1]" is stuck at VCC
+    Warning (13410): Pin "IOHEX2[2]" is stuck at VCC
+    Warning (13410): Pin "IOHEX2[3]" is stuck at GND
+    Warning (13410): Pin "IOHEX2[4]" is stuck at GND
+    Warning (13410): Pin "IOHEX2[5]" is stuck at GND
+    Warning (13410): Pin "IOHEX2[6]" is stuck at VCC
+    Warning (13410): Pin "IOHEX3[0]" is stuck at VCC
+    Warning (13410): Pin "IOHEX3[1]" is stuck at VCC
+    Warning (13410): Pin "IOHEX3[2]" is stuck at VCC
+    Warning (13410): Pin "IOHEX3[3]" is stuck at GND
+    Warning (13410): Pin "IOHEX3[4]" is stuck at GND
+    Warning (13410): Pin "IOHEX3[5]" is stuck at GND
+    Warning (13410): Pin "IOHEX3[6]" is stuck at VCC
 Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
     Info (17050): Register "CU:Step1|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Info (21057): Implemented 3052 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3016 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 2963 logic cells
+    Info (21061): Implemented 2927 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 10 warnings
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 55 warnings
     Info: Peak virtual memory: 454 megabytes
-    Info: Processing ended: Mon Nov 27 15:32:32 2017
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Processing ended: Mon Nov 27 17:01:19 2017
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:00:38
 
 
