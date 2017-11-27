@@ -44,7 +44,8 @@ ENTITY MuxPC IS
 	(
 		data0x		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		data1x		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-		sel		: IN STD_LOGIC ;
+		data2x		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+		sel		: IN STD_LOGIC_VECTOR(1 downto 0) ;
 		result		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
 END MuxPC;
@@ -52,66 +53,13 @@ END MuxPC;
 
 ARCHITECTURE SYN OF muxpc IS
 
---	type STD_LOGIC_2D is array (NATURAL RANGE <>, NATURAL RANGE <>) of STD_LOGIC;
-
-	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (15 DOWNTO 0);
-	SIGNAL sub_wire1	: STD_LOGIC ;
-	SIGNAL sub_wire2	: STD_LOGIC_VECTOR (0 DOWNTO 0);
-	SIGNAL sub_wire3	: STD_LOGIC_VECTOR (15 DOWNTO 0);
-	SIGNAL sub_wire4	: STD_LOGIC_2D (1 DOWNTO 0, 15 DOWNTO 0);
-	SIGNAL sub_wire5	: STD_LOGIC_VECTOR (15 DOWNTO 0);
 
 BEGIN
-	sub_wire5    <= data0x(15 DOWNTO 0);
-	result    <= sub_wire0(15 DOWNTO 0);
-	sub_wire1    <= sel;
-	sub_wire2(0)    <= sub_wire1;
-	sub_wire3    <= data1x(15 DOWNTO 0);
-	sub_wire4(1, 0)    <= sub_wire3(0);
-	sub_wire4(1, 1)    <= sub_wire3(1);
-	sub_wire4(1, 2)    <= sub_wire3(2);
-	sub_wire4(1, 3)    <= sub_wire3(3);
-	sub_wire4(1, 4)    <= sub_wire3(4);
-	sub_wire4(1, 5)    <= sub_wire3(5);
-	sub_wire4(1, 6)    <= sub_wire3(6);
-	sub_wire4(1, 7)    <= sub_wire3(7);
-	sub_wire4(1, 8)    <= sub_wire3(8);
-	sub_wire4(1, 9)    <= sub_wire3(9);
-	sub_wire4(1, 10)    <= sub_wire3(10);
-	sub_wire4(1, 11)    <= sub_wire3(11);
-	sub_wire4(1, 12)    <= sub_wire3(12);
-	sub_wire4(1, 13)    <= sub_wire3(13);
-	sub_wire4(1, 14)    <= sub_wire3(14);
-	sub_wire4(1, 15)    <= sub_wire3(15);
-	sub_wire4(0, 0)    <= sub_wire5(0);
-	sub_wire4(0, 1)    <= sub_wire5(1);
-	sub_wire4(0, 2)    <= sub_wire5(2);
-	sub_wire4(0, 3)    <= sub_wire5(3);
-	sub_wire4(0, 4)    <= sub_wire5(4);
-	sub_wire4(0, 5)    <= sub_wire5(5);
-	sub_wire4(0, 6)    <= sub_wire5(6);
-	sub_wire4(0, 7)    <= sub_wire5(7);
-	sub_wire4(0, 8)    <= sub_wire5(8);
-	sub_wire4(0, 9)    <= sub_wire5(9);
-	sub_wire4(0, 10)    <= sub_wire5(10);
-	sub_wire4(0, 11)    <= sub_wire5(11);
-	sub_wire4(0, 12)    <= sub_wire5(12);
-	sub_wire4(0, 13)    <= sub_wire5(13);
-	sub_wire4(0, 14)    <= sub_wire5(14);
-	sub_wire4(0, 15)    <= sub_wire5(15);
-
-	lpm_mux_component : lpm_mux
-	GENERIC MAP (
-		lpm_size => 2,
-		lpm_type => "LPM_MUX",
-		lpm_width => 16,
-		lpm_widths => 1
-	)
-	PORT MAP (
-		sel => sub_wire2,
-		data => sub_wire4,
-		result => sub_wire0
-	);
+		with sel select result <=
+		 data0x when "00" ,
+		 data1x when "01" ,
+		 data2x when "10",
+		 "0000000000000000" when others;
 
 
 

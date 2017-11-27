@@ -19,10 +19,11 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package cycloneii_atom_pack
 # -- Loading package cycloneii_components
+# -- Loading package std_logic_arith
 # -- Compiling entity processor
 # -- Compiling architecture structure of processor
 # 
-# do "Z:/230project/project/phaseIV.do"
+# do "C:/Users/Zed/Desktop/CSCE230/230project/project/phaseV.do"
 # 
 # vsim processor
 # vsim processor 
@@ -33,11 +34,11 @@
 # Loading ieee.vital_primitives(body)
 # Loading cycloneii.cycloneii_atom_pack(body)
 # Loading cycloneii.cycloneii_components
+# Loading ieee.std_logic_arith(body)
 # Loading work.processor(structure)
 # Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
-# Loading ieee.std_logic_arith(body)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
 # Loading cycloneii.cycloneii_dffe(behave)
@@ -50,6 +51,7 @@
 # ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
 # This may because you are loading cell libraries which are not recommended with
 # the ModelSim Altera version. Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
 # 
 # view wave
 # .main_pane.wave.interior.cs.body.pw.wf
@@ -57,27 +59,33 @@
 # 
 # add wave Clock
 # add wave Reset
-#add wave Stage_Output
+# add wave StageOut
 #add wave Cond_Output
-#add wave ReturnAddress_Output 
+# add wave ReturnAddress_Output 
 #add wave InstructionAddress_Output
-#add wave Address_Output
+# add wave Address_Output
 #add wave MemInstruction_Output
-#add wave InR_Output
+# add wave InR_Output
 #add wave opCode_Output
-#add wave Blabel_Output
+# add wave LabelConst_Output
 # add wave IOSwitch
 # add wave IOPush
 # add wave IOLEDG
+# add wave IOLEDR
 # add wave IOHEX0 
-#add wave IOKey_Output
+# add wave IOHEX1 
+# add wave IOHEX2 
+# add wave IOHEX3 
+# add wave GPIOin
+# add wave GPIOout
+# add wave IOKey_Output
 # 
 #add wave S_Output
 #add wave opx_Output
 # 
-#add wave rf_write_Output
+# add wave rf_write_Output
 #add wave c_select_Output
-#add wave muxCOUT_Output
+# add wave muxCOUT_Output
 #add wave RegT_Output
 #add wave RegS_Output
 # 
@@ -91,7 +99,6 @@
 #add wave V_Output
 #add wave Z_Output
 # 
-# 
 #add wave b_select_Output
 #add wave DataB_Output
 #add wave immediateB_Output
@@ -100,7 +107,7 @@
 # 
 #add wave y_select_Output
 #add wave muxYout_Output
-#add wave DataD_Output
+# add wave DataD_Output
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
@@ -119,13 +126,13 @@
 # 
 # 
 #add wave mem_read_Output 
-#add wave mem_write_Output
+# add wave mem_write_Output
 #add wave memOut_Output
-#add wave IOmemdata_Output
+# add wave IOmemdata_Output
 #add wave extend_Output
 #add wave mfc_Output
 #add wave ma_select_Output
-#add wave mem_select_Output
+# add wave mem_select_Output
 #add wave inc_select_Output
 # 
 #add wave ir_enable_Output
@@ -133,10 +140,28 @@
 # 
 # 
 # 
-# force reset 0 0
+# force reset 1 0
 # force clock 0 0, 1 200  -repeat 400
-# force IOPush 0000 0, 1000 40000, 0100 80000 
+# force IOPush 1111 0, 0111 40000, 1011 80000 
 # 
 # 
-# run 100000
+# run 200000
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /processor
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /processor
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /processor
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /processor
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /processor
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 3  Instance: /processor
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 4  Instance: /processor
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 4  Instance: /processor
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 0 ps  Iteration: 5  Instance: /processor
 #  

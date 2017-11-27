@@ -8,6 +8,7 @@ entity MUXY is
 	muxYin : in std_logic_vector(15 downto 0);
 	memIn : in std_logic_vector(15 downto 0);
 	ReturnA : in std_logic_vector(15 downto 0);
+	ConstVal : in std_logic_vector(15 downto 0);
 	muxYout : out std_logic_vector(15 downto 0)
 	);
 end MUXY;
@@ -19,6 +20,7 @@ begin
 		 muxyin when "00" ,
 		 memIn when "01" ,
 		 ReturnA when "10" ,
+		 ConstVal when "11",
 		 "0000000000000000" when others;
 
 end MUX;

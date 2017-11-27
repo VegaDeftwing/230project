@@ -22,82 +22,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-CU
-# storage
-db|Processor.(1).cnf
-db|Processor.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|cu.vhdl
-f8a85b698be64e82ae694ef95a61e64
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(opcode)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(cond)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(opx)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(immediate)
-6 downto 0
-PARAMETER_STRING
-USR
- constraint(blabel)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(jconstant)
-19 downto 0
-PARAMETER_STRING
-USR
- constraint(iokey)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(c_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(y_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(extend)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-CU:Step1
-}
-# macro_sequence
-
-# end
-# entity
 Registry
 # storage
 db|Processor.(2).cnf
@@ -436,58 +360,6 @@ USR
 }
 # hierarchies {
 MUXB:Step8
-}
-# macro_sequence
-
-# end
-# entity
-MUXY
-# storage
-db|Processor.(8).cnf
-db|Processor.(8).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|muxy.vhdl
-7b22df15583134363dba3d3154d35fc
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(y_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(muxyin)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(memin)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(returna)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(muxyout)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-MUXY:Step9
 }
 # macro_sequence
 
@@ -891,26 +763,6 @@ immediate:Step13
 
 # end
 # entity
-InstructionAddressGenerator
-# storage
-db|Processor.(18).cnf
-db|Processor.(18).cnf
-# case_insensitive
-# source_file
-project|memfilesprocessor|instructionaddressgenerator.bdf
-a6d4c1d4a667e8a91a772fe0cfbc873c
-26
-# internal_option {
-BLOCK_DESIGN_NAMING
-AUTO
-}
-# hierarchies {
-InstructionAddressGenerator:Step14
-}
-# macro_sequence
-
-# end
-# entity
 PC
 # storage
 db|Processor.(19).cnf
@@ -1107,36 +959,6 @@ lpm_constant.inc
 }
 # hierarchies {
 InstructionAddressGenerator:Step14|PC:inst2|lpm_ff:lpm_ff_component
-}
-# macro_sequence
-
-# end
-# entity
-MuxPC
-# storage
-db|Processor.(21).cnf
-db|Processor.(21).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|memfilesprocessor|muxpc.vhdl
-a9fe2dd7b1ffe0b532adc93f5b26544
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-InstructionAddressGenerator:Step14|MuxPC:inst3
 }
 # macro_sequence
 
@@ -1353,7 +1175,6 @@ bypassff.inc
 42d08f243d3471f724fd61ea21a0eb9f
 }
 # hierarchies {
-InstructionAddressGenerator:Step14|MuxPC:inst3|lpm_mux:lpm_mux_component
 InstructionAddressGenerator:Step14|MuxINC:inst|lpm_mux:lpm_mux_component
 }
 # macro_sequence
@@ -1519,7 +1340,6 @@ data0
 3
 }
 # hierarchies {
-InstructionAddressGenerator:Step14|MuxPC:inst3|lpm_mux:lpm_mux_component|mux_m4e:auto_generated
 InstructionAddressGenerator:Step14|MuxINC:inst|lpm_mux:lpm_mux_component|mux_m4e:auto_generated
 }
 # macro_sequence
@@ -5110,36 +4930,6 @@ data0
 
 # end
 # entity
-processor
-# storage
-db|Processor.(0).cnf
-db|Processor.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|processor.vhdl
-9151dbd611fd8399596abefc5b6c77
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 IO_MemoryInterface
 # storage
 db|Processor.(38).cnf
@@ -5185,6 +4975,218 @@ ON
 }
 # hierarchies {
 IO_MemoryInterface:Step18|MUX3_1:inst
+}
+# macro_sequence
+
+# end
+# entity
+CU
+# storage
+db|Processor.(1).cnf
+db|Processor.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|cu.vhdl
+f61147488a45e17535a7661c74476568
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(opcode)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(cond)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(opx)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(immediate)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(labelconst)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(iokey)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(c_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(extend)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(pc_select)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+CU:Step1
+}
+# macro_sequence
+
+# end
+# entity
+MUXY
+# storage
+db|Processor.(8).cnf
+db|Processor.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|muxy.vhdl
+e0651bfdb2ce314e8ebd34ec72679bd
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(y_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(muxyin)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(memin)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(returna)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(constval)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(muxyout)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+MUXY:Step9
+}
+# macro_sequence
+
+# end
+# entity
+InstructionAddressGenerator
+# storage
+db|Processor.(18).cnf
+db|Processor.(18).cnf
+# case_insensitive
+# source_file
+project|memfilesprocessor|instructionaddressgenerator.bdf
+9fbe2a8053d7ce59faf6f219d7b21fb4
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+InstructionAddressGenerator:Step14
+}
+# macro_sequence
+
+# end
+# entity
+MuxPC
+# storage
+db|Processor.(21).cnf
+db|Processor.(21).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|memfilesprocessor|muxpc.vhdl
+7ab17dd9e35ccb104135f18868d3993c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+InstructionAddressGenerator:Step14|MuxPC:inst6
+}
+# macro_sequence
+
+# end
+# entity
+processor
+# storage
+db|Processor.(0).cnf
+db|Processor.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|processor.vhdl
+86ec76142bb867fc9eeb597755b0c991
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
 }
 # macro_sequence
 
