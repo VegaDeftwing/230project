@@ -52,4 +52,26 @@ addi r3 r3 32
 addi r3 r3 32
 stw r3 0(r2)
 bal LOOP
+bal LOOP
+addi r3 r0 32
+addi r3 r3 32
+stw r3 0(r2)
+addi r3 r0 32
+stw r3 0(r2)
+bal LOOP
+addi r3 r0 16
+stw r3 0(r2)
+bal LOOP
+addi r3 r0 8
+stw r3 0(r2)
+bal LOOP
+addi r3 r0 4
+stw r3 0(r2)
+bal LOOP
+addi r3 r0 2
+stw r3 0(r2)
+bal LOOP
+addi r3 r0 1
+stw r3 0(r2)
+bal LOOP
 br MAIN
