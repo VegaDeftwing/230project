@@ -140,7 +140,7 @@ stw r11 0(r5)
 br LOOP2
 nop
 LOOP2:
-nop
+subi r4 r4 1
 nop
 nop
 nop
