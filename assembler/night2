@@ -138,10 +138,12 @@ LOSE:
 subi r11 r11 1
 stw r11 0(r5)
 br LOOP2
+nop
 LOOP2:
 ldw r6 0(r13)
 cmp r6 r0
 bne LOOP3
+nop
 LOOP3:
 nop
 nop
