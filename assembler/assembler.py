@@ -47,7 +47,7 @@ condlist = ["al","nv","eq","ne","vs","vc","mi","pl","cs","cc","hi","ls","gt","lt
 RTypeList = ["add","sub","and","or","xor","sll"]
 DTypeList = ["addi","subi"]
 DTMemList = ["lw","ldw","sw","stw"]
-BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal"]
+BTypeList = ["b","br","beq","bgt","blt","bge","ble","bal","bne"]
 JTypeList = ["j","jal","li"]
 
 # convert value in form of hex(0x), binary (0b), or decimal (no-prefix)
@@ -337,6 +337,8 @@ for line in inputfile:
             OpCode = "1000"
         if OpCodeStr == "beq":
             CondStr = "eq"
+        if OpCodeStr == "bne":
+            CondStr = "ne"
         if OpCodeStr == "bgt":
             CondStr = "gt"
         if OpCodeStr == "blt":
