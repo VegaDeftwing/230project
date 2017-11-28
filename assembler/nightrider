@@ -7,7 +7,7 @@ ldw r5, 9(r0)
 ldw r4 12(r0)
 #put 1 in r8 to cmp to r4
 addi r8 r0 1
-addi r3 r0 1
+addi r3 r0 0
 LOOP:
 subi r4 r4 1
 cmp r4 r8
@@ -23,12 +23,13 @@ blt LOOP
 #max val in r4
 ldw r4 12(r0)
 #check if number is one
-# CHK1:
-# addi r14 r0 1
-# cmp r3 r14
-# bge CHK2
-# add r3 r0 r14
-# br LOOP
+CHK1:
+addi r14 r0 1
+cmp r3 r14
+bge CHK4
+add r3 r0 r14
+stw r14 0(r2)
+br LOOP
 #check if number is less than 2
 CHK2:
 addi r14 r0 2
@@ -88,7 +89,7 @@ addi r14 r0 63
 addi r14 r14 63
 addi r14 r14 2
 stw r14 0(r2)
-addi r3 r0 1
+addi r3 r0 0
 br LOOP
 nop
 LOOPREV:
