@@ -118,10 +118,11 @@ for line in inputfile:
     elif OpCodeStr == "cmp" or OpCodeStr == "jr" or OpCodeStr == "nop":
         print(".",end="")
     else:
-        label = StrArray[0].rstrip(':')
-        labels.append(label)
-        addresses.append(address)
-        print("\033[97m" + label +" @"+ address + "\033[92m")
+        if StrArray[0][0] != "#":
+            label = StrArray[0].rstrip(':')
+            labels.append(label)
+            addresses.append(address)
+            print("\033[97m" + label +" @"+ address + "\033[92m")
         j = j - 1
 print("")
 print("-----------------------------------------------------------------------------------")
@@ -382,8 +383,9 @@ for line in inputfile:
 
         FinalInstruction = OpCode + lireg + Offset
     else:
-        label = StrArray[0].rstrip(':')
-        print("\033[97m" + label +" @"+ address + "\033[92m")
+        if StrArray[0][0] != "#":
+            label = StrArray[0].rstrip(':')
+            print("\033[97m" + label +" @"+ address + "\033[92m")
         i = i - 1
         outputme = False
 

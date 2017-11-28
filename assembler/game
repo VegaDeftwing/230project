@@ -1,0 +1,52 @@
+#Set inital "health" to 3 red leds on (0b111)(7)
+#Store current level in register
+#Store current score in register
+nop
+LVL1:
+#Sweep though led 0 to 7 and back again with a delay using LVL1DLY
+br LVL1DLY
+#Go back to lvl1 if no button was pushed, else, cmp button to the two leds above it
+beq WINCHK
+br LVL1
+beq LVL1
+#Upon returning
+LVL2:
+nop
+LVL3:
+nop
+BTNCHK:
+# kcompare button to led placement
+# ldw
+# cmp
+beq DED
+beq LVL2
+#compare
+# cmp
+DED:
+# if DED decrement life counter (red leds) by one and display dead
+#Display "DEAD"
+#Decremnet health if 7 -> 3 -> 1 (0b111 -> 0b11 -> 0b1)
+#Wait one second
+#Reset Hex Display
+#Display Score
+br LVL1
+ONESEC:
+# Dealy by one second
+# loop from 0xffff to 0x0000 154 times
+LVL1DLY:
+#Dealy by 1/8 ish second using cmps to check if a button is pressed
+# loop from 0xffff to 0x0000 19 times with cmp x2 and br
+LVL2DLY:
+#Dealy by 1/16 ish second using cmps to check if a button is pressed
+# loop from 0xffff to 0x0000 10 times with cmp x2and br
+LVL3DLY:
+#Dealy by 1/32 ish second using cmps to check if a button is pressed
+# loop from 0xffff to 0x0000 5 times with cmps x2 and br
+WINCHK:
+#if true add one to win count and go to next level, else br DED and go back to LVL1
+#cmp Key0 to Led0 and 1
+#cmp Key1 to Led2 and 3
+#cmp Key2 to Led4 and 5
+#cmp Key3 to Led6 and 7
+END:
+  br end
