@@ -424,7 +424,7 @@ Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, 
 
 
 --MAP IO_MemoryInterface. Will expand on logic at future time
-Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, NOT IOSwitch, NOT GPIOIn, IOMemData, IOLEDG, IOHEX0, IOLEDR, IOHEX1, IOHEX2, IOHEX3, GPIOOut);
+Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, NOT IOSwitch, GPIOIn, IOMemData, IOLEDG, IOHEX0, IOLEDR, IOHEX1, IOHEX2, IOHEX3, GPIOOut);
 		
 --MAP MUXmem. Chooses what Memory data goes to MuxY.
 Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);

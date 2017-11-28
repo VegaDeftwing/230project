@@ -4930,26 +4930,6 @@ data0
 
 # end
 # entity
-IO_MemoryInterface
-# storage
-db|Processor.(38).cnf
-db|Processor.(38).cnf
-# case_insensitive
-# source_file
-project|io_memoryinterface.bdf
-2b106890cb9b3b4ad33259ddb2eb3e63
-26
-# internal_option {
-BLOCK_DESIGN_NAMING
-AUTO
-}
-# hierarchies {
-IO_MemoryInterface:Step18
-}
-# macro_sequence
-
-# end
-# entity
 MUX3_1
 # storage
 db|Processor.(50).cnf
@@ -5187,6 +5167,59 @@ ON
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+IO_MemoryInterface
+# storage
+db|Processor.(38).cnf
+db|Processor.(38).cnf
+# case_insensitive
+# source_file
+project|io_memoryinterface.bdf
+e1642de26ffe58bcdd48dd7411358886
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+IO_MemoryInterface:Step18
+}
+# macro_sequence
+
+# end
+# entity
+HEXTRANSLATOR
+# storage
+db|Processor.(51).cnf
+db|Processor.(51).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|hextranslator.vhdl
+132d9a3bd7bc65f3c9bf4bbdefd621fb
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst7
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst8
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst9
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst11
 }
 # macro_sequence
 
