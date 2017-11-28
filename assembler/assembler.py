@@ -37,7 +37,7 @@ outfile.write(" 8: 000000000001000000000000;\n")
 outfile.write(" 9: 000000000011000000000000;\n")
 outfile.write(" 10: 000000001110000000000000;\n")
 outfile.write(" 11: 000000001111000000000000;\n")
-outfile.write(" 12: 000000000000000000000000;\n")
+outfile.write(" 12: 111111111111111111111111;\n")
 outfile.write(" 13: 000000000000000000000000;\n")
 
 #Define some lists containing useful data
@@ -139,7 +139,7 @@ print( "\033[95mGREEN LEDS ------> IODEF\033[96m 000000000001000000000000 \033[9
 print( "\033[95mRED LEDS --------> IODEF\033[96m 000000000011000000000000 \033[92m[IO] \033[96m" + hex(int("000000000011000000000000",2)) + "   \033[92mAddress: 0x9")
 print( "\033[95mGPIO IN ---------> IODEF\033[96m 000000001110000000000000 \033[92m[IO] \033[96m" + hex(int("000000001110000000000000",2)) + "   \033[92mAddress: 0xa")
 print( "\033[95mGPIO OUT --------> IODEF\033[96m 000000001111000000000000 \033[92m[IO] \033[96m" + hex(int("000000000001000000000000",2)) + "   \033[92mAddress: 0xb")
-print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000001111000000000000",2)) + "      \033[92mAddress: 0xc")
+print( "\033[95mMAX VAL ---------> IODEF\033[96m 111111111111111111111111 \033[92m[IO] \033[96m" + hex(int("111111111111111111111111",2)) + " \033[92mAddress: 0xc")
 print( "\033[95m                   IODEF\033[96m 000000000000000000000000 \033[92m[IO] \033[96m" + hex(int("000000000000000000000000",2)) + "      \033[92mAddress: 0xd")
 #Second Pass, Instrction to Binary conversion and some error checknig
 inputfile  = open(sys.argv[1], "r")
