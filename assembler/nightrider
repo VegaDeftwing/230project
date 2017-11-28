@@ -26,14 +26,14 @@ ldw r4 12(r0)
 CHK1:
 addi r14 r0 1
 cmp r3 r14
-ble CHK2
+bne CHK2
 add r3 r0 r14
 br LOOP
 #check if number is less than 2
 CHK2:
 addi r14 r0 2
 cmp r3 r14
-ble CHK4
+bne CHK4
 add r3 r0 r14
 stw r14 0(r2)
 br LOOP
@@ -41,7 +41,7 @@ br LOOP
 CHK4:
 addi r14 r0 4
 cmp r3 r14
-ble CHK8
+bne CHK8
 add r3 r0 r14
 stw r14 0(r2)
 br LOOP
@@ -49,7 +49,7 @@ br LOOP
 CHK8:
 addi r14 r0 8
 cmp r3 r14
-ble CHK16
+bne CHK16
 add r3 r0 r14
 stw r14 0(r2)
 stw r14 0(r5)
@@ -58,7 +58,7 @@ br LOOP
 CHK16:
 addi r14 r0 16
 cmp r3 r14
-ble CHK32
+bne CHK32
 add r3 r0 r14
 stw r14 0(r2)
 br LOOP
@@ -66,7 +66,7 @@ br LOOP
 CHK32:
 addi r14 r0 32
 cmp r3 r14
-ble CHK64
+bne CHK64
 add r3 r0 r14
 stw r14 0(r2)
 br LOOP
@@ -75,7 +75,7 @@ CHK64:
 addi r14 r0 63
 addi r14 r14 1
 cmp r3 r14
-ble CHK128
+bne CHK128
 add r3 r0 r14
 stw r14 0(r2)
 br LOOP
