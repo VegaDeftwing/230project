@@ -143,8 +143,17 @@ LOOP2:
 ldw r6 0(r13)
 cmp r6 r0
 bne LOOP3
-nop
+br LOOP2
 LOOP3:
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
 nop
 nop
 nop
