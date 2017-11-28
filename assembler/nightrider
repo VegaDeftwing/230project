@@ -23,12 +23,12 @@ blt LOOP
 #max val in r4
 ldw r4 12(r0)
 #check if number is one
-CHK1:
-addi r14 r0 1
-cmp r3 r14
-beq CHK2
-add r3 r0 r14
-br LOOP
+# CHK1:
+# addi r14 r0 1
+# cmp r3 r14
+# beq CHK2
+# add r3 r0 r14
+# br LOOP
 #check if number is less than 2
 CHK2:
 addi r14 r0 2
