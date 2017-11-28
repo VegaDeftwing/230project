@@ -1,4 +1,20 @@
 addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 63
+addi r9 r0 15
 addi r8 r0 1
 Start:
 #max val in r4
@@ -27,29 +43,12 @@ nop
 nop
 nop
 nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
 blt LOOP
 ldw r4 12(r0)
 stw r8 0(r2)
 LOOP2:
 subi r4 r4 1
 cmp r4 r8
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
 nop
 nop
 nop
