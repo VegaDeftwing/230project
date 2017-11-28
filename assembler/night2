@@ -133,10 +133,36 @@ br LOSE
 WIN:
 addi r12 r12 1
 stw r12 0(r14)
-br LOOP
+br LOOP2
 LOSE:
 subi r11 r11 1
 stw r11 0(r5)
+br LOOP2
+LOOP2:
+ldw r6 0(r13)
+cmp r6 r0
+bne LOOP3
+LOOP3:
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+cmp r4 r8
+blt LOOP3
+ldw r4 12(r0)
 br LOOP
+#max val in r4
+ldw r4 12(r0)
 END:
 br end
