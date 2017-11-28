@@ -36,6 +36,7 @@ cmp r3 r14
 beq CHK4
 add r3 r0 r14
 stw r14 0(r2)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 4
 CHK4:
@@ -44,6 +45,7 @@ cmp r3 r14
 beq CHK8
 add r3 r0 r14
 stw r14 0(r2)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 8
 CHK8:
@@ -53,6 +55,7 @@ beq CHK16
 add r3 r0 r14
 stw r14 0(r2)
 stw r14 0(r5)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 16
 CHK16:
@@ -61,6 +64,7 @@ cmp r3 r14
 beq CHK32
 add r3 r0 r14
 stw r14 0(r2)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 32
 CHK32:
@@ -69,6 +73,7 @@ cmp r3 r14
 beq CHK64
 add r3 r0 r14
 stw r14 0(r2)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 64
 CHK64:
@@ -78,6 +83,7 @@ cmp r3 r14
 beq CHK128
 add r3 r0 r14
 stw r14 0(r2)
+stw r14 0(r5)
 br LOOP
 #check if number is less than 128
 CHK128:
