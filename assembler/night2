@@ -22,7 +22,7 @@ LOOP:
 subi r4 r4 1
 ldw r6 0(r13)
 cmp r6 r0
-# bne BUTTONPRESSED
+bne BUTTONPRESSED
 nop
 nop
 nop
