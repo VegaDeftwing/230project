@@ -19,7 +19,6 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package cycloneii_atom_pack
 # -- Loading package cycloneii_components
-# -- Loading package std_logic_arith
 # -- Compiling entity processor
 # -- Compiling architecture structure of processor
 # 
@@ -34,20 +33,20 @@
 # Loading ieee.vital_primitives(body)
 # Loading cycloneii.cycloneii_atom_pack(body)
 # Loading cycloneii.cycloneii_components
-# Loading ieee.std_logic_arith(body)
 # Loading work.processor(structure)
-# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading cycloneii.cycloneii_ram_block(block_arch)
+# Loading cycloneii.cycloneii_ram_register(reg_arch)
+# Loading cycloneii.cycloneii_ram_pulse_generator(pgen_arch)
+# Loading ieee.std_logic_arith(body)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
 # Loading cycloneii.cycloneii_dffe(behave)
 # Loading cycloneii.cycloneii_asynch_io(behave)
 # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
 # Loading cycloneii.cycloneii_ena_reg(behave)
-# Loading cycloneii.cycloneii_ram_block(block_arch)
-# Loading cycloneii.cycloneii_ram_register(reg_arch)
-# Loading cycloneii.cycloneii_ram_pulse_generator(pgen_arch)
 # ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
 # This may because you are loading cell libraries which are not recommended with
 # the ModelSim Altera version. Expect performance to be adversely affected.
@@ -59,15 +58,15 @@
 # 
 # add wave Clock
 # add wave Reset
-# add wave StageOut
+#add wave StageOut
 #add wave Cond_Output
-# add wave ReturnAddress_Output 
+#add wave ReturnAddress_Output 
 #add wave InstructionAddress_Output
 # add wave Address_Output
 #add wave MemInstruction_Output
-# add wave InR_Output
+#add wave InR_Output
 #add wave opCode_Output
-# add wave LabelConst_Output
+#add wave LabelConst_Output
 # add wave IOSwitch
 # add wave IOPush
 # add wave IOLEDG
@@ -83,9 +82,9 @@
 #add wave S_Output
 #add wave opx_Output
 # 
-# add wave rf_write_Output
+#add wave rf_write_Output
 #add wave c_select_Output
-# add wave muxCOUT_Output
+#add wave muxCOUT_Output
 #add wave RegT_Output
 #add wave RegS_Output
 # 
@@ -107,11 +106,11 @@
 # 
 #add wave y_select_Output
 #add wave muxYout_Output
-# add wave DataD_Output
+#add wave DataD_Output
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
-#add wave DataM_Output
+# add wave DataM_Output
 #add wave DataZ_Output
 #add wave enablePS_Output
 #add wave Nout_Output
@@ -126,13 +125,13 @@
 # 
 # 
 #add wave mem_read_Output 
-# add wave mem_write_Output
+#add wave mem_write_Output
 #add wave memOut_Output
-# add wave IOmemdata_Output
+#add wave IOmemdata_Output
 #add wave extend_Output
 #add wave mfc_Output
 #add wave ma_select_Output
-# add wave mem_select_Output
+#add wave mem_select_Output
 #add wave inc_select_Output
 # 
 #add wave ir_enable_Output
@@ -143,25 +142,7 @@
 # force reset 1 0
 # force clock 0 0, 1 200  -repeat 400
 # force IOPush 1111 0, 0111 40000, 1011 80000 
-# 
+# force IOSwitch 1111111111 0, 0000000000 40000, 1010101010 80000
 # 
 # run 200000
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /processor
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /processor
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /processor
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /processor
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 3  Instance: /processor
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 3  Instance: /processor
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 4  Instance: /processor
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 4  Instance: /processor
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 0 ps  Iteration: 5  Instance: /processor
 #  

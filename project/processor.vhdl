@@ -25,10 +25,10 @@ entity processor is
  --rf_write_Output: out std_logic;
  --DataD_Output : out std_logic_vector(15 downto 0);
  --ReturnAddress_Output : out std_logic_vector(15 downto 0);
- --Address_Output : out std_logic_vector(15 downto 0);
+ Address_Output : out std_logic_vector(15 downto 0);
  --muxCOUT_Output : out std_logic_vector(3 downto 0);
  --IOmemData_Output : out std_logic_vector(15 downto 0);
- --IOKEY_Output: out std_logic_vector(3 downto 0);
+ IOKEY_Output: out std_logic_vector(3 downto 0);
  --LabelConst_Output : out std_logic_vector(15 downto 0);
  --mem_write_Output : out std_logic;
 
@@ -49,7 +49,7 @@ entity processor is
  --DataS_Output, DataT_Output : out std_logic_vector(15 downto 0);
  --DataA_Output : out std_logic_vector(15 downto 0);	
  --DataB_Output : out std_logic_vector(15 downto 0);
- --DataM_Output : out std_logic_vector(15 downto 0);
+ DataM_Output : out std_logic_vector(15 downto 0);
  --DataZ_Output : out std_logic_vector(15 downto 0);
  --enablePS_Output : out std_logic;
  --immediateB_Output : out std_logic_vector(15 downto 0);
@@ -424,7 +424,7 @@ Step17: MemoryInterface PORT MAP(mem_read, mem_write, memoryIn, Address, clock, 
 
 
 --MAP IO_MemoryInterface. Will expand on logic at future time
-Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, NOT IOSwitch, GPIOIn, IOMemData, IOLEDG, IOHEX0, IOLEDR, IOHEX1, IOHEX2, IOHEX3, GPIOOut);
+Step18: IO_MemoryInterface PORT MAP(clock, mem_write, IOKEY, DataM, NOT IOPush, IOSwitch, GPIOIn, IOMemData, IOLEDG, IOHEX0, IOLEDR, IOHEX1, IOHEX2, IOHEX3, GPIOOut);
 		
 --MAP MUXmem. Chooses what Memory data goes to MuxY.
 Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
@@ -436,10 +436,10 @@ Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 --rf_write_Output <= rf_write;
 --DataD_Output <= DataD;
 --ReturnAddress_Output <= ReturnAddress; 
---Address_Output<= Address;
+Address_Output<= Address;
 --muxCOUT_Output <= muxCOUT;
 --IOMemData_Output<= IOMemData;
---IOKEY_Output <= IOKEY;
+IOKEY_Output <= IOKEY;
 --LabelConst_Output <= LabelConst;
 --mem_select_Output <= mem_select;
 --mem_write_Output <= mem_write;
@@ -472,7 +472,7 @@ Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 --DataT_Output <= DataT;
 --DataA_Output <=	DataA;
 --DataB_Output <= DataB;
---DataM_Output <= DataM;
+DataM_Output <= DataM;
 --DataZ_Output <= DataZ;
 --enablePS_Output <= enablePS;
 --immediateB_Output <= immediateB;
