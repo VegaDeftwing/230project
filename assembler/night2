@@ -151,15 +151,6 @@ nop
 nop
 nop
 nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
 cmp r4 r8
 blt LOOP3
 ldw r4 12(r0)
