@@ -15,7 +15,7 @@ ldw r13 3(r0)
 ldw r14 4(r0)
 # Set "health"
 stw r11 0(r5)
-addi r15 r0 31
+addi r15 r0 38
 addi r8 r0 1
 ldw r4 12(r0)
 LOOP:
