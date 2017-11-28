@@ -1,6 +1,6 @@
 MIF/HEX Update report for Processor
-Mon Nov 20 16:41:24 2017
-Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
+Mon Nov 27 19:54:31 2017
+Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
 ---------------------
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Mon Nov 20 16:41:24 2017 ;
+; MIF/HEX Update Status ; Successful - Mon Nov 27 19:54:30 2017 ;
 ; Revision Name         ; Processor                             ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; Cyclone II                            ;
@@ -43,13 +43,13 @@ applicable agreement for further details.
 +-----------------------+---------------------------------------+
 
 
-+----------------------------------------+
-; MIF/HEX Update Processed Files         ;
-+----------------------------------------+
-; File Name                              ;
-+----------------------------------------+
-; Z:/230project/MemoryInitialization.mif ;
-+----------------------------------------+
++------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                   ;
++------------------------------------------------------------------+
+; File Name                                                        ;
++------------------------------------------------------------------+
+; C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif ;
++------------------------------------------------------------------+
 
 
 +-------------------------+
@@ -57,17 +57,17 @@ applicable agreement for further details.
 +-------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 32-bit MIF/HEX Update
-    Info: Version 11.1 Build 173 11/01/2011 SJ Web Edition
-    Info: Processing started: Mon Nov 20 16:41:23 2017
+    Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
+    Info: Processing started: Mon Nov 27 19:54:28 2017
 Info: Command: quartus_cdb Project -c Processor --update_mif
 Warning (113031): 1 out of 1024 addresses are reinitialized. The latest initialized data will replace the existing data. There are 1 warnings found, and 1 warnings are reported.
-    Warning (113030): Memory Initialization File address 22 is reinitialized
+    Warning (113030): Memory Initialization File address 47 is reinitialized
 Info (39024): Processed the following Memory Initialization File(s)
-    Info (39025): Processed Memory Initialization File Z:/230project/MemoryInitialization.mif
+    Info (39025): Processed Memory Initialization File C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif
 Info: Quartus II 32-bit MIF/HEX Update was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 309 megabytes
-    Info: Processing ended: Mon Nov 20 16:41:24 2017
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 372 megabytes
+    Info: Processing ended: Mon Nov 27 19:54:31 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
