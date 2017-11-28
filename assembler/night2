@@ -86,5 +86,55 @@ br MAIN
 BUTTONPRESSED:
 ldw r9 5(r0)
 stw r6 0(r9)
+# cmp Key0 to Led0 and 1
+cmp r6 r0
+bne NEXTTST1
+addi r7 r0 1
+cmp r3 r7
+beq WIN
+addi r7 r0 2
+cmp r3 r7
+beq WIN
+br LOSE
+NEXTTST1:
+addi r7 r0 2
+cmp r6 r7
+bne NEXTTST2
+addi r7 r0 4
+cmp r3 r7
+beq WIN
+addi r7 r0 8
+cmp r3 r7
+beq WIN
+br LOSE
+NEXTTST2:
+addi r7 r0 4
+cmp r6 r7
+bne NEXTTST3
+addi r7 r0 16
+cmp r3 r7
+beq WIN
+addi r7 r0 32
+cmp r3 r7
+beq WIN
+br LOSE
+NEXTTST3:
+addi r7 r0 32
+addi r7 r7 32
+cmp r3 r7
+beq WIN
+addi r7 r0 32
+addi r7 r7 32
+addi r7 r7 32
+addi r7 r7 32
+cmp r3 r7
+beq WIN
+br LOSE
+WIN:
+addi r12 r12 1
+stw r12 0(r14)
+LOSE:
+subi r11 r11 1
+stw r11 0(r5)
 END:
 br end
