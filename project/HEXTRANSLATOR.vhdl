@@ -14,7 +14,7 @@ Begin PROCESS(BinaryIn)
 begin	
 		IF(BinaryIn = "0000")THEN
 		 HexOut <= "0111111";
-		ELSIF(BinaryIn = "000000000000001")THEN
+		ELSIF(BinaryIn = "0001")THEN
 		 HexOut <= "0000110";
 		ELSIF(BinaryIn = "0010")THEN
 		 HexOut <= "1011011";
