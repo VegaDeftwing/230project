@@ -24,9 +24,6 @@ ldw r6 0(r13)
 cmp r6 r0
 bne BUTTONPRESSED
 nop
-nop
-nop
-nop
 cmp r4 r8
 blt LOOP
 ldw r4 12(r0)
