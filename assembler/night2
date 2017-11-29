@@ -85,14 +85,13 @@ BUTTONPRESSED:
 # cmp Key0 to Led0 and 1
 cmp r6 r0
 bne NEXTTST1
-# addi r7 r0 1
-# cmp r3 r7
-# beq WIN
-# addi r7 r0 2
-# cmp r3 r7
-# beq WIN
-# br LOSE
-br LOOP
+addi r7 r0 1
+cmp r3 r7
+beq WIN
+addi r7 r0 2
+cmp r3 r7
+beq WIN
+br LOSE
 NEXTTST1:
 addi r7 r0 2
 cmp r6 r7
