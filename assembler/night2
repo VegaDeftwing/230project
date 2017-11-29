@@ -137,6 +137,8 @@ br LOOP2
 LOSE:
 subi r11 r11 1
 stw r11 0(r5)
+cmp r11 r0
+beq DEAD
 br LOOP2
 nop
 LOOP2:
@@ -213,5 +215,16 @@ ldw r4 12(r0)
 br LOOP
 #max val in r4
 ldw r4 12(r0)
-END:
-br end
+DEAD:
+ldw r1 4(r0)
+ldw r2 5(r0)
+ldw r3 6(r0)
+ldw r4 7(r0)
+addi r5 r0 13
+addi r6 r0 14
+addi r7 r0 10
+stw r5 0(r1)
+stw r6 0(r2)
+stw r7 0(r3)
+stw r5 0(r4)
+br DEAD
