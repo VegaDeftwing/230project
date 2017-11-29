@@ -116,6 +116,9 @@ cmp r3 r7
 beq WIN
 br LOSE
 NEXTTST3:
+addi r7 r0 8
+cmp r6 r7
+bne LOSE
 addi r7 r0 32
 addi r7 r7 32
 cmp r3 r7
