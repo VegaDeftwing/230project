@@ -222,8 +222,8 @@ addi r5 r0 13
 addi r6 r0 14
 addi r7 r0 10
 stw r5 0(r1)
-stw r6 0(r2)
-stw r7 0(r3)
+stw r6 0(r3)
+stw r7 0(r2)
 stw r5 0(r4)
 END:
 nop
