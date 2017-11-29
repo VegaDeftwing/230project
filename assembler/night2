@@ -1,4 +1,5 @@
 nop
+START:
 # Set inital "health" to 3 red leds on (0b111)(7)
 addi r11 r0 7
 # Store current level in register
@@ -84,13 +85,14 @@ BUTTONPRESSED:
 # cmp Key0 to Led0 and 1
 cmp r6 r0
 bne NEXTTST1
-addi r7 r0 1
-cmp r3 r7
-beq WIN
-addi r7 r0 2
-cmp r3 r7
-beq WIN
-br LOSE
+# addi r7 r0 1
+# cmp r3 r7
+# beq WIN
+# addi r7 r0 2
+# cmp r3 r7
+# beq WIN
+# br LOSE
+br LOOP
 NEXTTST1:
 addi r7 r0 2
 cmp r6 r7
@@ -218,13 +220,16 @@ ldw r4 7(r0)
 ldw r8 12(r0)
 addi r9 r0 1
 addi r5 r0 13
-addi r6 r0 14
+addi r10 r0 14
 addi r7 r0 10
 stw r5 0(r1)
-stw r6 0(r3)
+stw r10 0(r3)
 stw r7 0(r2)
 stw r5 0(r4)
 stw r9 0(r8)
+cmp r6 r0
+bne DEAD
+br START
 END:
 nop
 br END
