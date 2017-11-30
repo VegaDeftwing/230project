@@ -25,7 +25,7 @@ add wave IOHEX2
 add wave IOHEX3 
 add wave GPIOin
 add wave GPIOout
-add wave IOKey_Output
+#add wave IOKey_Output
 
 #add wave S_Output
 #add wave opx_Output
@@ -58,7 +58,7 @@ add wave IOKey_Output
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
-add wave DataM_Output
+#add wave DataM_Output
 #add wave DataZ_Output
 #add wave enablePS_Output
 #add wave Nout_Output
@@ -88,8 +88,8 @@ add wave DataM_Output
 
 
 force reset 1 0
-force clock 0 0, 1 200  -repeat 400
-force IOPush 1111 0, 0111 40000, 1011 80000 
-force IOSwitch 1111111111 0, 0000000000 40000, 1010101010 80000
+force clock 0 0, 1 167  -repeat 334
+force IOPush 1111 0, 0111 500000, 1011 800000 
+#force IOSwitch 1111111111 0, 0000000000 40000, 1010101010 80000
 
-run 200000
+run 600000

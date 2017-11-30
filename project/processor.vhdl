@@ -28,7 +28,7 @@ entity processor is
  Address_Output : out std_logic_vector(15 downto 0);
  --muxCOUT_Output : out std_logic_vector(3 downto 0);
  --IOmemData_Output : out std_logic_vector(15 downto 0);
- IOKEY_Output: out std_logic_vector(3 downto 0);
+ --IOKEY_Output: out std_logic_vector(3 downto 0);
  --LabelConst_Output : out std_logic_vector(15 downto 0);
  --mem_write_Output : out std_logic;
 
@@ -49,7 +49,7 @@ entity processor is
  --DataS_Output, DataT_Output : out std_logic_vector(15 downto 0);
  --DataA_Output : out std_logic_vector(15 downto 0);	
  --DataB_Output : out std_logic_vector(15 downto 0);
- DataM_Output : out std_logic_vector(15 downto 0);
+ --DataM_Output : out std_logic_vector(15 downto 0);
  --DataZ_Output : out std_logic_vector(15 downto 0);
  --enablePS_Output : out std_logic;
  --immediateB_Output : out std_logic_vector(15 downto 0);
@@ -142,7 +142,6 @@ PORT(
 	);
 END COMPONENT;
 --PS is the Processor Status Register. Essentially, it has the ALU flags stored within it based on an enable flag from the CU, and, outputs based on that enable, and the clock
--- NOTE: CURRENTLY set to 1 unconditionally. This will be changed once we implement it's usage within the CU
 COMPONENT PS
 	PORT(
 	N, C, V, Z : in std_logic;
@@ -151,7 +150,7 @@ COMPONENT PS
 	Nout, Cout, Vout, Zout : out std_logic
 	);
 END COMPONENT;
---Immediate is the immediate block. It is used in D-Type instructions to pass an immediate value, which uses extend to determine value of immediate for addition.
+--Immediate is the immediate block. It is used in to pass an immediate value, which uses extend to determine value of immediate for addition.
 COMPONENT immediate
 	port(immed: in std_logic_vector(6 downto 0);
 		 extend: in std_logic_vector(1 downto 0);
@@ -439,7 +438,7 @@ Step19: MUXmem PORT MAP(mem_select, Memout, IOMemData, MemInstruction);
 Address_Output<= Address;
 --muxCOUT_Output <= muxCOUT;
 --IOMemData_Output<= IOMemData;
-IOKEY_Output <= IOKEY;
+--IOKEY_Output <= IOKEY;
 --LabelConst_Output <= LabelConst;
 --mem_select_Output <= mem_select;
 --mem_write_Output <= mem_write;
@@ -472,7 +471,7 @@ IOKEY_Output <= IOKEY;
 --DataT_Output <= DataT;
 --DataA_Output <=	DataA;
 --DataB_Output <= DataB;
-DataM_Output <= DataM;
+--DataM_Output <= DataM;
 --DataZ_Output <= DataZ;
 --enablePS_Output <= enablePS;
 --immediateB_Output <= immediateB;

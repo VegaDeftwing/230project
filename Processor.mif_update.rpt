@@ -1,5 +1,5 @@
 MIF/HEX Update report for Processor
-Mon Nov 27 19:54:31 2017
+Wed Nov 29 20:16:17 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Mon Nov 27 19:54:30 2017 ;
+; MIF/HEX Update Status ; Successful - Wed Nov 29 20:16:17 2017 ;
 ; Revision Name         ; Processor                             ;
 ; Top-level Entity Name ; processor                             ;
 ; Family                ; Cyclone II                            ;
@@ -58,16 +58,16 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit MIF/HEX Update
     Info: Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Mon Nov 27 19:54:28 2017
+    Info: Processing started: Wed Nov 29 20:16:15 2017
 Info: Command: quartus_cdb Project -c Processor --update_mif
 Warning (113031): 1 out of 1024 addresses are reinitialized. The latest initialized data will replace the existing data. There are 1 warnings found, and 1 warnings are reported.
-    Warning (113030): Memory Initialization File address 47 is reinitialized
+    Warning (113030): Memory Initialization File address 330 is reinitialized
 Info (39024): Processed the following Memory Initialization File(s)
     Info (39025): Processed Memory Initialization File C:/Users/Zed/Desktop/CSCE230/230project/MemoryInitialization.mif
 Info: Quartus II 32-bit MIF/HEX Update was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 372 megabytes
-    Info: Processing ended: Mon Nov 27 19:54:31 2017
-    Info: Elapsed time: 00:00:03
+    Info: Processing ended: Wed Nov 29 20:16:17 2017
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

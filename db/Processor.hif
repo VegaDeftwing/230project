@@ -4960,6 +4960,39 @@ IO_MemoryInterface:Step18
 
 # end
 # entity
+HEXTRANSLATOR
+# storage
+db|Processor.(51).cnf
+db|Processor.(51).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|hextranslator.vhdl
+ba488b064b657814a85211e7687ef8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst8
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst9
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst11
+IO_MemoryInterface:Step18|HEXTRANSLATOR:inst21
+}
+# macro_sequence
+
+# end
+# entity
 processor
 # storage
 db|Processor.(0).cnf
@@ -4971,7 +5004,7 @@ ON
 # case_insensitive
 # source_file
 project|processor.vhdl
-7cefc65786c54b474d95f1101aee7427
+9440d7b5e19a86c7bece5caeb82ebf
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5183,43 +5216,10 @@ address_a0
 }
 # memory_file {
 memoryinitialization.mif
-8f8b83369aa495bc91a4e838e1352730
+9aaffdf4eae319337f6a8e43a5e774b3
 }
 # hierarchies {
 MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated
-}
-# macro_sequence
-
-# end
-# entity
-HEXTRANSLATOR
-# storage
-db|Processor.(51).cnf
-db|Processor.(51).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|hextranslator.vhdl
-ba488b064b657814a85211e7687ef8
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-IO_MemoryInterface:Step18|HEXTRANSLATOR:inst8
-IO_MemoryInterface:Step18|HEXTRANSLATOR:inst9
-IO_MemoryInterface:Step18|HEXTRANSLATOR:inst11
-IO_MemoryInterface:Step18|HEXTRANSLATOR:inst21
 }
 # macro_sequence
 

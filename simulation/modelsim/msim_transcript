@@ -34,12 +34,9 @@
 # Loading cycloneii.cycloneii_atom_pack(body)
 # Loading cycloneii.cycloneii_components
 # Loading work.processor(structure)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
 # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
 # Loading cycloneii.cycloneii_and1(altvital)
-# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
-# Loading cycloneii.cycloneii_ram_block(block_arch)
-# Loading cycloneii.cycloneii_ram_register(reg_arch)
-# Loading cycloneii.cycloneii_ram_pulse_generator(pgen_arch)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneii.cycloneii_io(structure)
 # Loading cycloneii.cycloneii_mux21(altvital)
@@ -47,6 +44,9 @@
 # Loading cycloneii.cycloneii_asynch_io(behave)
 # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
 # Loading cycloneii.cycloneii_ena_reg(behave)
+# Loading cycloneii.cycloneii_ram_block(block_arch)
+# Loading cycloneii.cycloneii_ram_register(reg_arch)
+# Loading cycloneii.cycloneii_ram_pulse_generator(pgen_arch)
 # ** Warning: Design size of 1 instances exceeds ModelSim ALTERA recommended capacity.
 # This may because you are loading cell libraries which are not recommended with
 # the ModelSim Altera version. Expect performance to be adversely affected.
@@ -77,7 +77,7 @@
 # add wave IOHEX3 
 # add wave GPIOin
 # add wave GPIOout
-# add wave IOKey_Output
+#add wave IOKey_Output
 # 
 #add wave S_Output
 #add wave opx_Output
@@ -110,7 +110,7 @@
 #add wave DataS_Output
 #add wave DataT_Output
 #add wave DataA_Output
-# add wave DataM_Output
+#add wave DataM_Output
 #add wave DataZ_Output
 #add wave enablePS_Output
 #add wave Nout_Output
@@ -140,9 +140,9 @@
 # 
 # 
 # force reset 1 0
-# force clock 0 0, 1 200  -repeat 400
-# force IOPush 1111 0, 0111 40000, 1011 80000 
-# force IOSwitch 1111111111 0, 0000000000 40000, 1010101010 80000
+# force clock 0 0, 1 167  -repeat 334
+# force IOPush 1111 0, 0111 500000, 1011 800000 
+#force IOSwitch 1111111111 0, 0000000000 40000, 1010101010 80000
 # 
-# run 200000
+# run 600000
 #  

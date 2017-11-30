@@ -300,3 +300,46 @@ nop
 br END
 cmp r0 r0
 beq end
+nop
+add r0 r0 r0
+test:
+addi r1 r0 63
+subi r2 r0 63
+addi r1 r0 0b1
+subi r2 r0 0b1
+addi r4 r0 0x0f
+subi r5 r0 0x0f
+add r0 r1 r2
+sub r3 r4 r5
+and r6 r7 r8
+or r9 r10 r11
+xor r12 r13 r14
+cmp r0 r0
+jr r0 r0 r0
+lw r1 (4)r2
+sw r1 (4)r2
+j 18
+j 0b1
+j 0x0e
+jal 62
+jal 0b01
+jal 0x0e
+li r1 62
+li r1 0b00
+li r1 0x0e
+all2:
+add s r0 r1 r2
+sub s r3 r4 r5
+and s r6 r7 r8
+or s r9 r10 r11
+b cond_test
+xor s r12 r13 r14
+cmp r0 r0
+jr r1
+lw s r1 (4)r2
+sw s r1 (4)r2
+cond_test:
+b all2
+b nv all2
+addi s r1 r2 10
+lw r2 (61)r2
