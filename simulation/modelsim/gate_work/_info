@@ -4,27 +4,28 @@ K3
 cModel Technology
 Z0 dC:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim
 Eprocessor
-Z1 w1512008192
-Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
-Z3 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 o=N0l8I4MJLjBjVhHea821
-Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
-Z5 DPx3 std 6 textio 0 22 G^o2zK;Vh4eVdKTVo98653
-Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z7 DPx9 cycloneii 20 cycloneii_components 0 22 en5XKOfU;kEMlD9<lVMcX1
-Z8 dC:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim
-Z9 8Processor.vho
-Z10 FProcessor.vho
+Z1 w1512108132
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z4 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 o=N0l8I4MJLjBjVhHea821
+Z5 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z6 DPx3 std 6 textio 0 22 G^o2zK;Vh4eVdKTVo98653
+Z7 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z8 DPx9 cycloneii 20 cycloneii_components 0 22 en5XKOfU;kEMlD9<lVMcX1
+Z9 dC:\Users\Zed\Desktop\CSCE230\230project\simulation\modelsim
+Z10 8Processor.vho
+Z11 FProcessor.vho
 l0
-L34
-VfcTYlna>MIbzjCi?A^:M:0
-!s100 NmAAh8PObVBOb?@e<8bjZ3
-Z11 OV;C;10.0c;49
+L37
+VVJjXfKM`gfVJ`k3BmQ[LM0
+!s100 ]^7POKg@[_]3`dXVG1Ol61
+Z12 OV;C;10.0c;49
 31
-Z12 !s108 1512074762.312000
-Z13 !s90 -reportprogress|300|-93|-work|work|Processor.vho|
-Z14 !s107 Processor.vho|
-Z15 o-93 -work work -O0
-Z16 tExplicit 1
+Z13 !s108 1512108659.793000
+Z14 !s90 -reportprogress|300|-93|-work|work|Processor.vho|
+Z15 !s107 Processor.vho|
+Z16 o-93 -work work -O0
+Z17 tExplicit 1
 Astructure
 R2
 R3
@@ -32,15 +33,16 @@ R4
 R5
 R6
 R7
-DEx4 work 9 processor 0 22 fcTYlna>MIbzjCi?A^:M:0
-l3610
-L137
-V0b>HZRd^?n6fMczCS>?e02
-!s100 `2^7XK8UPR[i=onFQm1gQ3
-R11
-31
+R8
+DEx4 work 9 processor 0 22 VJjXfKM`gfVJ`k3BmQ[LM0
+l3887
+L391
+VKE1GCaAV0M_kWZLi0[YaM0
+!s100 dXZb:Xaj[UnmUQjfRRV?K2
 R12
+31
 R13
 R14
 R15
 R16
+R17
