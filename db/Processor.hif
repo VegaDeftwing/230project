@@ -365,54 +365,6 @@ MUXB:Step8
 
 # end
 # entity
-ALU
-# storage
-db|Processor.(9).cnf
-db|Processor.(9).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|alu.vhdl
-b2ba4f84aab7a2a62c8a0b2e9408537
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(a)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(b)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_out)
-15 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-ALU:Step10
-}
-# macro_sequence
-
-# end
-# entity
 MUX
 # storage
 db|Processor.(10).cnf
@@ -4758,82 +4710,6 @@ IO_MemoryInterface:Step18|MUX3_1:inst
 
 # end
 # entity
-CU
-# storage
-db|Processor.(1).cnf
-db|Processor.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-project|cu.vhdl
-f61147488a45e17535a7661c74476568
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(opcode)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(cond)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(opx)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(immediate)
-6 downto 0
-PARAMETER_STRING
-USR
- constraint(labelconst)
-15 downto 0
-PARAMETER_STRING
-USR
- constraint(iokey)
-3 downto 0
-PARAMETER_STRING
-USR
- constraint(alu_op)
-2 downto 0
-PARAMETER_STRING
-USR
- constraint(c_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(y_select)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(extend)
-1 downto 0
-PARAMETER_STRING
-USR
- constraint(pc_select)
-1 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-CU:Step1
-}
-# macro_sequence
-
-# end
-# entity
 MUXY
 # storage
 db|Processor.(8).cnf
@@ -4993,10 +4869,132 @@ IO_MemoryInterface:Step18|HEXTRANSLATOR:inst21
 
 # end
 # entity
-altsyncram_ghe1
+processor
+# storage
+db|Processor.(0).cnf
+db|Processor.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|processor.vhdl
+57d2d1b9e021b14e40daa8bfa692e7b4
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+ALU
+# storage
+db|Processor.(9).cnf
+db|Processor.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|alu.vhdl
+789da6657d4320dcfcec2a8db59f266c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(b)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_out)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+ALU:Step10
+}
+# macro_sequence
+
+# end
+# entity
+LEFTSHIFT
 # storage
 db|Processor.(37).cnf
 db|Processor.(37).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+project|leftshift.vhdl
+582ff5c541eb3ed64ad6354f0e748d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(b)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(shifted)
+15 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+ALU:Step10|LEFTSHIFT:SHIFTLEFT
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram_ghe1
+# storage
+db|Processor.(52).cnf
+db|Processor.(52).cnf
 # case_insensitive
 # source_file
 db|altsyncram_ghe1.tdf
@@ -5186,7 +5184,7 @@ address_a0
 }
 # memory_file {
 memoryinitialization.mif
-c67dd842d92510bf621f3bfed5fe0b9
+e5f0bbf4586ebadbed7151d3d91469
 }
 # hierarchies {
 MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncram_ghe1:auto_generated
@@ -5195,18 +5193,18 @@ MemoryInterface:Step17|MainMemory:inst|altsyncram:altsyncram_component|altsyncra
 
 # end
 # entity
-processor
+CU
 # storage
-db|Processor.(0).cnf
-db|Processor.(0).cnf
+db|Processor.(1).cnf
+db|Processor.(1).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
 }
 # case_insensitive
 # source_file
-project|processor.vhdl
-57d2d1b9e021b14e40daa8bfa692e7b4
+project|cu.vhdl
+d3d06939205ed9439795e5ecb155e2fd
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -5218,8 +5216,54 @@ ON
 AUTO_ROM_RECOGNITION
 ON
 }
+# user_parameter {
+ constraint(opcode)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(cond)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(opx)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(immediate)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(labelconst)
+15 downto 0
+PARAMETER_STRING
+USR
+ constraint(iokey)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(alu_op)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(c_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(y_select)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(extend)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(pc_select)
+1 downto 0
+PARAMETER_STRING
+USR
+}
 # hierarchies {
-|
+CU:Step1
 }
 # macro_sequence
 

@@ -1,0 +1,56 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+
+entity LEFTSHIFT is
+	port(
+		 A : in std_logic_vector(15 downto 0);
+       B : in std_logic_vector(15 downto 0);
+       SHIFTED : out std_logic_vector(15 downto 0)
+		 	);
+end LEFTSHIFT;
+
+
+
+architecture shifter of LEFTSHIFT is
+Begin PROCESS(A, B)
+begin	
+		IF(B = "0000000000000000")THEN
+		 SHIFTED <= A;
+		ELSIF(B = "0000000000000001")THEN
+		 SHIFTED <= A(14 downto 0) & '0';
+		ELSIF(B = "0000000000000010")THEN
+		 SHIFTED <= A(13 downto 0) & "00";
+		ELSIF(B = "0000000000000011")THEN
+		 SHIFTED <= A(12 downto 0) & "000";
+		ELSIF(B = "0000000000000100")THEN
+		 SHIFTED <= A(11 downto 0) & "0000";
+		ELSIF(B = "0000000000000101")THEN
+		 SHIFTED <= A(10 downto 0) & "00000";
+		ELSIF(B = "0000000000000110")THEN
+		 SHIFTED <= A(9 downto 0) & "000000";
+		ELSIF(B = "0000000000000111")THEN
+		 SHIFTED <= A(8 downto 0) & "0000000";
+		ELSIF(B = "0000000000001000")THEN
+		 SHIFTED <= A(7 downto 0) & "00000000";
+		ELSIF(B = "0000000000001001")THEN
+		 SHIFTED <= A(6 downto 0) & "000000000";
+		ELSIF(B = "0000000000001010")THEN
+    	 SHIFTED <= A(5 downto 0) & "0000000000";
+		ELSIF(B = "0000000000001011")THEN
+		 SHIFTED <= A(4 downto 0) & "00000000000";
+		ELSIF(B = "0000000000001100")THEN
+		 SHIFTED <= A(3 downto 0) & "000000000000";
+		ELSIF(B = "0000000000001101")THEN
+		 SHIFTED <= A(2 downto 0) & "0000000000000";
+		ELSIF(B = "0000000000001110")THEN
+		 SHIFTED <= A(1 downto 0) & "00000000000000";
+		ELSIF(B = "0000000000001111")THEN
+		 SHIFTED <= A(0) & "000000000000000";
+		ELSE 
+		 SHIFTED <= "0000000000000000";
+		END IF;
+END PROCESS;
+end shifter;
+		
+	

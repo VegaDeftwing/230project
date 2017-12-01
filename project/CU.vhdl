@@ -258,7 +258,6 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					ELSIF(opx = "010") THEN
 						--MULT instruction
 						alu_op <= "100";
-					
 					END IF;
 				END IF;
 			END IF;
@@ -286,8 +285,9 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					extend <= "01";
 					END IF;
 				ELSIF(opCode(1) = '1' AND opCode(0) = '1') THEN
-				--THIS is for si (UNUSED AS OF YET)
-			
+				--THIS is for slli (UNUSED AS OF YET)
+				alu_op <= "101";
+				b_select <= '1';
 				END IF;
 			END IF;
 		 	--B-Type
@@ -452,7 +452,7 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					
 				ELSIF(opCode(1)='1' AND opCode(0)='1') THEN
 				--This is for sll
-								rf_write <= '1';
+							rf_write <= '1';
 
 				ELSIF(opCode(1) = '0' AND opCode(0) = '0') THEN
 				--THIS is for the other instructions
@@ -499,8 +499,9 @@ BEGIN PROCESS( clock ,	reset ) --Set up the	process	to	be	sensitive	to	clock	and
 					c_select <="01";
 					rf_write <= '1';
 				ELSIF(opCode(1) = '1' AND opCode(0) = '1') THEN
-				--THIS is for si (UNUSED AS OF YET)
-			
+				--THIS is for slli (UNUSED AS OF YET)
+					c_select <="01";
+					rf_write <= '1';
 				END IF;
 			END IF;
 		 	--B-Type

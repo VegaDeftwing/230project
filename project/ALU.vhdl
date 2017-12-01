@@ -47,6 +47,13 @@ COMPONENT FLAGLOGIC
 		S : in std_logic_vector(15 downto 0);
 		N, C, Z, V : out std_logic);
 END COMPONENT;
+component LEFTSHIFT
+	port(
+		 A : in std_logic_vector(15 downto 0);
+       B : in std_logic_vector(15 downto 0);
+       SHIFTED : out std_logic_vector(15 downto 0)
+		 	);
+end component;
 signal S, MUXAOUT, MUXBOUT, MULT, ShiftLeftLogical : std_logic_vector(15 downto 0);
 signal C14, C15 : std_logic;
 begin	
@@ -56,15 +63,17 @@ begin
 	MUXA : MUX PORT MAP(A, (NOT A), A_inv, MUXAOUT);
 	--inverts B if necessary
 	MUXB : MUX PORT MAP(B, (NOT B), B_inv, MUXBOUT);
-
+	
+	--Shifts left logical
+	
 	-- This adder has been replaced	
 --	RIPPLEADD : SIXTEENBITFA PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
 -- New Faster Adder
 	FASTADD : FASTADDER PORT MAP(MUXAOUT, MUXBOUT, (A_inv OR B_inv), S, C14, C15);
 -- Multiplier
-
+	
 -- SLL
-
+	SHIFTLEFT : LEFTSHIFT PORT MAP(MUXAOUT, MUXBOUT, ShiftLeftLogical);
 --Final Mux, takes the 6 possibile operation outs, the alu_op, and a select as input, output ALU_out 
 	MUXFINAL : MUX6TO1 PORT MAP(alu_op,(MUXAOUT AND MUXBOUT),(MUXAOUT OR MUXBOUT),(MUXAOUT XOR MUXBOUT),S, MULT, ShiftLeftLogical, ALU_out);
 -- Checks flags for operations, useful for a lot of control.

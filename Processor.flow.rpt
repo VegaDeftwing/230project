@@ -1,5 +1,5 @@
 Flow report for Processor
-Fri Dec 01 00:02:14 2017
+Fri Dec 01 10:00:02 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -38,15 +38,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Flow Summary                                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Flow Status                        ; Successful - Fri Dec 01 00:02:14 2017         ;
+; Flow Status                        ; Successful - Fri Dec 01 10:00:02 2017         ;
 ; Quartus II 32-bit Version          ; 11.1 Build 259 01/25/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; Processor                                     ;
 ; Top-level Entity Name              ; processor                                     ;
 ; Family                             ; Cyclone II                                    ;
 ; Device                             ; EP2C20F484C7                                  ;
 ; Timing Models                      ; Final                                         ;
-; Total logic elements               ; 2,642 / 18,752 ( 14 % )                       ;
-;     Total combinational functions  ; 2,586 / 18,752 ( 14 % )                       ;
+; Total logic elements               ; 2,786 / 18,752 ( 15 % )                       ;
+;     Total combinational functions  ; 2,732 / 18,752 ( 15 % )                       ;
 ;     Dedicated logic registers      ; 517 / 18,752 ( 3 % )                          ;
 ; Total registers                    ; 517                                           ;
 ; Total pins                         ; 296 / 315 ( 94 % )                            ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/30/2017 23:45:45 ;
+; Start date & time ; 12/01/2017 09:59:02 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Processor           ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589190.151210714511340        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 10995770589190.151214394111644        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_RUN_TOOL_AUTOMATICALLY          ; Off                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_RUN_SCRIPT           ; project/phaseV.do                     ; --            ; --          ; eda_simulation ;
@@ -95,15 +95,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:37     ; 1.0                     ; 453 MB              ; 00:00:36                           ;
-; Fitter                    ; 00:00:26     ; 1.0                     ; 467 MB              ; 00:00:26                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 390 MB              ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:54     ; 1.0                     ; 621 MB              ; 00:00:50                           ;
-; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 369 MB              ; 00:00:06                           ;
-; MIF/HEX Update            ; 00:00:01     ; 1.0                     ; 373 MB              ; 00:00:01                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 391 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 369 MB              ; 00:00:02                           ;
-; Total                     ; 00:02:16     ; --                      ; --                  ; 00:02:09                           ;
+; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 455 MB              ; 00:00:19                           ;
+; Fitter                    ; 00:00:12     ; 1.0                     ; 486 MB              ; 00:00:12                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 390 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:17     ; 1.0                     ; 554 MB              ; 00:00:15                           ;
+; EDA Netlist Writer        ; 00:00:05     ; 1.0                     ; 370 MB              ; 00:00:04                           ;
+; Total                     ; 00:00:57     ; --                      ; --                  ; 00:00:53                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -117,9 +114,6 @@ applicable agreement for further details.
 ; Assembler                 ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
 ; TimeQuest Timing Analyzer ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
 ; EDA Netlist Writer        ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
-; MIF/HEX Update            ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; ZedTop           ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -130,9 +124,6 @@ quartus_map --read_settings_files=on --write_settings_files=off Project -c Proce
 quartus_fit --read_settings_files=off --write_settings_files=off Project -c Processor
 quartus_asm --read_settings_files=off --write_settings_files=off Project -c Processor
 quartus_sta Project -c Processor
-quartus_eda --read_settings_files=off --write_settings_files=off Project -c Processor
-quartus_cdb Project -c Processor --update_mif
-quartus_asm --read_settings_files=on --write_settings_files=off Project -c Processor
 quartus_eda --read_settings_files=off --write_settings_files=off Project -c Processor
 
 
