@@ -1,5 +1,5 @@
 Archive Project report for Processor
-Wed Nov 29 20:32:31 2017
+Fri Dec 01 10:13:35 2017
 Quartus II 32-bit Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Web Edition
 
 
@@ -35,7 +35,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Wed Nov 29 20:32:30 2017 ;
+; Archive Project Status ; Successful - Fri Dec 01 10:13:35 2017 ;
 ; Revision Name          ; Processor                             ;
 ; Top-level Entity Name  ; processor                             ;
 ; Family                 ; Cyclone II                            ;
@@ -50,16 +50,16 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/Project_Final_Team9.qar'
+Info: Generated archive 'C:/Users/Zed/Desktop/CSCE230/230project/Archives/Project_FinalFinal_Team9.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'Processor.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/altera/11.1sp2/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 312 megabytes
-    Info: Processing ended: Wed Nov 29 20:32:31 2017
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Processing ended: Fri Dec 01 10:13:35 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +-----------------------------------------------------------+
@@ -85,6 +85,7 @@ Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
 ; project/IO_MemoryInterface.bdf                            ;
 ; project/IO_MemoryInterface.cmp                            ;
 ; project/IR.vhdl                                           ;
+; project/LEFTSHIFT.vhdl                                    ;
 ; project/memFilesProcessor/Adder.vhdl                      ;
 ; project/memFilesProcessor/Const.vhdl                      ;
 ; project/memFilesProcessor/InstructionAddressGenerator.bdf ;
