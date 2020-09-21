@@ -1,4 +1,2 @@
-# 230 project
-* John Carlson
-* Tyler Zinsmaster
-* Jake Ediger
+# Open Source Note
+This repo exists for the project of building a NIOSII CPU on an Terassic dev board for a class taken at UNL in the fall of 2017. This class was a complete disaster, to the point that the University had to get involved. Instruction was bad, the tests were bad, and everything was on fire. I'm  open sourcing this project now so much later because I think that maybe the very, very bad VHDL and python in here will be of some educational use in what **not** to do.
